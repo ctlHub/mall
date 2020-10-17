@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.dao.CmsNoticeDao">
+
+    <sql id="onDuplicateKeyUpdate">
+        corp_no_=values(corp_no_),
+        title_=values(title_),
+        status_=values(status_),
+        news_url_=values(news_url_),
+        read_sum_=values(read_sum_),
+        remark_=values(remark_),
+        app_user_=values(app_user_),
+        app_date_=values(app_date_),
+        update_user_=values(update_user_),
+        update_date_=values(update_date_),
+        value_=values(value_)
+    </sql>
+
+    <!-- 新闻公告同步 -->
+    <insert id="sync">
+        insert into cms_notice (corp_no_, title_, value_, status_, news_url_, read_sum_, remark_,
+        app_user_, app_date_, update_user_, update_date_
+        ) values
+        <foreach collection="list" item="item" separator="," index="index">
+            (#{item.corpNo,jdbcType=VARCHAR},
+            #{item.title,jdbcType=VARCHAR},
+            #{item.value,jdbcType=LONGVARCHAR},
+            #{item.status,jdbcType=INTEGER},
+            #{item.newsUrl,jdbcType=VARCHAR},
+            #{item.readSum,jdbcType=INTEGER},
+            #{item.remark,jdbcType=VARCHAR},
+            #{item.appUser,jdbcType=VARCHAR},
+            #{item.appDate,jdbcType=TIMESTAMP},
+            #{item.updateUser,jdbcType=VARCHAR},
+            #{item.updateDate,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+        on duplicate key update
+        <include refid="onDuplicateKeyUpdate"/>
+    </insert>
+
+</mapper>

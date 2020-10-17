@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.dao.GcmIndustryDao">
+
+    <sql id="onDuplicateKeyUpdate">
+        code_=values(code_),
+        name_=values(name_),
+        app_user_=values(app_user_),
+        app_date_=values(app_date_),
+        update_user_=values(update_user_),
+        update_date_=values(update_date_)
+    </sql>
+
+    <!-- 行业同步 -->
+    <insert id="sync">
+        insert into gcm_industry (code_, name_, app_user_,
+        app_date_, update_user_, update_date_
+        ) values
+        <foreach collection="list" item="item" separator="," index="index">
+            (#{item.code,jdbcType=VARCHAR},
+            #{item.name,jdbcType=VARCHAR},
+            #{item.appUser,jdbcType=VARCHAR},
+            #{item.appDate,jdbcType=TIMESTAMP},
+            #{item.updateUser,jdbcType=VARCHAR},
+            #{item.updateDate,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+        on duplicate key update
+        <include refid="onDuplicateKeyUpdate"/>
+    </insert>
+</mapper>

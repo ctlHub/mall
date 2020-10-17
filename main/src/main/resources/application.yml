@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  data:
+    mongodb:
+      database: 
+      host: 
+      username: 
+      password: 
+  gson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:site/**/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+## 专门针对 Controller层接口路径前缀全局配置
+api:
+  path:
+    global-prefix: api

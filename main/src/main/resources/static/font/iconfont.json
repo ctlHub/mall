@@ -1,0 +1,100 @@
+{
+  "id": "2076512",
+  "name": "diteng",
+  "font_family": "iconfont",
+  "css_prefix_text": "diteng",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10093546",
+      "name": "拼多多",
+      "font_class": "pinduoduo",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "9487342",
+      "name": "淘宝",
+      "font_class": "taobao",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "2783062",
+      "name": "天猫",
+      "font_class": "tianmao",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
+    },
+    {
+      "icon_id": "12437755",
+      "name": "京东",
+      "font_class": "jingdong",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "8740007",
+      "name": "返 回",
+      "font_class": "fanhui",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "9492001",
+      "name": "返 回",
+      "font_class": "arrow-right-ico",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "7508833",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "10937524",
+      "name": "订单",
+      "font_class": "YDUI-wodedingdan",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "11101782",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "12133341",
+      "name": "类目 品类 分类 类别.2",
+      "font_class": "leimupinleifenleileibie",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "13035798",
+      "name": "购物车满",
+      "font_class": "gouwuche",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7529725",
+      "name": "信息",
+      "font_class": "xinxi",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "7903859",
+      "name": "切换",
+      "font_class": "qiehuan",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    }
+  ]
+}

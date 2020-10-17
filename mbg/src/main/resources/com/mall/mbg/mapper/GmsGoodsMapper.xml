@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.mbg.mapper.GmsGoodsMapper">
+  <resultMap id="BaseResultMap" type="com.mall.mbg.model.GmsGoods">
+    <id column="uid_" jdbcType="INTEGER" property="uid" />
+    <result column="corp_no_" jdbcType="VARCHAR" property="corpNo" />
+    <result column="code_" jdbcType="VARCHAR" property="code" />
+    <result column="old_code_" jdbcType="VARCHAR" property="oldCode" />
+    <result column="brand_" jdbcType="VARCHAR" property="brand" />
+    <result column="class1_" jdbcType="VARCHAR" property="class1" />
+    <result column="class2_" jdbcType="VARCHAR" property="class2" />
+    <result column="class3_" jdbcType="VARCHAR" property="class3" />
+    <result column="desc_" jdbcType="VARCHAR" property="desc" />
+    <result column="part_type_" jdbcType="VARCHAR" property="partType" />
+    <result column="py_code_" jdbcType="VARCHAR" property="pyCode" />
+    <result column="spec_" jdbcType="VARCHAR" property="spec" />
+    <result column="unit_" jdbcType="VARCHAR" property="unit" />
+    <result column="cw_code_" jdbcType="VARCHAR" property="cwCode" />
+    <result column="default_cw_" jdbcType="VARCHAR" property="defaultCw" />
+    <result column="in_up_" jdbcType="DECIMAL" property="inUp" />
+    <result column="out_up_" jdbcType="DECIMAL" property="outUp" />
+    <result column="out_up2_" jdbcType="DECIMAL" property="outUp2" />
+    <result column="list_up_" jdbcType="DECIMAL" property="listUp" />
+    <result column="cost_up_" jdbcType="DECIMAL" property="costUp" />
+    <result column="vip_up_" jdbcType="DECIMAL" property="vipUp" />
+    <result column="vip_discount_" jdbcType="DECIMAL" property="vipDiscount" />
+    <result column="up_control_" jdbcType="INTEGER" property="upControl" />
+    <result column="used_" jdbcType="INTEGER" property="used" />
+    <result column="obj_type_" jdbcType="VARCHAR" property="objType" />
+    <result column="share_rate_" jdbcType="DECIMAL" property="shareRate" />
+    <result column="id_code_" jdbcType="VARCHAR" property="idCode" />
+    <result column="box_code_" jdbcType="VARCHAR" property="boxCode" />
+    <result column="box_unit_" jdbcType="VARCHAR" property="boxUnit" />
+    <result column="box_num_" jdbcType="DECIMAL" property="boxNum" />
+    <result column="barcode_" jdbcType="VARCHAR" property="barcode" />
+    <result column="old_barcode_" jdbcType="VARCHAR" property="oldBarcode" />
+    <result column="push_month_" jdbcType="INTEGER" property="pushMonth" />
+    <result column="readme_url_" jdbcType="VARCHAR" property="readmeUrl" />
+    <result column="remark_" jdbcType="VARCHAR" property="remark" />
+    <result column="sup_code_" jdbcType="VARCHAR" property="supCode" />
+    <result column="status_" jdbcType="INTEGER" property="status" />
+    <result column="file_num_" jdbcType="INTEGER" property="fileNum" />
+    <result column="last_sup_code_" jdbcType="VARCHAR" property="lastSupCode" />
+    <result column="update_user_" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_date_" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="app_user_" jdbcType="VARCHAR" property="appUser" />
+    <result column="app_date_" jdbcType="TIMESTAMP" property="appDate" />
+    <result column="update_key_" jdbcType="VARCHAR" property="updateKey" />
+    <result column="allow_discount_" jdbcType="INTEGER" property="allowDiscount" />
+    <result column="model_code_" jdbcType="VARCHAR" property="modelCode" />
+    <result column="bom_level_" jdbcType="INTEGER" property="bomLevel" />
+    <result column="part_view_top_" jdbcType="INTEGER" property="partViewTop" />
+    <result column="volume_" jdbcType="DECIMAL" property="volume" />
+    <result column="weight_" jdbcType="DECIMAL" property="weight" />
+    <result column="sales_status_" jdbcType="INTEGER" property="salesStatus" />
+    <result column="box_sales_" jdbcType="BIT" property="boxSales" />
+    <result column="box_purchase_" jdbcType="BIT" property="boxPurchase" />
+    <result column="lower_shelf_" jdbcType="BIT" property="lowerShelf" />
+    <result column="pur_front_day_" jdbcType="INTEGER" property="purFrontDay" />
+    <result column="forbid_pur_" jdbcType="BIT" property="forbidPur" />
+    <result column="classify_" jdbcType="INTEGER" property="classify" />
+    <result column="marque_" jdbcType="VARCHAR" property="marque" />
+    <result column="forecast_count_mrp_" jdbcType="BIT" property="forecastCountMrp" />
+    <result column="forecast_count_month_" jdbcType="INTEGER" property="forecastCountMonth" />
+    <result column="se_no_" jdbcType="VARCHAR" property="seNo" />
+    <result column="is_sync_" jdbcType="BIT" property="isSync" />
+    <result column="bom_property_" jdbcType="BIT" property="bomProperty" />
+    <result column="dept_code_" jdbcType="VARCHAR" property="deptCode" />
+    <result column="cost_amount_" jdbcType="DECIMAL" property="costAmount" />
+    <result column="delivery_cycle_" jdbcType="INTEGER" property="deliveryCycle" />
+    <result column="virtual_stock_" jdbcType="DECIMAL" property="virtualStock" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.mall.mbg.model.GmsGoods">
+    <result column="option_" jdbcType="LONGVARCHAR" property="option" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    uid_, corp_no_, code_, old_code_, brand_, class1_, class2_, class3_, desc_, part_type_, 
+    py_code_, spec_, unit_, cw_code_, default_cw_, in_up_, out_up_, out_up2_, list_up_, 
+    cost_up_, vip_up_, vip_discount_, up_control_, used_, obj_type_, share_rate_, id_code_, 
+    box_code_, box_unit_, box_num_, barcode_, old_barcode_, push_month_, readme_url_, 
+    remark_, sup_code_, status_, file_num_, last_sup_code_, update_user_, update_date_, 
+    app_user_, app_date_, update_key_, allow_discount_, model_code_, bom_level_, part_view_top_, 
+    volume_, weight_, sales_status_, box_sales_, box_purchase_, lower_shelf_, pur_front_day_, 
+    forbid_pur_, classify_, marque_, forecast_count_mrp_, forecast_count_month_, se_no_, 
+    is_sync_, bom_property_, dept_code_, cost_amount_, delivery_cycle_, virtual_stock_
+  </sql>
+  <sql id="Blob_Column_List">
+    option_
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.mall.mbg.model.GmsGoodsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gms_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.mall.mbg.model.GmsGoodsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gms_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gms_goods
+    where uid_ = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gms_goods
+    where uid_ = #{uid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mall.mbg.model.GmsGoodsExample">
+    delete from gms_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mall.mbg.model.GmsGoods">
+    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into gms_goods (corp_no_, code_, old_code_, 
+      brand_, class1_, class2_, 
+      class3_, desc_, part_type_, 
+      py_code_, spec_, unit_, 
+      cw_code_, default_cw_, in_up_, 
+      out_up_, out_up2_, list_up_, 
+      cost_up_, vip_up_, vip_discount_, 
+      up_control_, used_, obj_type_, 
+      share_rate_, id_code_, box_code_, 
+      box_unit_, box_num_, barcode_, 
+      old_barcode_, push_month_, readme_url_, 
+      remark_, sup_code_, status_, 
+      file_num_, last_sup_code_, update_user_, 
+      update_date_, app_user_, app_date_, 
+      update_key_, allow_discount_, model_code_, 
+      bom_level_, part_view_top_, volume_, 
+      weight_, sales_status_, box_sales_, 
+      box_purchase_, lower_shelf_, pur_front_day_, 
+      forbid_pur_, classify_, marque_, 
+      forecast_count_mrp_, forecast_count_month_, se_no_, 
+      is_sync_, bom_property_, dept_code_, 
+      cost_amount_, delivery_cycle_, virtual_stock_, 
+      option_)
+    values (#{corpNo,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{oldCode,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR}, #{class2,jdbcType=VARCHAR}, 
+      #{class3,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{partType,jdbcType=VARCHAR}, 
+      #{pyCode,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, 
+      #{cwCode,jdbcType=VARCHAR}, #{defaultCw,jdbcType=VARCHAR}, #{inUp,jdbcType=DECIMAL}, 
+      #{outUp,jdbcType=DECIMAL}, #{outUp2,jdbcType=DECIMAL}, #{listUp,jdbcType=DECIMAL}, 
+      #{costUp,jdbcType=DECIMAL}, #{vipUp,jdbcType=DECIMAL}, #{vipDiscount,jdbcType=DECIMAL}, 
+      #{upControl,jdbcType=INTEGER}, #{used,jdbcType=INTEGER}, #{objType,jdbcType=VARCHAR}, 
+      #{shareRate,jdbcType=DECIMAL}, #{idCode,jdbcType=VARCHAR}, #{boxCode,jdbcType=VARCHAR}, 
+      #{boxUnit,jdbcType=VARCHAR}, #{boxNum,jdbcType=DECIMAL}, #{barcode,jdbcType=VARCHAR}, 
+      #{oldBarcode,jdbcType=VARCHAR}, #{pushMonth,jdbcType=INTEGER}, #{readmeUrl,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{supCode,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{fileNum,jdbcType=INTEGER}, #{lastSupCode,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
+      #{updateKey,jdbcType=VARCHAR}, #{allowDiscount,jdbcType=INTEGER}, #{modelCode,jdbcType=VARCHAR}, 
+      #{bomLevel,jdbcType=INTEGER}, #{partViewTop,jdbcType=INTEGER}, #{volume,jdbcType=DECIMAL}, 
+      #{weight,jdbcType=DECIMAL}, #{salesStatus,jdbcType=INTEGER}, #{boxSales,jdbcType=BIT}, 
+      #{boxPurchase,jdbcType=BIT}, #{lowerShelf,jdbcType=BIT}, #{purFrontDay,jdbcType=INTEGER}, 
+      #{forbidPur,jdbcType=BIT}, #{classify,jdbcType=INTEGER}, #{marque,jdbcType=VARCHAR}, 
+      #{forecastCountMrp,jdbcType=BIT}, #{forecastCountMonth,jdbcType=INTEGER}, #{seNo,jdbcType=VARCHAR}, 
+      #{isSync,jdbcType=BIT}, #{bomProperty,jdbcType=BIT}, #{deptCode,jdbcType=VARCHAR}, 
+      #{costAmount,jdbcType=DECIMAL}, #{deliveryCycle,jdbcType=INTEGER}, #{virtualStock,jdbcType=DECIMAL}, 
+      #{option,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mall.mbg.model.GmsGoods">
+    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into gms_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="corpNo != null">
+        corp_no_,
+      </if>
+      <if test="code != null">
+        code_,
+      </if>
+      <if test="oldCode != null">
+        old_code_,
+      </if>
+      <if test="brand != null">
+        brand_,
+      </if>
+      <if test="class1 != null">
+        class1_,
+      </if>
+      <if test="class2 != null">
+        class2_,
+      </if>
+      <if test="class3 != null">
+        class3_,
+      </if>
+      <if test="desc != null">
+        desc_,
+      </if>
+      <if test="partType != null">
+        part_type_,
+      </if>
+      <if test="pyCode != null">
+        py_code_,
+      </if>
+      <if test="spec != null">
+        spec_,
+      </if>
+      <if test="unit != null">
+        unit_,
+      </if>
+      <if test="cwCode != null">
+        cw_code_,
+      </if>
+      <if test="defaultCw != null">
+        default_cw_,
+      </if>
+      <if test="inUp != null">
+        in_up_,
+      </if>
+      <if test="outUp != null">
+        out_up_,
+      </if>
+      <if test="outUp2 != null">
+        out_up2_,
+      </if>
+      <if test="listUp != null">
+        list_up_,
+      </if>
+      <if test="costUp != null">
+        cost_up_,
+      </if>
+      <if test="vipUp != null">
+        vip_up_,
+      </if>
+      <if test="vipDiscount != null">
+        vip_discount_,
+      </if>
+      <if test="upControl != null">
+        up_control_,
+      </if>
+      <if test="used != null">
+        used_,
+      </if>
+      <if test="objType != null">
+        obj_type_,
+      </if>
+      <if test="shareRate != null">
+        share_rate_,
+      </if>
+      <if test="idCode != null">
+        id_code_,
+      </if>
+      <if test="boxCode != null">
+        box_code_,
+      </if>
+      <if test="boxUnit != null">
+        box_unit_,
+      </if>
+      <if test="boxNum != null">
+        box_num_,
+      </if>
+      <if test="barcode != null">
+        barcode_,
+      </if>
+      <if test="oldBarcode != null">
+        old_barcode_,
+      </if>
+      <if test="pushMonth != null">
+        push_month_,
+      </if>
+      <if test="readmeUrl != null">
+        readme_url_,
+      </if>
+      <if test="remark != null">
+        remark_,
+      </if>
+      <if test="supCode != null">
+        sup_code_,
+      </if>
+      <if test="status != null">
+        status_,
+      </if>
+      <if test="fileNum != null">
+        file_num_,
+      </if>
+      <if test="lastSupCode != null">
+        last_sup_code_,
+      </if>
+      <if test="updateUser != null">
+        update_user_,
+      </if>
+      <if test="updateDate != null">
+        update_date_,
+      </if>
+      <if test="appUser != null">
+        app_user_,
+      </if>
+      <if test="appDate != null">
+        app_date_,
+      </if>
+      <if test="updateKey != null">
+        update_key_,
+      </if>
+      <if test="allowDiscount != null">
+        allow_discount_,
+      </if>
+      <if test="modelCode != null">
+        model_code_,
+      </if>
+      <if test="bomLevel != null">
+        bom_level_,
+      </if>
+      <if test="partViewTop != null">
+        part_view_top_,
+      </if>
+      <if test="volume != null">
+        volume_,
+      </if>
+      <if test="weight != null">
+        weight_,
+      </if>
+      <if test="salesStatus != null">
+        sales_status_,
+      </if>
+      <if test="boxSales != null">
+        box_sales_,
+      </if>
+      <if test="boxPurchase != null">
+        box_purchase_,
+      </if>
+      <if test="lowerShelf != null">
+        lower_shelf_,
+      </if>
+      <if test="purFrontDay != null">
+        pur_front_day_,
+      </if>
+      <if test="forbidPur != null">
+        forbid_pur_,
+      </if>
+      <if test="classify != null">
+        classify_,
+      </if>
+      <if test="marque != null">
+        marque_,
+      </if>
+      <if test="forecastCountMrp != null">
+        forecast_count_mrp_,
+      </if>
+      <if test="forecastCountMonth != null">
+        forecast_count_month_,
+      </if>
+      <if test="seNo != null">
+        se_no_,
+      </if>
+      <if test="isSync != null">
+        is_sync_,
+      </if>
+      <if test="bomProperty != null">
+        bom_property_,
+      </if>
+      <if test="deptCode != null">
+        dept_code_,
+      </if>
+      <if test="costAmount != null">
+        cost_amount_,
+      </if>
+      <if test="deliveryCycle != null">
+        delivery_cycle_,
+      </if>
+      <if test="virtualStock != null">
+        virtual_stock_,
+      </if>
+      <if test="option != null">
+        option_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="corpNo != null">
+        #{corpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCode != null">
+        #{oldCode,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="class1 != null">
+        #{class1,jdbcType=VARCHAR},
+      </if>
+      <if test="class2 != null">
+        #{class2,jdbcType=VARCHAR},
+      </if>
+      <if test="class3 != null">
+        #{class3,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="partType != null">
+        #{partType,jdbcType=VARCHAR},
+      </if>
+      <if test="pyCode != null">
+        #{pyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cwCode != null">
+        #{cwCode,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultCw != null">
+        #{defaultCw,jdbcType=VARCHAR},
+      </if>
+      <if test="inUp != null">
+        #{inUp,jdbcType=DECIMAL},
+      </if>
+      <if test="outUp != null">
+        #{outUp,jdbcType=DECIMAL},
+      </if>
+      <if test="outUp2 != null">
+        #{outUp2,jdbcType=DECIMAL},
+      </if>
+      <if test="listUp != null">
+        #{listUp,jdbcType=DECIMAL},
+      </if>
+      <if test="costUp != null">
+        #{costUp,jdbcType=DECIMAL},
+      </if>
+      <if test="vipUp != null">
+        #{vipUp,jdbcType=DECIMAL},
+      </if>
+      <if test="vipDiscount != null">
+        #{vipDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="upControl != null">
+        #{upControl,jdbcType=INTEGER},
+      </if>
+      <if test="used != null">
+        #{used,jdbcType=INTEGER},
+      </if>
+      <if test="objType != null">
+        #{objType,jdbcType=VARCHAR},
+      </if>
+      <if test="shareRate != null">
+        #{shareRate,jdbcType=DECIMAL},
+      </if>
+      <if test="idCode != null">
+        #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boxCode != null">
+        #{boxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boxUnit != null">
+        #{boxUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="boxNum != null">
+        #{boxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldBarcode != null">
+        #{oldBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pushMonth != null">
+        #{pushMonth,jdbcType=INTEGER},
+      </if>
+      <if test="readmeUrl != null">
+        #{readmeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supCode != null">
+        #{supCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fileNum != null">
+        #{fileNum,jdbcType=INTEGER},
+      </if>
+      <if test="lastSupCode != null">
+        #{lastSupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appUser != null">
+        #{appUser,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null">
+        #{appDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateKey != null">
+        #{updateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDiscount != null">
+        #{allowDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="modelCode != null">
+        #{modelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bomLevel != null">
+        #{bomLevel,jdbcType=INTEGER},
+      </if>
+      <if test="partViewTop != null">
+        #{partViewTop,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null">
+        #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="salesStatus != null">
+        #{salesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="boxSales != null">
+        #{boxSales,jdbcType=BIT},
+      </if>
+      <if test="boxPurchase != null">
+        #{boxPurchase,jdbcType=BIT},
+      </if>
+      <if test="lowerShelf != null">
+        #{lowerShelf,jdbcType=BIT},
+      </if>
+      <if test="purFrontDay != null">
+        #{purFrontDay,jdbcType=INTEGER},
+      </if>
+      <if test="forbidPur != null">
+        #{forbidPur,jdbcType=BIT},
+      </if>
+      <if test="classify != null">
+        #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="marque != null">
+        #{marque,jdbcType=VARCHAR},
+      </if>
+      <if test="forecastCountMrp != null">
+        #{forecastCountMrp,jdbcType=BIT},
+      </if>
+      <if test="forecastCountMonth != null">
+        #{forecastCountMonth,jdbcType=INTEGER},
+      </if>
+      <if test="seNo != null">
+        #{seNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isSync != null">
+        #{isSync,jdbcType=BIT},
+      </if>
+      <if test="bomProperty != null">
+        #{bomProperty,jdbcType=BIT},
+      </if>
+      <if test="deptCode != null">
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="costAmount != null">
+        #{costAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="deliveryCycle != null">
+        #{deliveryCycle,jdbcType=INTEGER},
+      </if>
+      <if test="virtualStock != null">
+        #{virtualStock,jdbcType=DECIMAL},
+      </if>
+      <if test="option != null">
+        #{option,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mall.mbg.model.GmsGoodsExample" resultType="java.lang.Long">
+    select count(*) from gms_goods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gms_goods
+    <set>
+      <if test="record.uid != null">
+        uid_ = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.corpNo != null">
+        corp_no_ = #{record.corpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null">
+        code_ = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldCode != null">
+        old_code_ = #{record.oldCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brand != null">
+        brand_ = #{record.brand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.class1 != null">
+        class1_ = #{record.class1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.class2 != null">
+        class2_ = #{record.class2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.class3 != null">
+        class3_ = #{record.class3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desc != null">
+        desc_ = #{record.desc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.partType != null">
+        part_type_ = #{record.partType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pyCode != null">
+        py_code_ = #{record.pyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.spec != null">
+        spec_ = #{record.spec,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit != null">
+        unit_ = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cwCode != null">
+        cw_code_ = #{record.cwCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultCw != null">
+        default_cw_ = #{record.defaultCw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inUp != null">
+        in_up_ = #{record.inUp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.outUp != null">
+        out_up_ = #{record.outUp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.outUp2 != null">
+        out_up2_ = #{record.outUp2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.listUp != null">
+        list_up_ = #{record.listUp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.costUp != null">
+        cost_up_ = #{record.costUp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vipUp != null">
+        vip_up_ = #{record.vipUp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vipDiscount != null">
+        vip_discount_ = #{record.vipDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upControl != null">
+        up_control_ = #{record.upControl,jdbcType=INTEGER},
+      </if>
+      <if test="record.used != null">
+        used_ = #{record.used,jdbcType=INTEGER},
+      </if>
+      <if test="record.objType != null">
+        obj_type_ = #{record.objType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shareRate != null">
+        share_rate_ = #{record.shareRate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.idCode != null">
+        id_code_ = #{record.idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.boxCode != null">
+        box_code_ = #{record.boxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.boxUnit != null">
+        box_unit_ = #{record.boxUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.boxNum != null">
+        box_num_ = #{record.boxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.barcode != null">
+        barcode_ = #{record.barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldBarcode != null">
+        old_barcode_ = #{record.oldBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pushMonth != null">
+        push_month_ = #{record.pushMonth,jdbcType=INTEGER},
+      </if>
+      <if test="record.readmeUrl != null">
+        readme_url_ = #{record.readmeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark_ = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supCode != null">
+        sup_code_ = #{record.supCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status_ = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.fileNum != null">
+        file_num_ = #{record.fileNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastSupCode != null">
+        last_sup_code_ = #{record.lastSupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUser != null">
+        update_user_ = #{record.updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateDate != null">
+        update_date_ = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appUser != null">
+        app_user_ = #{record.appUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appDate != null">
+        app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateKey != null">
+        update_key_ = #{record.updateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allowDiscount != null">
+        allow_discount_ = #{record.allowDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="record.modelCode != null">
+        model_code_ = #{record.modelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bomLevel != null">
+        bom_level_ = #{record.bomLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.partViewTop != null">
+        part_view_top_ = #{record.partViewTop,jdbcType=INTEGER},
+      </if>
+      <if test="record.volume != null">
+        volume_ = #{record.volume,jdbcType=DECIMAL},
+      </if>
+      <if test="record.weight != null">
+        weight_ = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.salesStatus != null">
+        sales_status_ = #{record.salesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.boxSales != null">
+        box_sales_ = #{record.boxSales,jdbcType=BIT},
+      </if>
+      <if test="record.boxPurchase != null">
+        box_purchase_ = #{record.boxPurchase,jdbcType=BIT},
+      </if>
+      <if test="record.lowerShelf != null">
+        lower_shelf_ = #{record.lowerShelf,jdbcType=BIT},
+      </if>
+      <if test="record.purFrontDay != null">
+        pur_front_day_ = #{record.purFrontDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.forbidPur != null">
+        forbid_pur_ = #{record.forbidPur,jdbcType=BIT},
+      </if>
+      <if test="record.classify != null">
+        classify_ = #{record.classify,jdbcType=INTEGER},
+      </if>
+      <if test="record.marque != null">
+        marque_ = #{record.marque,jdbcType=VARCHAR},
+      </if>
+      <if test="record.forecastCountMrp != null">
+        forecast_count_mrp_ = #{record.forecastCountMrp,jdbcType=BIT},
+      </if>
+      <if test="record.forecastCountMonth != null">
+        forecast_count_month_ = #{record.forecastCountMonth,jdbcType=INTEGER},
+      </if>
+      <if test="record.seNo != null">
+        se_no_ = #{record.seNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isSync != null">
+        is_sync_ = #{record.isSync,jdbcType=BIT},
+      </if>
+      <if test="record.bomProperty != null">
+        bom_property_ = #{record.bomProperty,jdbcType=BIT},
+      </if>
+      <if test="record.deptCode != null">
+        dept_code_ = #{record.deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costAmount != null">
+        cost_amount_ = #{record.costAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.deliveryCycle != null">
+        delivery_cycle_ = #{record.deliveryCycle,jdbcType=INTEGER},
+      </if>
+      <if test="record.virtualStock != null">
+        virtual_stock_ = #{record.virtualStock,jdbcType=DECIMAL},
+      </if>
+      <if test="record.option != null">
+        option_ = #{record.option,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update gms_goods
+    set uid_ = #{record.uid,jdbcType=INTEGER},
+      corp_no_ = #{record.corpNo,jdbcType=VARCHAR},
+      code_ = #{record.code,jdbcType=VARCHAR},
+      old_code_ = #{record.oldCode,jdbcType=VARCHAR},
+      brand_ = #{record.brand,jdbcType=VARCHAR},
+      class1_ = #{record.class1,jdbcType=VARCHAR},
+      class2_ = #{record.class2,jdbcType=VARCHAR},
+      class3_ = #{record.class3,jdbcType=VARCHAR},
+      desc_ = #{record.desc,jdbcType=VARCHAR},
+      part_type_ = #{record.partType,jdbcType=VARCHAR},
+      py_code_ = #{record.pyCode,jdbcType=VARCHAR},
+      spec_ = #{record.spec,jdbcType=VARCHAR},
+      unit_ = #{record.unit,jdbcType=VARCHAR},
+      cw_code_ = #{record.cwCode,jdbcType=VARCHAR},
+      default_cw_ = #{record.defaultCw,jdbcType=VARCHAR},
+      in_up_ = #{record.inUp,jdbcType=DECIMAL},
+      out_up_ = #{record.outUp,jdbcType=DECIMAL},
+      out_up2_ = #{record.outUp2,jdbcType=DECIMAL},
+      list_up_ = #{record.listUp,jdbcType=DECIMAL},
+      cost_up_ = #{record.costUp,jdbcType=DECIMAL},
+      vip_up_ = #{record.vipUp,jdbcType=DECIMAL},
+      vip_discount_ = #{record.vipDiscount,jdbcType=DECIMAL},
+      up_control_ = #{record.upControl,jdbcType=INTEGER},
+      used_ = #{record.used,jdbcType=INTEGER},
+      obj_type_ = #{record.objType,jdbcType=VARCHAR},
+      share_rate_ = #{record.shareRate,jdbcType=DECIMAL},
+      id_code_ = #{record.idCode,jdbcType=VARCHAR},
+      box_code_ = #{record.boxCode,jdbcType=VARCHAR},
+      box_unit_ = #{record.boxUnit,jdbcType=VARCHAR},
+      box_num_ = #{record.boxNum,jdbcType=DECIMAL},
+      barcode_ = #{record.barcode,jdbcType=VARCHAR},
+      old_barcode_ = #{record.oldBarcode,jdbcType=VARCHAR},
+      push_month_ = #{record.pushMonth,jdbcType=INTEGER},
+      readme_url_ = #{record.readmeUrl,jdbcType=VARCHAR},
+      remark_ = #{record.remark,jdbcType=VARCHAR},
+      sup_code_ = #{record.supCode,jdbcType=VARCHAR},
+      status_ = #{record.status,jdbcType=INTEGER},
+      file_num_ = #{record.fileNum,jdbcType=INTEGER},
+      last_sup_code_ = #{record.lastSupCode,jdbcType=VARCHAR},
+      update_user_ = #{record.updateUser,jdbcType=VARCHAR},
+      update_date_ = #{record.updateDate,jdbcType=TIMESTAMP},
+      app_user_ = #{record.appUser,jdbcType=VARCHAR},
+      app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
+      update_key_ = #{record.updateKey,jdbcType=VARCHAR},
+      allow_discount_ = #{record.allowDiscount,jdbcType=INTEGER},
+      model_code_ = #{record.modelCode,jdbcType=VARCHAR},
+      bom_level_ = #{record.bomLevel,jdbcType=INTEGER},
+      part_view_top_ = #{record.partViewTop,jdbcType=INTEGER},
+      volume_ = #{record.volume,jdbcType=DECIMAL},
+      weight_ = #{record.weight,jdbcType=DECIMAL},
+      sales_status_ = #{record.salesStatus,jdbcType=INTEGER},
+      box_sales_ = #{record.boxSales,jdbcType=BIT},
+      box_purchase_ = #{record.boxPurchase,jdbcType=BIT},
+      lower_shelf_ = #{record.lowerShelf,jdbcType=BIT},
+      pur_front_day_ = #{record.purFrontDay,jdbcType=INTEGER},
+      forbid_pur_ = #{record.forbidPur,jdbcType=BIT},
+      classify_ = #{record.classify,jdbcType=INTEGER},
+      marque_ = #{record.marque,jdbcType=VARCHAR},
+      forecast_count_mrp_ = #{record.forecastCountMrp,jdbcType=BIT},
+      forecast_count_month_ = #{record.forecastCountMonth,jdbcType=INTEGER},
+      se_no_ = #{record.seNo,jdbcType=VARCHAR},
+      is_sync_ = #{record.isSync,jdbcType=BIT},
+      bom_property_ = #{record.bomProperty,jdbcType=BIT},
+      dept_code_ = #{record.deptCode,jdbcType=VARCHAR},
+      cost_amount_ = #{record.costAmount,jdbcType=DECIMAL},
+      delivery_cycle_ = #{record.deliveryCycle,jdbcType=INTEGER},
+      virtual_stock_ = #{record.virtualStock,jdbcType=DECIMAL},
+      option_ = #{record.option,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gms_goods
+    set uid_ = #{record.uid,jdbcType=INTEGER},
+      corp_no_ = #{record.corpNo,jdbcType=VARCHAR},
+      code_ = #{record.code,jdbcType=VARCHAR},
+      old_code_ = #{record.oldCode,jdbcType=VARCHAR},
+      brand_ = #{record.brand,jdbcType=VARCHAR},
+      class1_ = #{record.class1,jdbcType=VARCHAR},
+      class2_ = #{record.class2,jdbcType=VARCHAR},
+      class3_ = #{record.class3,jdbcType=VARCHAR},
+      desc_ = #{record.desc,jdbcType=VARCHAR},
+      part_type_ = #{record.partType,jdbcType=VARCHAR},
+      py_code_ = #{record.pyCode,jdbcType=VARCHAR},
+      spec_ = #{record.spec,jdbcType=VARCHAR},
+      unit_ = #{record.unit,jdbcType=VARCHAR},
+      cw_code_ = #{record.cwCode,jdbcType=VARCHAR},
+      default_cw_ = #{record.defaultCw,jdbcType=VARCHAR},
+      in_up_ = #{record.inUp,jdbcType=DECIMAL},
+      out_up_ = #{record.outUp,jdbcType=DECIMAL},
+      out_up2_ = #{record.outUp2,jdbcType=DECIMAL},
+      list_up_ = #{record.listUp,jdbcType=DECIMAL},
+      cost_up_ = #{record.costUp,jdbcType=DECIMAL},
+      vip_up_ = #{record.vipUp,jdbcType=DECIMAL},
+      vip_discount_ = #{record.vipDiscount,jdbcType=DECIMAL},
+      up_control_ = #{record.upControl,jdbcType=INTEGER},
+      used_ = #{record.used,jdbcType=INTEGER},
+      obj_type_ = #{record.objType,jdbcType=VARCHAR},
+      share_rate_ = #{record.shareRate,jdbcType=DECIMAL},
+      id_code_ = #{record.idCode,jdbcType=VARCHAR},
+      box_code_ = #{record.boxCode,jdbcType=VARCHAR},
+      box_unit_ = #{record.boxUnit,jdbcType=VARCHAR},
+      box_num_ = #{record.boxNum,jdbcType=DECIMAL},
+      barcode_ = #{record.barcode,jdbcType=VARCHAR},
+      old_barcode_ = #{record.oldBarcode,jdbcType=VARCHAR},
+      push_month_ = #{record.pushMonth,jdbcType=INTEGER},
+      readme_url_ = #{record.readmeUrl,jdbcType=VARCHAR},
+      remark_ = #{record.remark,jdbcType=VARCHAR},
+      sup_code_ = #{record.supCode,jdbcType=VARCHAR},
+      status_ = #{record.status,jdbcType=INTEGER},
+      file_num_ = #{record.fileNum,jdbcType=INTEGER},
+      last_sup_code_ = #{record.lastSupCode,jdbcType=VARCHAR},
+      update_user_ = #{record.updateUser,jdbcType=VARCHAR},
+      update_date_ = #{record.updateDate,jdbcType=TIMESTAMP},
+      app_user_ = #{record.appUser,jdbcType=VARCHAR},
+      app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
+      update_key_ = #{record.updateKey,jdbcType=VARCHAR},
+      allow_discount_ = #{record.allowDiscount,jdbcType=INTEGER},
+      model_code_ = #{record.modelCode,jdbcType=VARCHAR},
+      bom_level_ = #{record.bomLevel,jdbcType=INTEGER},
+      part_view_top_ = #{record.partViewTop,jdbcType=INTEGER},
+      volume_ = #{record.volume,jdbcType=DECIMAL},
+      weight_ = #{record.weight,jdbcType=DECIMAL},
+      sales_status_ = #{record.salesStatus,jdbcType=INTEGER},
+      box_sales_ = #{record.boxSales,jdbcType=BIT},
+      box_purchase_ = #{record.boxPurchase,jdbcType=BIT},
+      lower_shelf_ = #{record.lowerShelf,jdbcType=BIT},
+      pur_front_day_ = #{record.purFrontDay,jdbcType=INTEGER},
+      forbid_pur_ = #{record.forbidPur,jdbcType=BIT},
+      classify_ = #{record.classify,jdbcType=INTEGER},
+      marque_ = #{record.marque,jdbcType=VARCHAR},
+      forecast_count_mrp_ = #{record.forecastCountMrp,jdbcType=BIT},
+      forecast_count_month_ = #{record.forecastCountMonth,jdbcType=INTEGER},
+      se_no_ = #{record.seNo,jdbcType=VARCHAR},
+      is_sync_ = #{record.isSync,jdbcType=BIT},
+      bom_property_ = #{record.bomProperty,jdbcType=BIT},
+      dept_code_ = #{record.deptCode,jdbcType=VARCHAR},
+      cost_amount_ = #{record.costAmount,jdbcType=DECIMAL},
+      delivery_cycle_ = #{record.deliveryCycle,jdbcType=INTEGER},
+      virtual_stock_ = #{record.virtualStock,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.GmsGoods">
+    update gms_goods
+    <set>
+      <if test="corpNo != null">
+        corp_no_ = #{corpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code_ = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="oldCode != null">
+        old_code_ = #{oldCode,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand_ = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="class1 != null">
+        class1_ = #{class1,jdbcType=VARCHAR},
+      </if>
+      <if test="class2 != null">
+        class2_ = #{class2,jdbcType=VARCHAR},
+      </if>
+      <if test="class3 != null">
+        class3_ = #{class3,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        desc_ = #{desc,jdbcType=VARCHAR},
+      </if>
+      <if test="partType != null">
+        part_type_ = #{partType,jdbcType=VARCHAR},
+      </if>
+      <if test="pyCode != null">
+        py_code_ = #{pyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spec != null">
+        spec_ = #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit_ = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cwCode != null">
+        cw_code_ = #{cwCode,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultCw != null">
+        default_cw_ = #{defaultCw,jdbcType=VARCHAR},
+      </if>
+      <if test="inUp != null">
+        in_up_ = #{inUp,jdbcType=DECIMAL},
+      </if>
+      <if test="outUp != null">
+        out_up_ = #{outUp,jdbcType=DECIMAL},
+      </if>
+      <if test="outUp2 != null">
+        out_up2_ = #{outUp2,jdbcType=DECIMAL},
+      </if>
+      <if test="listUp != null">
+        list_up_ = #{listUp,jdbcType=DECIMAL},
+      </if>
+      <if test="costUp != null">
+        cost_up_ = #{costUp,jdbcType=DECIMAL},
+      </if>
+      <if test="vipUp != null">
+        vip_up_ = #{vipUp,jdbcType=DECIMAL},
+      </if>
+      <if test="vipDiscount != null">
+        vip_discount_ = #{vipDiscount,jdbcType=DECIMAL},
+      </if>
+      <if test="upControl != null">
+        up_control_ = #{upControl,jdbcType=INTEGER},
+      </if>
+      <if test="used != null">
+        used_ = #{used,jdbcType=INTEGER},
+      </if>
+      <if test="objType != null">
+        obj_type_ = #{objType,jdbcType=VARCHAR},
+      </if>
+      <if test="shareRate != null">
+        share_rate_ = #{shareRate,jdbcType=DECIMAL},
+      </if>
+      <if test="idCode != null">
+        id_code_ = #{idCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boxCode != null">
+        box_code_ = #{boxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="boxUnit != null">
+        box_unit_ = #{boxUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="boxNum != null">
+        box_num_ = #{boxNum,jdbcType=DECIMAL},
+      </if>
+      <if test="barcode != null">
+        barcode_ = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="oldBarcode != null">
+        old_barcode_ = #{oldBarcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pushMonth != null">
+        push_month_ = #{pushMonth,jdbcType=INTEGER},
+      </if>
+      <if test="readmeUrl != null">
+        readme_url_ = #{readmeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark_ = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supCode != null">
+        sup_code_ = #{supCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status_ = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="fileNum != null">
+        file_num_ = #{fileNum,jdbcType=INTEGER},
+      </if>
+      <if test="lastSupCode != null">
+        last_sup_code_ = #{lastSupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        update_user_ = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date_ = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appUser != null">
+        app_user_ = #{appUser,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null">
+        app_date_ = #{appDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateKey != null">
+        update_key_ = #{updateKey,jdbcType=VARCHAR},
+      </if>
+      <if test="allowDiscount != null">
+        allow_discount_ = #{allowDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="modelCode != null">
+        model_code_ = #{modelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bomLevel != null">
+        bom_level_ = #{bomLevel,jdbcType=INTEGER},
+      </if>
+      <if test="partViewTop != null">
+        part_view_top_ = #{partViewTop,jdbcType=INTEGER},
+      </if>
+      <if test="volume != null">
+        volume_ = #{volume,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null">
+        weight_ = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="salesStatus != null">
+        sales_status_ = #{salesStatus,jdbcType=INTEGER},
+      </if>
+      <if test="boxSales != null">
+        box_sales_ = #{boxSales,jdbcType=BIT},
+      </if>
+      <if test="boxPurchase != null">
+        box_purchase_ = #{boxPurchase,jdbcType=BIT},
+      </if>
+      <if test="lowerShelf != null">
+        lower_shelf_ = #{lowerShelf,jdbcType=BIT},
+      </if>
+      <if test="purFrontDay != null">
+        pur_front_day_ = #{purFrontDay,jdbcType=INTEGER},
+      </if>
+      <if test="forbidPur != null">
+        forbid_pur_ = #{forbidPur,jdbcType=BIT},
+      </if>
+      <if test="classify != null">
+        classify_ = #{classify,jdbcType=INTEGER},
+      </if>
+      <if test="marque != null">
+        marque_ = #{marque,jdbcType=VARCHAR},
+      </if>
+      <if test="forecastCountMrp != null">
+        forecast_count_mrp_ = #{forecastCountMrp,jdbcType=BIT},
+      </if>
+      <if test="forecastCountMonth != null">
+        forecast_count_month_ = #{forecastCountMonth,jdbcType=INTEGER},
+      </if>
+      <if test="seNo != null">
+        se_no_ = #{seNo,jdbcType=VARCHAR},
+      </if>
+      <if test="isSync != null">
+        is_sync_ = #{isSync,jdbcType=BIT},
+      </if>
+      <if test="bomProperty != null">
+        bom_property_ = #{bomProperty,jdbcType=BIT},
+      </if>
+      <if test="deptCode != null">
+        dept_code_ = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="costAmount != null">
+        cost_amount_ = #{costAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="deliveryCycle != null">
+        delivery_cycle_ = #{deliveryCycle,jdbcType=INTEGER},
+      </if>
+      <if test="virtualStock != null">
+        virtual_stock_ = #{virtualStock,jdbcType=DECIMAL},
+      </if>
+      <if test="option != null">
+        option_ = #{option,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where uid_ = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mall.mbg.model.GmsGoods">
+    update gms_goods
+    set corp_no_ = #{corpNo,jdbcType=VARCHAR},
+      code_ = #{code,jdbcType=VARCHAR},
+      old_code_ = #{oldCode,jdbcType=VARCHAR},
+      brand_ = #{brand,jdbcType=VARCHAR},
+      class1_ = #{class1,jdbcType=VARCHAR},
+      class2_ = #{class2,jdbcType=VARCHAR},
+      class3_ = #{class3,jdbcType=VARCHAR},
+      desc_ = #{desc,jdbcType=VARCHAR},
+      part_type_ = #{partType,jdbcType=VARCHAR},
+      py_code_ = #{pyCode,jdbcType=VARCHAR},
+      spec_ = #{spec,jdbcType=VARCHAR},
+      unit_ = #{unit,jdbcType=VARCHAR},
+      cw_code_ = #{cwCode,jdbcType=VARCHAR},
+      default_cw_ = #{defaultCw,jdbcType=VARCHAR},
+      in_up_ = #{inUp,jdbcType=DECIMAL},
+      out_up_ = #{outUp,jdbcType=DECIMAL},
+      out_up2_ = #{outUp2,jdbcType=DECIMAL},
+      list_up_ = #{listUp,jdbcType=DECIMAL},
+      cost_up_ = #{costUp,jdbcType=DECIMAL},
+      vip_up_ = #{vipUp,jdbcType=DECIMAL},
+      vip_discount_ = #{vipDiscount,jdbcType=DECIMAL},
+      up_control_ = #{upControl,jdbcType=INTEGER},
+      used_ = #{used,jdbcType=INTEGER},
+      obj_type_ = #{objType,jdbcType=VARCHAR},
+      share_rate_ = #{shareRate,jdbcType=DECIMAL},
+      id_code_ = #{idCode,jdbcType=VARCHAR},
+      box_code_ = #{boxCode,jdbcType=VARCHAR},
+      box_unit_ = #{boxUnit,jdbcType=VARCHAR},
+      box_num_ = #{boxNum,jdbcType=DECIMAL},
+      barcode_ = #{barcode,jdbcType=VARCHAR},
+      old_barcode_ = #{oldBarcode,jdbcType=VARCHAR},
+      push_month_ = #{pushMonth,jdbcType=INTEGER},
+      readme_url_ = #{readmeUrl,jdbcType=VARCHAR},
+      remark_ = #{remark,jdbcType=VARCHAR},
+      sup_code_ = #{supCode,jdbcType=VARCHAR},
+      status_ = #{status,jdbcType=INTEGER},
+      file_num_ = #{fileNum,jdbcType=INTEGER},
+      last_sup_code_ = #{lastSupCode,jdbcType=VARCHAR},
+      update_user_ = #{updateUser,jdbcType=VARCHAR},
+      update_date_ = #{updateDate,jdbcType=TIMESTAMP},
+      app_user_ = #{appUser,jdbcType=VARCHAR},
+      app_date_ = #{appDate,jdbcType=TIMESTAMP},
+      update_key_ = #{updateKey,jdbcType=VARCHAR},
+      allow_discount_ = #{allowDiscount,jdbcType=INTEGER},
+      model_code_ = #{modelCode,jdbcType=VARCHAR},
+      bom_level_ = #{bomLevel,jdbcType=INTEGER},
+      part_view_top_ = #{partViewTop,jdbcType=INTEGER},
+      volume_ = #{volume,jdbcType=DECIMAL},
+      weight_ = #{weight,jdbcType=DECIMAL},
+      sales_status_ = #{salesStatus,jdbcType=INTEGER},
+      box_sales_ = #{boxSales,jdbcType=BIT},
+      box_purchase_ = #{boxPurchase,jdbcType=BIT},
+      lower_shelf_ = #{lowerShelf,jdbcType=BIT},
+      pur_front_day_ = #{purFrontDay,jdbcType=INTEGER},
+      forbid_pur_ = #{forbidPur,jdbcType=BIT},
+      classify_ = #{classify,jdbcType=INTEGER},
+      marque_ = #{marque,jdbcType=VARCHAR},
+      forecast_count_mrp_ = #{forecastCountMrp,jdbcType=BIT},
+      forecast_count_month_ = #{forecastCountMonth,jdbcType=INTEGER},
+      se_no_ = #{seNo,jdbcType=VARCHAR},
+      is_sync_ = #{isSync,jdbcType=BIT},
+      bom_property_ = #{bomProperty,jdbcType=BIT},
+      dept_code_ = #{deptCode,jdbcType=VARCHAR},
+      cost_amount_ = #{costAmount,jdbcType=DECIMAL},
+      delivery_cycle_ = #{deliveryCycle,jdbcType=INTEGER},
+      virtual_stock_ = #{virtualStock,jdbcType=DECIMAL},
+      option_ = #{option,jdbcType=LONGVARCHAR}
+    where uid_ = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.GmsGoods">
+    update gms_goods
+    set corp_no_ = #{corpNo,jdbcType=VARCHAR},
+      code_ = #{code,jdbcType=VARCHAR},
+      old_code_ = #{oldCode,jdbcType=VARCHAR},
+      brand_ = #{brand,jdbcType=VARCHAR},
+      class1_ = #{class1,jdbcType=VARCHAR},
+      class2_ = #{class2,jdbcType=VARCHAR},
+      class3_ = #{class3,jdbcType=VARCHAR},
+      desc_ = #{desc,jdbcType=VARCHAR},
+      part_type_ = #{partType,jdbcType=VARCHAR},
+      py_code_ = #{pyCode,jdbcType=VARCHAR},
+      spec_ = #{spec,jdbcType=VARCHAR},
+      unit_ = #{unit,jdbcType=VARCHAR},
+      cw_code_ = #{cwCode,jdbcType=VARCHAR},
+      default_cw_ = #{defaultCw,jdbcType=VARCHAR},
+      in_up_ = #{inUp,jdbcType=DECIMAL},
+      out_up_ = #{outUp,jdbcType=DECIMAL},
+      out_up2_ = #{outUp2,jdbcType=DECIMAL},
+      list_up_ = #{listUp,jdbcType=DECIMAL},
+      cost_up_ = #{costUp,jdbcType=DECIMAL},
+      vip_up_ = #{vipUp,jdbcType=DECIMAL},
+      vip_discount_ = #{vipDiscount,jdbcType=DECIMAL},
+      up_control_ = #{upControl,jdbcType=INTEGER},
+      used_ = #{used,jdbcType=INTEGER},
+      obj_type_ = #{objType,jdbcType=VARCHAR},
+      share_rate_ = #{shareRate,jdbcType=DECIMAL},
+      id_code_ = #{idCode,jdbcType=VARCHAR},
+      box_code_ = #{boxCode,jdbcType=VARCHAR},
+      box_unit_ = #{boxUnit,jdbcType=VARCHAR},
+      box_num_ = #{boxNum,jdbcType=DECIMAL},
+      barcode_ = #{barcode,jdbcType=VARCHAR},
+      old_barcode_ = #{oldBarcode,jdbcType=VARCHAR},
+      push_month_ = #{pushMonth,jdbcType=INTEGER},
+      readme_url_ = #{readmeUrl,jdbcType=VARCHAR},
+      remark_ = #{remark,jdbcType=VARCHAR},
+      sup_code_ = #{supCode,jdbcType=VARCHAR},
+      status_ = #{status,jdbcType=INTEGER},
+      file_num_ = #{fileNum,jdbcType=INTEGER},
+      last_sup_code_ = #{lastSupCode,jdbcType=VARCHAR},
+      update_user_ = #{updateUser,jdbcType=VARCHAR},
+      update_date_ = #{updateDate,jdbcType=TIMESTAMP},
+      app_user_ = #{appUser,jdbcType=VARCHAR},
+      app_date_ = #{appDate,jdbcType=TIMESTAMP},
+      update_key_ = #{updateKey,jdbcType=VARCHAR},
+      allow_discount_ = #{allowDiscount,jdbcType=INTEGER},
+      model_code_ = #{modelCode,jdbcType=VARCHAR},
+      bom_level_ = #{bomLevel,jdbcType=INTEGER},
+      part_view_top_ = #{partViewTop,jdbcType=INTEGER},
+      volume_ = #{volume,jdbcType=DECIMAL},
+      weight_ = #{weight,jdbcType=DECIMAL},
+      sales_status_ = #{salesStatus,jdbcType=INTEGER},
+      box_sales_ = #{boxSales,jdbcType=BIT},
+      box_purchase_ = #{boxPurchase,jdbcType=BIT},
+      lower_shelf_ = #{lowerShelf,jdbcType=BIT},
+      pur_front_day_ = #{purFrontDay,jdbcType=INTEGER},
+      forbid_pur_ = #{forbidPur,jdbcType=BIT},
+      classify_ = #{classify,jdbcType=INTEGER},
+      marque_ = #{marque,jdbcType=VARCHAR},
+      forecast_count_mrp_ = #{forecastCountMrp,jdbcType=BIT},
+      forecast_count_month_ = #{forecastCountMonth,jdbcType=INTEGER},
+      se_no_ = #{seNo,jdbcType=VARCHAR},
+      is_sync_ = #{isSync,jdbcType=BIT},
+      bom_property_ = #{bomProperty,jdbcType=BIT},
+      dept_code_ = #{deptCode,jdbcType=VARCHAR},
+      cost_amount_ = #{costAmount,jdbcType=DECIMAL},
+      delivery_cycle_ = #{deliveryCycle,jdbcType=INTEGER},
+      virtual_stock_ = #{virtualStock,jdbcType=DECIMAL}
+    where uid_ = #{uid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,7 +1,7 @@
 package com.mall.entity.dto;
 
-import lombok.Data;
 import com.mall.mbg.model.CmsIndexSalesAd;
+import lombok.Data;
 
 import java.util.List;
 
@@ -13,6 +13,6 @@ import java.util.List;
  */
 @Data
 public class IndexGoodsBlock {
-    private CmsIndexSalesAd cmsIndexSalesAd;
-    private List<GmsGoodsSearchResult> goodsList;
+  private CmsIndexSalesAd cmsIndexSalesAd;
+  private List<GmsGoodsSearchResult> goodsList;
 }

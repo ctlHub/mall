@@ -18,7 +18,7 @@
     </update>
 
     <!-- 查询某个商品绑定了哪些标签 -->
-    <select id="listTagByGoodsCode" resultType="com.mall.mbg.model.GmsTag">
+    <select id="listTagByGoodsId" resultType="com.mall.mbg.model.GmsTag">
         select tag.uid_,
                tag.corp_no_,
                tag.code_,

@@ -6,33 +6,33 @@ import java.util.Date;
 
 public class CmsNotice implements Serializable {
     /**
-     * 主键UID
+     * 公告主键id
      */
-    @ApiModelProperty(value = "主键UID")
-    private Long uid;
+    @ApiModelProperty(value = "公告主键id")
+    private String id;
 
     /**
      * 公司别
      */
     @ApiModelProperty(value = "公司别")
-    private String corpNo;
+    private String merchantId;
 
     /**
-     * 新闻标题
+     * 公告标题
      */
-    @ApiModelProperty(value = "新闻标题")
+    @ApiModelProperty(value = "公告标题")
     private String title;
 
     /**
-     * 新闻状态（0正常、1下架、2置顶）
+     * 公告状态（0正常、1下架、2置顶）
      */
-    @ApiModelProperty(value = "新闻状态（0正常、1下架、2置顶）")
+    @ApiModelProperty(value = "公告状态（0正常、1下架、2置顶）")
     private Integer status;
 
     /**
-     * 新闻图片
+     * 公告图片
      */
-    @ApiModelProperty(value = "新闻图片")
+    @ApiModelProperty(value = "公告图片")
     private String newsUrl;
 
     /**
@@ -72,27 +72,27 @@ public class CmsNotice implements Serializable {
     private Date updateDate;
 
     /**
-     * 新闻内容
+     * 公告内容
      */
-    @ApiModelProperty(value = "新闻内容")
+    @ApiModelProperty(value = "公告内容")
     private String value;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
     public String getTitle() {
@@ -181,8 +181,8 @@ public class CmsNotice implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
         sb.append(", title=").append(title);
         sb.append(", status=").append(status);
         sb.append(", newsUrl=").append(newsUrl);
@@ -210,8 +210,8 @@ public class CmsNotice implements Serializable {
             return false;
         }
         CmsNotice other = (CmsNotice) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
             && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getNewsUrl() == null ? other.getNewsUrl() == null : this.getNewsUrl().equals(other.getNewsUrl()))
@@ -228,8 +228,8 @@ public class CmsNotice implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
         result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getNewsUrl() == null) ? 0 : getNewsUrl().hashCode());

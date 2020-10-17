@@ -6,22 +6,16 @@ import java.util.Date;
 
 public class GmsTag implements Serializable {
     /**
-     * 主键UID
+     * 标签id
      */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    @ApiModelProperty(value = "标签id")
+    private String id;
 
     /**
      * 企业编号
      */
     @ApiModelProperty(value = "企业编号")
-    private String corpNo;
-
-    /**
-     * 标签代码（雪花Long）
-     */
-    @ApiModelProperty(value = "标签代码（雪花Long）")
-    private String code;
+    private String merchantId;
 
     /**
      * 标签名称
@@ -67,28 +61,20 @@ public class GmsTag implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
     public String getName() {
@@ -153,9 +139,8 @@ public class GmsTag implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", code=").append(code);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
         sb.append(", name=").append(name);
         sb.append(", type=").append(type);
         sb.append(", remark=").append(remark);
@@ -180,9 +165,8 @@ public class GmsTag implements Serializable {
             return false;
         }
         GmsTag other = (GmsTag) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
@@ -196,9 +180,8 @@ public class GmsTag implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());

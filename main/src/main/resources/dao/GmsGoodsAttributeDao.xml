@@ -45,7 +45,7 @@
         from gcm_category_attribute as ca
                  left join gms_goods_and_attribute as ga
                            on ca.code_ = ga.attribute_code_ and ga.goods_code_ = #{goodsCode}
-        where ca.category_code_ = #{cateGoryCode}
+        where ca.category_code_ = #{categoryId}
         order by ga.value_ desc
     </select>
 

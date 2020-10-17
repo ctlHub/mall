@@ -5,25 +5,25 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GmsGoodsAndAttribute implements Serializable {
-    private Long uid;
+    private String id;
 
     /**
      * 帐套代码
      */
     @ApiModelProperty(value = "帐套代码")
-    private String corpNo;
+    private String merchantId;
 
     /**
-     * 商品code
+     * 商品id 
      */
-    @ApiModelProperty(value = "商品code")
-    private String goodsCode;
+    @ApiModelProperty(value = "商品id ")
+    private String goodsId;
 
     /**
-     * 属性code
+     * 属性id 
      */
-    @ApiModelProperty(value = "属性code")
-    private String attributeCode;
+    @ApiModelProperty(value = "属性id ")
+    private String attributeId;
 
     /**
      * 规格、属性的值，当有多个规格时以逗号隔开
@@ -57,36 +57,36 @@ public class GmsGoodsAndAttribute implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public String getGoodsCode() {
-        return goodsCode;
+    public String getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoodsCode(String goodsCode) {
-        this.goodsCode = goodsCode;
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public String getAttributeCode() {
-        return attributeCode;
+    public String getAttributeId() {
+        return attributeId;
     }
 
-    public void setAttributeCode(String attributeCode) {
-        this.attributeCode = attributeCode;
+    public void setAttributeId(String attributeId) {
+        this.attributeId = attributeId;
     }
 
     public String getValue() {
@@ -135,10 +135,10 @@ public class GmsGoodsAndAttribute implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", goodsCode=").append(goodsCode);
-        sb.append(", attributeCode=").append(attributeCode);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
+        sb.append(", goodsId=").append(goodsId);
+        sb.append(", attributeId=").append(attributeId);
         sb.append(", value=").append(value);
         sb.append(", appUser=").append(appUser);
         sb.append(", appDate=").append(appDate);
@@ -161,10 +161,10 @@ public class GmsGoodsAndAttribute implements Serializable {
             return false;
         }
         GmsGoodsAndAttribute other = (GmsGoodsAndAttribute) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getGoodsCode() == null ? other.getGoodsCode() == null : this.getGoodsCode().equals(other.getGoodsCode()))
-            && (this.getAttributeCode() == null ? other.getAttributeCode() == null : this.getAttributeCode().equals(other.getAttributeCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+            && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
+            && (this.getAttributeId() == null ? other.getAttributeId() == null : this.getAttributeId().equals(other.getAttributeId()))
             && (this.getValue() == null ? other.getValue() == null : this.getValue().equals(other.getValue()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
             && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
@@ -176,10 +176,10 @@ public class GmsGoodsAndAttribute implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getGoodsCode() == null) ? 0 : getGoodsCode().hashCode());
-        result = prime * result + ((getAttributeCode() == null) ? 0 : getAttributeCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
+        result = prime * result + ((getGoodsId() == null) ? 0 : getGoodsId().hashCode());
+        result = prime * result + ((getAttributeId() == null) ? 0 : getAttributeId().hashCode());
         result = prime * result + ((getValue() == null) ? 0 : getValue().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
         result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());

@@ -1,7 +1,6 @@
 package com.mall.service;
 
 import com.github.pagehelper.PageHelper;
-import org.springframework.stereotype.Service;
 import com.mall.common.utils.ThreadLocalUtil;
 import com.mall.dao.GmsGoodsDao;
 import com.mall.entity.dto.GmsGoodsSearchParam;
@@ -9,6 +8,7 @@ import com.mall.entity.dto.GmsGoodsSearchResult;
 import com.mall.mbg.mapper.CmsNoticeMapper;
 import com.mall.mbg.model.CmsNotice;
 import com.mall.mbg.model.CmsNoticeExample;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -22,30 +22,30 @@ import java.util.List;
 @Service
 public class SearchService {
 
-    @Resource
-    private GmsGoodsDao goodsDao;
+  @Resource
+  private GmsGoodsDao goodsDao;
 
-    @Resource
-    private CmsNoticeMapper noticeMapper;
+  @Resource
+  private CmsNoticeMapper noticeMapper;
 
-    /**
-     * 查询符合条件的所有商品
-     */
-    public List<GmsGoodsSearchResult> listGoods(GmsGoodsSearchParam goodsSearchParam, Integer pageNum, Integer pageSize) {
-        String corpNo = ThreadLocalUtil.getCorpNo();
-        PageHelper.startPage(pageNum, pageSize);
-        @SuppressWarnings("unchecked")
-        List<GmsGoodsSearchResult> goodsList = (List<GmsGoodsSearchResult>) goodsDao.selectBySearchText(corpNo, goodsSearchParam);
-        return GoodsUtil.appendImgFromMongoDb(corpNo, goodsList);
-    }
+  /**
+   * 查询符合条件的所有商品
+   */
+  public List<GmsGoodsSearchResult> listGoods(GmsGoodsSearchParam goodsSearchParam, Integer pageNum, Integer pageSize) {
+    String corpNo = ThreadLocalUtil.getMerchant();
+    PageHelper.startPage(pageNum, pageSize);
+    @SuppressWarnings("unchecked")
+    List<GmsGoodsSearchResult> goodsList = (List<GmsGoodsSearchResult>) goodsDao.selectBySearchText(corpNo, goodsSearchParam);
+    return goodsList;
+  }
 
-    public List<CmsNotice> listNotice(Integer pageNum, Integer pageSize) {
-        CmsNoticeExample noticeExample = new CmsNoticeExample();
-        noticeExample.createCriteria()
-                .andCorpNoEqualTo(ThreadLocalUtil.getCorpNo())
-                .andStatusNotEqualTo(1);
-        noticeExample.setOrderByClause("status_ desc, uid_ desc");
-        PageHelper.startPage(pageNum, pageSize);
-        return noticeMapper.selectByExample(noticeExample);
-    }
+  public List<CmsNotice> listNotice(Integer pageNum, Integer pageSize) {
+    CmsNoticeExample noticeExample = new CmsNoticeExample();
+    noticeExample.createCriteria()
+        .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
+        .andStatusNotEqualTo(1);
+    noticeExample.setOrderByClause("status_ desc, uid_ desc");
+    PageHelper.startPage(pageNum, pageSize);
+    return noticeMapper.selectByExample(noticeExample);
+  }
 }

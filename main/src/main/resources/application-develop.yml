@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: 
+    url: jdbc:mysql://116.62.239.206:3306/mall
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: 
-    password: 
+    username: mall_user
+    password: BOh18i%llOcETG71
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 5
@@ -35,9 +35,3 @@ server:
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-alibaba:
-  oss:
-    endpoint: 
-    access-key-id: 
-    access-key-secret: 
-    bucket-name: 

@@ -6,16 +6,16 @@ import java.util.Date;
 
 public class CmsIndexSalesAd implements Serializable {
     /**
-     * 主键UID
+     * 广告图ID
      */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    @ApiModelProperty(value = "广告图ID")
+    private String id;
 
     /**
      * 帐套代码
      */
     @ApiModelProperty(value = "帐套代码")
-    private String corpNo;
+    private String merchantId;
 
     /**
      * 促销类别
@@ -55,20 +55,20 @@ public class CmsIndexSalesAd implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
     public Integer getSalesStatus() {
@@ -125,8 +125,8 @@ public class CmsIndexSalesAd implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
         sb.append(", salesStatus=").append(salesStatus);
         sb.append(", imgUrl=").append(imgUrl);
         sb.append(", appUser=").append(appUser);
@@ -150,8 +150,8 @@ public class CmsIndexSalesAd implements Serializable {
             return false;
         }
         CmsIndexSalesAd other = (CmsIndexSalesAd) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
             && (this.getSalesStatus() == null ? other.getSalesStatus() == null : this.getSalesStatus().equals(other.getSalesStatus()))
             && (this.getImgUrl() == null ? other.getImgUrl() == null : this.getImgUrl().equals(other.getImgUrl()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
@@ -164,8 +164,8 @@ public class CmsIndexSalesAd implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
         result = prime * result + ((getSalesStatus() == null) ? 0 : getSalesStatus().hashCode());
         result = prime * result + ((getImgUrl() == null) ? 0 : getImgUrl().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());

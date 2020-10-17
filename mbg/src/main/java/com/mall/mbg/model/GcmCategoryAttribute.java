@@ -5,19 +5,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GcmCategoryAttribute implements Serializable {
-    private Long uid;
+    /**
+     * 属性id 
+     */
+    @ApiModelProperty(value = "属性id ")
+    private String id;
 
     /**
-     * 分类code
+     * 分类id 
      */
-    @ApiModelProperty(value = "分类code")
-    private String categoryCode;
-
-    /**
-     * 属性code
-     */
-    @ApiModelProperty(value = "属性code")
-    private String code;
+    @ApiModelProperty(value = "分类id ")
+    private String categoryId;
 
     /**
      * 属性的名称
@@ -53,28 +51,20 @@ public class GcmCategoryAttribute implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCategoryCode() {
-        return categoryCode;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategoryCode(String categoryCode) {
-        this.categoryCode = categoryCode;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -131,9 +121,8 @@ public class GcmCategoryAttribute implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", categoryCode=").append(categoryCode);
-        sb.append(", code=").append(code);
+        sb.append(", id=").append(id);
+        sb.append(", categoryId=").append(categoryId);
         sb.append(", name=").append(name);
         sb.append(", remark=").append(remark);
         sb.append(", appUser=").append(appUser);
@@ -157,9 +146,8 @@ public class GcmCategoryAttribute implements Serializable {
             return false;
         }
         GcmCategoryAttribute other = (GcmCategoryAttribute) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCategoryCode() == null ? other.getCategoryCode() == null : this.getCategoryCode().equals(other.getCategoryCode()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getCategoryId() == null ? other.getCategoryId() == null : this.getCategoryId().equals(other.getCategoryId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
@@ -172,9 +160,8 @@ public class GcmCategoryAttribute implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCategoryCode() == null) ? 0 : getCategoryCode().hashCode());
-        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getCategoryId() == null) ? 0 : getCategoryId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());

@@ -27,7 +27,7 @@ public class CommonResult<T> {
      * @param data 获取的数据
      */
     public static <T> CommonResult<T> success(T data) {
-        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), true, ResultCode.SUCCESS.getMessage(), data);
+        return new CommonResult<T>(ResultCode.SUCCESS.getId(), true, ResultCode.SUCCESS.getMessage(), data);
     }
 
     /**
@@ -37,7 +37,7 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> success(T data, String message) {
-        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), true, message, data);
+        return new CommonResult<T>(ResultCode.SUCCESS.getId(), true, message, data);
     }
 
     /**
@@ -46,7 +46,7 @@ public class CommonResult<T> {
      * @param errorCode 错误码
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode) {
-        return new CommonResult<T>(errorCode.getCode(), false, errorCode.getMessage(), null);
+        return new CommonResult<T>(errorCode.getId(), false, errorCode.getMessage(), null);
     }
 
     /**
@@ -56,7 +56,7 @@ public class CommonResult<T> {
      * @param message   错误信息
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode, String message) {
-        return new CommonResult<T>(errorCode.getCode(), false, message, null);
+        return new CommonResult<T>(errorCode.getId(), false, message, null);
     }
 
     /**
@@ -65,7 +65,7 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> failed(String message) {
-        return new CommonResult<T>(ResultCode.FAILED.getCode(), false, message, null);
+        return new CommonResult<T>(ResultCode.FAILED.getId(), false, message, null);
     }
 
     /**
@@ -88,10 +88,10 @@ public class CommonResult<T> {
      * @param message 提示信息
      */
     public static <T> CommonResult<T> validateFailed(String message) {
-        return new CommonResult<T>(ResultCode.VALIDATE_FAILED.getCode(), false, message, null);
+        return new CommonResult<T>(ResultCode.VALIDATE_FAILED.getId(), false, message, null);
     }
 
-    public long getCode() {
+    public long getId() {
         return code;
     }
 

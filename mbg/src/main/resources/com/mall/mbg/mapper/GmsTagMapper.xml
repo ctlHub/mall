@@ -2,16 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.GmsTagMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.GmsTag">
-    <id column="uid_" jdbcType="INTEGER" property="uid" />
-    <result column="corp_no_" jdbcType="VARCHAR" property="corpNo" />
-    <result column="code_" jdbcType="VARCHAR" property="code" />
-    <result column="name_" jdbcType="VARCHAR" property="name" />
-    <result column="type_" jdbcType="VARCHAR" property="type" />
-    <result column="remark_" jdbcType="VARCHAR" property="remark" />
-    <result column="app_user_" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date_" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user_" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date_" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,8 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uid_, corp_no_, code_, name_, type_, remark_, app_user_, app_date_, update_user_, 
-    update_date_
+    id, merchant_id, name, type, remark, app_user, app_date, update_user, update_date
   </sql>
   <select id="selectByExample" parameterType="com.mall.mbg.model.GmsTagExample" resultMap="BaseResultMap">
     select
@@ -89,15 +87,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from gms_tag
-    where uid_ = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from gms_tag
-    where uid_ = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.GmsTagExample">
     delete from gms_tag
@@ -106,58 +104,52 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.GmsTag">
-    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into gms_tag (corp_no_, code_, name_, 
-      type_, remark_, app_user_, 
-      app_date_, update_user_, update_date_
+    insert into gms_tag (id, merchant_id, name, 
+      type, remark, app_user, 
+      app_date, update_user, update_date
       )
-    values (#{corpNo,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, 
       #{appDate,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.GmsTag">
-    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
     insert into gms_tag
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="corpNo != null">
-        corp_no_,
+      <if test="id != null">
+        id,
       </if>
-      <if test="code != null">
-        code_,
+      <if test="merchantId != null">
+        merchant_id,
       </if>
       <if test="name != null">
-        name_,
+        name,
       </if>
       <if test="type != null">
-        type_,
+        type,
       </if>
       <if test="remark != null">
-        remark_,
+        remark,
       </if>
       <if test="appUser != null">
-        app_user_,
+        app_user,
       </if>
       <if test="appDate != null">
-        app_date_,
+        app_date,
       </if>
       <if test="updateUser != null">
-        update_user_,
+        update_user,
       </if>
       <if test="updateDate != null">
-        update_date_,
+        update_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="corpNo != null">
-        #{corpNo,jdbcType=VARCHAR},
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -191,35 +183,32 @@
   <update id="updateByExampleSelective" parameterType="map">
     update gms_tag
     <set>
-      <if test="record.uid != null">
-        uid_ = #{record.uid,jdbcType=INTEGER},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.corpNo != null">
-        corp_no_ = #{record.corpNo,jdbcType=VARCHAR},
-      </if>
-      <if test="record.code != null">
-        code_ = #{record.code,jdbcType=VARCHAR},
+      <if test="record.merchantId != null">
+        merchant_id = #{record.merchantId,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
-        name_ = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.type != null">
-        type_ = #{record.type,jdbcType=VARCHAR},
+        type = #{record.type,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
-        remark_ = #{record.remark,jdbcType=VARCHAR},
+        remark = #{record.remark,jdbcType=VARCHAR},
       </if>
       <if test="record.appUser != null">
-        app_user_ = #{record.appUser,jdbcType=VARCHAR},
+        app_user = #{record.appUser,jdbcType=VARCHAR},
       </if>
       <if test="record.appDate != null">
-        app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
+        app_date = #{record.appDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateUser != null">
-        update_user_ = #{record.updateUser,jdbcType=VARCHAR},
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
       </if>
       <if test="record.updateDate != null">
-        update_date_ = #{record.updateDate,jdbcType=TIMESTAMP},
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -228,16 +217,15 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update gms_tag
-    set uid_ = #{record.uid,jdbcType=INTEGER},
-      corp_no_ = #{record.corpNo,jdbcType=VARCHAR},
-      code_ = #{record.code,jdbcType=VARCHAR},
-      name_ = #{record.name,jdbcType=VARCHAR},
-      type_ = #{record.type,jdbcType=VARCHAR},
-      remark_ = #{record.remark,jdbcType=VARCHAR},
-      app_user_ = #{record.appUser,jdbcType=VARCHAR},
-      app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user_ = #{record.updateUser,jdbcType=VARCHAR},
-      update_date_ = #{record.updateDate,jdbcType=TIMESTAMP}
+    set id = #{record.id,jdbcType=VARCHAR},
+      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      app_user = #{record.appUser,jdbcType=VARCHAR},
+      app_date = #{record.appDate,jdbcType=TIMESTAMP},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -245,47 +233,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.GmsTag">
     update gms_tag
     <set>
-      <if test="corpNo != null">
-        corp_no_ = #{corpNo,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        code_ = #{code,jdbcType=VARCHAR},
+      <if test="merchantId != null">
+        merchant_id = #{merchantId,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
-        name_ = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        type_ = #{type,jdbcType=VARCHAR},
+        type = #{type,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
-        remark_ = #{remark,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="appUser != null">
-        app_user_ = #{appUser,jdbcType=VARCHAR},
+        app_user = #{appUser,jdbcType=VARCHAR},
       </if>
       <if test="appDate != null">
-        app_date_ = #{appDate,jdbcType=TIMESTAMP},
+        app_date = #{appDate,jdbcType=TIMESTAMP},
       </if>
       <if test="updateUser != null">
-        update_user_ = #{updateUser,jdbcType=VARCHAR},
+        update_user = #{updateUser,jdbcType=VARCHAR},
       </if>
       <if test="updateDate != null">
-        update_date_ = #{updateDate,jdbcType=TIMESTAMP},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where uid_ = #{uid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.GmsTag">
     update gms_tag
-    set corp_no_ = #{corpNo,jdbcType=VARCHAR},
-      code_ = #{code,jdbcType=VARCHAR},
-      name_ = #{name,jdbcType=VARCHAR},
-      type_ = #{type,jdbcType=VARCHAR},
-      remark_ = #{remark,jdbcType=VARCHAR},
-      app_user_ = #{appUser,jdbcType=VARCHAR},
-      app_date_ = #{appDate,jdbcType=TIMESTAMP},
-      update_user_ = #{updateUser,jdbcType=VARCHAR},
-      update_date_ = #{updateDate,jdbcType=TIMESTAMP}
-    where uid_ = #{uid,jdbcType=INTEGER}
+    set merchant_id = #{merchantId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      app_user = #{appUser,jdbcType=VARCHAR},
+      app_date = #{appDate,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

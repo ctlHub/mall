@@ -1,8 +1,8 @@
 package com.mall.entity.dto;
 
+import com.mall.mbg.model.GmsGoods;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.mall.mbg.model.GmsGoods;
 
 /**
  * 查询商品与标签查询绑定关系的结果集
@@ -13,7 +13,7 @@ import com.mall.mbg.model.GmsGoods;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class GmsGoodsAndTagListResult extends GmsGoods {
-    private String tagCode;
-    private String tagName;
-    private String tagType;
+  private String tagCode;
+  private String tagName;
+  private String tagType;
 }

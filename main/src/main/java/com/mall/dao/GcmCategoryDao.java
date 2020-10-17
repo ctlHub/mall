@@ -12,8 +12,8 @@ import java.util.List;
  */
 public interface GcmCategoryDao {
 
-    /**
-     * 批量同步商品分类
-     */
-    int sync(List<GcmCategory> gcmCategoryList);
+  /**
+   * 批量同步商品分类
+   */
+  int sync(List<GcmCategory> gcmCategoryList);
 }

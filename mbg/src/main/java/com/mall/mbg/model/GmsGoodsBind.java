@@ -5,29 +5,25 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GmsGoodsBind implements Serializable {
-    /**
-     * 主键UID
-     */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    private String id;
 
     /**
      * 账套代码
      */
     @ApiModelProperty(value = "账套代码")
-    private String corpNo;
+    private String merchantId;
 
     /**
      * 主商品料号
      */
     @ApiModelProperty(value = "主商品料号")
-    private String primaryGoodsCode;
+    private String primaryGoodsId;
 
     /**
      * 次商品料号
      */
     @ApiModelProperty(value = "次商品料号")
-    private String secondaryGoodsCode;
+    private String secondaryGoodsId;
 
     /**
      * 创建人
@@ -55,36 +51,36 @@ public class GmsGoodsBind implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public String getPrimaryGoodsCode() {
-        return primaryGoodsCode;
+    public String getPrimaryGoodsId() {
+        return primaryGoodsId;
     }
 
-    public void setPrimaryGoodsCode(String primaryGoodsCode) {
-        this.primaryGoodsCode = primaryGoodsCode;
+    public void setPrimaryGoodsId(String primaryGoodsId) {
+        this.primaryGoodsId = primaryGoodsId;
     }
 
-    public String getSecondaryGoodsCode() {
-        return secondaryGoodsCode;
+    public String getSecondaryGoodsId() {
+        return secondaryGoodsId;
     }
 
-    public void setSecondaryGoodsCode(String secondaryGoodsCode) {
-        this.secondaryGoodsCode = secondaryGoodsCode;
+    public void setSecondaryGoodsId(String secondaryGoodsId) {
+        this.secondaryGoodsId = secondaryGoodsId;
     }
 
     public String getAppUser() {
@@ -125,10 +121,10 @@ public class GmsGoodsBind implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", primaryGoodsCode=").append(primaryGoodsCode);
-        sb.append(", secondaryGoodsCode=").append(secondaryGoodsCode);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
+        sb.append(", primaryGoodsId=").append(primaryGoodsId);
+        sb.append(", secondaryGoodsId=").append(secondaryGoodsId);
         sb.append(", appUser=").append(appUser);
         sb.append(", appDate=").append(appDate);
         sb.append(", updateUser=").append(updateUser);
@@ -150,10 +146,10 @@ public class GmsGoodsBind implements Serializable {
             return false;
         }
         GmsGoodsBind other = (GmsGoodsBind) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getPrimaryGoodsCode() == null ? other.getPrimaryGoodsCode() == null : this.getPrimaryGoodsCode().equals(other.getPrimaryGoodsCode()))
-            && (this.getSecondaryGoodsCode() == null ? other.getSecondaryGoodsCode() == null : this.getSecondaryGoodsCode().equals(other.getSecondaryGoodsCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+            && (this.getPrimaryGoodsId() == null ? other.getPrimaryGoodsId() == null : this.getPrimaryGoodsId().equals(other.getPrimaryGoodsId()))
+            && (this.getSecondaryGoodsId() == null ? other.getSecondaryGoodsId() == null : this.getSecondaryGoodsId().equals(other.getSecondaryGoodsId()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
             && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
             && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
@@ -164,10 +160,10 @@ public class GmsGoodsBind implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getPrimaryGoodsCode() == null) ? 0 : getPrimaryGoodsCode().hashCode());
-        result = prime * result + ((getSecondaryGoodsCode() == null) ? 0 : getSecondaryGoodsCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
+        result = prime * result + ((getPrimaryGoodsId() == null) ? 0 : getPrimaryGoodsId().hashCode());
+        result = prime * result + ((getSecondaryGoodsId() == null) ? 0 : getSecondaryGoodsId().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
         result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
         result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());

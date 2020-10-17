@@ -1,16 +1,16 @@
 package com.mall.mbg.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import com.mall.mbg.model.CmsNotice;
 import com.mall.mbg.model.CmsNoticeExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface CmsNoticeMapper {
     long countByExample(CmsNoticeExample example);
 
     int deleteByExample(CmsNoticeExample example);
 
-    int deleteByPrimaryKey(Long uid);
+    int deleteByPrimaryKey(String id);
 
     int insert(CmsNotice record);
 
@@ -20,7 +20,7 @@ public interface CmsNoticeMapper {
 
     List<CmsNotice> selectByExample(CmsNoticeExample example);
 
-    CmsNotice selectByPrimaryKey(Long uid);
+    CmsNotice selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
 

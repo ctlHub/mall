@@ -5,29 +5,25 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GmsGoodsAndTag implements Serializable {
-    /**
-     * 主键UID
-     */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    private String id;
 
     /**
      * 账套代码
      */
     @ApiModelProperty(value = "账套代码")
-    private String corpNo;
+    private String merchantId;
 
     /**
      * 商品料号
      */
     @ApiModelProperty(value = "商品料号")
-    private String goodsCode;
+    private String goodsId;
 
     /**
      * 标签代码
      */
     @ApiModelProperty(value = "标签代码")
-    private String tagCode;
+    private String tagId;
 
     /**
      * 创建人
@@ -55,36 +51,36 @@ public class GmsGoodsAndTag implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public String getGoodsCode() {
-        return goodsCode;
+    public String getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoodsCode(String goodsCode) {
-        this.goodsCode = goodsCode;
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public String getTagCode() {
-        return tagCode;
+    public String getTagId() {
+        return tagId;
     }
 
-    public void setTagCode(String tagCode) {
-        this.tagCode = tagCode;
+    public void setTagId(String tagId) {
+        this.tagId = tagId;
     }
 
     public String getAppUser() {
@@ -125,10 +121,10 @@ public class GmsGoodsAndTag implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", goodsCode=").append(goodsCode);
-        sb.append(", tagCode=").append(tagCode);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
+        sb.append(", goodsId=").append(goodsId);
+        sb.append(", tagId=").append(tagId);
         sb.append(", appUser=").append(appUser);
         sb.append(", appDate=").append(appDate);
         sb.append(", updateUser=").append(updateUser);
@@ -150,10 +146,10 @@ public class GmsGoodsAndTag implements Serializable {
             return false;
         }
         GmsGoodsAndTag other = (GmsGoodsAndTag) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getGoodsCode() == null ? other.getGoodsCode() == null : this.getGoodsCode().equals(other.getGoodsCode()))
-            && (this.getTagCode() == null ? other.getTagCode() == null : this.getTagCode().equals(other.getTagCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+            && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
+            && (this.getTagId() == null ? other.getTagId() == null : this.getTagId().equals(other.getTagId()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
             && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
             && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
@@ -164,10 +160,10 @@ public class GmsGoodsAndTag implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getGoodsCode() == null) ? 0 : getGoodsCode().hashCode());
-        result = prime * result + ((getTagCode() == null) ? 0 : getTagCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
+        result = prime * result + ((getGoodsId() == null) ? 0 : getGoodsId().hashCode());
+        result = prime * result + ((getTagId() == null) ? 0 : getTagId().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
         result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
         result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());

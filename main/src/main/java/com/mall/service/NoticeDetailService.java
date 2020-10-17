@@ -1,12 +1,12 @@
 package com.mall.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import com.mall.common.exception.NotExistException;
 import com.mall.common.utils.ThreadLocalUtil;
 import com.mall.mbg.mapper.CmsNoticeMapper;
 import com.mall.mbg.model.CmsNotice;
 import com.mall.mbg.model.CmsNoticeExample;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,21 +20,21 @@ import java.util.List;
 @Service
 public class NoticeDetailService {
 
-    @Resource
-    CmsNoticeMapper cmsNoticeMapper;
+  @Resource
+  CmsNoticeMapper cmsNoticeMapper;
 
-    public CmsNotice get(Long uid) {
-        CmsNoticeExample example = new CmsNoticeExample();
-        example.createCriteria().andCorpNoEqualTo(ThreadLocalUtil.getCorpNo()).andUidEqualTo(uid);
-        List<CmsNotice> cmsNotices = cmsNoticeMapper.selectByExampleWithBLOBs(example);
-        if (CollectionUtils.isEmpty(cmsNotices)) {
-            throw new NotExistException(uid) {
-                @Override
-                protected String getType() {
-                    return "新闻公告";
-                }
-            };
+  public CmsNotice get(String id) {
+    CmsNoticeExample example = new CmsNoticeExample();
+    example.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andIdEqualTo(id);
+    List<CmsNotice> cmsNotices = cmsNoticeMapper.selectByExampleWithBLOBs(example);
+    if (CollectionUtils.isEmpty(cmsNotices)) {
+      throw new NotExistException(id) {
+        @Override
+        protected String getType() {
+          return "新闻公告";
         }
-        return cmsNotices.get(0);
+      };
     }
+    return cmsNotices.get(0);
+  }
 }

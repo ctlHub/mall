@@ -21,6 +21,6 @@
         inner join gms_goods gg on gb.corp_no_ = gg.corp_no_ and
         gb.secondary_goods_code_ = gg.code_
         where gb.corp_no_ = #{corpNo}
-        and gb.primary_goods_code_ = #{primaryGoodsCode}
+        and gb.primary_goods_code_ = #{PrimaryGoodsId}
     </select>
 </mapper>

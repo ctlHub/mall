@@ -1,8 +1,8 @@
 package com.mall.entity.dto;
 
+import com.mall.mbg.model.GmsGoods;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import com.mall.mbg.model.GmsGoods;
 
 import java.util.List;
 
@@ -15,11 +15,11 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class GmsGoodsSearchResult extends GmsGoods {
-    /**
-     * 商品标签
-     */
-    private String tagArray;
-    private String iconImage;
-    private List<String> mainImages;
-    private List<String> otherImages;
+  /**
+   * 商品标签
+   */
+  private String tagArray;
+  private String iconImage;
+  private List<String> mainImages;
+  private List<String> otherImages;
 }

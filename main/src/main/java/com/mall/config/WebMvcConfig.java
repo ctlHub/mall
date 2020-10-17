@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSerializer;
+import com.mall.common.api.ApiPathProperties;
+import com.mall.common.api.ApiRestController;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +15,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import com.mall.common.api.ApiPathProperties;
-import com.mall.common.api.ApiRestController;
 import springfox.documentation.spring.web.json.Json;
 
 import javax.annotation.Resource;
@@ -24,35 +24,34 @@ import java.util.Collection;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**");
-    }
+  @Resource
+  private ApiPathProperties apiPathProperties;
+  @Resource
+  private GsonBuilder gsonBuilder;
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CorpNoHandlerInterceptor()).addPathPatterns("/**").
-                excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
-    }
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/static/**");
+  }
 
-    @Resource
-    private ApiPathProperties apiPathProperties;
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(new CorpNoHandlerInterceptor()).addPathPatterns("/**").
+        excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
+  }
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        configurer.addPathPrefix(apiPathProperties.getGlobalPrefix(), c -> c.isAnnotationPresent(ApiRestController.class));
-    }
+  @Override
+  public void configurePathMatch(PathMatchConfigurer configurer) {
+    configurer.addPathPrefix(apiPathProperties.getGlobalPrefix(), c -> c.isAnnotationPresent(ApiRestController.class));
+  }
 
-    @Resource
-    private GsonBuilder gsonBuilder;
-
-    @Bean
-    public HttpMessageConverters customConverters() {
-        Gson gson = gsonBuilder.registerTypeAdapter(Json.class, (JsonSerializer<Json>) (src, typeOfSrc, context) -> JsonParser.parseString(src.value())).create();
-        Collection<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-        GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
-        gsonHttpMessageConverter.setGson(gson);
-        messageConverters.add(gsonHttpMessageConverter);
-        return new HttpMessageConverters(true, messageConverters);
-    }
+  @Bean
+  public HttpMessageConverters customConverters() {
+    Gson gson = gsonBuilder.registerTypeAdapter(Json.class, (JsonSerializer<Json>) (src, typeOfSrc, context) -> JsonParser.parseString(src.value())).create();
+    Collection<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+    GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
+    gsonHttpMessageConverter.setGson(gson);
+    messageConverters.add(gsonHttpMessageConverter);
+    return new HttpMessageConverters(true, messageConverters);
+  }
 }

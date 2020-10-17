@@ -2,15 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.GcmCategoryAttributeMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.GcmCategoryAttribute">
-    <id column="uid_" jdbcType="BIGINT" property="uid" />
-    <result column="category_code_" jdbcType="VARCHAR" property="categoryCode" />
-    <result column="code_" jdbcType="VARCHAR" property="code" />
-    <result column="name_" jdbcType="VARCHAR" property="name" />
-    <result column="remark_" jdbcType="VARCHAR" property="remark" />
-    <result column="app_user_" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date_" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user_" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date_" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,8 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uid_, category_code_, code_, name_, remark_, app_user_, app_date_, update_user_, 
-    update_date_
+    id, category_id, name, remark, app_user, app_date, update_user, update_date
   </sql>
   <select id="selectByExample" parameterType="com.mall.mbg.model.GcmCategoryAttributeExample" resultMap="BaseResultMap">
     select
@@ -88,15 +86,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from gcm_category_attribute
-    where uid_ = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from gcm_category_attribute
-    where uid_ = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.GcmCategoryAttributeExample">
     delete from gcm_category_attribute
@@ -105,53 +103,47 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.GcmCategoryAttribute">
-    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into gcm_category_attribute (category_code_, code_, name_, 
-      remark_, app_user_, app_date_, 
-      update_user_, update_date_)
-    values (#{categoryCode,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    insert into gcm_category_attribute (id, category_id, name, 
+      remark, app_user, app_date, 
+      update_user, update_date)
+    values (#{id,jdbcType=VARCHAR}, #{categoryId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
       #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.GcmCategoryAttribute">
-    <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
     insert into gcm_category_attribute
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="categoryCode != null">
-        category_code_,
+      <if test="id != null">
+        id,
       </if>
-      <if test="code != null">
-        code_,
+      <if test="categoryId != null">
+        category_id,
       </if>
       <if test="name != null">
-        name_,
+        name,
       </if>
       <if test="remark != null">
-        remark_,
+        remark,
       </if>
       <if test="appUser != null">
-        app_user_,
+        app_user,
       </if>
       <if test="appDate != null">
-        app_date_,
+        app_date,
       </if>
       <if test="updateUser != null">
-        update_user_,
+        update_user,
       </if>
       <if test="updateDate != null">
-        update_date_,
+        update_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="categoryCode != null">
-        #{categoryCode,jdbcType=VARCHAR},
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
       </if>
-      <if test="code != null">
-        #{code,jdbcType=VARCHAR},
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -182,32 +174,29 @@
   <update id="updateByExampleSelective" parameterType="map">
     update gcm_category_attribute
     <set>
-      <if test="record.uid != null">
-        uid_ = #{record.uid,jdbcType=BIGINT},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.categoryCode != null">
-        category_code_ = #{record.categoryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.code != null">
-        code_ = #{record.code,jdbcType=VARCHAR},
+      <if test="record.categoryId != null">
+        category_id = #{record.categoryId,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
-        name_ = #{record.name,jdbcType=VARCHAR},
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.remark != null">
-        remark_ = #{record.remark,jdbcType=VARCHAR},
+        remark = #{record.remark,jdbcType=VARCHAR},
       </if>
       <if test="record.appUser != null">
-        app_user_ = #{record.appUser,jdbcType=VARCHAR},
+        app_user = #{record.appUser,jdbcType=VARCHAR},
       </if>
       <if test="record.appDate != null">
-        app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
+        app_date = #{record.appDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.updateUser != null">
-        update_user_ = #{record.updateUser,jdbcType=VARCHAR},
+        update_user = #{record.updateUser,jdbcType=VARCHAR},
       </if>
       <if test="record.updateDate != null">
-        update_date_ = #{record.updateDate,jdbcType=TIMESTAMP},
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -216,15 +205,14 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update gcm_category_attribute
-    set uid_ = #{record.uid,jdbcType=BIGINT},
-      category_code_ = #{record.categoryCode,jdbcType=VARCHAR},
-      code_ = #{record.code,jdbcType=VARCHAR},
-      name_ = #{record.name,jdbcType=VARCHAR},
-      remark_ = #{record.remark,jdbcType=VARCHAR},
-      app_user_ = #{record.appUser,jdbcType=VARCHAR},
-      app_date_ = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user_ = #{record.updateUser,jdbcType=VARCHAR},
-      update_date_ = #{record.updateDate,jdbcType=TIMESTAMP}
+    set id = #{record.id,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      app_user = #{record.appUser,jdbcType=VARCHAR},
+      app_date = #{record.appDate,jdbcType=TIMESTAMP},
+      update_user = #{record.updateUser,jdbcType=VARCHAR},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -232,43 +220,39 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.GcmCategoryAttribute">
     update gcm_category_attribute
     <set>
-      <if test="categoryCode != null">
-        category_code_ = #{categoryCode,jdbcType=VARCHAR},
-      </if>
-      <if test="code != null">
-        code_ = #{code,jdbcType=VARCHAR},
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
-        name_ = #{name,jdbcType=VARCHAR},
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="remark != null">
-        remark_ = #{remark,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
       </if>
       <if test="appUser != null">
-        app_user_ = #{appUser,jdbcType=VARCHAR},
+        app_user = #{appUser,jdbcType=VARCHAR},
       </if>
       <if test="appDate != null">
-        app_date_ = #{appDate,jdbcType=TIMESTAMP},
+        app_date = #{appDate,jdbcType=TIMESTAMP},
       </if>
       <if test="updateUser != null">
-        update_user_ = #{updateUser,jdbcType=VARCHAR},
+        update_user = #{updateUser,jdbcType=VARCHAR},
       </if>
       <if test="updateDate != null">
-        update_date_ = #{updateDate,jdbcType=TIMESTAMP},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where uid_ = #{uid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.GcmCategoryAttribute">
     update gcm_category_attribute
-    set category_code_ = #{categoryCode,jdbcType=VARCHAR},
-      code_ = #{code,jdbcType=VARCHAR},
-      name_ = #{name,jdbcType=VARCHAR},
-      remark_ = #{remark,jdbcType=VARCHAR},
-      app_user_ = #{appUser,jdbcType=VARCHAR},
-      app_date_ = #{appDate,jdbcType=TIMESTAMP},
-      update_user_ = #{updateUser,jdbcType=VARCHAR},
-      update_date_ = #{updateDate,jdbcType=TIMESTAMP}
-    where uid_ = #{uid,jdbcType=BIGINT}
+    set category_id = #{categoryId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      app_user = #{appUser,jdbcType=VARCHAR},
+      app_date = #{appDate,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

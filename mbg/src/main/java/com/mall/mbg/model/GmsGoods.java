@@ -7,28 +7,22 @@ import java.util.Date;
 
 public class GmsGoods implements Serializable {
     /**
-     * 主键UID
+     * 商品编号
      */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    @ApiModelProperty(value = "商品编号")
+    private String id;
 
     /**
      * 帐套代码
      */
     @ApiModelProperty(value = "帐套代码")
-    private String corpNo;
-
-    /**
-     * 料号
-     */
-    @ApiModelProperty(value = "料号")
-    private String code;
+    private String merchantId;
 
     /**
      * 旧料号
      */
     @ApiModelProperty(value = "旧料号")
-    private String oldCode;
+    private String oldId;
 
     /**
      * 品牌
@@ -58,7 +52,7 @@ public class GmsGoods implements Serializable {
      * 品名
      */
     @ApiModelProperty(value = "品名")
-    private String desc;
+    private String description;
 
     /**
      * 商品类型
@@ -70,7 +64,7 @@ public class GmsGoods implements Serializable {
      * 拼音速查码
      */
     @ApiModelProperty(value = "拼音速查码")
-    private String pyCode;
+    private String pyId;
 
     /**
      * 规格
@@ -88,7 +82,7 @@ public class GmsGoods implements Serializable {
      * 存放位置
      */
     @ApiModelProperty(value = "存放位置")
-    private String cwCode;
+    private String cwId;
 
     /**
      * 默认储位
@@ -166,13 +160,13 @@ public class GmsGoods implements Serializable {
      * 内部条码
      */
     @ApiModelProperty(value = "内部条码")
-    private String idCode;
+    private String idId;
 
     /**
      * 外箱条码
      */
     @ApiModelProperty(value = "外箱条码")
-    private String boxCode;
+    private String boxId;
 
     /**
      * 包装单位
@@ -190,13 +184,13 @@ public class GmsGoods implements Serializable {
      * 商品条码
      */
     @ApiModelProperty(value = "商品条码")
-    private String barcode;
+    private String barid;
 
     /**
      * 旧(料号)条码
      */
     @ApiModelProperty(value = "旧(料号)条码")
-    private String oldBarcode;
+    private String oldBarid;
 
     /**
      * 上市年月
@@ -220,7 +214,7 @@ public class GmsGoods implements Serializable {
      * 供应商代码
      */
     @ApiModelProperty(value = "供应商代码")
-    private String supCode;
+    private String supId;
 
     /**
      * 生效状态
@@ -238,7 +232,7 @@ public class GmsGoods implements Serializable {
      * 最近采购厂商
      */
     @ApiModelProperty(value = "最近采购厂商")
-    private String lastSupCode;
+    private String lastSupId;
 
     /**
      * 更新人员
@@ -280,7 +274,7 @@ public class GmsGoods implements Serializable {
      * 商品型号
      */
     @ApiModelProperty(value = "商品型号")
-    private String modelCode;
+    private String modelId;
 
     /**
      * 材料类别
@@ -388,7 +382,7 @@ public class GmsGoods implements Serializable {
      * 生产单位
      */
     @ApiModelProperty(value = "生产单位")
-    private String deptCode;
+    private String deptId;
 
     /**
      * 成本金额
@@ -412,40 +406,32 @@ public class GmsGoods implements Serializable {
      * 商品属性选项
      */
     @ApiModelProperty(value = "商品属性选项")
-    private String option;
+    private String optional;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public String getCode() {
-        return code;
+    public String getOldId() {
+        return oldId;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getOldCode() {
-        return oldCode;
-    }
-
-    public void setOldCode(String oldCode) {
-        this.oldCode = oldCode;
+    public void setOldId(String oldId) {
+        this.oldId = oldId;
     }
 
     public String getBrand() {
@@ -480,12 +466,12 @@ public class GmsGoods implements Serializable {
         this.class3 = class3;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPartType() {
@@ -496,12 +482,12 @@ public class GmsGoods implements Serializable {
         this.partType = partType;
     }
 
-    public String getPyCode() {
-        return pyCode;
+    public String getPyId() {
+        return pyId;
     }
 
-    public void setPyCode(String pyCode) {
-        this.pyCode = pyCode;
+    public void setPyId(String pyId) {
+        this.pyId = pyId;
     }
 
     public String getSpec() {
@@ -520,12 +506,12 @@ public class GmsGoods implements Serializable {
         this.unit = unit;
     }
 
-    public String getCwCode() {
-        return cwCode;
+    public String getCwId() {
+        return cwId;
     }
 
-    public void setCwCode(String cwCode) {
-        this.cwCode = cwCode;
+    public void setCwId(String cwId) {
+        this.cwId = cwId;
     }
 
     public String getDefaultCw() {
@@ -624,20 +610,20 @@ public class GmsGoods implements Serializable {
         this.shareRate = shareRate;
     }
 
-    public String getIdCode() {
-        return idCode;
+    public String getIdId() {
+        return idId;
     }
 
-    public void setIdCode(String idCode) {
-        this.idCode = idCode;
+    public void setIdId(String idId) {
+        this.idId = idId;
     }
 
-    public String getBoxCode() {
-        return boxCode;
+    public String getBoxId() {
+        return boxId;
     }
 
-    public void setBoxCode(String boxCode) {
-        this.boxCode = boxCode;
+    public void setBoxId(String boxId) {
+        this.boxId = boxId;
     }
 
     public String getBoxUnit() {
@@ -656,20 +642,20 @@ public class GmsGoods implements Serializable {
         this.boxNum = boxNum;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getBarid() {
+        return barid;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setBarid(String barid) {
+        this.barid = barid;
     }
 
-    public String getOldBarcode() {
-        return oldBarcode;
+    public String getOldBarid() {
+        return oldBarid;
     }
 
-    public void setOldBarcode(String oldBarcode) {
-        this.oldBarcode = oldBarcode;
+    public void setOldBarid(String oldBarid) {
+        this.oldBarid = oldBarid;
     }
 
     public Integer getPushMonth() {
@@ -696,12 +682,12 @@ public class GmsGoods implements Serializable {
         this.remark = remark;
     }
 
-    public String getSupCode() {
-        return supCode;
+    public String getSupId() {
+        return supId;
     }
 
-    public void setSupCode(String supCode) {
-        this.supCode = supCode;
+    public void setSupId(String supId) {
+        this.supId = supId;
     }
 
     public Integer getStatus() {
@@ -720,12 +706,12 @@ public class GmsGoods implements Serializable {
         this.fileNum = fileNum;
     }
 
-    public String getLastSupCode() {
-        return lastSupCode;
+    public String getLastSupId() {
+        return lastSupId;
     }
 
-    public void setLastSupCode(String lastSupCode) {
-        this.lastSupCode = lastSupCode;
+    public void setLastSupId(String lastSupId) {
+        this.lastSupId = lastSupId;
     }
 
     public String getUpdateUser() {
@@ -776,12 +762,12 @@ public class GmsGoods implements Serializable {
         this.allowDiscount = allowDiscount;
     }
 
-    public String getModelCode() {
-        return modelCode;
+    public String getModelId() {
+        return modelId;
     }
 
-    public void setModelCode(String modelCode) {
-        this.modelCode = modelCode;
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
     }
 
     public Integer getBomLevel() {
@@ -920,12 +906,12 @@ public class GmsGoods implements Serializable {
         this.bomProperty = bomProperty;
     }
 
-    public String getDeptCode() {
-        return deptCode;
+    public String getDeptId() {
+        return deptId;
     }
 
-    public void setDeptCode(String deptCode) {
-        this.deptCode = deptCode;
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
     }
 
     public BigDecimal getCostAmount() {
@@ -952,12 +938,12 @@ public class GmsGoods implements Serializable {
         this.virtualStock = virtualStock;
     }
 
-    public String getOption() {
-        return option;
+    public String getOptional() {
+        return optional;
     }
 
-    public void setOption(String option) {
-        this.option = option;
+    public void setOptional(String optional) {
+        this.optional = optional;
     }
 
     @Override
@@ -966,20 +952,19 @@ public class GmsGoods implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", code=").append(code);
-        sb.append(", oldCode=").append(oldCode);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
+        sb.append(", oldId=").append(oldId);
         sb.append(", brand=").append(brand);
         sb.append(", class1=").append(class1);
         sb.append(", class2=").append(class2);
         sb.append(", class3=").append(class3);
-        sb.append(", desc=").append(desc);
+        sb.append(", description=").append(description);
         sb.append(", partType=").append(partType);
-        sb.append(", pyCode=").append(pyCode);
+        sb.append(", pyId=").append(pyId);
         sb.append(", spec=").append(spec);
         sb.append(", unit=").append(unit);
-        sb.append(", cwCode=").append(cwCode);
+        sb.append(", cwId=").append(cwId);
         sb.append(", defaultCw=").append(defaultCw);
         sb.append(", inUp=").append(inUp);
         sb.append(", outUp=").append(outUp);
@@ -992,26 +977,26 @@ public class GmsGoods implements Serializable {
         sb.append(", used=").append(used);
         sb.append(", objType=").append(objType);
         sb.append(", shareRate=").append(shareRate);
-        sb.append(", idCode=").append(idCode);
-        sb.append(", boxCode=").append(boxCode);
+        sb.append(", idId=").append(idId);
+        sb.append(", boxId=").append(boxId);
         sb.append(", boxUnit=").append(boxUnit);
         sb.append(", boxNum=").append(boxNum);
-        sb.append(", barcode=").append(barcode);
-        sb.append(", oldBarcode=").append(oldBarcode);
+        sb.append(", barid=").append(barid);
+        sb.append(", oldBarid=").append(oldBarid);
         sb.append(", pushMonth=").append(pushMonth);
         sb.append(", readmeUrl=").append(readmeUrl);
         sb.append(", remark=").append(remark);
-        sb.append(", supCode=").append(supCode);
+        sb.append(", supId=").append(supId);
         sb.append(", status=").append(status);
         sb.append(", fileNum=").append(fileNum);
-        sb.append(", lastSupCode=").append(lastSupCode);
+        sb.append(", lastSupId=").append(lastSupId);
         sb.append(", updateUser=").append(updateUser);
         sb.append(", updateDate=").append(updateDate);
         sb.append(", appUser=").append(appUser);
         sb.append(", appDate=").append(appDate);
         sb.append(", updateKey=").append(updateKey);
         sb.append(", allowDiscount=").append(allowDiscount);
-        sb.append(", modelCode=").append(modelCode);
+        sb.append(", modelId=").append(modelId);
         sb.append(", bomLevel=").append(bomLevel);
         sb.append(", partViewTop=").append(partViewTop);
         sb.append(", volume=").append(volume);
@@ -1029,11 +1014,11 @@ public class GmsGoods implements Serializable {
         sb.append(", seNo=").append(seNo);
         sb.append(", isSync=").append(isSync);
         sb.append(", bomProperty=").append(bomProperty);
-        sb.append(", deptCode=").append(deptCode);
+        sb.append(", deptId=").append(deptId);
         sb.append(", costAmount=").append(costAmount);
         sb.append(", deliveryCycle=").append(deliveryCycle);
         sb.append(", virtualStock=").append(virtualStock);
-        sb.append(", option=").append(option);
+        sb.append(", optional=").append(optional);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -1051,20 +1036,19 @@ public class GmsGoods implements Serializable {
             return false;
         }
         GmsGoods other = (GmsGoods) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
-            && (this.getOldCode() == null ? other.getOldCode() == null : this.getOldCode().equals(other.getOldCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+            && (this.getOldId() == null ? other.getOldId() == null : this.getOldId().equals(other.getOldId()))
             && (this.getBrand() == null ? other.getBrand() == null : this.getBrand().equals(other.getBrand()))
             && (this.getClass1() == null ? other.getClass1() == null : this.getClass1().equals(other.getClass1()))
             && (this.getClass2() == null ? other.getClass2() == null : this.getClass2().equals(other.getClass2()))
             && (this.getClass3() == null ? other.getClass3() == null : this.getClass3().equals(other.getClass3()))
-            && (this.getDesc() == null ? other.getDesc() == null : this.getDesc().equals(other.getDesc()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getPartType() == null ? other.getPartType() == null : this.getPartType().equals(other.getPartType()))
-            && (this.getPyCode() == null ? other.getPyCode() == null : this.getPyCode().equals(other.getPyCode()))
+            && (this.getPyId() == null ? other.getPyId() == null : this.getPyId().equals(other.getPyId()))
             && (this.getSpec() == null ? other.getSpec() == null : this.getSpec().equals(other.getSpec()))
             && (this.getUnit() == null ? other.getUnit() == null : this.getUnit().equals(other.getUnit()))
-            && (this.getCwCode() == null ? other.getCwCode() == null : this.getCwCode().equals(other.getCwCode()))
+            && (this.getCwId() == null ? other.getCwId() == null : this.getCwId().equals(other.getCwId()))
             && (this.getDefaultCw() == null ? other.getDefaultCw() == null : this.getDefaultCw().equals(other.getDefaultCw()))
             && (this.getInUp() == null ? other.getInUp() == null : this.getInUp().equals(other.getInUp()))
             && (this.getOutUp() == null ? other.getOutUp() == null : this.getOutUp().equals(other.getOutUp()))
@@ -1077,26 +1061,26 @@ public class GmsGoods implements Serializable {
             && (this.getUsed() == null ? other.getUsed() == null : this.getUsed().equals(other.getUsed()))
             && (this.getObjType() == null ? other.getObjType() == null : this.getObjType().equals(other.getObjType()))
             && (this.getShareRate() == null ? other.getShareRate() == null : this.getShareRate().equals(other.getShareRate()))
-            && (this.getIdCode() == null ? other.getIdCode() == null : this.getIdCode().equals(other.getIdCode()))
-            && (this.getBoxCode() == null ? other.getBoxCode() == null : this.getBoxCode().equals(other.getBoxCode()))
+            && (this.getIdId() == null ? other.getIdId() == null : this.getIdId().equals(other.getIdId()))
+            && (this.getBoxId() == null ? other.getBoxId() == null : this.getBoxId().equals(other.getBoxId()))
             && (this.getBoxUnit() == null ? other.getBoxUnit() == null : this.getBoxUnit().equals(other.getBoxUnit()))
             && (this.getBoxNum() == null ? other.getBoxNum() == null : this.getBoxNum().equals(other.getBoxNum()))
-            && (this.getBarcode() == null ? other.getBarcode() == null : this.getBarcode().equals(other.getBarcode()))
-            && (this.getOldBarcode() == null ? other.getOldBarcode() == null : this.getOldBarcode().equals(other.getOldBarcode()))
+            && (this.getBarid() == null ? other.getBarid() == null : this.getBarid().equals(other.getBarid()))
+            && (this.getOldBarid() == null ? other.getOldBarid() == null : this.getOldBarid().equals(other.getOldBarid()))
             && (this.getPushMonth() == null ? other.getPushMonth() == null : this.getPushMonth().equals(other.getPushMonth()))
             && (this.getReadmeUrl() == null ? other.getReadmeUrl() == null : this.getReadmeUrl().equals(other.getReadmeUrl()))
             && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
-            && (this.getSupCode() == null ? other.getSupCode() == null : this.getSupCode().equals(other.getSupCode()))
+            && (this.getSupId() == null ? other.getSupId() == null : this.getSupId().equals(other.getSupId()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getFileNum() == null ? other.getFileNum() == null : this.getFileNum().equals(other.getFileNum()))
-            && (this.getLastSupCode() == null ? other.getLastSupCode() == null : this.getLastSupCode().equals(other.getLastSupCode()))
+            && (this.getLastSupId() == null ? other.getLastSupId() == null : this.getLastSupId().equals(other.getLastSupId()))
             && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
             && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
             && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
             && (this.getUpdateKey() == null ? other.getUpdateKey() == null : this.getUpdateKey().equals(other.getUpdateKey()))
             && (this.getAllowDiscount() == null ? other.getAllowDiscount() == null : this.getAllowDiscount().equals(other.getAllowDiscount()))
-            && (this.getModelCode() == null ? other.getModelCode() == null : this.getModelCode().equals(other.getModelCode()))
+            && (this.getModelId() == null ? other.getModelId() == null : this.getModelId().equals(other.getModelId()))
             && (this.getBomLevel() == null ? other.getBomLevel() == null : this.getBomLevel().equals(other.getBomLevel()))
             && (this.getPartViewTop() == null ? other.getPartViewTop() == null : this.getPartViewTop().equals(other.getPartViewTop()))
             && (this.getVolume() == null ? other.getVolume() == null : this.getVolume().equals(other.getVolume()))
@@ -1114,31 +1098,30 @@ public class GmsGoods implements Serializable {
             && (this.getSeNo() == null ? other.getSeNo() == null : this.getSeNo().equals(other.getSeNo()))
             && (this.getIsSync() == null ? other.getIsSync() == null : this.getIsSync().equals(other.getIsSync()))
             && (this.getBomProperty() == null ? other.getBomProperty() == null : this.getBomProperty().equals(other.getBomProperty()))
-            && (this.getDeptCode() == null ? other.getDeptCode() == null : this.getDeptCode().equals(other.getDeptCode()))
+            && (this.getDeptId() == null ? other.getDeptId() == null : this.getDeptId().equals(other.getDeptId()))
             && (this.getCostAmount() == null ? other.getCostAmount() == null : this.getCostAmount().equals(other.getCostAmount()))
             && (this.getDeliveryCycle() == null ? other.getDeliveryCycle() == null : this.getDeliveryCycle().equals(other.getDeliveryCycle()))
             && (this.getVirtualStock() == null ? other.getVirtualStock() == null : this.getVirtualStock().equals(other.getVirtualStock()))
-            && (this.getOption() == null ? other.getOption() == null : this.getOption().equals(other.getOption()));
+            && (this.getOptional() == null ? other.getOptional() == null : this.getOptional().equals(other.getOptional()));
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
-        result = prime * result + ((getOldCode() == null) ? 0 : getOldCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
+        result = prime * result + ((getOldId() == null) ? 0 : getOldId().hashCode());
         result = prime * result + ((getBrand() == null) ? 0 : getBrand().hashCode());
         result = prime * result + ((getClass1() == null) ? 0 : getClass1().hashCode());
         result = prime * result + ((getClass2() == null) ? 0 : getClass2().hashCode());
         result = prime * result + ((getClass3() == null) ? 0 : getClass3().hashCode());
-        result = prime * result + ((getDesc() == null) ? 0 : getDesc().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getPartType() == null) ? 0 : getPartType().hashCode());
-        result = prime * result + ((getPyCode() == null) ? 0 : getPyCode().hashCode());
+        result = prime * result + ((getPyId() == null) ? 0 : getPyId().hashCode());
         result = prime * result + ((getSpec() == null) ? 0 : getSpec().hashCode());
         result = prime * result + ((getUnit() == null) ? 0 : getUnit().hashCode());
-        result = prime * result + ((getCwCode() == null) ? 0 : getCwCode().hashCode());
+        result = prime * result + ((getCwId() == null) ? 0 : getCwId().hashCode());
         result = prime * result + ((getDefaultCw() == null) ? 0 : getDefaultCw().hashCode());
         result = prime * result + ((getInUp() == null) ? 0 : getInUp().hashCode());
         result = prime * result + ((getOutUp() == null) ? 0 : getOutUp().hashCode());
@@ -1151,26 +1134,26 @@ public class GmsGoods implements Serializable {
         result = prime * result + ((getUsed() == null) ? 0 : getUsed().hashCode());
         result = prime * result + ((getObjType() == null) ? 0 : getObjType().hashCode());
         result = prime * result + ((getShareRate() == null) ? 0 : getShareRate().hashCode());
-        result = prime * result + ((getIdCode() == null) ? 0 : getIdCode().hashCode());
-        result = prime * result + ((getBoxCode() == null) ? 0 : getBoxCode().hashCode());
+        result = prime * result + ((getIdId() == null) ? 0 : getIdId().hashCode());
+        result = prime * result + ((getBoxId() == null) ? 0 : getBoxId().hashCode());
         result = prime * result + ((getBoxUnit() == null) ? 0 : getBoxUnit().hashCode());
         result = prime * result + ((getBoxNum() == null) ? 0 : getBoxNum().hashCode());
-        result = prime * result + ((getBarcode() == null) ? 0 : getBarcode().hashCode());
-        result = prime * result + ((getOldBarcode() == null) ? 0 : getOldBarcode().hashCode());
+        result = prime * result + ((getBarid() == null) ? 0 : getBarid().hashCode());
+        result = prime * result + ((getOldBarid() == null) ? 0 : getOldBarid().hashCode());
         result = prime * result + ((getPushMonth() == null) ? 0 : getPushMonth().hashCode());
         result = prime * result + ((getReadmeUrl() == null) ? 0 : getReadmeUrl().hashCode());
         result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
-        result = prime * result + ((getSupCode() == null) ? 0 : getSupCode().hashCode());
+        result = prime * result + ((getSupId() == null) ? 0 : getSupId().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getFileNum() == null) ? 0 : getFileNum().hashCode());
-        result = prime * result + ((getLastSupCode() == null) ? 0 : getLastSupCode().hashCode());
+        result = prime * result + ((getLastSupId() == null) ? 0 : getLastSupId().hashCode());
         result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());
         result = prime * result + ((getUpdateDate() == null) ? 0 : getUpdateDate().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
         result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
         result = prime * result + ((getUpdateKey() == null) ? 0 : getUpdateKey().hashCode());
         result = prime * result + ((getAllowDiscount() == null) ? 0 : getAllowDiscount().hashCode());
-        result = prime * result + ((getModelCode() == null) ? 0 : getModelCode().hashCode());
+        result = prime * result + ((getModelId() == null) ? 0 : getModelId().hashCode());
         result = prime * result + ((getBomLevel() == null) ? 0 : getBomLevel().hashCode());
         result = prime * result + ((getPartViewTop() == null) ? 0 : getPartViewTop().hashCode());
         result = prime * result + ((getVolume() == null) ? 0 : getVolume().hashCode());
@@ -1188,11 +1171,11 @@ public class GmsGoods implements Serializable {
         result = prime * result + ((getSeNo() == null) ? 0 : getSeNo().hashCode());
         result = prime * result + ((getIsSync() == null) ? 0 : getIsSync().hashCode());
         result = prime * result + ((getBomProperty() == null) ? 0 : getBomProperty().hashCode());
-        result = prime * result + ((getDeptCode() == null) ? 0 : getDeptCode().hashCode());
+        result = prime * result + ((getDeptId() == null) ? 0 : getDeptId().hashCode());
         result = prime * result + ((getCostAmount() == null) ? 0 : getCostAmount().hashCode());
         result = prime * result + ((getDeliveryCycle() == null) ? 0 : getDeliveryCycle().hashCode());
         result = prime * result + ((getVirtualStock() == null) ? 0 : getVirtualStock().hashCode());
-        result = prime * result + ((getOption() == null) ? 0 : getOption().hashCode());
+        result = prime * result + ((getOptional() == null) ? 0 : getOptional().hashCode());
         return result;
     }
 }

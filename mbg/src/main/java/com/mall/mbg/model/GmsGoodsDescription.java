@@ -5,29 +5,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GmsGoodsDescription implements Serializable {
-    /**
-     * 主键UID
-     */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
+    private String id;
 
     /**
      * 账套代码
      */
     @ApiModelProperty(value = "账套代码")
-    private String corpNo;
+    private String merchantId;
 
     /**
      * 商品料号
      */
     @ApiModelProperty(value = "商品料号")
-    private String goodsCode;
-
-    /**
-     * Description唯一id
-     */
-    @ApiModelProperty(value = "Description唯一id")
-    private String code;
+    private String goodsId;
 
     /**
      * 启用状态
@@ -73,36 +63,28 @@ public class GmsGoodsDescription implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCorpNo() {
-        return corpNo;
+    public String getMerchantId() {
+        return merchantId;
     }
 
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setMerchantId(String merchantId) {
+        this.merchantId = merchantId;
     }
 
-    public String getGoodsCode() {
-        return goodsCode;
+    public String getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoodsCode(String goodsCode) {
-        this.goodsCode = goodsCode;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId;
     }
 
     public Integer getStatus() {
@@ -167,10 +149,9 @@ public class GmsGoodsDescription implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
-        sb.append(", goodsCode=").append(goodsCode);
-        sb.append(", code=").append(code);
+        sb.append(", id=").append(id);
+        sb.append(", merchantId=").append(merchantId);
+        sb.append(", goodsId=").append(goodsId);
         sb.append(", status=").append(status);
         sb.append(", title=").append(title);
         sb.append(", appUser=").append(appUser);
@@ -195,10 +176,9 @@ public class GmsGoodsDescription implements Serializable {
             return false;
         }
         GmsGoodsDescription other = (GmsGoodsDescription) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
-            && (this.getGoodsCode() == null ? other.getGoodsCode() == null : this.getGoodsCode().equals(other.getGoodsCode()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+            && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
@@ -212,10 +192,9 @@ public class GmsGoodsDescription implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
-        result = prime * result + ((getGoodsCode() == null) ? 0 : getGoodsCode().hashCode());
-        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+        result = prime * result + ((getMerchantId() == null) ? 0 : getMerchantId().hashCode());
+        result = prime * result + ((getGoodsId() == null) ? 0 : getGoodsId().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());

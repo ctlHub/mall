@@ -6,16 +6,10 @@ import java.util.Date;
 
 public class MmsMerchant implements Serializable {
     /**
-     * 主键UID
+     * 商家id
      */
-    @ApiModelProperty(value = "主键UID")
-    private Integer uid;
-
-    /**
-     * 帐套代码
-     */
-    @ApiModelProperty(value = "帐套代码")
-    private String corpNo;
+    @ApiModelProperty(value = "商家id")
+    private String id;
 
     /**
      * 商家名称
@@ -33,7 +27,7 @@ public class MmsMerchant implements Serializable {
      * 行业代码
      */
     @ApiModelProperty(value = "行业代码")
-    private String industryCode;
+    private String industryId;
 
     /**
      * 页面上的logo
@@ -79,20 +73,12 @@ public class MmsMerchant implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
-
-    public String getCorpNo() {
-        return corpNo;
-    }
-
-    public void setCorpNo(String corpNo) {
-        this.corpNo = corpNo;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -111,12 +97,12 @@ public class MmsMerchant implements Serializable {
         this.status = status;
     }
 
-    public String getIndustryCode() {
-        return industryCode;
+    public String getIndustryId() {
+        return industryId;
     }
 
-    public void setIndustryCode(String industryCode) {
-        this.industryCode = industryCode;
+    public void setIndustryId(String industryId) {
+        this.industryId = industryId;
     }
 
     public String getLogo() {
@@ -181,11 +167,10 @@ public class MmsMerchant implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", corpNo=").append(corpNo);
+        sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", status=").append(status);
-        sb.append(", industryCode=").append(industryCode);
+        sb.append(", industryId=").append(industryId);
         sb.append(", logo=").append(logo);
         sb.append(", phoneIcon=").append(phoneIcon);
         sb.append(", pcIcon=").append(pcIcon);
@@ -210,11 +195,10 @@ public class MmsMerchant implements Serializable {
             return false;
         }
         MmsMerchant other = (MmsMerchant) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getCorpNo() == null ? other.getCorpNo() == null : this.getCorpNo().equals(other.getCorpNo()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getIndustryCode() == null ? other.getIndustryCode() == null : this.getIndustryCode().equals(other.getIndustryCode()))
+            && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
             && (this.getLogo() == null ? other.getLogo() == null : this.getLogo().equals(other.getLogo()))
             && (this.getPhoneIcon() == null ? other.getPhoneIcon() == null : this.getPhoneIcon().equals(other.getPhoneIcon()))
             && (this.getPcIcon() == null ? other.getPcIcon() == null : this.getPcIcon().equals(other.getPcIcon()))
@@ -228,11 +212,10 @@ public class MmsMerchant implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getCorpNo() == null) ? 0 : getCorpNo().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getIndustryCode() == null) ? 0 : getIndustryCode().hashCode());
+        result = prime * result + ((getIndustryId() == null) ? 0 : getIndustryId().hashCode());
         result = prime * result + ((getLogo() == null) ? 0 : getLogo().hashCode());
         result = prime * result + ((getPhoneIcon() == null) ? 0 : getPhoneIcon().hashCode());
         result = prime * result + ((getPcIcon() == null) ? 0 : getPcIcon().hashCode());

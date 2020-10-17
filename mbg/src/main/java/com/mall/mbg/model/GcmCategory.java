@@ -5,31 +5,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GcmCategory implements Serializable {
-    private Long uid;
-
-    /**
-     * 行业代码
-     */
-    @ApiModelProperty(value = "行业代码")
-    private String industryCode;
-
     /**
      * 分类编号
      */
     @ApiModelProperty(value = "分类编号")
-    private String code;
+    private String id;
 
     /**
      * 分类名称
      */
     @ApiModelProperty(value = "分类名称")
     private String name;
-
-    /**
-     * 地藤大类代码
-     */
-    @ApiModelProperty(value = "地藤大类代码")
-    private String ditengClassCode;
 
     /**
      * 创建人
@@ -57,28 +43,12 @@ public class GcmCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getUid() {
-        return uid;
+    public String getId() {
+        return id;
     }
 
-    public void setUid(Long uid) {
-        this.uid = uid;
-    }
-
-    public String getIndustryCode() {
-        return industryCode;
-    }
-
-    public void setIndustryCode(String industryCode) {
-        this.industryCode = industryCode;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -87,14 +57,6 @@ public class GcmCategory implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDitengClassCode() {
-        return ditengClassCode;
-    }
-
-    public void setDitengClassCode(String ditengClassCode) {
-        this.ditengClassCode = ditengClassCode;
     }
 
     public String getAppUser() {
@@ -135,11 +97,8 @@ public class GcmCategory implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", uid=").append(uid);
-        sb.append(", industryCode=").append(industryCode);
-        sb.append(", code=").append(code);
+        sb.append(", id=").append(id);
         sb.append(", name=").append(name);
-        sb.append(", ditengClassCode=").append(ditengClassCode);
         sb.append(", appUser=").append(appUser);
         sb.append(", appDate=").append(appDate);
         sb.append(", updateUser=").append(updateUser);
@@ -161,11 +120,8 @@ public class GcmCategory implements Serializable {
             return false;
         }
         GcmCategory other = (GcmCategory) that;
-        return (this.getUid() == null ? other.getUid() == null : this.getUid().equals(other.getUid()))
-            && (this.getIndustryCode() == null ? other.getIndustryCode() == null : this.getIndustryCode().equals(other.getIndustryCode()))
-            && (this.getCode() == null ? other.getCode() == null : this.getCode().equals(other.getCode()))
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getDitengClassCode() == null ? other.getDitengClassCode() == null : this.getDitengClassCode().equals(other.getDitengClassCode()))
             && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
             && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
             && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
@@ -176,11 +132,8 @@ public class GcmCategory implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getUid() == null) ? 0 : getUid().hashCode());
-        result = prime * result + ((getIndustryCode() == null) ? 0 : getIndustryCode().hashCode());
-        result = prime * result + ((getCode() == null) ? 0 : getCode().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getDitengClassCode() == null) ? 0 : getDitengClassCode().hashCode());
         result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
         result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
         result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());

@@ -18,15 +18,15 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DataSetJsonRequestParam {
 
-    /**
-     * 请求参数中的字段名
-     */
-    String value();
+  /**
+   * 请求参数中的字段名
+   */
+  String value();
 
-    /**
-     * List中是哪个类
-     */
-    Class<?> type();
+  /**
+   * List中是哪个类
+   */
+  Class<?> type();
 
-    boolean required() default true;
+  boolean required() default true;
 }

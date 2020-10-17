@@ -284,9 +284,9 @@
             or g.box_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
             )
         </if>
-        <if test="secondaryGoodsCode != null and secondaryGoodsCode.size() > 0">
+        <if test="SecondaryGoodsId != null and SecondaryGoodsId.size() > 0">
             and g.code_ not in
-            <foreach item="item" index="index" collection="secondaryGoodsCode" open="(" separator="," close=")">
+            <foreach item="item" index="index" collection="SecondaryGoodsId" open="(" separator="," close=")">
                 #{item}
             </foreach>
         </if>

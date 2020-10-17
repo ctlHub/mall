@@ -8,15 +8,15 @@ package com.mall.entity.model;
  * @date 2020/9/28 14:01
  */
 public enum CarouselDeviceEnum {
-    PC(0),
-    PHONE(1);
-    int code;
+  PC(0),
+  PHONE(1);
+  int code;
 
-    public int getCode() {
-        return code;
-    }
+  CarouselDeviceEnum(int code) {
+    this.code = code;
+  }
 
-    CarouselDeviceEnum(int code) {
-        this.code = code;
-    }
+  public int getId() {
+    return code;
+  }
 }

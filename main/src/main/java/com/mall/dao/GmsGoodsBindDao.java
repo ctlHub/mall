@@ -11,5 +11,5 @@ import java.util.List;
  * @date 2020/10/9 10:46
  */
 public interface GmsGoodsBindDao {
-    List<GmsGoods> get(String corpNo, String primaryGoodsCode);
+  List<GmsGoods> get(String corpNo, String PrimaryGoodsId);
 }

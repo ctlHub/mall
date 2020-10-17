@@ -1,16 +1,16 @@
 package com.mall.mbg.mapper;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 import com.mall.mbg.model.GmsGoods;
 import com.mall.mbg.model.GmsGoodsExample;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface GmsGoodsMapper {
     long countByExample(GmsGoodsExample example);
 
     int deleteByExample(GmsGoodsExample example);
 
-    int deleteByPrimaryKey(Integer uid);
+    int deleteByPrimaryKey(String id);
 
     int insert(GmsGoods record);
 
@@ -20,7 +20,7 @@ public interface GmsGoodsMapper {
 
     List<GmsGoods> selectByExample(GmsGoodsExample example);
 
-    GmsGoods selectByPrimaryKey(Integer uid);
+    GmsGoods selectByPrimaryKey(String id);
 
     int updateByExampleSelective(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
 

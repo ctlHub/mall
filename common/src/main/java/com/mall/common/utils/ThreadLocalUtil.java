@@ -19,7 +19,7 @@ public class ThreadLocalUtil {
     private static final ThreadLocal<String> CORP_NO = new ThreadLocal<>();
     private static final ThreadLocal<String> USER_CODE = new ThreadLocal<>();
 
-    public static void setCorpNo(String cropNo) {
+    public static void setMerchantId(String cropNo) {
         CORP_NO.set(cropNo);
     }
 
@@ -27,7 +27,7 @@ public class ThreadLocalUtil {
         USER_CODE.set(userCode);
     }
 
-    public static String getCorpNo() {
+    public static String getMerchant() {
         return Optional.ofNullable(CORP_NO.get()).orElseThrow(() -> new MissRequiredParamException("帐套代码不允许为空"));
     }
 

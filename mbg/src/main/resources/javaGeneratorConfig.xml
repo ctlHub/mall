@@ -34,7 +34,7 @@
         <sqlMapGenerator targetPackage="com.mall.mbg.mapper" targetProject="mbg/src/main/resources"/>
         <javaClientGenerator targetPackage="com.mall.mbg.mapper" targetProject="mbg/src/main/java" type="XMLMAPPER"/>
         <table tableName="%">
-            <generatedKey column="uid_" sqlStatement="MySql" identity="true"/>
+            <!--<generatedKey column="uid_" sqlStatement="MySql" identity="true"/>-->
             <!--            <columnOverride column="id" javaType="java.lang.Long"/>-->
             <!--            去除注释后表中的下面这两列将会被忽略-->
             <!--            <ignoreColumn column="gmt_create"/>-->

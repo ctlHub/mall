@@ -1,13 +1,13 @@
 package com.mall.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import com.mall.common.utils.ModelUtils;
 import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.common.utils.ThreadLocalUtil;
 import com.mall.mbg.mapper.CmsIndexCarouselMapper;
 import com.mall.mbg.model.CmsIndexCarousel;
 import com.mall.mbg.model.CmsIndexCarouselExample;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -23,30 +23,30 @@ import java.util.List;
 @Service
 public class CmsCarouselService {
 
-    @Resource
-    CmsIndexCarouselMapper carouselMapper;
+  @Resource
+  CmsIndexCarouselMapper carouselMapper;
 
-    public List<CmsIndexCarousel> list(String imgCode) {
-        CmsIndexCarouselExample example = new CmsIndexCarouselExample();
-        CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
-        criteria.andCorpNoEqualTo(ThreadLocalUtil.getCorpNo());
-        if (!StringUtils.isEmpty(imgCode)) {
-            criteria.andImgCodeEqualTo(imgCode);
-        }
-        return carouselMapper.selectByExample(example);
+  public List<CmsIndexCarousel> list(String imgCode) {
+    CmsIndexCarouselExample example = new CmsIndexCarouselExample();
+    CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
+    criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
+    if (!StringUtils.isEmpty(imgCode)) {
+      criteria.andIdEqualTo(imgCode);
     }
+    return carouselMapper.selectByExample(example);
+  }
 
-    public Integer insert(CmsIndexCarousel indexCarousel) {
-        ModelUtils.setCreateAndUpdateInfo(indexCarousel);
-        indexCarousel.setImgCode(SnowflakeIdGenerator.genId());
-        return carouselMapper.insert(indexCarousel);
-    }
+  public Integer insert(CmsIndexCarousel indexCarousel) {
+    ModelUtils.setCreateAndUpdateInfo(indexCarousel);
+    indexCarousel.setId(SnowflakeIdGenerator.genId());
+    return carouselMapper.insert(indexCarousel);
+  }
 
-    public Integer delete(String imgCode) {
-        CmsIndexCarouselExample example = new CmsIndexCarouselExample();
-        CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
-        criteria.andCorpNoEqualTo(ThreadLocalUtil.getCorpNo());
-        criteria.andImgCodeEqualTo(imgCode);
-        return carouselMapper.deleteByExample(example);
-    }
+  public Integer delete(String imgCode) {
+    CmsIndexCarouselExample example = new CmsIndexCarouselExample();
+    CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
+    criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
+    criteria.andIdEqualTo(imgCode);
+    return carouselMapper.deleteByExample(example);
+  }
 }

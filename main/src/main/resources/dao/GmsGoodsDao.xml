@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.dao.GmsGoodsDao">
 
-    <resultMap id="GmsGoodsSearchResultMap" type="com.mall.entity.dto.GmsGoodsSearchResult"
-               extends="com.mall.mbg.mapper.GmsGoodsMapper.BaseResultMap">
-        <result column="tag_array" jdbcType="VARCHAR" property="tagArray"/>
-    </resultMap>
+  <resultMap id="GmsGoodsSearchResultMap" type="com.mall.entity.dto.GmsGoodsSearchResult"
+             extends="com.mall.mbg.mapper.GmsGoodsMapper.BaseResultMap">
+    <result column="tag_array" jdbcType="VARCHAR" property="tagArray"/>
+  </resultMap>
 
-    <sql id="onDuplicateKeyUpdate">
-        brand_=values(brand_),
+  <sql id="onDuplicateKeyUpdate">
+    brand_=values(brand_),
         class1_=values(class1_),
         class2_=values(class2_),
         class3_=values(class3_),
@@ -70,229 +70,229 @@
         cost_amount_=values(cost_amount_),
         delivery_cycle_=values(delivery_cycle_),
         option_=values(option_)
-    </sql>
+  </sql>
 
-    <!-- 商品同步 -->
-    <insert id="syncList">
-        insert into gms_goods (corp_no_, code_, old_code_,
-        brand_, class1_, class2_,
-        class3_, desc_, part_type_,
-        py_code_, spec_, unit_,
-        cw_code_, default_cw_, in_up_,
-        out_up_, out_up2_, list_up_,
-        cost_up_, vip_up_, vip_discount_,
-        up_control_, used_, obj_type_,
-        share_rate_, id_code_, box_code_,
-        box_unit_, box_num_, barcode_,
-        old_barcode_, push_month_, readme_url_,
-        remark_, sup_code_, status_,
-        file_num_, last_sup_code_, update_user_,
-        update_date_, app_user_, app_date_,
-        update_key_, allow_discount_, model_code_,
-        bom_level_, part_view_top_, volume_,
-        weight_, sales_status_, box_sales_,
-        box_purchase_, lower_shelf_, pur_front_day_,
-        forbid_pur_, classify_, marque_,
-        forecast_count_mrp_, forecast_count_month_, se_no_,
-        is_sync_, bom_property_, dept_code_,
-        cost_amount_, delivery_cycle_, option_
-        ) values
-        <foreach collection="list" item="item" separator="," index="index">
-            (#{item.corpNo,jdbcType=VARCHAR}, #{item.code,jdbcType=VARCHAR}, #{item.oldCode,jdbcType=VARCHAR},
-            #{item.brand,jdbcType=VARCHAR}, #{item.class1,jdbcType=VARCHAR}, #{item.class2,jdbcType=VARCHAR},
-            #{item.class3,jdbcType=VARCHAR}, #{item.desc,jdbcType=VARCHAR}, #{item.partType,jdbcType=VARCHAR},
-            #{item.pyCode,jdbcType=VARCHAR}, #{item.spec,jdbcType=VARCHAR}, #{item.unit,jdbcType=VARCHAR},
-            #{item.cwCode,jdbcType=VARCHAR}, #{item.defaultCw,jdbcType=VARCHAR}, #{item.inUp,jdbcType=DECIMAL},
-            #{item.outUp,jdbcType=DECIMAL}, #{item.outUp2,jdbcType=DECIMAL}, #{item.listUp,jdbcType=DECIMAL},
-            #{item.costUp,jdbcType=DECIMAL}, #{item.vipUp,jdbcType=DECIMAL}, #{item.vipDiscount,jdbcType=DECIMAL},
-            #{item.upControl,jdbcType=INTEGER}, #{item.used,jdbcType=INTEGER}, #{item.objType,jdbcType=VARCHAR},
-            #{item.shareRate,jdbcType=DECIMAL}, #{item.idCode,jdbcType=VARCHAR}, #{item.boxCode,jdbcType=VARCHAR},
-            #{item.boxUnit,jdbcType=VARCHAR}, #{item.boxNum,jdbcType=DECIMAL}, #{item.barcode,jdbcType=VARCHAR},
-            #{item.oldBarcode,jdbcType=VARCHAR}, #{item.pushMonth,jdbcType=INTEGER}, #{item.readmeUrl,jdbcType=VARCHAR},
-            #{item.remark,jdbcType=VARCHAR}, #{item.supCode,jdbcType=VARCHAR}, #{item.status,jdbcType=INTEGER},
-            0, #{item.lastSupCode,jdbcType=VARCHAR}, #{item.updateUser,jdbcType=VARCHAR},
-            #{item.updateDate,jdbcType=TIMESTAMP}, #{item.appUser,jdbcType=VARCHAR}, #{item.appDate,jdbcType=TIMESTAMP},
-            #{item.updateKey,jdbcType=VARCHAR}, #{item.allowDiscount,jdbcType=INTEGER},
-            #{item.modelCode,jdbcType=VARCHAR},
-            #{item.bomLevel,jdbcType=INTEGER}, #{item.partViewTop,jdbcType=INTEGER}, #{item.volume,jdbcType=DECIMAL},
-            #{item.weight,jdbcType=DECIMAL}, #{item.salesStatus,jdbcType=INTEGER}, #{item.boxSales,jdbcType=BIT},
-            #{item.boxPurchase,jdbcType=BIT}, #{item.lowerShelf,jdbcType=BIT}, #{item.purFrontDay,jdbcType=INTEGER},
-            #{item.forbidPur,jdbcType=BIT}, #{item.classify,jdbcType=INTEGER}, #{item.marque,jdbcType=VARCHAR},
-            #{item.forecastCountMrp,jdbcType=BIT}, #{item.forecastCountMonth,jdbcType=INTEGER},
-            #{item.seNo,jdbcType=VARCHAR},
-            #{item.isSync,jdbcType=BIT}, #{item.bomProperty,jdbcType=BIT}, #{item.deptCode,jdbcType=VARCHAR},
-            #{item.costAmount,jdbcType=DECIMAL}, #{item.deliveryCycle,jdbcType=INTEGER},
-            #{item.option,jdbcType=LONGVARCHAR}
-            )
-        </foreach>
-        on duplicate key update
-        <include refid="onDuplicateKeyUpdate"/>
-    </insert>
+  <!-- 商品同步 -->
+  <insert id="syncList">
+    insert into gms_goods (corp_no_, code_, old_code_,
+    brand_, class1_, class2_,
+    class3_, desc_, part_type_,
+    py_code_, spec_, unit_,
+    cw_code_, default_cw_, in_up_,
+    out_up_, out_up2_, list_up_,
+    cost_up_, vip_up_, vip_discount_,
+    up_control_, used_, obj_type_,
+    share_rate_, id_code_, box_code_,
+    box_unit_, box_num_, barcode_,
+    old_barcode_, push_month_, readme_url_,
+    remark_, sup_code_, status_,
+    file_num_, last_sup_code_, update_user_,
+    update_date_, app_user_, app_date_,
+    update_key_, allow_discount_, model_code_,
+    bom_level_, part_view_top_, volume_,
+    weight_, sales_status_, box_sales_,
+    box_purchase_, lower_shelf_, pur_front_day_,
+    forbid_pur_, classify_, marque_,
+    forecast_count_mrp_, forecast_count_month_, se_no_,
+    is_sync_, bom_property_, dept_code_,
+    cost_amount_, delivery_cycle_, option_
+    ) values
+    <foreach collection="list" item="item" separator="," index="index">
+      (#{item.corpNo,jdbcType=VARCHAR}, #{item.code,jdbcType=VARCHAR}, #{item.oldCode,jdbcType=VARCHAR},
+      #{item.brand,jdbcType=VARCHAR}, #{item.class1,jdbcType=VARCHAR}, #{item.class2,jdbcType=VARCHAR},
+      #{item.class3,jdbcType=VARCHAR}, #{item.desc,jdbcType=VARCHAR}, #{item.partType,jdbcType=VARCHAR},
+      #{item.pyCode,jdbcType=VARCHAR}, #{item.spec,jdbcType=VARCHAR}, #{item.unit,jdbcType=VARCHAR},
+      #{item.cwCode,jdbcType=VARCHAR}, #{item.defaultCw,jdbcType=VARCHAR}, #{item.inUp,jdbcType=DECIMAL},
+      #{item.outUp,jdbcType=DECIMAL}, #{item.outUp2,jdbcType=DECIMAL}, #{item.listUp,jdbcType=DECIMAL},
+      #{item.costUp,jdbcType=DECIMAL}, #{item.vipUp,jdbcType=DECIMAL}, #{item.vipDiscount,jdbcType=DECIMAL},
+      #{item.upControl,jdbcType=INTEGER}, #{item.used,jdbcType=INTEGER}, #{item.objType,jdbcType=VARCHAR},
+      #{item.shareRate,jdbcType=DECIMAL}, #{item.idCode,jdbcType=VARCHAR}, #{item.boxCode,jdbcType=VARCHAR},
+      #{item.boxUnit,jdbcType=VARCHAR}, #{item.boxNum,jdbcType=DECIMAL}, #{item.barcode,jdbcType=VARCHAR},
+      #{item.oldBarcode,jdbcType=VARCHAR}, #{item.pushMonth,jdbcType=INTEGER}, #{item.readmeUrl,jdbcType=VARCHAR},
+      #{item.remark,jdbcType=VARCHAR}, #{item.supCode,jdbcType=VARCHAR}, #{item.status,jdbcType=INTEGER},
+      0, #{item.lastSupCode,jdbcType=VARCHAR}, #{item.updateUser,jdbcType=VARCHAR},
+      #{item.updateDate,jdbcType=TIMESTAMP}, #{item.appUser,jdbcType=VARCHAR}, #{item.appDate,jdbcType=TIMESTAMP},
+      #{item.updateKey,jdbcType=VARCHAR}, #{item.allowDiscount,jdbcType=INTEGER},
+      #{item.modelCode,jdbcType=VARCHAR},
+      #{item.bomLevel,jdbcType=INTEGER}, #{item.partViewTop,jdbcType=INTEGER}, #{item.volume,jdbcType=DECIMAL},
+      #{item.weight,jdbcType=DECIMAL}, #{item.salesStatus,jdbcType=INTEGER}, #{item.boxSales,jdbcType=BIT},
+      #{item.boxPurchase,jdbcType=BIT}, #{item.lowerShelf,jdbcType=BIT}, #{item.purFrontDay,jdbcType=INTEGER},
+      #{item.forbidPur,jdbcType=BIT}, #{item.classify,jdbcType=INTEGER}, #{item.marque,jdbcType=VARCHAR},
+      #{item.forecastCountMrp,jdbcType=BIT}, #{item.forecastCountMonth,jdbcType=INTEGER},
+      #{item.seNo,jdbcType=VARCHAR},
+      #{item.isSync,jdbcType=BIT}, #{item.bomProperty,jdbcType=BIT}, #{item.deptCode,jdbcType=VARCHAR},
+      #{item.costAmount,jdbcType=DECIMAL}, #{item.deliveryCycle,jdbcType=INTEGER},
+      #{item.option,jdbcType=LONGVARCHAR}
+      )
+    </foreach>
+    on duplicate key update
+    <include refid="onDuplicateKeyUpdate"/>
+  </insert>
 
-    <!-- 更新商品上架状态 -->
-    <update id="updateGoodsSellStatus" parameterType="java.util.Map">
-        update gms_goods
-        set lower_shelf_ = #{sellStatus,jdbcType=BIT}
-        where corp_no_ = #{corpNo,jdbcType=VARCHAR} and code_ in
-        <foreach collection="codeList" index="index" item="code" open="(" separator="," close=")">
-            #{code,jdbcType=VARCHAR}
-        </foreach>
-    </update>
+  <!-- 更新商品上架状态 -->
+  <update id="updateGoodsSellStatus" parameterType="java.util.Map">
+    update gms_goods
+    set lower_shelf_ = #{sellStatus,jdbcType=BIT}
+    where corp_no_ = #{corpNo,jdbcType=VARCHAR} and code_ in
+    <foreach collection="codeList" index="index" item="code" open="(" separator="," close=")">
+      #{code,jdbcType=VARCHAR}
+    </foreach>
+  </update>
 
-    <!-- 批量更新商品虚拟库存 -->
-    <update id="updateVirtualStock" parameterType="java.util.Map">
-        <foreach collection="goodsList" separator=";" item="item">
-            update gms_goods set
-            virtual_stock_ = #{item.virtualStock}
-            where corp_no_ = #{corpNo}
-            and code_ = #{item.code}
-        </foreach>
-    </update>
+  <!-- 批量更新商品虚拟库存 -->
+  <update id="updateVirtualStock" parameterType="java.util.Map">
+    <foreach collection="goodsList" separator=";" item="item">
+      update gms_goods set
+      virtual_stock_ = #{item.virtualStock}
+      where corp_no_ = #{corpNo}
+      and code_ = #{item.code}
+    </foreach>
+  </update>
 
-    <!-- 更新商品图片数量 -->
-    <update id="updateFileNum" parameterType="java.util.Map">
-        update gms_goods
-        set file_num_ = file_num_ + #{var}
-        where corp_no_ = #{corpNo}
-          and code_ = #{code}
-    </update>
+  <!-- 更新商品图片数量 -->
+  <update id="updateFileNum" parameterType="java.util.Map">
+    update gms_goods
+    set file_num_ = file_num_ + #{var}
+    where corp_no_ = #{corpNo}
+      and code_ = #{code}
+  </update>
 
-    <sql id="selectGoods">
-        g.code_, g.brand_, g.class1_, g.class2_, g.class3_, g.desc_, g.spec_, g.unit_, g.lower_shelf_, g.virtual_stock_, g.readme_url_,
+  <sql id="selectGoods">
+    g.code_, g.brand_, g.class1_, g.class2_, g.class3_, g.desc_, g.spec_, g.unit_, g.lower_shelf_, g.virtual_stock_, g.readme_url_,
         g.sales_status_, g.in_up_, g.list_up_, g.classify_, g.file_num_, group_concat(tag.name_) as tag_array
-    </sql>
+  </sql>
 
-    <sql id="BasicSelectGoods">
-        code_, brand_, class1_, class2_, class3_, desc_, spec_, unit_, lower_shelf_, virtual_stock_, readme_url_,
+  <sql id="BasicSelectGoods">
+    code_, brand_, class1_, class2_, class3_, desc_, spec_, unit_, lower_shelf_, virtual_stock_, readme_url_,
         sales_status_, classify_, in_up_, list_up_
-    </sql>
+  </sql>
 
-    <!-- 根据查询条件查询商品 -->
-    <select id="selectBySearchText" resultMap="GmsGoodsSearchResultMap" parameterType="map">
-        select
-        <include refid="selectGoods"/>
-        from gms_goods as g
-        left join gms_goods_and_tag as gt on g.corp_no_ = gt.corp_no_ and g.code_ = gt.goods_code_
-        left join gms_tag as tag on g.corp_no_ = tag.corp_no_ and gt.tag_code_ = tag.code_
-        where g.corp_no_ = #{corpNo,jdbcType=VARCHAR}
-        <if test="searchParam.code != null and searchParam.code !=''">
-            and g.code_ = #{searchParam.code,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.brand != null and searchParam.brand !=''">
-            and g.brand_ = #{searchParam.brand,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class1 != null and searchParam.class1 !=''">
-            and g.class1_= #{searchParam.class1,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class2 != null and searchParam.class2 !=''">
-            and g.class2_= #{searchParam.class2,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class3 != null and searchParam.class3 !=''">
-            and g.class3_= #{searchParam.class3,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.desc != null and searchParam.desc !=''">
-            and g.desc_ like concat('%',#{searchParam.desc,jdbcType=VARCHAR},'%')
-        </if>
-        <if test="searchParam.spec != null and searchParam.spec !=''">
-            and g.spec_ like concat('%',#{searchParam.spec,jdbcType=VARCHAR},'%')
-        </if>
-        <if test="searchParam.classify != null and searchParam.classify !=''">
-            and g.classify_ = #{searchParam.classify,jdbcType=INTEGER}
-        </if>
-        <if test="searchParam.lowerShelf != null and searchParam.lowerShelf !=''">
-            and g.lower_shelf_ = #{searchParam.lowerShelf,jdbcType=BIT}
-        </if>
-        <if test="searchParam.salesStatus != null and searchParam.salesStatus !=''">
-            and g.sales_status_ = #{searchParam.salesStatus,jdbcType=INTEGER}
-        </if>
-        <if test="searchParam.fileNum != null and searchParam.fileNum == '0'.toString()">
-            and g.file_num_ = 0
-        </if>
-        <if test="searchParam.fileNum != null and searchParam.fileNum == '1'.toString()">
-            and g.file_num_ > 0
-        </if>
-        <if test="searchParam.searchText != null and searchParam.searchText !=''">
-            and(
-            g.code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.desc_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.spec_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.py_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.old_barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.id_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.box_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            )
-        </if>
-        group by g.code_
-        <if test="searchParam.maxRecord != null">
-            limit #{searchParam.maxRecord}
-        </if>
-    </select>
+  <!-- 根据查询条件查询商品 -->
+  <select id="selectBySearchText" resultMap="GmsGoodsSearchResultMap" parameterType="map">
+    select
+    <include refid="selectGoods"/>
+    from gms_goods as g
+    left join gms_goods_and_tag as gt on g.corp_no_ = gt.corp_no_ and g.code_ = gt.goods_code_
+    left join gms_tag as tag on g.corp_no_ = tag.corp_no_ and gt.tag_code_ = tag.code_
+    where g.corp_no_ = #{corpNo,jdbcType=VARCHAR}
+    <if test="searchParam.code != null and searchParam.code !=''">
+      and g.code_ = #{searchParam.code,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.brand != null and searchParam.brand !=''">
+      and g.brand_ = #{searchParam.brand,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class1 != null and searchParam.class1 !=''">
+      and g.class1_= #{searchParam.class1,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class2 != null and searchParam.class2 !=''">
+      and g.class2_= #{searchParam.class2,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class3 != null and searchParam.class3 !=''">
+      and g.class3_= #{searchParam.class3,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.desc != null and searchParam.desc !=''">
+      and g.desc_ like concat('%',#{searchParam.desc,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="searchParam.spec != null and searchParam.spec !=''">
+      and g.spec_ like concat('%',#{searchParam.spec,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="searchParam.classify != null and searchParam.classify !=''">
+      and g.classify_ = #{searchParam.classify,jdbcType=INTEGER}
+    </if>
+    <if test="searchParam.lowerShelf != null and searchParam.lowerShelf !=''">
+      and g.lower_shelf_ = #{searchParam.lowerShelf,jdbcType=BIT}
+    </if>
+    <if test="searchParam.salesStatus != null and searchParam.salesStatus !=''">
+      and g.sales_status_ = #{searchParam.salesStatus,jdbcType=INTEGER}
+    </if>
+    <if test="searchParam.fileNum != null and searchParam.fileNum == '0'.toString()">
+      and g.file_num_ = 0
+    </if>
+    <if test="searchParam.fileNum != null and searchParam.fileNum == '1'.toString()">
+      and g.file_num_ > 0
+    </if>
+    <if test="searchParam.searchText != null and searchParam.searchText !=''">
+      and(
+      g.code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.desc_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.spec_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.py_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.old_barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.id_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.box_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    group by g.code_
+    <if test="searchParam.maxRecord != null">
+      limit #{searchParam.maxRecord}
+    </if>
+  </select>
 
-    <select id="selectByExample" parameterType="com.mall.mbg.model.GmsGoodsExample"
-            resultMap="GmsGoodsSearchResultMap">
-        select
-        <if test="distinct">
-            distinct
-        </if>
-        <include refid="BasicSelectGoods"/>
-        from gms_goods
-        <if test="_parameter != null">
-            <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Example_Where_Clause"/>
-        </if>
-        <if test="orderByClause != null">
-            order by ${orderByClause}
-        </if>
-    </select>
+  <select id="selectByExample" parameterType="com.mall.mbg.model.GmsGoodsExample"
+          resultMap="GmsGoodsSearchResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="BasicSelectGoods"/>
+    from gms_goods
+    <if test="_parameter != null">
+      <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Example_Where_Clause"/>
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
 
-    <select id="searchByParamExcludeCode" resultMap="com.mall.mbg.mapper.GmsGoodsMapper.BaseResultMap">
-        select
-        code_, brand_, class1_, class2_, class3_, classify_, desc_, spec_, unit_
-        from gms_goods as g
-        where g.corp_no_ = #{corpNo,jdbcType=VARCHAR}
-        and g.classify_ <![CDATA[<>]]> 1
-        <if test="searchParam.code != null and searchParam.code !=''">
-            and g.code_ <![CDATA[<>]]> #{searchParam.code,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.brand != null and searchParam.brand !=''">
-            and g.brand_ = #{searchParam.brand,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class1 != null and searchParam.class1 !=''">
-            and g.class1_= #{searchParam.class1,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class2 != null and searchParam.class2 !=''">
-            and g.class2_= #{searchParam.class2,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.class3 != null and searchParam.class3 !=''">
-            and g.class3_= #{searchParam.class3,jdbcType=VARCHAR}
-        </if>
-        <if test="searchParam.desc != null and searchParam.desc !=''">
-            and g.desc_ like concat('%',#{searchParam.desc,jdbcType=VARCHAR},'%')
-        </if>
-        <if test="searchParam.spec != null and searchParam.spec !=''">
-            and g.spec_ like concat('%',#{searchParam.spec,jdbcType=VARCHAR},'%')
-        </if>
-        <if test="searchParam.searchText != null and searchParam.searchText !=''">
-            and(
-            g.code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.desc_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.spec_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.py_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.old_barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.id_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or g.box_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            )
-        </if>
-        <if test="SecondaryGoodsId != null and SecondaryGoodsId.size() > 0">
-            and g.code_ not in
-            <foreach item="item" index="index" collection="SecondaryGoodsId" open="(" separator="," close=")">
-                #{item}
-            </foreach>
-        </if>
-        <if test="searchParam.maxRecord != null">
-            limit #{searchParam.maxRecord}
-        </if>
-    </select>
+  <select id="searchByParamExcludeCode" resultMap="com.mall.mbg.mapper.GmsGoodsMapper.BaseResultMap">
+    select
+    code_, brand_, class1_, class2_, class3_, classify_, desc_, spec_, unit_
+    from gms_goods as g
+    where g.corp_no_ = #{corpNo,jdbcType=VARCHAR}
+    and g.classify_ <![CDATA[<>]]> 1
+    <if test="searchParam.code != null and searchParam.code !=''">
+      and g.code_ <![CDATA[<>]]> #{searchParam.code,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.brand != null and searchParam.brand !=''">
+      and g.brand_ = #{searchParam.brand,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class1 != null and searchParam.class1 !=''">
+      and g.class1_= #{searchParam.class1,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class2 != null and searchParam.class2 !=''">
+      and g.class2_= #{searchParam.class2,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.class3 != null and searchParam.class3 !=''">
+      and g.class3_= #{searchParam.class3,jdbcType=VARCHAR}
+    </if>
+    <if test="searchParam.desc != null and searchParam.desc !=''">
+      and g.desc_ like concat('%',#{searchParam.desc,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="searchParam.spec != null and searchParam.spec !=''">
+      and g.spec_ like concat('%',#{searchParam.spec,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="searchParam.searchText != null and searchParam.searchText !=''">
+      and(
+      g.code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.desc_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.spec_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.py_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.old_barcode_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.id_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or g.box_code_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    <if test="SecondaryGoodsId != null and SecondaryGoodsId.size() > 0">
+      and g.code_ not in
+      <foreach item="item" index="index" collection="SecondaryGoodsId" open="(" separator="," close=")">
+        #{item}
+      </foreach>
+    </if>
+    <if test="searchParam.maxRecord != null">
+      limit #{searchParam.maxRecord}
+    </if>
+  </select>
 
 </mapper>

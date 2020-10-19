@@ -26,30 +26,30 @@ import java.util.List;
 @RequestMapping("/carousel")
 public class CmsIndexCarouselController {
 
-    final CmsCarouselService carouselService;
+  final CmsCarouselService carouselService;
 
-    public CmsIndexCarouselController(CmsCarouselService carouselService) {
-        this.carouselService = carouselService;
-    }
+  public CmsIndexCarouselController(CmsCarouselService carouselService) {
+    this.carouselService = carouselService;
+  }
 
-    @ApiOperation(value = "获取所有首页轮播图", notes = "传入imgCode可以获得对应的图片详细信息")
-    @PostMapping("/list")
-    public CommonResult<List<CmsIndexCarousel>> list(@ApiParam(name = "imgCode", value = "图片编号")
-                                                     @RequestParam(required = false) String imgCode) {
-        return CommonResult.success(carouselService.list(imgCode));
-    }
+  @ApiOperation(value = "获取所有首页轮播图", notes = "传入imgCode可以获得对应的图片详细信息")
+  @PostMapping("/list")
+  public CommonResult<List<CmsIndexCarousel>> list(@ApiParam(name = "imgCode", value = "图片编号")
+                                                   @RequestParam(required = false) String imgCode) {
+    return CommonResult.success(carouselService.list(imgCode));
+  }
 
-    @ApiOperation("新增一张轮播图")
-    @PostMapping("/insert")
-    public CommonResult<Integer> insert(@RequestBody CmsIndexCarousel indexCarousel) {
-        return CommonResult.success(carouselService.insert(indexCarousel));
-    }
+  @ApiOperation("新增一张轮播图")
+  @PostMapping("/insert")
+  public CommonResult<Integer> insert(@RequestBody CmsIndexCarousel indexCarousel) {
+    return CommonResult.success(carouselService.insert(indexCarousel));
+  }
 
-    @ApiOperation("删除一张轮播图")
-    @PostMapping("/delete")
-    public CommonResult<Integer> delete(@ApiParam(name = "imgCode", value = "图片编号")
-                                        @RequestParam @NotEmpty String imgCode) {
-        return CommonResult.success(carouselService.delete(imgCode));
-    }
+  @ApiOperation("删除一张轮播图")
+  @PostMapping("/delete")
+  public CommonResult<Integer> delete(@ApiParam(name = "imgCode", value = "图片编号")
+                                      @RequestParam @NotEmpty String imgCode) {
+    return CommonResult.success(carouselService.delete(imgCode));
+  }
 
 }

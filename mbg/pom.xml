@@ -2,23 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <artifactId>mall</artifactId>
-        <groupId>com.mall</groupId>
-        <version>1.0.0</version>
-    </parent>
-
-    <artifactId>mbg</artifactId>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mall</artifactId>
+    <groupId>com.mall</groupId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+  </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.mybatis.generator</groupId>
-            <artifactId>mybatis-generator-core</artifactId>
-            <version>1.4.0</version>
-        </dependency>
-    </dependencies>
+  <artifactId>mbg</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+  </dependencies>
 
 </project>

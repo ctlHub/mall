@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.GmsGoodsAndTagMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.GmsGoodsAndTag">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
-    <result column="goods_id" jdbcType="VARCHAR" property="goodsId" />
-    <result column="tag_id" jdbcType="VARCHAR" property="tagId" />
-    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId"/>
+    <result column="goods_id" jdbcType="VARCHAR" property="goodsId"/>
+    <result column="tag_id" jdbcType="VARCHAR" property="tagId"/>
+    <result column="app_user" jdbcType="VARCHAR" property="appUser"/>
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -77,38 +77,39 @@
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from gms_goods_and_tag
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from gms_goods_and_tag
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from gms_goods_and_tag
+    delete
+    from gms_goods_and_tag
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.GmsGoodsAndTagExample">
     delete from gms_goods_and_tag
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.GmsGoodsAndTag">
-    insert into gms_goods_and_tag (id, merchant_id, goods_id, 
-      tag_id, app_user, app_date, 
-      update_user, update_date)
-    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{goodsId,jdbcType=VARCHAR}, 
-      #{tagId,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
+    insert into gms_goods_and_tag (id, merchant_id, goods_id,
+                                   tag_id, app_user, app_date,
+                                   update_user, update_date)
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{goodsId,jdbcType=VARCHAR},
+            #{tagId,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP},
+            #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.GmsGoodsAndTag">
     insert into gms_goods_and_tag
@@ -168,7 +169,7 @@
   <select id="countByExample" parameterType="com.mall.mbg.model.GmsGoodsAndTagExample" resultType="java.lang.Long">
     select count(*) from gms_goods_and_tag
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
@@ -200,21 +201,21 @@
       </if>
     </set>
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update gms_goods_and_tag
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      goods_id = #{record.goodsId,jdbcType=VARCHAR},
-      tag_id = #{record.tagId,jdbcType=VARCHAR},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    goods_id = #{record.goodsId,jdbcType=VARCHAR},
+    tag_id = #{record.tagId,jdbcType=VARCHAR},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.GmsGoodsAndTag">
@@ -247,12 +248,12 @@
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.GmsGoodsAndTag">
     update gms_goods_and_tag
     set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      goods_id = #{goodsId,jdbcType=VARCHAR},
-      tag_id = #{tagId,jdbcType=VARCHAR},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP}
+        goods_id    = #{goodsId,jdbcType=VARCHAR},
+        tag_id      = #{tagId,jdbcType=VARCHAR},
+        app_user    = #{appUser,jdbcType=VARCHAR},
+        app_date    = #{appDate,jdbcType=TIMESTAMP},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

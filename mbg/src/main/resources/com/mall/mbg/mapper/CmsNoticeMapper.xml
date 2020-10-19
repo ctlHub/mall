@@ -2,20 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.CmsNoticeMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.CmsNotice">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="news_url" jdbcType="VARCHAR" property="newsUrl" />
-    <result column="read_sum" jdbcType="INTEGER" property="readSum" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId"/>
+    <result column="title" jdbcType="VARCHAR" property="title"/>
+    <result column="status" jdbcType="INTEGER" property="status"/>
+    <result column="news_url" jdbcType="VARCHAR" property="newsUrl"/>
+    <result column="read_sum" jdbcType="INTEGER" property="readSum"/>
+    <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    <result column="app_user" jdbcType="VARCHAR" property="appUser"/>
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.mall.mbg.model.CmsNotice">
-    <result column="value" jdbcType="LONGVARCHAR" property="value" />
+    <result column="value" jdbcType="LONGVARCHAR" property="value"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -82,17 +82,18 @@
   <sql id="Blob_Column_List">
     value
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.mall.mbg.model.CmsNoticeExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.mall.mbg.model.CmsNoticeExample"
+          resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     ,
-    <include refid="Blob_Column_List" />
+    <include refid="Blob_Column_List"/>
     from cms_notice
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
@@ -103,44 +104,43 @@
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from cms_notice
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     ,
-    <include refid="Blob_Column_List" />
+    <include refid="Blob_Column_List"/>
     from cms_notice
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from cms_notice
+    delete
+    from cms_notice
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.CmsNoticeExample">
     delete from cms_notice
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.CmsNotice">
-    insert into cms_notice (id, merchant_id, title, 
-      status, news_url, read_sum, 
-      remark, app_user, app_date, 
-      update_user, update_date, value
-      )
-    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{newsUrl,jdbcType=VARCHAR}, #{readSum,jdbcType=INTEGER}, 
-      #{remark,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{value,jdbcType=LONGVARCHAR}
-      )
+    insert into cms_notice (id, merchant_id, title,
+                            status, news_url, read_sum,
+                            remark, app_user, app_date,
+                            update_user, update_date, value)
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+            #{status,jdbcType=INTEGER}, #{newsUrl,jdbcType=VARCHAR}, #{readSum,jdbcType=INTEGER},
+            #{remark,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP},
+            #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{value,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.CmsNotice">
     insert into cms_notice
@@ -224,7 +224,7 @@
   <select id="countByExample" parameterType="com.mall.mbg.model.CmsNoticeExample" resultType="java.lang.Long">
     select count(*) from cms_notice
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
@@ -268,42 +268,42 @@
       </if>
     </set>
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update cms_notice
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      news_url = #{record.newsUrl,jdbcType=VARCHAR},
-      read_sum = #{record.readSum,jdbcType=INTEGER},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
-      value = #{record.value,jdbcType=LONGVARCHAR}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    title = #{record.title,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    news_url = #{record.newsUrl,jdbcType=VARCHAR},
+    read_sum = #{record.readSum,jdbcType=INTEGER},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+    value = #{record.value,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update cms_notice
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      title = #{record.title,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      news_url = #{record.newsUrl,jdbcType=VARCHAR},
-      read_sum = #{record.readSum,jdbcType=INTEGER},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    title = #{record.title,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    news_url = #{record.newsUrl,jdbcType=VARCHAR},
+    read_sum = #{record.readSum,jdbcType=INTEGER},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.CmsNotice">
@@ -348,30 +348,30 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mall.mbg.model.CmsNotice">
     update cms_notice
     set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      news_url = #{newsUrl,jdbcType=VARCHAR},
-      read_sum = #{readSum,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      value = #{value,jdbcType=LONGVARCHAR}
+        title       = #{title,jdbcType=VARCHAR},
+        status      = #{status,jdbcType=INTEGER},
+        news_url    = #{newsUrl,jdbcType=VARCHAR},
+        read_sum    = #{readSum,jdbcType=INTEGER},
+        remark      = #{remark,jdbcType=VARCHAR},
+        app_user    = #{appUser,jdbcType=VARCHAR},
+        app_date    = #{appDate,jdbcType=TIMESTAMP},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+        value       = #{value,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.CmsNotice">
     update cms_notice
     set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      news_url = #{newsUrl,jdbcType=VARCHAR},
-      read_sum = #{readSum,jdbcType=INTEGER},
-      remark = #{remark,jdbcType=VARCHAR},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP}
+        title       = #{title,jdbcType=VARCHAR},
+        status      = #{status,jdbcType=INTEGER},
+        news_url    = #{newsUrl,jdbcType=VARCHAR},
+        read_sum    = #{readSum,jdbcType=INTEGER},
+        remark      = #{remark,jdbcType=VARCHAR},
+        app_user    = #{appUser,jdbcType=VARCHAR},
+        app_date    = #{appDate,jdbcType=TIMESTAMP},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

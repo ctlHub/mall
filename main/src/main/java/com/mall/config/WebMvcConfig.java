@@ -24,34 +24,34 @@ import java.util.Collection;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Resource
-    private ApiPathProperties apiPathProperties;
-    @Resource
-    private GsonBuilder gsonBuilder;
+  @Resource
+  private ApiPathProperties apiPathProperties;
+  @Resource
+  private GsonBuilder gsonBuilder;
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**");
-    }
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/static/**");
+  }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new CorpNoHandlerInterceptor()).addPathPatterns("/**").
-                excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
-    }
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(new CorpNoHandlerInterceptor()).addPathPatterns("/**").
+        excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
+  }
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        configurer.addPathPrefix(apiPathProperties.getGlobalPrefix(), c -> c.isAnnotationPresent(ApiRestController.class));
-    }
+  @Override
+  public void configurePathMatch(PathMatchConfigurer configurer) {
+    configurer.addPathPrefix(apiPathProperties.getGlobalPrefix(), c -> c.isAnnotationPresent(ApiRestController.class));
+  }
 
-    @Bean
-    public HttpMessageConverters customConverters() {
-        Gson gson = gsonBuilder.registerTypeAdapter(Json.class, (JsonSerializer<Json>) (src, typeOfSrc, context) -> JsonParser.parseString(src.value())).create();
-        Collection<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-        GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
-        gsonHttpMessageConverter.setGson(gson);
-        messageConverters.add(gsonHttpMessageConverter);
-        return new HttpMessageConverters(true, messageConverters);
-    }
+  @Bean
+  public HttpMessageConverters customConverters() {
+    Gson gson = gsonBuilder.registerTypeAdapter(Json.class, (JsonSerializer<Json>) (src, typeOfSrc, context) -> JsonParser.parseString(src.value())).create();
+    Collection<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
+    GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
+    gsonHttpMessageConverter.setGson(gson);
+    messageConverters.add(gsonHttpMessageConverter);
+    return new HttpMessageConverters(true, messageConverters);
+  }
 }

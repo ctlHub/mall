@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.dao.GmsGoodsDescriptionDao">
-    <select id="listDescriptionContent" resultType="java.lang.String">
-        select content_
-        from gms_goods_description
-        where corp_no_ = #{corpNo}
-          and goods_code_ = #{code}
-          and status_ = 1
-    </select>
+  <select id="listDescriptionContent" resultType="java.lang.String">
+    select content_
+    from gms_goods_description
+    where corp_no_ = #{corpNo}
+      and goods_code_ = #{code}
+      and status_ = 1
+  </select>
 </mapper>

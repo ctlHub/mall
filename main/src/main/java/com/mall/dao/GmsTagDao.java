@@ -12,5 +12,5 @@ import java.util.List;
  * @date 2020/9/14 19:03
  */
 public interface GmsTagDao {
-    List<GmsTag> selectBySearchText(String corpNo, GmsTagSearchParam searchParam);
+  List<GmsTag> selectBySearchText(String corpNo, GmsTagSearchParam searchParam);
 }

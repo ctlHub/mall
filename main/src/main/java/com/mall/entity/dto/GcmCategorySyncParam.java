@@ -13,15 +13,15 @@ import java.util.Date;
  */
 @Data
 public class GcmCategorySyncParam {
-    private static final long serialVersionUID = -1811024399548438049L;
-    @ApiModelProperty(value = "类型名称")
-    private String name;
-    @ApiModelProperty(value = "创建人")
-    private String appUser;
-    @ApiModelProperty(value = "创建时间")
-    private Date appDate;
-    @ApiModelProperty(value = "更新人")
-    private String updateUser;
-    @ApiModelProperty(value = "更新时间")
-    private Date updateDate;
+  private static final long serialVersionUID = -1811024399548438049L;
+  @ApiModelProperty(value = "类型名称")
+  private String name;
+  @ApiModelProperty(value = "创建人")
+  private String appUser;
+  @ApiModelProperty(value = "创建时间")
+  private Date appDate;
+  @ApiModelProperty(value = "更新人")
+  private String updateUser;
+  @ApiModelProperty(value = "更新时间")
+  private Date updateDate;
 }

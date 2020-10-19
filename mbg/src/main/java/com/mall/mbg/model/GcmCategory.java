@@ -6,139 +6,139 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GcmCategory implements Serializable {
-    /**
-     * 分类编号
-     */
-    @ApiModelProperty(value = "分类编号")
-    private String id;
+  /**
+   * 分类编号
+   */
+  @ApiModelProperty(value = "分类编号")
+  private String id;
 
-    /**
-     * 分类名称
-     */
-    @ApiModelProperty(value = "分类名称")
-    private String name;
+  /**
+   * 分类名称
+   */
+  @ApiModelProperty(value = "分类名称")
+  private String name;
 
-    /**
-     * 创建人
-     */
-    @ApiModelProperty(value = "创建人")
-    private String appUser;
+  /**
+   * 创建人
+   */
+  @ApiModelProperty(value = "创建人")
+  private String appUser;
 
-    /**
-     * 创建时间
-     */
-    @ApiModelProperty(value = "创建时间")
-    private Date appDate;
+  /**
+   * 创建时间
+   */
+  @ApiModelProperty(value = "创建时间")
+  private Date appDate;
 
-    /**
-     * 更新人
-     */
-    @ApiModelProperty(value = "更新人")
-    private String updateUser;
+  /**
+   * 更新人
+   */
+  @ApiModelProperty(value = "更新人")
+  private String updateUser;
 
-    /**
-     * 更新时间
-     */
-    @ApiModelProperty(value = "更新时间")
-    private Date updateDate;
+  /**
+   * 更新时间
+   */
+  @ApiModelProperty(value = "更新时间")
+  private Date updateDate;
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAppUser() {
+    return appUser;
+  }
+
+  public void setAppUser(String appUser) {
+    this.appUser = appUser;
+  }
+
+  public Date getAppDate() {
+    return appDate;
+  }
+
+  public void setAppDate(Date appDate) {
+    this.appDate = appDate;
+  }
+
+  public String getUpdateUser() {
+    return updateUser;
+  }
+
+  public void setUpdateUser(String updateUser) {
+    this.updateUser = updateUser;
+  }
+
+  public Date getUpdateDate() {
+    return updateDate;
+  }
+
+  public void setUpdateDate(Date updateDate) {
+    this.updateDate = updateDate;
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", name=").append(name);
+    sb.append(", appUser=").append(appUser);
+    sb.append(", appDate=").append(appDate);
+    sb.append(", updateUser=").append(updateUser);
+    sb.append(", updateDate=").append(updateDate);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
+
+  @Override
+  public boolean equals(Object that) {
+    if (this == that) {
+      return true;
     }
-
-    public void setId(String id) {
-        this.id = id;
+    if (that == null) {
+      return false;
     }
-
-    public String getName() {
-        return name;
+    if (getClass() != that.getClass()) {
+      return false;
     }
+    GcmCategory other = (GcmCategory) that;
+    return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
+        && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+        && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
+        && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
+        && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
+        && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAppUser() {
-        return appUser;
-    }
-
-    public void setAppUser(String appUser) {
-        this.appUser = appUser;
-    }
-
-    public Date getAppDate() {
-        return appDate;
-    }
-
-    public void setAppDate(Date appDate) {
-        this.appDate = appDate;
-    }
-
-    public String getUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(String updateUser) {
-        this.updateUser = updateUser;
-    }
-
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", appUser=").append(appUser);
-        sb.append(", appDate=").append(appDate);
-        sb.append(", updateUser=").append(updateUser);
-        sb.append(", updateDate=").append(updateDate);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        GcmCategory other = (GcmCategory) that;
-        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-                && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
-                && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
-                && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
-                && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
-        result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
-        result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());
-        result = prime * result + ((getUpdateDate() == null) ? 0 : getUpdateDate().hashCode());
-        return result;
-    }
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
+    result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+    result = prime * result + ((getAppUser() == null) ? 0 : getAppUser().hashCode());
+    result = prime * result + ((getAppDate() == null) ? 0 : getAppDate().hashCode());
+    result = prime * result + ((getUpdateUser() == null) ? 0 : getUpdateUser().hashCode());
+    result = prime * result + ((getUpdateDate() == null) ? 0 : getUpdateDate().hashCode());
+    return result;
+  }
 }

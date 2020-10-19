@@ -7,25 +7,25 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CmsIndexCarouselMapper {
-    long countByExample(CmsIndexCarouselExample example);
+  long countByExample(CmsIndexCarouselExample example);
 
-    int deleteByExample(CmsIndexCarouselExample example);
+  int deleteByExample(CmsIndexCarouselExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(CmsIndexCarousel record);
+  int insert(CmsIndexCarousel record);
 
-    int insertSelective(CmsIndexCarousel record);
+  int insertSelective(CmsIndexCarousel record);
 
-    List<CmsIndexCarousel> selectByExample(CmsIndexCarouselExample example);
+  List<CmsIndexCarousel> selectByExample(CmsIndexCarouselExample example);
 
-    CmsIndexCarousel selectByPrimaryKey(String id);
+  CmsIndexCarousel selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") CmsIndexCarousel record, @Param("example") CmsIndexCarouselExample example);
+  int updateByExampleSelective(@Param("record") CmsIndexCarousel record, @Param("example") CmsIndexCarouselExample example);
 
-    int updateByExample(@Param("record") CmsIndexCarousel record, @Param("example") CmsIndexCarouselExample example);
+  int updateByExample(@Param("record") CmsIndexCarousel record, @Param("example") CmsIndexCarouselExample example);
 
-    int updateByPrimaryKeySelective(CmsIndexCarousel record);
+  int updateByPrimaryKeySelective(CmsIndexCarousel record);
 
-    int updateByPrimaryKey(CmsIndexCarousel record);
+  int updateByPrimaryKey(CmsIndexCarousel record);
 }

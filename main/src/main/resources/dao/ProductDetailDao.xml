@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.dao.ProductDetailDao">
-    <resultMap id="ProductDetailGoodsDetailVO" type="com.mall.entity.dto.ProductDetailGoodsDetailVO"
-               extends="com.mall.mbg.mapper.GmsGoodsMapper.ResultMapWithBLOBs">
-    </resultMap>
+  <resultMap id="ProductDetailGoodsDetailVO" type="com.mall.entity.dto.ProductDetailGoodsDetailVO"
+             extends="com.mall.mbg.mapper.GmsGoodsMapper.ResultMapWithBLOBs">
+  </resultMap>
 
 
-    <select id="getGoodsDetail" resultMap="ProductDetailGoodsDetailVO">
-        select
-        <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Base_Column_List"/>
-        ,
-        <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Blob_Column_List"/>
-        from gms_goods where corp_no_=#{corpNo} and code_=#{code}
-    </select>
+  <select id="getGoodsDetail" resultMap="ProductDetailGoodsDetailVO">
+    select
+    <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Base_Column_List"/>
+    ,
+    <include refid="com.mall.mbg.mapper.GmsGoodsMapper.Blob_Column_List"/>
+    from gms_goods where corp_no_=#{corpNo} and code_=#{code}
+  </select>
 </mapper>

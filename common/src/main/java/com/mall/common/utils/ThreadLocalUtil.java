@@ -16,30 +16,30 @@ import java.util.Optional;
  * @date 2020/9/12 16:26
  */
 public class ThreadLocalUtil {
-    private static final ThreadLocal<String> CORP_NO = new ThreadLocal<>();
-    private static final ThreadLocal<String> USER_CODE = new ThreadLocal<>();
+  private static final ThreadLocal<String> CORP_NO = new ThreadLocal<>();
+  private static final ThreadLocal<String> USER_CODE = new ThreadLocal<>();
 
-    public static void setMerchantId(String cropNo) {
-        CORP_NO.set(cropNo);
-    }
+  public static void setMerchantId(String cropNo) {
+    CORP_NO.set(cropNo);
+  }
 
-    public static void setUserCode(String userCode) {
-        USER_CODE.set(userCode);
-    }
+  public static void setUserCode(String userCode) {
+    USER_CODE.set(userCode);
+  }
 
-    public static String getMerchant() {
-        return Optional.ofNullable(CORP_NO.get()).orElseThrow(() -> new MissRequiredParamException("帐套代码不允许为空"));
-    }
+  public static String getMerchant() {
+    return Optional.ofNullable(CORP_NO.get()).orElseThrow(() -> new MissRequiredParamException("帐套代码不允许为空"));
+  }
 
-    public static String getUserCode() {
-        return Optional.ofNullable(USER_CODE.get()).orElseThrow(() -> new MissRequiredParamException("用户代码不允许为空"));
-    }
+  public static String getUserCode() {
+    return Optional.ofNullable(USER_CODE.get()).orElseThrow(() -> new MissRequiredParamException("用户代码不允许为空"));
+  }
 
-    /**
-     * 务必在remove方法中清理执行所有ThreadLocal的remove方法
-     */
-    public static void remove() {
-        CORP_NO.remove();
-        USER_CODE.remove();
-    }
+  /**
+   * 务必在remove方法中清理执行所有ThreadLocal的remove方法
+   */
+  public static void remove() {
+    CORP_NO.remove();
+    USER_CODE.remove();
+  }
 }

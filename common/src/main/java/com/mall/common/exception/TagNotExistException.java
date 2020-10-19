@@ -8,12 +8,12 @@ package com.mall.common.exception;
  */
 public class TagNotExistException extends NotExistException {
 
-    public TagNotExistException(String goodsCode) {
-        super(goodsCode);
-    }
+  public TagNotExistException(String goodsCode) {
+    super(goodsCode);
+  }
 
-    @Override
-    protected String getType() {
-        return "标签";
-    }
+  @Override
+  protected String getType() {
+    return "标签";
+  }
 }

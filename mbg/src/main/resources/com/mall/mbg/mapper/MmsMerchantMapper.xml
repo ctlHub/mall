@@ -2,17 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.MmsMerchantMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.MmsMerchant">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="industry_id" jdbcType="VARCHAR" property="industryId" />
-    <result column="logo" jdbcType="VARCHAR" property="logo" />
-    <result column="phone_icon" jdbcType="VARCHAR" property="phoneIcon" />
-    <result column="pc_icon" jdbcType="VARCHAR" property="pcIcon" />
-    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="name" jdbcType="VARCHAR" property="name"/>
+    <result column="status" jdbcType="INTEGER" property="status"/>
+    <result column="industry_id" jdbcType="VARCHAR" property="industryId"/>
+    <result column="logo" jdbcType="VARCHAR" property="logo"/>
+    <result column="phone_icon" jdbcType="VARCHAR" property="phoneIcon"/>
+    <result column="pc_icon" jdbcType="VARCHAR" property="pcIcon"/>
+    <result column="app_user" jdbcType="VARCHAR" property="appUser"/>
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -81,40 +81,41 @@
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from mms_merchant
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from mms_merchant
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from mms_merchant
+    delete
+    from mms_merchant
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.MmsMerchantExample">
     delete from mms_merchant
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.MmsMerchant">
-    insert into mms_merchant (id, name, status, 
-      industry_id, logo, phone_icon, 
-      pc_icon, app_user, app_date, 
-      update_user, update_date)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
-      #{industryId,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{phoneIcon,jdbcType=VARCHAR}, 
-      #{pcIcon,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
+    insert into mms_merchant (id, name, status,
+                              industry_id, logo, phone_icon,
+                              pc_icon, app_user, app_date,
+                              update_user, update_date)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+            #{industryId,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{phoneIcon,jdbcType=VARCHAR},
+            #{pcIcon,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP},
+            #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.MmsMerchant">
     insert into mms_merchant
@@ -192,7 +193,7 @@
   <select id="countByExample" parameterType="com.mall.mbg.model.MmsMerchantExample" resultType="java.lang.Long">
     select count(*) from mms_merchant
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
@@ -233,24 +234,24 @@
       </if>
     </set>
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update mms_merchant
     set id = #{record.id,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      industry_id = #{record.industryId,jdbcType=VARCHAR},
-      logo = #{record.logo,jdbcType=VARCHAR},
-      phone_icon = #{record.phoneIcon,jdbcType=VARCHAR},
-      pc_icon = #{record.pcIcon,jdbcType=VARCHAR},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    name = #{record.name,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    industry_id = #{record.industryId,jdbcType=VARCHAR},
+    logo = #{record.logo,jdbcType=VARCHAR},
+    phone_icon = #{record.phoneIcon,jdbcType=VARCHAR},
+    pc_icon = #{record.pcIcon,jdbcType=VARCHAR},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.MmsMerchant">
@@ -291,16 +292,16 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.MmsMerchant">
     update mms_merchant
-    set name = #{name,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      industry_id = #{industryId,jdbcType=VARCHAR},
-      logo = #{logo,jdbcType=VARCHAR},
-      phone_icon = #{phoneIcon,jdbcType=VARCHAR},
-      pc_icon = #{pcIcon,jdbcType=VARCHAR},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    set name        = #{name,jdbcType=VARCHAR},
+        status      = #{status,jdbcType=INTEGER},
+        industry_id = #{industryId,jdbcType=VARCHAR},
+        logo        = #{logo,jdbcType=VARCHAR},
+        phone_icon  = #{phoneIcon,jdbcType=VARCHAR},
+        pc_icon     = #{pcIcon,jdbcType=VARCHAR},
+        app_user    = #{appUser,jdbcType=VARCHAR},
+        app_date    = #{appDate,jdbcType=TIMESTAMP},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

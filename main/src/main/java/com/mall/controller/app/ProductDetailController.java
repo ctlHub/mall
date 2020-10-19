@@ -34,55 +34,55 @@ import java.util.List;
 @Validated
 public class ProductDetailController {
 
-    private final ProductDetailService productDetailService;
-    private final GmsDescriptionService gmsDescriptionService;
-    private final GmsGoodsAttributeService goodsAttributeService;
-    private final GmsGoodsBindService goodsBindService;
+  private final ProductDetailService productDetailService;
+  private final GmsDescriptionService gmsDescriptionService;
+  private final GmsGoodsAttributeService goodsAttributeService;
+  private final GmsGoodsBindService goodsBindService;
 
-    public ProductDetailController(ProductDetailService productDetailService, GmsDescriptionService gmsDescriptionService, GmsGoodsAttributeService goodsAttributeService, GmsGoodsBindService goodsBindService) {
-        this.productDetailService = productDetailService;
-        this.gmsDescriptionService = gmsDescriptionService;
-        this.goodsAttributeService = goodsAttributeService;
-        this.goodsBindService = goodsBindService;
-    }
+  public ProductDetailController(ProductDetailService productDetailService, GmsDescriptionService gmsDescriptionService, GmsGoodsAttributeService goodsAttributeService, GmsGoodsBindService goodsBindService) {
+    this.productDetailService = productDetailService;
+    this.gmsDescriptionService = gmsDescriptionService;
+    this.goodsAttributeService = goodsAttributeService;
+    this.goodsBindService = goodsBindService;
+  }
 
-    @ApiOperation("获取商品详情")
-    @GetMapping("/getGoodsDetail")
-    public CommonResult<ProductDetailGoodsDetailVO> getGoodsDetail(@ApiParam("料号") @RequestParam @NotEmpty String code) {
-        ProductDetailGoodsDetailVO goodsDetail = productDetailService.getGoodsDetail(code);
-        return CommonResult.success(goodsDetail);
-    }
+  @ApiOperation("获取商品详情")
+  @GetMapping("/getGoodsDetail")
+  public CommonResult<ProductDetailGoodsDetailVO> getGoodsDetail(@ApiParam("料号") @RequestParam @NotEmpty String code) {
+    ProductDetailGoodsDetailVO goodsDetail = productDetailService.getGoodsDetail(code);
+    return CommonResult.success(goodsDetail);
+  }
 
-    @ApiOperation("获取商品对应电商平台绑定的地址")
-    @GetMapping("/listEshop")
-    public CommonResult<List<GmsGoodsAndEshop>> listEshop(@ApiParam("料号") @RequestParam @NotEmpty String code) {
-        List<GmsGoodsAndEshop> goodsAndEshopList = productDetailService.getEshop(code);
-        if (goodsAndEshopList.size() == 0) {
-            return CommonResult.failed(ResultCode.EMPTY);
-        }
-        return CommonResult.success(goodsAndEshopList);
+  @ApiOperation("获取商品对应电商平台绑定的地址")
+  @GetMapping("/listEshop")
+  public CommonResult<List<GmsGoodsAndEshop>> listEshop(@ApiParam("料号") @RequestParam @NotEmpty String code) {
+    List<GmsGoodsAndEshop> goodsAndEshopList = productDetailService.getEshop(code);
+    if (goodsAndEshopList.size() == 0) {
+      return CommonResult.failed(ResultCode.EMPTY);
     }
+    return CommonResult.success(goodsAndEshopList);
+  }
 
-    @ApiOperation("查询商品说明图片地址")
-    @GetMapping("/listDescription")
-    public CommonResult<List<String>> listDescription(@ApiParam("料号") @RequestParam @NotEmpty String code) {
-        List<String> imageList = gmsDescriptionService.listDescriptionContentForApp(code);
-        if (imageList.size() == 0) {
-            return CommonResult.failed(ResultCode.EMPTY);
-        }
-        return CommonResult.success(imageList);
+  @ApiOperation("查询商品说明图片地址")
+  @GetMapping("/listDescription")
+  public CommonResult<List<String>> listDescription(@ApiParam("料号") @RequestParam @NotEmpty String code) {
+    List<String> imageList = gmsDescriptionService.listDescriptionContentForApp(code);
+    if (imageList.size() == 0) {
+      return CommonResult.failed(ResultCode.EMPTY);
     }
+    return CommonResult.success(imageList);
+  }
 
-    @ApiOperation("查询商品属性")
-    @GetMapping("/listAttr")
-    public CommonResult<List<GmcGoodsAttributeResult>> listAttr(@ApiParam("料号") @RequestParam @NotEmpty String code) {
-        return CommonResult.success(goodsAttributeService.listForApp(code));
-    }
+  @ApiOperation("查询商品属性")
+  @GetMapping("/listAttr")
+  public CommonResult<List<GmcGoodsAttributeResult>> listAttr(@ApiParam("料号") @RequestParam @NotEmpty String code) {
+    return CommonResult.success(goodsAttributeService.listForApp(code));
+  }
 
-    @ApiOperation("查询绑定的商品（配件关联商品）")
-    @GetMapping("/listBindGoods")
-    public CommonResult<List<GmsGoodsSearchResult>> listBindGoods(@ApiParam("料号") @RequestParam @NotEmpty String code) {
-        List<GmsGoodsSearchResult> goodsList = goodsBindService.getForApp(code);
-        return CommonResult.success(goodsList);
-    }
+  @ApiOperation("查询绑定的商品（配件关联商品）")
+  @GetMapping("/listBindGoods")
+  public CommonResult<List<GmsGoodsSearchResult>> listBindGoods(@ApiParam("料号") @RequestParam @NotEmpty String code) {
+    List<GmsGoodsSearchResult> goodsList = goodsBindService.getForApp(code);
+    return CommonResult.success(goodsList);
+  }
 }

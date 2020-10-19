@@ -25,54 +25,54 @@ import java.util.List;
 @Service
 public class GmsDescriptionService {
 
-    @Resource
-    GmsGoodsDescriptionMapper goodsDescriptionMapper;
+  @Resource
+  GmsGoodsDescriptionMapper goodsDescriptionMapper;
 
-    @Resource
-    GmsGoodsDescriptionDao goodsDescriptionDao;
+  @Resource
+  GmsGoodsDescriptionDao goodsDescriptionDao;
 
-    @Resource
-    GmsGoodsDao goodsDao;
+  @Resource
+  GmsGoodsDao goodsDao;
 
-    /**
-     * 查询商品描述图片 for admin
-     */
-    public List<GmsGoodsDescription> list(String code) {
-        GmsGoodsDescriptionExample goodsDescriptionExample = new GmsGoodsDescriptionExample();
-        goodsDescriptionExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andGoodsIdEqualTo(code);
-        return goodsDescriptionMapper.selectByExampleWithBLOBs(goodsDescriptionExample);
-    }
+  /**
+   * 查询商品描述图片 for admin
+   */
+  public List<GmsGoodsDescription> list(String code) {
+    GmsGoodsDescriptionExample goodsDescriptionExample = new GmsGoodsDescriptionExample();
+    goodsDescriptionExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andGoodsIdEqualTo(code);
+    return goodsDescriptionMapper.selectByExampleWithBLOBs(goodsDescriptionExample);
+  }
 
-    /**
-     * 查询商品描述图片 for app
-     */
-    public List<String> listDescriptionContentForApp(String code) {
-        return goodsDescriptionDao.listDescriptionContent(ThreadLocalUtil.getMerchant(), code);
-    }
+  /**
+   * 查询商品描述图片 for app
+   */
+  public List<String> listDescriptionContentForApp(String code) {
+    return goodsDescriptionDao.listDescriptionContent(ThreadLocalUtil.getMerchant(), code);
+  }
 
-    @Transactional(rollbackFor = RuntimeException.class)
-    public Integer insert(GmsGoodsDescParam goodsDescParam) {
-        goodsDescParam.setStatus(UsedEnum.ENABLE.getId());
-        GmsGoodsDescription goodsDescription = new GmsGoodsDescription();
-        BeanUtils.copyProperties(goodsDescParam, goodsDescription);
-        ModelUtils.setCreateAndUpdateInfo(goodsDescription);
-        int insert = goodsDescriptionMapper.insert(goodsDescription);
-        goodsDao.updateFileNum(goodsDescParam.getMerchantId(), goodsDescParam.getGoodsId(), insert);
-        return insert;
-    }
+  @Transactional(rollbackFor = RuntimeException.class)
+  public Integer insert(GmsGoodsDescParam goodsDescParam) {
+    goodsDescParam.setStatus(UsedEnum.ENABLE.getId());
+    GmsGoodsDescription goodsDescription = new GmsGoodsDescription();
+    BeanUtils.copyProperties(goodsDescParam, goodsDescription);
+    ModelUtils.setCreateAndUpdateInfo(goodsDescription);
+    int insert = goodsDescriptionMapper.insert(goodsDescription);
+    goodsDao.updateFileNum(goodsDescParam.getMerchantId(), goodsDescParam.getGoodsId(), insert);
+    return insert;
+  }
 
-    public Integer delete(String code, String goodsCode) {
-        GmsGoodsDescriptionExample example = new GmsGoodsDescriptionExample();
-        example.createCriteria().andIdEqualTo(code);
-        int delete = goodsDescriptionMapper.deleteByExample(example);
-        goodsDao.updateFileNum(ThreadLocalUtil.getMerchant(), goodsCode, Math.negateExact(delete));
-        return delete;
-    }
+  public Integer delete(String code, String goodsCode) {
+    GmsGoodsDescriptionExample example = new GmsGoodsDescriptionExample();
+    example.createCriteria().andIdEqualTo(code);
+    int delete = goodsDescriptionMapper.deleteByExample(example);
+    goodsDao.updateFileNum(ThreadLocalUtil.getMerchant(), goodsCode, Math.negateExact(delete));
+    return delete;
+  }
 
-    public List<GmsGoodsDescription> get(String code) {
-        GmsGoodsDescriptionExample example = new GmsGoodsDescriptionExample();
-        example.createCriteria().andIdEqualTo(code);
-        return goodsDescriptionMapper.selectByExampleWithBLOBs(example);
-    }
+  public List<GmsGoodsDescription> get(String code) {
+    GmsGoodsDescriptionExample example = new GmsGoodsDescriptionExample();
+    example.createCriteria().andIdEqualTo(code);
+    return goodsDescriptionMapper.selectByExampleWithBLOBs(example);
+  }
 
 }

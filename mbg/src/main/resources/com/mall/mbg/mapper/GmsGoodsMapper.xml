@@ -2,75 +2,75 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.GmsGoodsMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.GmsGoods">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
-    <result column="old_id" jdbcType="VARCHAR" property="oldId" />
-    <result column="brand" jdbcType="VARCHAR" property="brand" />
-    <result column="class1" jdbcType="VARCHAR" property="class1" />
-    <result column="class2" jdbcType="VARCHAR" property="class2" />
-    <result column="class3" jdbcType="VARCHAR" property="class3" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="part_type" jdbcType="VARCHAR" property="partType" />
-    <result column="py_id" jdbcType="VARCHAR" property="pyId" />
-    <result column="spec" jdbcType="VARCHAR" property="spec" />
-    <result column="unit" jdbcType="VARCHAR" property="unit" />
-    <result column="cw_id" jdbcType="VARCHAR" property="cwId" />
-    <result column="default_cw" jdbcType="VARCHAR" property="defaultCw" />
-    <result column="in_up" jdbcType="DECIMAL" property="inUp" />
-    <result column="out_up" jdbcType="DECIMAL" property="outUp" />
-    <result column="out_up2" jdbcType="DECIMAL" property="outUp2" />
-    <result column="list_up" jdbcType="DECIMAL" property="listUp" />
-    <result column="cost_up" jdbcType="DECIMAL" property="costUp" />
-    <result column="vip_up" jdbcType="DECIMAL" property="vipUp" />
-    <result column="vip_discount" jdbcType="DECIMAL" property="vipDiscount" />
-    <result column="up_control" jdbcType="INTEGER" property="upControl" />
-    <result column="used" jdbcType="INTEGER" property="used" />
-    <result column="obj_type" jdbcType="VARCHAR" property="objType" />
-    <result column="share_rate" jdbcType="DECIMAL" property="shareRate" />
-    <result column="id_id" jdbcType="VARCHAR" property="idId" />
-    <result column="box_id" jdbcType="VARCHAR" property="boxId" />
-    <result column="box_unit" jdbcType="VARCHAR" property="boxUnit" />
-    <result column="box_num" jdbcType="DECIMAL" property="boxNum" />
-    <result column="barid" jdbcType="VARCHAR" property="barid" />
-    <result column="old_barid" jdbcType="VARCHAR" property="oldBarid" />
-    <result column="push_month" jdbcType="INTEGER" property="pushMonth" />
-    <result column="readme_url" jdbcType="VARCHAR" property="readmeUrl" />
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="sup_id" jdbcType="VARCHAR" property="supId" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="file_num" jdbcType="INTEGER" property="fileNum" />
-    <result column="last_sup_id" jdbcType="VARCHAR" property="lastSupId" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_key" jdbcType="VARCHAR" property="updateKey" />
-    <result column="allow_discount" jdbcType="INTEGER" property="allowDiscount" />
-    <result column="model_id" jdbcType="VARCHAR" property="modelId" />
-    <result column="bom_level" jdbcType="INTEGER" property="bomLevel" />
-    <result column="part_view_top" jdbcType="INTEGER" property="partViewTop" />
-    <result column="volume" jdbcType="DECIMAL" property="volume" />
-    <result column="weight" jdbcType="DECIMAL" property="weight" />
-    <result column="sales_status" jdbcType="INTEGER" property="salesStatus" />
-    <result column="box_sales" jdbcType="BIT" property="boxSales" />
-    <result column="box_purchase" jdbcType="BIT" property="boxPurchase" />
-    <result column="lower_shelf" jdbcType="BIT" property="lowerShelf" />
-    <result column="pur_front_day" jdbcType="INTEGER" property="purFrontDay" />
-    <result column="forbid_pur" jdbcType="BIT" property="forbidPur" />
-    <result column="classify" jdbcType="INTEGER" property="classify" />
-    <result column="marque" jdbcType="VARCHAR" property="marque" />
-    <result column="forecast_count_mrp" jdbcType="BIT" property="forecastCountMrp" />
-    <result column="forecast_count_month" jdbcType="INTEGER" property="forecastCountMonth" />
-    <result column="se_no" jdbcType="VARCHAR" property="seNo" />
-    <result column="is_sync" jdbcType="BIT" property="isSync" />
-    <result column="bom_property" jdbcType="BIT" property="bomProperty" />
-    <result column="dept_id" jdbcType="VARCHAR" property="deptId" />
-    <result column="cost_amount" jdbcType="DECIMAL" property="costAmount" />
-    <result column="delivery_cycle" jdbcType="INTEGER" property="deliveryCycle" />
-    <result column="virtual_stock" jdbcType="DECIMAL" property="virtualStock" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId"/>
+    <result column="old_id" jdbcType="VARCHAR" property="oldId"/>
+    <result column="brand" jdbcType="VARCHAR" property="brand"/>
+    <result column="class1" jdbcType="VARCHAR" property="class1"/>
+    <result column="class2" jdbcType="VARCHAR" property="class2"/>
+    <result column="class3" jdbcType="VARCHAR" property="class3"/>
+    <result column="description" jdbcType="VARCHAR" property="description"/>
+    <result column="part_type" jdbcType="VARCHAR" property="partType"/>
+    <result column="py_id" jdbcType="VARCHAR" property="pyId"/>
+    <result column="spec" jdbcType="VARCHAR" property="spec"/>
+    <result column="unit" jdbcType="VARCHAR" property="unit"/>
+    <result column="cw_id" jdbcType="VARCHAR" property="cwId"/>
+    <result column="default_cw" jdbcType="VARCHAR" property="defaultCw"/>
+    <result column="in_up" jdbcType="DECIMAL" property="inUp"/>
+    <result column="out_up" jdbcType="DECIMAL" property="outUp"/>
+    <result column="out_up2" jdbcType="DECIMAL" property="outUp2"/>
+    <result column="list_up" jdbcType="DECIMAL" property="listUp"/>
+    <result column="cost_up" jdbcType="DECIMAL" property="costUp"/>
+    <result column="vip_up" jdbcType="DECIMAL" property="vipUp"/>
+    <result column="vip_discount" jdbcType="DECIMAL" property="vipDiscount"/>
+    <result column="up_control" jdbcType="INTEGER" property="upControl"/>
+    <result column="used" jdbcType="INTEGER" property="used"/>
+    <result column="obj_type" jdbcType="VARCHAR" property="objType"/>
+    <result column="share_rate" jdbcType="DECIMAL" property="shareRate"/>
+    <result column="id_id" jdbcType="VARCHAR" property="idId"/>
+    <result column="box_id" jdbcType="VARCHAR" property="boxId"/>
+    <result column="box_unit" jdbcType="VARCHAR" property="boxUnit"/>
+    <result column="box_num" jdbcType="DECIMAL" property="boxNum"/>
+    <result column="barid" jdbcType="VARCHAR" property="barid"/>
+    <result column="old_barid" jdbcType="VARCHAR" property="oldBarid"/>
+    <result column="push_month" jdbcType="INTEGER" property="pushMonth"/>
+    <result column="readme_url" jdbcType="VARCHAR" property="readmeUrl"/>
+    <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    <result column="sup_id" jdbcType="VARCHAR" property="supId"/>
+    <result column="status" jdbcType="INTEGER" property="status"/>
+    <result column="file_num" jdbcType="INTEGER" property="fileNum"/>
+    <result column="last_sup_id" jdbcType="VARCHAR" property="lastSupId"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+    <result column="app_user" jdbcType="VARCHAR" property="appUser"/>
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate"/>
+    <result column="update_key" jdbcType="VARCHAR" property="updateKey"/>
+    <result column="allow_discount" jdbcType="INTEGER" property="allowDiscount"/>
+    <result column="model_id" jdbcType="VARCHAR" property="modelId"/>
+    <result column="bom_level" jdbcType="INTEGER" property="bomLevel"/>
+    <result column="part_view_top" jdbcType="INTEGER" property="partViewTop"/>
+    <result column="volume" jdbcType="DECIMAL" property="volume"/>
+    <result column="weight" jdbcType="DECIMAL" property="weight"/>
+    <result column="sales_status" jdbcType="INTEGER" property="salesStatus"/>
+    <result column="box_sales" jdbcType="BIT" property="boxSales"/>
+    <result column="box_purchase" jdbcType="BIT" property="boxPurchase"/>
+    <result column="lower_shelf" jdbcType="BIT" property="lowerShelf"/>
+    <result column="pur_front_day" jdbcType="INTEGER" property="purFrontDay"/>
+    <result column="forbid_pur" jdbcType="BIT" property="forbidPur"/>
+    <result column="classify" jdbcType="INTEGER" property="classify"/>
+    <result column="marque" jdbcType="VARCHAR" property="marque"/>
+    <result column="forecast_count_mrp" jdbcType="BIT" property="forecastCountMrp"/>
+    <result column="forecast_count_month" jdbcType="INTEGER" property="forecastCountMonth"/>
+    <result column="se_no" jdbcType="VARCHAR" property="seNo"/>
+    <result column="is_sync" jdbcType="BIT" property="isSync"/>
+    <result column="bom_property" jdbcType="BIT" property="bomProperty"/>
+    <result column="dept_id" jdbcType="VARCHAR" property="deptId"/>
+    <result column="cost_amount" jdbcType="DECIMAL" property="costAmount"/>
+    <result column="delivery_cycle" jdbcType="INTEGER" property="deliveryCycle"/>
+    <result column="virtual_stock" jdbcType="DECIMAL" property="virtualStock"/>
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.mall.mbg.model.GmsGoods">
-    <result column="optional" jdbcType="LONGVARCHAR" property="optional" />
+    <result column="optional" jdbcType="LONGVARCHAR" property="optional"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -143,17 +143,18 @@
   <sql id="Blob_Column_List">
     optional
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.mall.mbg.model.GmsGoodsExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.mall.mbg.model.GmsGoodsExample"
+          resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     ,
-    <include refid="Blob_Column_List" />
+    <include refid="Blob_Column_List"/>
     from gms_goods
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
@@ -164,80 +165,79 @@
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from gms_goods
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     ,
-    <include refid="Blob_Column_List" />
+    <include refid="Blob_Column_List"/>
     from gms_goods
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from gms_goods
+    delete
+    from gms_goods
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.GmsGoodsExample">
     delete from gms_goods
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.GmsGoods">
-    insert into gms_goods (id, merchant_id, old_id, 
-      brand, class1, class2, 
-      class3, description, part_type, 
-      py_id, spec, unit, cw_id, 
-      default_cw, in_up, out_up, 
-      out_up2, list_up, cost_up, 
-      vip_up, vip_discount, up_control, 
-      used, obj_type, share_rate, 
-      id_id, box_id, box_unit, 
-      box_num, barid, old_barid, 
-      push_month, readme_url, remark, 
-      sup_id, status, file_num, 
-      last_sup_id, update_user, update_date, 
-      app_user, app_date, update_key, 
-      allow_discount, model_id, bom_level, 
-      part_view_top, volume, weight, 
-      sales_status, box_sales, box_purchase, 
-      lower_shelf, pur_front_day, forbid_pur, 
-      classify, marque, forecast_count_mrp, 
-      forecast_count_month, se_no, is_sync, 
-      bom_property, dept_id, cost_amount, 
-      delivery_cycle, virtual_stock, optional
-      )
-    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{oldId,jdbcType=VARCHAR}, 
-      #{brand,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR}, #{class2,jdbcType=VARCHAR}, 
-      #{class3,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{partType,jdbcType=VARCHAR}, 
-      #{pyId,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{cwId,jdbcType=VARCHAR}, 
-      #{defaultCw,jdbcType=VARCHAR}, #{inUp,jdbcType=DECIMAL}, #{outUp,jdbcType=DECIMAL}, 
-      #{outUp2,jdbcType=DECIMAL}, #{listUp,jdbcType=DECIMAL}, #{costUp,jdbcType=DECIMAL}, 
-      #{vipUp,jdbcType=DECIMAL}, #{vipDiscount,jdbcType=DECIMAL}, #{upControl,jdbcType=INTEGER}, 
-      #{used,jdbcType=INTEGER}, #{objType,jdbcType=VARCHAR}, #{shareRate,jdbcType=DECIMAL}, 
-      #{idId,jdbcType=VARCHAR}, #{boxId,jdbcType=VARCHAR}, #{boxUnit,jdbcType=VARCHAR}, 
-      #{boxNum,jdbcType=DECIMAL}, #{barid,jdbcType=VARCHAR}, #{oldBarid,jdbcType=VARCHAR}, 
-      #{pushMonth,jdbcType=INTEGER}, #{readmeUrl,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{supId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{fileNum,jdbcType=INTEGER}, 
-      #{lastSupId,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
-      #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, #{updateKey,jdbcType=VARCHAR}, 
-      #{allowDiscount,jdbcType=INTEGER}, #{modelId,jdbcType=VARCHAR}, #{bomLevel,jdbcType=INTEGER}, 
-      #{partViewTop,jdbcType=INTEGER}, #{volume,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, 
-      #{salesStatus,jdbcType=INTEGER}, #{boxSales,jdbcType=BIT}, #{boxPurchase,jdbcType=BIT}, 
-      #{lowerShelf,jdbcType=BIT}, #{purFrontDay,jdbcType=INTEGER}, #{forbidPur,jdbcType=BIT}, 
-      #{classify,jdbcType=INTEGER}, #{marque,jdbcType=VARCHAR}, #{forecastCountMrp,jdbcType=BIT}, 
-      #{forecastCountMonth,jdbcType=INTEGER}, #{seNo,jdbcType=VARCHAR}, #{isSync,jdbcType=BIT}, 
-      #{bomProperty,jdbcType=BIT}, #{deptId,jdbcType=VARCHAR}, #{costAmount,jdbcType=DECIMAL}, 
-      #{deliveryCycle,jdbcType=INTEGER}, #{virtualStock,jdbcType=DECIMAL}, #{optional,jdbcType=LONGVARCHAR}
-      )
+    insert into gms_goods (id, merchant_id, old_id,
+                           brand, class1, class2,
+                           class3, description, part_type,
+                           py_id, spec, unit, cw_id,
+                           default_cw, in_up, out_up,
+                           out_up2, list_up, cost_up,
+                           vip_up, vip_discount, up_control,
+                           used, obj_type, share_rate,
+                           id_id, box_id, box_unit,
+                           box_num, barid, old_barid,
+                           push_month, readme_url, remark,
+                           sup_id, status, file_num,
+                           last_sup_id, update_user, update_date,
+                           app_user, app_date, update_key,
+                           allow_discount, model_id, bom_level,
+                           part_view_top, volume, weight,
+                           sales_status, box_sales, box_purchase,
+                           lower_shelf, pur_front_day, forbid_pur,
+                           classify, marque, forecast_count_mrp,
+                           forecast_count_month, se_no, is_sync,
+                           bom_property, dept_id, cost_amount,
+                           delivery_cycle, virtual_stock, optional)
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{oldId,jdbcType=VARCHAR},
+            #{brand,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR}, #{class2,jdbcType=VARCHAR},
+            #{class3,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{partType,jdbcType=VARCHAR},
+            #{pyId,jdbcType=VARCHAR}, #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{cwId,jdbcType=VARCHAR},
+            #{defaultCw,jdbcType=VARCHAR}, #{inUp,jdbcType=DECIMAL}, #{outUp,jdbcType=DECIMAL},
+            #{outUp2,jdbcType=DECIMAL}, #{listUp,jdbcType=DECIMAL}, #{costUp,jdbcType=DECIMAL},
+            #{vipUp,jdbcType=DECIMAL}, #{vipDiscount,jdbcType=DECIMAL}, #{upControl,jdbcType=INTEGER},
+            #{used,jdbcType=INTEGER}, #{objType,jdbcType=VARCHAR}, #{shareRate,jdbcType=DECIMAL},
+            #{idId,jdbcType=VARCHAR}, #{boxId,jdbcType=VARCHAR}, #{boxUnit,jdbcType=VARCHAR},
+            #{boxNum,jdbcType=DECIMAL}, #{barid,jdbcType=VARCHAR}, #{oldBarid,jdbcType=VARCHAR},
+            #{pushMonth,jdbcType=INTEGER}, #{readmeUrl,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+            #{supId,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{fileNum,jdbcType=INTEGER},
+            #{lastSupId,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP},
+            #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, #{updateKey,jdbcType=VARCHAR},
+            #{allowDiscount,jdbcType=INTEGER}, #{modelId,jdbcType=VARCHAR}, #{bomLevel,jdbcType=INTEGER},
+            #{partViewTop,jdbcType=INTEGER}, #{volume,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL},
+            #{salesStatus,jdbcType=INTEGER}, #{boxSales,jdbcType=BIT}, #{boxPurchase,jdbcType=BIT},
+            #{lowerShelf,jdbcType=BIT}, #{purFrontDay,jdbcType=INTEGER}, #{forbidPur,jdbcType=BIT},
+            #{classify,jdbcType=INTEGER}, #{marque,jdbcType=VARCHAR}, #{forecastCountMrp,jdbcType=BIT},
+            #{forecastCountMonth,jdbcType=INTEGER}, #{seNo,jdbcType=VARCHAR}, #{isSync,jdbcType=BIT},
+            #{bomProperty,jdbcType=BIT}, #{deptId,jdbcType=VARCHAR}, #{costAmount,jdbcType=DECIMAL},
+            #{deliveryCycle,jdbcType=INTEGER}, #{virtualStock,jdbcType=DECIMAL}, #{optional,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.GmsGoods">
     insert into gms_goods
@@ -651,7 +651,7 @@
   <select id="countByExample" parameterType="com.mall.mbg.model.GmsGoodsExample" resultType="java.lang.Long">
     select count(*) from gms_goods
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
@@ -860,152 +860,152 @@
       </if>
     </set>
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update gms_goods
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      old_id = #{record.oldId,jdbcType=VARCHAR},
-      brand = #{record.brand,jdbcType=VARCHAR},
-      class1 = #{record.class1,jdbcType=VARCHAR},
-      class2 = #{record.class2,jdbcType=VARCHAR},
-      class3 = #{record.class3,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      part_type = #{record.partType,jdbcType=VARCHAR},
-      py_id = #{record.pyId,jdbcType=VARCHAR},
-      spec = #{record.spec,jdbcType=VARCHAR},
-      unit = #{record.unit,jdbcType=VARCHAR},
-      cw_id = #{record.cwId,jdbcType=VARCHAR},
-      default_cw = #{record.defaultCw,jdbcType=VARCHAR},
-      in_up = #{record.inUp,jdbcType=DECIMAL},
-      out_up = #{record.outUp,jdbcType=DECIMAL},
-      out_up2 = #{record.outUp2,jdbcType=DECIMAL},
-      list_up = #{record.listUp,jdbcType=DECIMAL},
-      cost_up = #{record.costUp,jdbcType=DECIMAL},
-      vip_up = #{record.vipUp,jdbcType=DECIMAL},
-      vip_discount = #{record.vipDiscount,jdbcType=DECIMAL},
-      up_control = #{record.upControl,jdbcType=INTEGER},
-      used = #{record.used,jdbcType=INTEGER},
-      obj_type = #{record.objType,jdbcType=VARCHAR},
-      share_rate = #{record.shareRate,jdbcType=DECIMAL},
-      id_id = #{record.idId,jdbcType=VARCHAR},
-      box_id = #{record.boxId,jdbcType=VARCHAR},
-      box_unit = #{record.boxUnit,jdbcType=VARCHAR},
-      box_num = #{record.boxNum,jdbcType=DECIMAL},
-      barid = #{record.barid,jdbcType=VARCHAR},
-      old_barid = #{record.oldBarid,jdbcType=VARCHAR},
-      push_month = #{record.pushMonth,jdbcType=INTEGER},
-      readme_url = #{record.readmeUrl,jdbcType=VARCHAR},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      sup_id = #{record.supId,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      file_num = #{record.fileNum,jdbcType=INTEGER},
-      last_sup_id = #{record.lastSupId,jdbcType=VARCHAR},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_key = #{record.updateKey,jdbcType=VARCHAR},
-      allow_discount = #{record.allowDiscount,jdbcType=INTEGER},
-      model_id = #{record.modelId,jdbcType=VARCHAR},
-      bom_level = #{record.bomLevel,jdbcType=INTEGER},
-      part_view_top = #{record.partViewTop,jdbcType=INTEGER},
-      volume = #{record.volume,jdbcType=DECIMAL},
-      weight = #{record.weight,jdbcType=DECIMAL},
-      sales_status = #{record.salesStatus,jdbcType=INTEGER},
-      box_sales = #{record.boxSales,jdbcType=BIT},
-      box_purchase = #{record.boxPurchase,jdbcType=BIT},
-      lower_shelf = #{record.lowerShelf,jdbcType=BIT},
-      pur_front_day = #{record.purFrontDay,jdbcType=INTEGER},
-      forbid_pur = #{record.forbidPur,jdbcType=BIT},
-      classify = #{record.classify,jdbcType=INTEGER},
-      marque = #{record.marque,jdbcType=VARCHAR},
-      forecast_count_mrp = #{record.forecastCountMrp,jdbcType=BIT},
-      forecast_count_month = #{record.forecastCountMonth,jdbcType=INTEGER},
-      se_no = #{record.seNo,jdbcType=VARCHAR},
-      is_sync = #{record.isSync,jdbcType=BIT},
-      bom_property = #{record.bomProperty,jdbcType=BIT},
-      dept_id = #{record.deptId,jdbcType=VARCHAR},
-      cost_amount = #{record.costAmount,jdbcType=DECIMAL},
-      delivery_cycle = #{record.deliveryCycle,jdbcType=INTEGER},
-      virtual_stock = #{record.virtualStock,jdbcType=DECIMAL},
-      optional = #{record.optional,jdbcType=LONGVARCHAR}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    old_id = #{record.oldId,jdbcType=VARCHAR},
+    brand = #{record.brand,jdbcType=VARCHAR},
+    class1 = #{record.class1,jdbcType=VARCHAR},
+    class2 = #{record.class2,jdbcType=VARCHAR},
+    class3 = #{record.class3,jdbcType=VARCHAR},
+    description = #{record.description,jdbcType=VARCHAR},
+    part_type = #{record.partType,jdbcType=VARCHAR},
+    py_id = #{record.pyId,jdbcType=VARCHAR},
+    spec = #{record.spec,jdbcType=VARCHAR},
+    unit = #{record.unit,jdbcType=VARCHAR},
+    cw_id = #{record.cwId,jdbcType=VARCHAR},
+    default_cw = #{record.defaultCw,jdbcType=VARCHAR},
+    in_up = #{record.inUp,jdbcType=DECIMAL},
+    out_up = #{record.outUp,jdbcType=DECIMAL},
+    out_up2 = #{record.outUp2,jdbcType=DECIMAL},
+    list_up = #{record.listUp,jdbcType=DECIMAL},
+    cost_up = #{record.costUp,jdbcType=DECIMAL},
+    vip_up = #{record.vipUp,jdbcType=DECIMAL},
+    vip_discount = #{record.vipDiscount,jdbcType=DECIMAL},
+    up_control = #{record.upControl,jdbcType=INTEGER},
+    used = #{record.used,jdbcType=INTEGER},
+    obj_type = #{record.objType,jdbcType=VARCHAR},
+    share_rate = #{record.shareRate,jdbcType=DECIMAL},
+    id_id = #{record.idId,jdbcType=VARCHAR},
+    box_id = #{record.boxId,jdbcType=VARCHAR},
+    box_unit = #{record.boxUnit,jdbcType=VARCHAR},
+    box_num = #{record.boxNum,jdbcType=DECIMAL},
+    barid = #{record.barid,jdbcType=VARCHAR},
+    old_barid = #{record.oldBarid,jdbcType=VARCHAR},
+    push_month = #{record.pushMonth,jdbcType=INTEGER},
+    readme_url = #{record.readmeUrl,jdbcType=VARCHAR},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    sup_id = #{record.supId,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    file_num = #{record.fileNum,jdbcType=INTEGER},
+    last_sup_id = #{record.lastSupId,jdbcType=VARCHAR},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_key = #{record.updateKey,jdbcType=VARCHAR},
+    allow_discount = #{record.allowDiscount,jdbcType=INTEGER},
+    model_id = #{record.modelId,jdbcType=VARCHAR},
+    bom_level = #{record.bomLevel,jdbcType=INTEGER},
+    part_view_top = #{record.partViewTop,jdbcType=INTEGER},
+    volume = #{record.volume,jdbcType=DECIMAL},
+    weight = #{record.weight,jdbcType=DECIMAL},
+    sales_status = #{record.salesStatus,jdbcType=INTEGER},
+    box_sales = #{record.boxSales,jdbcType=BIT},
+    box_purchase = #{record.boxPurchase,jdbcType=BIT},
+    lower_shelf = #{record.lowerShelf,jdbcType=BIT},
+    pur_front_day = #{record.purFrontDay,jdbcType=INTEGER},
+    forbid_pur = #{record.forbidPur,jdbcType=BIT},
+    classify = #{record.classify,jdbcType=INTEGER},
+    marque = #{record.marque,jdbcType=VARCHAR},
+    forecast_count_mrp = #{record.forecastCountMrp,jdbcType=BIT},
+    forecast_count_month = #{record.forecastCountMonth,jdbcType=INTEGER},
+    se_no = #{record.seNo,jdbcType=VARCHAR},
+    is_sync = #{record.isSync,jdbcType=BIT},
+    bom_property = #{record.bomProperty,jdbcType=BIT},
+    dept_id = #{record.deptId,jdbcType=VARCHAR},
+    cost_amount = #{record.costAmount,jdbcType=DECIMAL},
+    delivery_cycle = #{record.deliveryCycle,jdbcType=INTEGER},
+    virtual_stock = #{record.virtualStock,jdbcType=DECIMAL},
+    optional = #{record.optional,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update gms_goods
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      old_id = #{record.oldId,jdbcType=VARCHAR},
-      brand = #{record.brand,jdbcType=VARCHAR},
-      class1 = #{record.class1,jdbcType=VARCHAR},
-      class2 = #{record.class2,jdbcType=VARCHAR},
-      class3 = #{record.class3,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
-      part_type = #{record.partType,jdbcType=VARCHAR},
-      py_id = #{record.pyId,jdbcType=VARCHAR},
-      spec = #{record.spec,jdbcType=VARCHAR},
-      unit = #{record.unit,jdbcType=VARCHAR},
-      cw_id = #{record.cwId,jdbcType=VARCHAR},
-      default_cw = #{record.defaultCw,jdbcType=VARCHAR},
-      in_up = #{record.inUp,jdbcType=DECIMAL},
-      out_up = #{record.outUp,jdbcType=DECIMAL},
-      out_up2 = #{record.outUp2,jdbcType=DECIMAL},
-      list_up = #{record.listUp,jdbcType=DECIMAL},
-      cost_up = #{record.costUp,jdbcType=DECIMAL},
-      vip_up = #{record.vipUp,jdbcType=DECIMAL},
-      vip_discount = #{record.vipDiscount,jdbcType=DECIMAL},
-      up_control = #{record.upControl,jdbcType=INTEGER},
-      used = #{record.used,jdbcType=INTEGER},
-      obj_type = #{record.objType,jdbcType=VARCHAR},
-      share_rate = #{record.shareRate,jdbcType=DECIMAL},
-      id_id = #{record.idId,jdbcType=VARCHAR},
-      box_id = #{record.boxId,jdbcType=VARCHAR},
-      box_unit = #{record.boxUnit,jdbcType=VARCHAR},
-      box_num = #{record.boxNum,jdbcType=DECIMAL},
-      barid = #{record.barid,jdbcType=VARCHAR},
-      old_barid = #{record.oldBarid,jdbcType=VARCHAR},
-      push_month = #{record.pushMonth,jdbcType=INTEGER},
-      readme_url = #{record.readmeUrl,jdbcType=VARCHAR},
-      remark = #{record.remark,jdbcType=VARCHAR},
-      sup_id = #{record.supId,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
-      file_num = #{record.fileNum,jdbcType=INTEGER},
-      last_sup_id = #{record.lastSupId,jdbcType=VARCHAR},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_key = #{record.updateKey,jdbcType=VARCHAR},
-      allow_discount = #{record.allowDiscount,jdbcType=INTEGER},
-      model_id = #{record.modelId,jdbcType=VARCHAR},
-      bom_level = #{record.bomLevel,jdbcType=INTEGER},
-      part_view_top = #{record.partViewTop,jdbcType=INTEGER},
-      volume = #{record.volume,jdbcType=DECIMAL},
-      weight = #{record.weight,jdbcType=DECIMAL},
-      sales_status = #{record.salesStatus,jdbcType=INTEGER},
-      box_sales = #{record.boxSales,jdbcType=BIT},
-      box_purchase = #{record.boxPurchase,jdbcType=BIT},
-      lower_shelf = #{record.lowerShelf,jdbcType=BIT},
-      pur_front_day = #{record.purFrontDay,jdbcType=INTEGER},
-      forbid_pur = #{record.forbidPur,jdbcType=BIT},
-      classify = #{record.classify,jdbcType=INTEGER},
-      marque = #{record.marque,jdbcType=VARCHAR},
-      forecast_count_mrp = #{record.forecastCountMrp,jdbcType=BIT},
-      forecast_count_month = #{record.forecastCountMonth,jdbcType=INTEGER},
-      se_no = #{record.seNo,jdbcType=VARCHAR},
-      is_sync = #{record.isSync,jdbcType=BIT},
-      bom_property = #{record.bomProperty,jdbcType=BIT},
-      dept_id = #{record.deptId,jdbcType=VARCHAR},
-      cost_amount = #{record.costAmount,jdbcType=DECIMAL},
-      delivery_cycle = #{record.deliveryCycle,jdbcType=INTEGER},
-      virtual_stock = #{record.virtualStock,jdbcType=DECIMAL}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    old_id = #{record.oldId,jdbcType=VARCHAR},
+    brand = #{record.brand,jdbcType=VARCHAR},
+    class1 = #{record.class1,jdbcType=VARCHAR},
+    class2 = #{record.class2,jdbcType=VARCHAR},
+    class3 = #{record.class3,jdbcType=VARCHAR},
+    description = #{record.description,jdbcType=VARCHAR},
+    part_type = #{record.partType,jdbcType=VARCHAR},
+    py_id = #{record.pyId,jdbcType=VARCHAR},
+    spec = #{record.spec,jdbcType=VARCHAR},
+    unit = #{record.unit,jdbcType=VARCHAR},
+    cw_id = #{record.cwId,jdbcType=VARCHAR},
+    default_cw = #{record.defaultCw,jdbcType=VARCHAR},
+    in_up = #{record.inUp,jdbcType=DECIMAL},
+    out_up = #{record.outUp,jdbcType=DECIMAL},
+    out_up2 = #{record.outUp2,jdbcType=DECIMAL},
+    list_up = #{record.listUp,jdbcType=DECIMAL},
+    cost_up = #{record.costUp,jdbcType=DECIMAL},
+    vip_up = #{record.vipUp,jdbcType=DECIMAL},
+    vip_discount = #{record.vipDiscount,jdbcType=DECIMAL},
+    up_control = #{record.upControl,jdbcType=INTEGER},
+    used = #{record.used,jdbcType=INTEGER},
+    obj_type = #{record.objType,jdbcType=VARCHAR},
+    share_rate = #{record.shareRate,jdbcType=DECIMAL},
+    id_id = #{record.idId,jdbcType=VARCHAR},
+    box_id = #{record.boxId,jdbcType=VARCHAR},
+    box_unit = #{record.boxUnit,jdbcType=VARCHAR},
+    box_num = #{record.boxNum,jdbcType=DECIMAL},
+    barid = #{record.barid,jdbcType=VARCHAR},
+    old_barid = #{record.oldBarid,jdbcType=VARCHAR},
+    push_month = #{record.pushMonth,jdbcType=INTEGER},
+    readme_url = #{record.readmeUrl,jdbcType=VARCHAR},
+    remark = #{record.remark,jdbcType=VARCHAR},
+    sup_id = #{record.supId,jdbcType=VARCHAR},
+    status = #{record.status,jdbcType=INTEGER},
+    file_num = #{record.fileNum,jdbcType=INTEGER},
+    last_sup_id = #{record.lastSupId,jdbcType=VARCHAR},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_key = #{record.updateKey,jdbcType=VARCHAR},
+    allow_discount = #{record.allowDiscount,jdbcType=INTEGER},
+    model_id = #{record.modelId,jdbcType=VARCHAR},
+    bom_level = #{record.bomLevel,jdbcType=INTEGER},
+    part_view_top = #{record.partViewTop,jdbcType=INTEGER},
+    volume = #{record.volume,jdbcType=DECIMAL},
+    weight = #{record.weight,jdbcType=DECIMAL},
+    sales_status = #{record.salesStatus,jdbcType=INTEGER},
+    box_sales = #{record.boxSales,jdbcType=BIT},
+    box_purchase = #{record.boxPurchase,jdbcType=BIT},
+    lower_shelf = #{record.lowerShelf,jdbcType=BIT},
+    pur_front_day = #{record.purFrontDay,jdbcType=INTEGER},
+    forbid_pur = #{record.forbidPur,jdbcType=BIT},
+    classify = #{record.classify,jdbcType=INTEGER},
+    marque = #{record.marque,jdbcType=VARCHAR},
+    forecast_count_mrp = #{record.forecastCountMrp,jdbcType=BIT},
+    forecast_count_month = #{record.forecastCountMonth,jdbcType=INTEGER},
+    se_no = #{record.seNo,jdbcType=VARCHAR},
+    is_sync = #{record.isSync,jdbcType=BIT},
+    bom_property = #{record.bomProperty,jdbcType=BIT},
+    dept_id = #{record.deptId,jdbcType=VARCHAR},
+    cost_amount = #{record.costAmount,jdbcType=DECIMAL},
+    delivery_cycle = #{record.deliveryCycle,jdbcType=INTEGER},
+    virtual_stock = #{record.virtualStock,jdbcType=DECIMAL}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.GmsGoods">
@@ -1214,141 +1214,141 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.mall.mbg.model.GmsGoods">
     update gms_goods
-    set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      old_id = #{oldId,jdbcType=VARCHAR},
-      brand = #{brand,jdbcType=VARCHAR},
-      class1 = #{class1,jdbcType=VARCHAR},
-      class2 = #{class2,jdbcType=VARCHAR},
-      class3 = #{class3,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      part_type = #{partType,jdbcType=VARCHAR},
-      py_id = #{pyId,jdbcType=VARCHAR},
-      spec = #{spec,jdbcType=VARCHAR},
-      unit = #{unit,jdbcType=VARCHAR},
-      cw_id = #{cwId,jdbcType=VARCHAR},
-      default_cw = #{defaultCw,jdbcType=VARCHAR},
-      in_up = #{inUp,jdbcType=DECIMAL},
-      out_up = #{outUp,jdbcType=DECIMAL},
-      out_up2 = #{outUp2,jdbcType=DECIMAL},
-      list_up = #{listUp,jdbcType=DECIMAL},
-      cost_up = #{costUp,jdbcType=DECIMAL},
-      vip_up = #{vipUp,jdbcType=DECIMAL},
-      vip_discount = #{vipDiscount,jdbcType=DECIMAL},
-      up_control = #{upControl,jdbcType=INTEGER},
-      used = #{used,jdbcType=INTEGER},
-      obj_type = #{objType,jdbcType=VARCHAR},
-      share_rate = #{shareRate,jdbcType=DECIMAL},
-      id_id = #{idId,jdbcType=VARCHAR},
-      box_id = #{boxId,jdbcType=VARCHAR},
-      box_unit = #{boxUnit,jdbcType=VARCHAR},
-      box_num = #{boxNum,jdbcType=DECIMAL},
-      barid = #{barid,jdbcType=VARCHAR},
-      old_barid = #{oldBarid,jdbcType=VARCHAR},
-      push_month = #{pushMonth,jdbcType=INTEGER},
-      readme_url = #{readmeUrl,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      sup_id = #{supId,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      file_num = #{fileNum,jdbcType=INTEGER},
-      last_sup_id = #{lastSupId,jdbcType=VARCHAR},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_key = #{updateKey,jdbcType=VARCHAR},
-      allow_discount = #{allowDiscount,jdbcType=INTEGER},
-      model_id = #{modelId,jdbcType=VARCHAR},
-      bom_level = #{bomLevel,jdbcType=INTEGER},
-      part_view_top = #{partViewTop,jdbcType=INTEGER},
-      volume = #{volume,jdbcType=DECIMAL},
-      weight = #{weight,jdbcType=DECIMAL},
-      sales_status = #{salesStatus,jdbcType=INTEGER},
-      box_sales = #{boxSales,jdbcType=BIT},
-      box_purchase = #{boxPurchase,jdbcType=BIT},
-      lower_shelf = #{lowerShelf,jdbcType=BIT},
-      pur_front_day = #{purFrontDay,jdbcType=INTEGER},
-      forbid_pur = #{forbidPur,jdbcType=BIT},
-      classify = #{classify,jdbcType=INTEGER},
-      marque = #{marque,jdbcType=VARCHAR},
-      forecast_count_mrp = #{forecastCountMrp,jdbcType=BIT},
-      forecast_count_month = #{forecastCountMonth,jdbcType=INTEGER},
-      se_no = #{seNo,jdbcType=VARCHAR},
-      is_sync = #{isSync,jdbcType=BIT},
-      bom_property = #{bomProperty,jdbcType=BIT},
-      dept_id = #{deptId,jdbcType=VARCHAR},
-      cost_amount = #{costAmount,jdbcType=DECIMAL},
-      delivery_cycle = #{deliveryCycle,jdbcType=INTEGER},
-      virtual_stock = #{virtualStock,jdbcType=DECIMAL},
-      optional = #{optional,jdbcType=LONGVARCHAR}
+    set merchant_id          = #{merchantId,jdbcType=VARCHAR},
+        old_id               = #{oldId,jdbcType=VARCHAR},
+        brand                = #{brand,jdbcType=VARCHAR},
+        class1               = #{class1,jdbcType=VARCHAR},
+        class2               = #{class2,jdbcType=VARCHAR},
+        class3               = #{class3,jdbcType=VARCHAR},
+        description          = #{description,jdbcType=VARCHAR},
+        part_type            = #{partType,jdbcType=VARCHAR},
+        py_id                = #{pyId,jdbcType=VARCHAR},
+        spec                 = #{spec,jdbcType=VARCHAR},
+        unit                 = #{unit,jdbcType=VARCHAR},
+        cw_id                = #{cwId,jdbcType=VARCHAR},
+        default_cw           = #{defaultCw,jdbcType=VARCHAR},
+        in_up                = #{inUp,jdbcType=DECIMAL},
+        out_up               = #{outUp,jdbcType=DECIMAL},
+        out_up2              = #{outUp2,jdbcType=DECIMAL},
+        list_up              = #{listUp,jdbcType=DECIMAL},
+        cost_up              = #{costUp,jdbcType=DECIMAL},
+        vip_up               = #{vipUp,jdbcType=DECIMAL},
+        vip_discount         = #{vipDiscount,jdbcType=DECIMAL},
+        up_control           = #{upControl,jdbcType=INTEGER},
+        used                 = #{used,jdbcType=INTEGER},
+        obj_type             = #{objType,jdbcType=VARCHAR},
+        share_rate           = #{shareRate,jdbcType=DECIMAL},
+        id_id                = #{idId,jdbcType=VARCHAR},
+        box_id               = #{boxId,jdbcType=VARCHAR},
+        box_unit             = #{boxUnit,jdbcType=VARCHAR},
+        box_num              = #{boxNum,jdbcType=DECIMAL},
+        barid                = #{barid,jdbcType=VARCHAR},
+        old_barid            = #{oldBarid,jdbcType=VARCHAR},
+        push_month           = #{pushMonth,jdbcType=INTEGER},
+        readme_url           = #{readmeUrl,jdbcType=VARCHAR},
+        remark               = #{remark,jdbcType=VARCHAR},
+        sup_id               = #{supId,jdbcType=VARCHAR},
+        status               = #{status,jdbcType=INTEGER},
+        file_num             = #{fileNum,jdbcType=INTEGER},
+        last_sup_id          = #{lastSupId,jdbcType=VARCHAR},
+        update_user          = #{updateUser,jdbcType=VARCHAR},
+        update_date          = #{updateDate,jdbcType=TIMESTAMP},
+        app_user             = #{appUser,jdbcType=VARCHAR},
+        app_date             = #{appDate,jdbcType=TIMESTAMP},
+        update_key           = #{updateKey,jdbcType=VARCHAR},
+        allow_discount       = #{allowDiscount,jdbcType=INTEGER},
+        model_id             = #{modelId,jdbcType=VARCHAR},
+        bom_level            = #{bomLevel,jdbcType=INTEGER},
+        part_view_top        = #{partViewTop,jdbcType=INTEGER},
+        volume               = #{volume,jdbcType=DECIMAL},
+        weight               = #{weight,jdbcType=DECIMAL},
+        sales_status         = #{salesStatus,jdbcType=INTEGER},
+        box_sales            = #{boxSales,jdbcType=BIT},
+        box_purchase         = #{boxPurchase,jdbcType=BIT},
+        lower_shelf          = #{lowerShelf,jdbcType=BIT},
+        pur_front_day        = #{purFrontDay,jdbcType=INTEGER},
+        forbid_pur           = #{forbidPur,jdbcType=BIT},
+        classify             = #{classify,jdbcType=INTEGER},
+        marque               = #{marque,jdbcType=VARCHAR},
+        forecast_count_mrp   = #{forecastCountMrp,jdbcType=BIT},
+        forecast_count_month = #{forecastCountMonth,jdbcType=INTEGER},
+        se_no                = #{seNo,jdbcType=VARCHAR},
+        is_sync              = #{isSync,jdbcType=BIT},
+        bom_property         = #{bomProperty,jdbcType=BIT},
+        dept_id              = #{deptId,jdbcType=VARCHAR},
+        cost_amount          = #{costAmount,jdbcType=DECIMAL},
+        delivery_cycle       = #{deliveryCycle,jdbcType=INTEGER},
+        virtual_stock        = #{virtualStock,jdbcType=DECIMAL},
+        optional             = #{optional,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.GmsGoods">
     update gms_goods
-    set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      old_id = #{oldId,jdbcType=VARCHAR},
-      brand = #{brand,jdbcType=VARCHAR},
-      class1 = #{class1,jdbcType=VARCHAR},
-      class2 = #{class2,jdbcType=VARCHAR},
-      class3 = #{class3,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
-      part_type = #{partType,jdbcType=VARCHAR},
-      py_id = #{pyId,jdbcType=VARCHAR},
-      spec = #{spec,jdbcType=VARCHAR},
-      unit = #{unit,jdbcType=VARCHAR},
-      cw_id = #{cwId,jdbcType=VARCHAR},
-      default_cw = #{defaultCw,jdbcType=VARCHAR},
-      in_up = #{inUp,jdbcType=DECIMAL},
-      out_up = #{outUp,jdbcType=DECIMAL},
-      out_up2 = #{outUp2,jdbcType=DECIMAL},
-      list_up = #{listUp,jdbcType=DECIMAL},
-      cost_up = #{costUp,jdbcType=DECIMAL},
-      vip_up = #{vipUp,jdbcType=DECIMAL},
-      vip_discount = #{vipDiscount,jdbcType=DECIMAL},
-      up_control = #{upControl,jdbcType=INTEGER},
-      used = #{used,jdbcType=INTEGER},
-      obj_type = #{objType,jdbcType=VARCHAR},
-      share_rate = #{shareRate,jdbcType=DECIMAL},
-      id_id = #{idId,jdbcType=VARCHAR},
-      box_id = #{boxId,jdbcType=VARCHAR},
-      box_unit = #{boxUnit,jdbcType=VARCHAR},
-      box_num = #{boxNum,jdbcType=DECIMAL},
-      barid = #{barid,jdbcType=VARCHAR},
-      old_barid = #{oldBarid,jdbcType=VARCHAR},
-      push_month = #{pushMonth,jdbcType=INTEGER},
-      readme_url = #{readmeUrl,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR},
-      sup_id = #{supId,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      file_num = #{fileNum,jdbcType=INTEGER},
-      last_sup_id = #{lastSupId,jdbcType=VARCHAR},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_key = #{updateKey,jdbcType=VARCHAR},
-      allow_discount = #{allowDiscount,jdbcType=INTEGER},
-      model_id = #{modelId,jdbcType=VARCHAR},
-      bom_level = #{bomLevel,jdbcType=INTEGER},
-      part_view_top = #{partViewTop,jdbcType=INTEGER},
-      volume = #{volume,jdbcType=DECIMAL},
-      weight = #{weight,jdbcType=DECIMAL},
-      sales_status = #{salesStatus,jdbcType=INTEGER},
-      box_sales = #{boxSales,jdbcType=BIT},
-      box_purchase = #{boxPurchase,jdbcType=BIT},
-      lower_shelf = #{lowerShelf,jdbcType=BIT},
-      pur_front_day = #{purFrontDay,jdbcType=INTEGER},
-      forbid_pur = #{forbidPur,jdbcType=BIT},
-      classify = #{classify,jdbcType=INTEGER},
-      marque = #{marque,jdbcType=VARCHAR},
-      forecast_count_mrp = #{forecastCountMrp,jdbcType=BIT},
-      forecast_count_month = #{forecastCountMonth,jdbcType=INTEGER},
-      se_no = #{seNo,jdbcType=VARCHAR},
-      is_sync = #{isSync,jdbcType=BIT},
-      bom_property = #{bomProperty,jdbcType=BIT},
-      dept_id = #{deptId,jdbcType=VARCHAR},
-      cost_amount = #{costAmount,jdbcType=DECIMAL},
-      delivery_cycle = #{deliveryCycle,jdbcType=INTEGER},
-      virtual_stock = #{virtualStock,jdbcType=DECIMAL}
+    set merchant_id          = #{merchantId,jdbcType=VARCHAR},
+        old_id               = #{oldId,jdbcType=VARCHAR},
+        brand                = #{brand,jdbcType=VARCHAR},
+        class1               = #{class1,jdbcType=VARCHAR},
+        class2               = #{class2,jdbcType=VARCHAR},
+        class3               = #{class3,jdbcType=VARCHAR},
+        description          = #{description,jdbcType=VARCHAR},
+        part_type            = #{partType,jdbcType=VARCHAR},
+        py_id                = #{pyId,jdbcType=VARCHAR},
+        spec                 = #{spec,jdbcType=VARCHAR},
+        unit                 = #{unit,jdbcType=VARCHAR},
+        cw_id                = #{cwId,jdbcType=VARCHAR},
+        default_cw           = #{defaultCw,jdbcType=VARCHAR},
+        in_up                = #{inUp,jdbcType=DECIMAL},
+        out_up               = #{outUp,jdbcType=DECIMAL},
+        out_up2              = #{outUp2,jdbcType=DECIMAL},
+        list_up              = #{listUp,jdbcType=DECIMAL},
+        cost_up              = #{costUp,jdbcType=DECIMAL},
+        vip_up               = #{vipUp,jdbcType=DECIMAL},
+        vip_discount         = #{vipDiscount,jdbcType=DECIMAL},
+        up_control           = #{upControl,jdbcType=INTEGER},
+        used                 = #{used,jdbcType=INTEGER},
+        obj_type             = #{objType,jdbcType=VARCHAR},
+        share_rate           = #{shareRate,jdbcType=DECIMAL},
+        id_id                = #{idId,jdbcType=VARCHAR},
+        box_id               = #{boxId,jdbcType=VARCHAR},
+        box_unit             = #{boxUnit,jdbcType=VARCHAR},
+        box_num              = #{boxNum,jdbcType=DECIMAL},
+        barid                = #{barid,jdbcType=VARCHAR},
+        old_barid            = #{oldBarid,jdbcType=VARCHAR},
+        push_month           = #{pushMonth,jdbcType=INTEGER},
+        readme_url           = #{readmeUrl,jdbcType=VARCHAR},
+        remark               = #{remark,jdbcType=VARCHAR},
+        sup_id               = #{supId,jdbcType=VARCHAR},
+        status               = #{status,jdbcType=INTEGER},
+        file_num             = #{fileNum,jdbcType=INTEGER},
+        last_sup_id          = #{lastSupId,jdbcType=VARCHAR},
+        update_user          = #{updateUser,jdbcType=VARCHAR},
+        update_date          = #{updateDate,jdbcType=TIMESTAMP},
+        app_user             = #{appUser,jdbcType=VARCHAR},
+        app_date             = #{appDate,jdbcType=TIMESTAMP},
+        update_key           = #{updateKey,jdbcType=VARCHAR},
+        allow_discount       = #{allowDiscount,jdbcType=INTEGER},
+        model_id             = #{modelId,jdbcType=VARCHAR},
+        bom_level            = #{bomLevel,jdbcType=INTEGER},
+        part_view_top        = #{partViewTop,jdbcType=INTEGER},
+        volume               = #{volume,jdbcType=DECIMAL},
+        weight               = #{weight,jdbcType=DECIMAL},
+        sales_status         = #{salesStatus,jdbcType=INTEGER},
+        box_sales            = #{boxSales,jdbcType=BIT},
+        box_purchase         = #{boxPurchase,jdbcType=BIT},
+        lower_shelf          = #{lowerShelf,jdbcType=BIT},
+        pur_front_day        = #{purFrontDay,jdbcType=INTEGER},
+        forbid_pur           = #{forbidPur,jdbcType=BIT},
+        classify             = #{classify,jdbcType=INTEGER},
+        marque               = #{marque,jdbcType=VARCHAR},
+        forecast_count_mrp   = #{forecastCountMrp,jdbcType=BIT},
+        forecast_count_month = #{forecastCountMonth,jdbcType=INTEGER},
+        se_no                = #{seNo,jdbcType=VARCHAR},
+        is_sync              = #{isSync,jdbcType=BIT},
+        bom_property         = #{bomProperty,jdbcType=BIT},
+        dept_id              = #{deptId,jdbcType=VARCHAR},
+        cost_amount          = #{costAmount,jdbcType=DECIMAL},
+        delivery_cycle       = #{deliveryCycle,jdbcType=INTEGER},
+        virtual_stock        = #{virtualStock,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

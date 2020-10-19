@@ -7,25 +7,25 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface GmsGoodsBindMapper {
-    long countByExample(GmsGoodsBindExample example);
+  long countByExample(GmsGoodsBindExample example);
 
-    int deleteByExample(GmsGoodsBindExample example);
+  int deleteByExample(GmsGoodsBindExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(GmsGoodsBind record);
+  int insert(GmsGoodsBind record);
 
-    int insertSelective(GmsGoodsBind record);
+  int insertSelective(GmsGoodsBind record);
 
-    List<GmsGoodsBind> selectByExample(GmsGoodsBindExample example);
+  List<GmsGoodsBind> selectByExample(GmsGoodsBindExample example);
 
-    GmsGoodsBind selectByPrimaryKey(String id);
+  GmsGoodsBind selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") GmsGoodsBind record, @Param("example") GmsGoodsBindExample example);
+  int updateByExampleSelective(@Param("record") GmsGoodsBind record, @Param("example") GmsGoodsBindExample example);
 
-    int updateByExample(@Param("record") GmsGoodsBind record, @Param("example") GmsGoodsBindExample example);
+  int updateByExample(@Param("record") GmsGoodsBind record, @Param("example") GmsGoodsBindExample example);
 
-    int updateByPrimaryKeySelective(GmsGoodsBind record);
+  int updateByPrimaryKeySelective(GmsGoodsBind record);
 
-    int updateByPrimaryKey(GmsGoodsBind record);
+  int updateByPrimaryKey(GmsGoodsBind record);
 }

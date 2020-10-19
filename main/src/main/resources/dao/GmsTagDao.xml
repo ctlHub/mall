@@ -2,28 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.dao.GmsTagDao">
 
-    <sql id="ditengSelectTag">
-        uid, corp_no, code, name, type, remark
-    </sql>
+  <sql id="ditengSelectTag">
+    uid, corp_no, code, name, type, remark
+  </sql>
 
-    <!-- 根据查询条件查询标签讯息 -->
-    <select id="selectBySearchText" resultMap="com.mall.mbg.mapper.GmsTagMapper.BaseResultMap" parameterType="map">
-        select
-        <include refid="ditengSelectTag"/>
-        from gms_tag
-        where corp_no_ = #{corpNo,jdbcType=VARCHAR}
-        <if test="searchParam.code != null and searchParam.code !=''">
-            and code_ = #{searchParam.code}
-        </if>
-        <if test="searchParam.searchText != null and searchParam.searchText !=''">
-            and(
-            name_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or type_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            or remark_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
-            )
-        </if>
-        <if test="searchParam.maxRecord != null">
-            limit #{searchParam.maxRecord}
-        </if>
-    </select>
+  <!-- 根据查询条件查询标签讯息 -->
+  <select id="selectBySearchText" resultMap="com.mall.mbg.mapper.GmsTagMapper.BaseResultMap" parameterType="map">
+    select
+    <include refid="ditengSelectTag"/>
+    from gms_tag
+    where corp_no_ = #{corpNo,jdbcType=VARCHAR}
+    <if test="searchParam.code != null and searchParam.code !=''">
+      and code_ = #{searchParam.code}
+    </if>
+    <if test="searchParam.searchText != null and searchParam.searchText !=''">
+      and(
+      name_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or type_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      or remark_ like concat('%',#{searchParam.searchText,jdbcType=VARCHAR},'%')
+      )
+    </if>
+    <if test="searchParam.maxRecord != null">
+      limit #{searchParam.maxRecord}
+    </if>
+  </select>
 </mapper>

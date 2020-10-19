@@ -19,23 +19,23 @@ import java.util.List;
 @Service
 public class CmsNoticeService {
 
-    @Resource
-    CmsNoticeDao cmsNoticeDao;
+  @Resource
+  CmsNoticeDao cmsNoticeDao;
 
-    @Resource
-    CmsNoticeMapper noticeMapper;
+  @Resource
+  CmsNoticeMapper noticeMapper;
 
-    /**
-     * 将noticeList中的公告信息存入CmsNotice表，如果有则更新，没有则新增
-     */
-    public int sync(List<CmsNotice> noticeList) {
-        return cmsNoticeDao.sync(noticeList);
-    }
+  /**
+   * 将noticeList中的公告信息存入CmsNotice表，如果有则更新，没有则新增
+   */
+  public int sync(List<CmsNotice> noticeList) {
+    return cmsNoticeDao.sync(noticeList);
+  }
 
-    public int delete(CmsNotice gmsNotice) {
-        CmsNoticeExample noticeExample = new CmsNoticeExample();
-        noticeExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andTitleEqualTo(gmsNotice.getTitle());
-        return noticeMapper.deleteByExample(noticeExample);
-    }
+  public int delete(CmsNotice gmsNotice) {
+    CmsNoticeExample noticeExample = new CmsNoticeExample();
+    noticeExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andTitleEqualTo(gmsNotice.getTitle());
+    return noticeMapper.deleteByExample(noticeExample);
+  }
 
 }

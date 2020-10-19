@@ -20,21 +20,21 @@ import java.util.List;
 @Service
 public class NoticeDetailService {
 
-    @Resource
-    CmsNoticeMapper cmsNoticeMapper;
+  @Resource
+  CmsNoticeMapper cmsNoticeMapper;
 
-    public CmsNotice get(String id) {
-        CmsNoticeExample example = new CmsNoticeExample();
-        example.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andIdEqualTo(id);
-        List<CmsNotice> cmsNotices = cmsNoticeMapper.selectByExampleWithBLOBs(example);
-        if (CollectionUtils.isEmpty(cmsNotices)) {
-            throw new NotExistException(id) {
-                @Override
-                protected String getType() {
-                    return "新闻公告";
-                }
-            };
+  public CmsNotice get(String id) {
+    CmsNoticeExample example = new CmsNoticeExample();
+    example.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andIdEqualTo(id);
+    List<CmsNotice> cmsNotices = cmsNoticeMapper.selectByExampleWithBLOBs(example);
+    if (CollectionUtils.isEmpty(cmsNotices)) {
+      throw new NotExistException(id) {
+        @Override
+        protected String getType() {
+          return "新闻公告";
         }
-        return cmsNotices.get(0);
+      };
     }
+    return cmsNotices.get(0);
+  }
 }

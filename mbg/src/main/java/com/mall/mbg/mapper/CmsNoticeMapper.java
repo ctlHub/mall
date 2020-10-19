@@ -7,31 +7,31 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CmsNoticeMapper {
-    long countByExample(CmsNoticeExample example);
+  long countByExample(CmsNoticeExample example);
 
-    int deleteByExample(CmsNoticeExample example);
+  int deleteByExample(CmsNoticeExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(CmsNotice record);
+  int insert(CmsNotice record);
 
-    int insertSelective(CmsNotice record);
+  int insertSelective(CmsNotice record);
 
-    List<CmsNotice> selectByExampleWithBLOBs(CmsNoticeExample example);
+  List<CmsNotice> selectByExampleWithBLOBs(CmsNoticeExample example);
 
-    List<CmsNotice> selectByExample(CmsNoticeExample example);
+  List<CmsNotice> selectByExample(CmsNoticeExample example);
 
-    CmsNotice selectByPrimaryKey(String id);
+  CmsNotice selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
+  int updateByExampleSelective(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
+  int updateByExampleWithBLOBs(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
 
-    int updateByExample(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
+  int updateByExample(@Param("record") CmsNotice record, @Param("example") CmsNoticeExample example);
 
-    int updateByPrimaryKeySelective(CmsNotice record);
+  int updateByPrimaryKeySelective(CmsNotice record);
 
-    int updateByPrimaryKeyWithBLOBs(CmsNotice record);
+  int updateByPrimaryKeyWithBLOBs(CmsNotice record);
 
-    int updateByPrimaryKey(CmsNotice record);
+  int updateByPrimaryKey(CmsNotice record);
 }

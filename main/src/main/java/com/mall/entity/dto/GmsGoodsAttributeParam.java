@@ -14,11 +14,11 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class GmsGoodsAttributeParam {
 
-    @ApiModelProperty("商品编号")
-    @NotEmpty
-    private String goodsId;
+  @ApiModelProperty("商品编号")
+  @NotEmpty
+  private String goodsId;
 
-    @ApiModelProperty("大类名称")
-    @NotEmpty
-    private String class1;
+  @ApiModelProperty("大类名称")
+  @NotEmpty
+  private String class1;
 }

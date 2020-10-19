@@ -32,48 +32,48 @@ import java.util.List;
 @RequestMapping("/categoryAttr")
 public class GcmCateGoryAttributeController {
 
-    private final GcmCateGoryAttributeService cateGoryAttributeService;
+  private final GcmCateGoryAttributeService cateGoryAttributeService;
 
-    public GcmCateGoryAttributeController(GcmCateGoryAttributeService cateGoryAttributeService) {
-        this.cateGoryAttributeService = cateGoryAttributeService;
-    }
+  public GcmCateGoryAttributeController(GcmCateGoryAttributeService cateGoryAttributeService) {
+    this.cateGoryAttributeService = cateGoryAttributeService;
+  }
 
-    @ApiOperation("根据地藤大类代码查大类有哪些属性")
-    @PostMapping("/list")
-    public CommonResult<List<GcmCategoryAttribute>> list(@RequestBody @Valid GcmCategoryAttributeParam categoryAttributeParam) {
-        List<GcmCategoryAttribute> categoryAttributeList = cateGoryAttributeService.list(categoryAttributeParam);
-        return CommonResult.success(categoryAttributeList);
-    }
+  @ApiOperation("根据地藤大类代码查大类有哪些属性")
+  @PostMapping("/list")
+  public CommonResult<List<GcmCategoryAttribute>> list(@RequestBody @Valid GcmCategoryAttributeParam categoryAttributeParam) {
+    List<GcmCategoryAttribute> categoryAttributeList = cateGoryAttributeService.list(categoryAttributeParam);
+    return CommonResult.success(categoryAttributeList);
+  }
 
-    @ApiOperation("查询某一属性的详情信息")
-    @PostMapping("/get")
-    public CommonResult<List<GcmCategoryAttribute>> get(@RequestParam("attrCode") String attrCode) {
-        GcmCategoryAttribute categoryAttributeList = cateGoryAttributeService.get(attrCode);
-        return CommonResult.success(Collections.singletonList(categoryAttributeList));
-    }
+  @ApiOperation("查询某一属性的详情信息")
+  @PostMapping("/get")
+  public CommonResult<List<GcmCategoryAttribute>> get(@RequestParam("attrCode") String attrCode) {
+    GcmCategoryAttribute categoryAttributeList = cateGoryAttributeService.get(attrCode);
+    return CommonResult.success(Collections.singletonList(categoryAttributeList));
+  }
 
-    /**
-     * 传入地藤大类代码和属性名称
-     */
-    @ApiOperation("新增")
-    @PostMapping("/create")
-    public CommonResult<String> create(@RequestBody @Validated(CreateGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
-        String attrCode = cateGoryAttributeService.create(categoryAttributeParam);
-        return StringUtils.isEmpty(attrCode) ? CommonResult.failed(String.format("新增失败:%s", categoryAttributeParam.toString())) : CommonResult.success(attrCode);
-    }
+  /**
+   * 传入地藤大类代码和属性名称
+   */
+  @ApiOperation("新增")
+  @PostMapping("/create")
+  public CommonResult<String> create(@RequestBody @Validated(CreateGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
+    String attrCode = cateGoryAttributeService.create(categoryAttributeParam);
+    return StringUtils.isEmpty(attrCode) ? CommonResult.failed(String.format("新增失败:%s", categoryAttributeParam.toString())) : CommonResult.success(attrCode);
+  }
 
-    @ApiOperation("修改")
-    @PostMapping("/update")
-    public CommonResult<Integer> update(@RequestBody @Validated(UpdateGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
-        Integer update = cateGoryAttributeService.update(categoryAttributeParam);
-        return 1 == update ? CommonResult.success(1) : CommonResult.failed();
-    }
+  @ApiOperation("修改")
+  @PostMapping("/update")
+  public CommonResult<Integer> update(@RequestBody @Validated(UpdateGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
+    Integer update = cateGoryAttributeService.update(categoryAttributeParam);
+    return 1 == update ? CommonResult.success(1) : CommonResult.failed();
+  }
 
-    @ApiOperation(value = "删除", notes = "如果该属性与商品已经绑定过了，则不能删除")
-    @PostMapping("/delete")
-    public CommonResult<Integer> delete(@RequestBody @Validated(DeleteGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
-        String attributeCode = categoryAttributeParam.getId();
-        Integer delete = cateGoryAttributeService.delete(attributeCode);
-        return 1 == delete ? CommonResult.success(1) : CommonResult.failed();
-    }
+  @ApiOperation(value = "删除", notes = "如果该属性与商品已经绑定过了，则不能删除")
+  @PostMapping("/delete")
+  public CommonResult<Integer> delete(@RequestBody @Validated(DeleteGroup.class) GcmCategoryAttributeParam categoryAttributeParam) {
+    String attributeCode = categoryAttributeParam.getId();
+    Integer delete = cateGoryAttributeService.delete(attributeCode);
+    return 1 == delete ? CommonResult.success(1) : CommonResult.failed();
+  }
 }

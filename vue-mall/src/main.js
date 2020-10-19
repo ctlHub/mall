@@ -23,7 +23,7 @@ Vue.use(less)
 Vue.config.productionTip = false
 
 Vue.component('remote-script', {
-  render: function(createElement) {
+  render: function (createElement) {
     var self = this
     return createElement('script', {
       attrs: {
@@ -31,13 +31,13 @@ Vue.component('remote-script', {
         src: this.src
       },
       on: {
-        load: function(event) {
+        load: function (event) {
           self.$emit('load', event)
         },
-        error: function(event) {
+        error: function (event) {
           self.$emit('error', event)
         },
-        readystatechange: function(event) {
+        readystatechange: function (event) {
           if (this.readyState === 'complete') {
             self.$emit('load', event)
           }

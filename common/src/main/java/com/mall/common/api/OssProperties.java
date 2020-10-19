@@ -17,16 +17,16 @@ import javax.annotation.PostConstruct;
 @Configuration(proxyBeanMethods = false)
 @ConfigurationProperties(prefix = "alibaba.oss")
 public class OssProperties {
-    private String endpoint;
-    private String accessKeyId;
-    private String accessKeySecret;
-    private String bucketName;
-    private String site;
+  private String endpoint;
+  private String accessKeyId;
+  private String accessKeySecret;
+  private String bucketName;
+  private String site;
 
-    @PostConstruct
-    public void init() {
-        if (StringUtils.isEmpty(site)) {
-            this.site = "https://" + getBucketName() + "." + getEndpoint();
-        }
+  @PostConstruct
+  public void init() {
+    if (StringUtils.isEmpty(site)) {
+      this.site = "https://" + getBucketName() + "." + getEndpoint();
     }
+  }
 }

@@ -15,6 +15,6 @@ import org.springframework.stereotype.Component;
 @Data
 public class ApiPathProperties {
 
-    String globalPrefix = "api";
+  String globalPrefix = "api";
 
 }

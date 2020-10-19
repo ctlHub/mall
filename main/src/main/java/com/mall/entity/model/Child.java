@@ -12,6 +12,6 @@ import lombok.Data;
  */
 @Data
 public class Child {
-    private String name;
-    private String value;
+  private String name;
+  private String value;
 }

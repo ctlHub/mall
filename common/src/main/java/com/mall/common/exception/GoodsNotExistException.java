@@ -8,13 +8,13 @@ package com.mall.common.exception;
  */
 public class GoodsNotExistException extends NotExistException {
 
-    public GoodsNotExistException(String goodsCode) {
-        super(goodsCode);
-    }
+  public GoodsNotExistException(String goodsCode) {
+    super(goodsCode);
+  }
 
-    @Override
-    protected String getType() {
-        return "商品";
-    }
+  @Override
+  protected String getType() {
+    return "商品";
+  }
 
 }

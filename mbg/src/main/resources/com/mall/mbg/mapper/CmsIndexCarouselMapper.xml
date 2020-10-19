@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.mbg.mapper.CmsIndexCarouselMapper">
   <resultMap id="BaseResultMap" type="com.mall.mbg.model.CmsIndexCarousel">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId" />
-    <result column="device" jdbcType="TINYINT" property="device" />
-    <result column="img_url" jdbcType="VARCHAR" property="imgUrl" />
-    <result column="app_user" jdbcType="VARCHAR" property="appUser" />
-    <result column="app_date" jdbcType="TIMESTAMP" property="appDate" />
-    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <id column="id" jdbcType="VARCHAR" property="id"/>
+    <result column="merchant_id" jdbcType="VARCHAR" property="merchantId"/>
+    <result column="device" jdbcType="TINYINT" property="device"/>
+    <result column="img_url" jdbcType="VARCHAR" property="imgUrl"/>
+    <result column="app_user" jdbcType="VARCHAR" property="appUser"/>
+    <result column="app_date" jdbcType="TIMESTAMP" property="appDate"/>
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser"/>
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -77,38 +77,39 @@
     <if test="distinct">
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from cms_index_carousel
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
+    select
+    <include refid="Base_Column_List"/>
     from cms_index_carousel
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from cms_index_carousel
+    delete
+    from cms_index_carousel
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.mall.mbg.model.CmsIndexCarouselExample">
     delete from cms_index_carousel
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </delete>
   <insert id="insert" parameterType="com.mall.mbg.model.CmsIndexCarousel">
-    insert into cms_index_carousel (id, merchant_id, device, 
-      img_url, app_user, app_date, 
-      update_user, update_date)
-    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{device,jdbcType=TINYINT}, 
-      #{imgUrl,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
+    insert into cms_index_carousel (id, merchant_id, device,
+                                    img_url, app_user, app_date,
+                                    update_user, update_date)
+    values (#{id,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{device,jdbcType=TINYINT},
+            #{imgUrl,jdbcType=VARCHAR}, #{appUser,jdbcType=VARCHAR}, #{appDate,jdbcType=TIMESTAMP},
+            #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.mall.mbg.model.CmsIndexCarousel">
     insert into cms_index_carousel
@@ -168,7 +169,7 @@
   <select id="countByExample" parameterType="com.mall.mbg.model.CmsIndexCarouselExample" resultType="java.lang.Long">
     select count(*) from cms_index_carousel
     <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
+      <include refid="Example_Where_Clause"/>
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
@@ -200,21 +201,21 @@
       </if>
     </set>
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update cms_index_carousel
     set id = #{record.id,jdbcType=VARCHAR},
-      merchant_id = #{record.merchantId,jdbcType=VARCHAR},
-      device = #{record.device,jdbcType=TINYINT},
-      img_url = #{record.imgUrl,jdbcType=VARCHAR},
-      app_user = #{record.appUser,jdbcType=VARCHAR},
-      app_date = #{record.appDate,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=VARCHAR},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    merchant_id = #{record.merchantId,jdbcType=VARCHAR},
+    device = #{record.device,jdbcType=TINYINT},
+    img_url = #{record.imgUrl,jdbcType=VARCHAR},
+    app_user = #{record.appUser,jdbcType=VARCHAR},
+    app_date = #{record.appDate,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=VARCHAR},
+    update_date = #{record.updateDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
+      <include refid="Update_By_Example_Where_Clause"/>
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.mall.mbg.model.CmsIndexCarousel">
@@ -247,12 +248,12 @@
   <update id="updateByPrimaryKey" parameterType="com.mall.mbg.model.CmsIndexCarousel">
     update cms_index_carousel
     set merchant_id = #{merchantId,jdbcType=VARCHAR},
-      device = #{device,jdbcType=TINYINT},
-      img_url = #{imgUrl,jdbcType=VARCHAR},
-      app_user = #{appUser,jdbcType=VARCHAR},
-      app_date = #{appDate,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=VARCHAR},
-      update_date = #{updateDate,jdbcType=TIMESTAMP}
+        device      = #{device,jdbcType=TINYINT},
+        img_url     = #{imgUrl,jdbcType=VARCHAR},
+        app_user    = #{appUser,jdbcType=VARCHAR},
+        app_date    = #{appDate,jdbcType=TIMESTAMP},
+        update_user = #{updateUser,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

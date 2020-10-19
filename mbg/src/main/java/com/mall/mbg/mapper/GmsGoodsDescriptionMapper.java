@@ -7,31 +7,31 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface GmsGoodsDescriptionMapper {
-    long countByExample(GmsGoodsDescriptionExample example);
+  long countByExample(GmsGoodsDescriptionExample example);
 
-    int deleteByExample(GmsGoodsDescriptionExample example);
+  int deleteByExample(GmsGoodsDescriptionExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(GmsGoodsDescription record);
+  int insert(GmsGoodsDescription record);
 
-    int insertSelective(GmsGoodsDescription record);
+  int insertSelective(GmsGoodsDescription record);
 
-    List<GmsGoodsDescription> selectByExampleWithBLOBs(GmsGoodsDescriptionExample example);
+  List<GmsGoodsDescription> selectByExampleWithBLOBs(GmsGoodsDescriptionExample example);
 
-    List<GmsGoodsDescription> selectByExample(GmsGoodsDescriptionExample example);
+  List<GmsGoodsDescription> selectByExample(GmsGoodsDescriptionExample example);
 
-    GmsGoodsDescription selectByPrimaryKey(String id);
+  GmsGoodsDescription selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
+  int updateByExampleSelective(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
+  int updateByExampleWithBLOBs(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
 
-    int updateByExample(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
+  int updateByExample(@Param("record") GmsGoodsDescription record, @Param("example") GmsGoodsDescriptionExample example);
 
-    int updateByPrimaryKeySelective(GmsGoodsDescription record);
+  int updateByPrimaryKeySelective(GmsGoodsDescription record);
 
-    int updateByPrimaryKeyWithBLOBs(GmsGoodsDescription record);
+  int updateByPrimaryKeyWithBLOBs(GmsGoodsDescription record);
 
-    int updateByPrimaryKey(GmsGoodsDescription record);
+  int updateByPrimaryKey(GmsGoodsDescription record);
 }

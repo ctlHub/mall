@@ -23,30 +23,30 @@ import java.util.List;
 @Service
 public class CmsCarouselService {
 
-    @Resource
-    CmsIndexCarouselMapper carouselMapper;
+  @Resource
+  CmsIndexCarouselMapper carouselMapper;
 
-    public List<CmsIndexCarousel> list(String imgCode) {
-        CmsIndexCarouselExample example = new CmsIndexCarouselExample();
-        CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
-        criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
-        if (!StringUtils.isEmpty(imgCode)) {
-            criteria.andIdEqualTo(imgCode);
-        }
-        return carouselMapper.selectByExample(example);
+  public List<CmsIndexCarousel> list(String imgCode) {
+    CmsIndexCarouselExample example = new CmsIndexCarouselExample();
+    CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
+    criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
+    if (!StringUtils.isEmpty(imgCode)) {
+      criteria.andIdEqualTo(imgCode);
     }
+    return carouselMapper.selectByExample(example);
+  }
 
-    public Integer insert(CmsIndexCarousel indexCarousel) {
-        ModelUtils.setCreateAndUpdateInfo(indexCarousel);
-        indexCarousel.setId(SnowflakeIdGenerator.genId());
-        return carouselMapper.insert(indexCarousel);
-    }
+  public Integer insert(CmsIndexCarousel indexCarousel) {
+    ModelUtils.setCreateAndUpdateInfo(indexCarousel);
+    indexCarousel.setId(SnowflakeIdGenerator.genId());
+    return carouselMapper.insert(indexCarousel);
+  }
 
-    public Integer delete(String imgCode) {
-        CmsIndexCarouselExample example = new CmsIndexCarouselExample();
-        CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
-        criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
-        criteria.andIdEqualTo(imgCode);
-        return carouselMapper.deleteByExample(example);
-    }
+  public Integer delete(String imgCode) {
+    CmsIndexCarouselExample example = new CmsIndexCarouselExample();
+    CmsIndexCarouselExample.Criteria criteria = example.createCriteria();
+    criteria.andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
+    criteria.andIdEqualTo(imgCode);
+    return carouselMapper.deleteByExample(example);
+  }
 }

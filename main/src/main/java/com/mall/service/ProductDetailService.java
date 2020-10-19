@@ -27,46 +27,46 @@ import java.util.List;
 @Service
 public class ProductDetailService {
 
-    @Resource
-    private ProductDetailDao productDetailDao;
+  @Resource
+  private ProductDetailDao productDetailDao;
 
-    @Resource
-    private GmsGoodsMapper goodsMapper;
+  @Resource
+  private GmsGoodsMapper goodsMapper;
 
-    @Resource
-    private Gson gson;
-    @Resource
-    private GmsGoodsAndEshopMapper goodsAndEshopMapper;
+  @Resource
+  private Gson gson;
+  @Resource
+  private GmsGoodsAndEshopMapper goodsAndEshopMapper;
 
-    /**
-     * 根据料号查询商品详情
-     *
-     * @param code 料号
-     */
-    public ProductDetailGoodsDetailVO getGoodsDetail(String code) {
-        String corpNo = ThreadLocalUtil.getMerchant();
-        ProductDetailResultHandle resultHandle = new ProductDetailResultHandle(gson);
-        // 获取主商品详情信息
-        productDetailDao.getGoodsDetail(corpNo, code, resultHandle);
-        ProductDetailGoodsDetailVO goodsDetail = resultHandle.getProductDetailGoodsDetailVO();
-        if (null == goodsDetail) {
-            throw new GoodsNotExistException(code);
-        }
-        // 查询商品子项商品信息
-        GmsGoodsExample goodsExample = new GmsGoodsExample();
-        goodsExample.createCriteria().andMerchantIdEqualTo(corpNo).andMarqueEqualTo(code).andClassifyEqualTo(ClassifyEnum.child.getId());
-        List<GmsGoods> gmsGoods = goodsMapper.selectByExample(goodsExample);
-        goodsDetail.setChildGoods(gmsGoods);
-        return goodsDetail;
+  /**
+   * 根据料号查询商品详情
+   *
+   * @param code 料号
+   */
+  public ProductDetailGoodsDetailVO getGoodsDetail(String code) {
+    String corpNo = ThreadLocalUtil.getMerchant();
+    ProductDetailResultHandle resultHandle = new ProductDetailResultHandle(gson);
+    // 获取主商品详情信息
+    productDetailDao.getGoodsDetail(corpNo, code, resultHandle);
+    ProductDetailGoodsDetailVO goodsDetail = resultHandle.getProductDetailGoodsDetailVO();
+    if (null == goodsDetail) {
+      throw new GoodsNotExistException(code);
     }
+    // 查询商品子项商品信息
+    GmsGoodsExample goodsExample = new GmsGoodsExample();
+    goodsExample.createCriteria().andMerchantIdEqualTo(corpNo).andMarqueEqualTo(code).andClassifyEqualTo(ClassifyEnum.child.getId());
+    List<GmsGoods> gmsGoods = goodsMapper.selectByExample(goodsExample);
+    goodsDetail.setChildGoods(gmsGoods);
+    return goodsDetail;
+  }
 
-    /**
-     * 根据商品料号获得电商平台链接
-     */
-    public List<GmsGoodsAndEshop> getEshop(String code) {
-        GmsGoodsAndEshopExample goodsAndEshopExample = new GmsGoodsAndEshopExample();
-        goodsAndEshopExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andGoodsIdEqualTo(code).andStatusEqualTo(1);
-        return goodsAndEshopMapper.selectByExample(goodsAndEshopExample);
-    }
+  /**
+   * 根据商品料号获得电商平台链接
+   */
+  public List<GmsGoodsAndEshop> getEshop(String code) {
+    GmsGoodsAndEshopExample goodsAndEshopExample = new GmsGoodsAndEshopExample();
+    goodsAndEshopExample.createCriteria().andMerchantIdEqualTo(ThreadLocalUtil.getMerchant()).andGoodsIdEqualTo(code).andStatusEqualTo(1);
+    return goodsAndEshopMapper.selectByExample(goodsAndEshopExample);
+  }
 
 }

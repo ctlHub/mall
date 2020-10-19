@@ -8,19 +8,19 @@ package com.mall.common.exception;
  * @date 2020/9/14 15:17
  */
 public class MissRequiredParamException extends RuntimeException {
-    public MissRequiredParamException() {
-        super();
-    }
+  public MissRequiredParamException() {
+    super();
+  }
 
-    public MissRequiredParamException(String message) {
-        super(message);
-    }
+  public MissRequiredParamException(String message) {
+    super(message);
+  }
 
-    public MissRequiredParamException(Throwable cause) {
-        super(cause);
-    }
+  public MissRequiredParamException(Throwable cause) {
+    super(cause);
+  }
 
-    public MissRequiredParamException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public MissRequiredParamException(String message, Throwable cause) {
+    super(message, cause);
+  }
 }

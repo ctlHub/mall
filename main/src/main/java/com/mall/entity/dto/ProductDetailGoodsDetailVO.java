@@ -19,27 +19,27 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class ProductDetailGoodsDetailVO extends GmsGoods {
 
-    /**
-     * 型号商品价格范围
-     */
-    private PriceRange priceRange;
+  /**
+   * 型号商品价格范围
+   */
+  private PriceRange priceRange;
 
-    /**
-     * 型号商品选择
-     */
-    private List<Optional> optionList;
+  /**
+   * 型号商品选择
+   */
+  private List<Optional> optionList;
 
-    /**
-     * 子项商品选择
-     */
-    private List<Child> childList;
+  /**
+   * 子项商品选择
+   */
+  private List<Child> childList;
 
-    /**
-     * 子项商品信息
-     */
-    private List<GmsGoods> childGoods;
+  /**
+   * 子项商品信息
+   */
+  private List<GmsGoods> childGoods;
 
-    private String iconImage;
-    private List<String> mainImages;
-    private List<String> otherImages;
+  private String iconImage;
+  private List<String> mainImages;
+  private List<String> otherImages;
 }

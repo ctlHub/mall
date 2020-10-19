@@ -2,34 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mall.dao.IndexDao">
 
-    <!-- 首页获取大类 -->
-    <select id="listClass" resultType="com.mall.entity.dto.IndexClassVO">
-        select class1_ as className
-        from gms_goods
-        where corp_no_ = #{corpNo}
-          and class1_ <![CDATA[<>]]> '原材料类'
-        group by class1_
-    </select>
+  <!-- 首页获取大类 -->
+  <select id="listClass" resultType="com.mall.entity.dto.IndexClassVO">
+    select class1_ as className
+    from gms_goods
+    where corp_no_ = #{corpNo}
+      and class1_ <![CDATA[<>]]> '原材料类'
+    group by class1_
+  </select>
 
-    <!-- 首页获取子类 -->
-    <select id="listSubClass" resultType="com.mall.entity.dto.IndexClassVO">
-        select class2_ as className
-        from gms_goods
-        where corp_no_ = #{corpNo}
-          and class1_ = #{className}
-          and class2_ <![CDATA[<>]]> ''
-          and class2_ is not null
-        group by class2_
-    </select>
+  <!-- 首页获取子类 -->
+  <select id="listSubClass" resultType="com.mall.entity.dto.IndexClassVO">
+    select class2_ as className
+    from gms_goods
+    where corp_no_ = #{corpNo}
+      and class1_ = #{className}
+      and class2_ <![CDATA[<>]]> ''
+      and class2_ is not null
+    group by class2_
+  </select>
 
-    <!-- 根据帐套查询所有的品牌 -->
-    <select id="listBrand" resultType="com.mall.entity.dto.IndexBrandVO">
-        select brand_ as name
-        from gms_goods
-        where corp_no_ = #{corpNo}
-          and brand_ <![CDATA[<>]]> ''
-          and brand_ is not null
-        group by brand_
-    </select>
+  <!-- 根据帐套查询所有的品牌 -->
+  <select id="listBrand" resultType="com.mall.entity.dto.IndexBrandVO">
+    select brand_ as name
+    from gms_goods
+    where corp_no_ = #{corpNo}
+      and brand_ <![CDATA[<>]]> ''
+      and brand_ is not null
+    group by brand_
+  </select>
 
 </mapper>

@@ -21,21 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/oss")
 public class OssController {
 
-    private final OssProperties ossProperties;
-    private final Gson gson;
+  private final OssProperties ossProperties;
+  private final Gson gson;
 
-    public OssController(OssProperties ossProperties, Gson gson) {
-        this.ossProperties = ossProperties;
-        this.gson = gson;
-    }
+  public OssController(OssProperties ossProperties, Gson gson) {
+    this.ossProperties = ossProperties;
+    this.gson = gson;
+  }
 
-    @ApiOperation("获取OSS配置参数，结果集是AES对称加密的字符串")
-    @PostMapping("getProperties")
-    public CommonResult<String> getProperties() {
-        ossProperties.setEndpoint("https://" + ossProperties.getEndpoint());
-        String properties = gson.toJson(ossProperties);
-        String ossProperties = CryptoUtil.aesEncrypt(properties, "ossProperties");
-        return CommonResult.success(ossProperties);
-    }
+  @ApiOperation("获取OSS配置参数，结果集是AES对称加密的字符串")
+  @PostMapping("getProperties")
+  public CommonResult<String> getProperties() {
+    ossProperties.setEndpoint("https://" + ossProperties.getEndpoint());
+    String properties = gson.toJson(ossProperties);
+    String ossProperties = CryptoUtil.aesEncrypt(properties, "ossProperties");
+    return CommonResult.success(ossProperties);
+  }
 
 }

@@ -23,16 +23,16 @@ import java.util.List;
 @RequestMapping("/category")
 public class GcmCategoryController {
 
-    private final GcmCategoryService gcmCategoryService;
+  private final GcmCategoryService gcmCategoryService;
 
-    public GcmCategoryController(GcmCategoryService gcmCategoryService) {
-        this.gcmCategoryService = gcmCategoryService;
-    }
+  public GcmCategoryController(GcmCategoryService gcmCategoryService) {
+    this.gcmCategoryService = gcmCategoryService;
+  }
 
-    @ApiOperation(value = "大类同步接口", notes = "请传入 行业名称:industryName 和 大类代码:classCode 和 大类名称:name;参数名称\"category\" 请求体eg--> category = dataSet.getJson()")
-    @PostMapping("/sync")
-    public CommonResult<Integer> sync(@DataSetJsonRequestParam(value = "category", type = GcmCategorySyncParam.class) List<GcmCategorySyncParam> gcmCategoryList) {
-        Integer sync = gcmCategoryService.sync(gcmCategoryList);
-        return CommonResult.success(sync);
-    }
+  @ApiOperation(value = "大类同步接口", notes = "请传入 行业名称:industryName 和 大类代码:classCode 和 大类名称:name;参数名称\"category\" 请求体eg--> category = dataSet.getJson()")
+  @PostMapping("/sync")
+  public CommonResult<Integer> sync(@DataSetJsonRequestParam(value = "category", type = GcmCategorySyncParam.class) List<GcmCategorySyncParam> gcmCategoryList) {
+    Integer sync = gcmCategoryService.sync(gcmCategoryList);
+    return CommonResult.success(sync);
+  }
 }

@@ -7,25 +7,25 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface GcmCategoryMapper {
-    long countByExample(GcmCategoryExample example);
+  long countByExample(GcmCategoryExample example);
 
-    int deleteByExample(GcmCategoryExample example);
+  int deleteByExample(GcmCategoryExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(GcmCategory record);
+  int insert(GcmCategory record);
 
-    int insertSelective(GcmCategory record);
+  int insertSelective(GcmCategory record);
 
-    List<GcmCategory> selectByExample(GcmCategoryExample example);
+  List<GcmCategory> selectByExample(GcmCategoryExample example);
 
-    GcmCategory selectByPrimaryKey(String id);
+  GcmCategory selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") GcmCategory record, @Param("example") GcmCategoryExample example);
+  int updateByExampleSelective(@Param("record") GcmCategory record, @Param("example") GcmCategoryExample example);
 
-    int updateByExample(@Param("record") GcmCategory record, @Param("example") GcmCategoryExample example);
+  int updateByExample(@Param("record") GcmCategory record, @Param("example") GcmCategoryExample example);
 
-    int updateByPrimaryKeySelective(GcmCategory record);
+  int updateByPrimaryKeySelective(GcmCategory record);
 
-    int updateByPrimaryKey(GcmCategory record);
+  int updateByPrimaryKey(GcmCategory record);
 }

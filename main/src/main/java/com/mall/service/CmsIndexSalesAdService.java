@@ -20,44 +20,44 @@ import java.util.List;
 @Service
 public class CmsIndexSalesAdService {
 
-    @Resource
-    CmsIndexSalesAdMapper indexSalesAdMapper;
+  @Resource
+  CmsIndexSalesAdMapper indexSalesAdMapper;
 
-    public List<CmsIndexSalesAd> list(Integer salesStatus) {
-        CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
-        CmsIndexSalesAdExample.Criteria criteria = indexSalesAdExample.createCriteria()
-                .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
-        if (salesStatus != null) {
-            criteria.andSalesStatusEqualTo(salesStatus);
-        }
-        return indexSalesAdMapper.selectByExample(indexSalesAdExample);
+  public List<CmsIndexSalesAd> list(Integer salesStatus) {
+    CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
+    CmsIndexSalesAdExample.Criteria criteria = indexSalesAdExample.createCriteria()
+        .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant());
+    if (salesStatus != null) {
+      criteria.andSalesStatusEqualTo(salesStatus);
     }
+    return indexSalesAdMapper.selectByExample(indexSalesAdExample);
+  }
 
-    /**
-     * 已经存在就update 否则 save
-     */
-    public Integer save(CmsIndexSalesAd indexSalesAd) {
-        int count;
-        CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
-        indexSalesAdExample.createCriteria()
-                .andMerchantIdEqualTo(indexSalesAd.getMerchantId())
-                .andSalesStatusEqualTo(indexSalesAd.getSalesStatus());
-        List<CmsIndexSalesAd> cmsIndexSalesAds = indexSalesAdMapper.selectByExample(indexSalesAdExample);
-        ModelUtils.setUpdateInfo(indexSalesAd);
-        if (CollectionUtils.isEmpty(cmsIndexSalesAds)) {
-            ModelUtils.setCreateInfo(indexSalesAd);
-            count = indexSalesAdMapper.insert(indexSalesAd);
-        } else {
-            count = indexSalesAdMapper.updateByExampleSelective(indexSalesAd, indexSalesAdExample);
-        }
-        return count;
+  /**
+   * 已经存在就update 否则 save
+   */
+  public Integer save(CmsIndexSalesAd indexSalesAd) {
+    int count;
+    CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
+    indexSalesAdExample.createCriteria()
+        .andMerchantIdEqualTo(indexSalesAd.getMerchantId())
+        .andSalesStatusEqualTo(indexSalesAd.getSalesStatus());
+    List<CmsIndexSalesAd> cmsIndexSalesAds = indexSalesAdMapper.selectByExample(indexSalesAdExample);
+    ModelUtils.setUpdateInfo(indexSalesAd);
+    if (CollectionUtils.isEmpty(cmsIndexSalesAds)) {
+      ModelUtils.setCreateInfo(indexSalesAd);
+      count = indexSalesAdMapper.insert(indexSalesAd);
+    } else {
+      count = indexSalesAdMapper.updateByExampleSelective(indexSalesAd, indexSalesAdExample);
     }
+    return count;
+  }
 
-    public Integer delete(Integer salesStatus) {
-        CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
-        indexSalesAdExample.createCriteria()
-                .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
-                .andSalesStatusEqualTo(salesStatus);
-        return indexSalesAdMapper.deleteByExample(indexSalesAdExample);
-    }
+  public Integer delete(Integer salesStatus) {
+    CmsIndexSalesAdExample indexSalesAdExample = new CmsIndexSalesAdExample();
+    indexSalesAdExample.createCriteria()
+        .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
+        .andSalesStatusEqualTo(salesStatus);
+    return indexSalesAdMapper.deleteByExample(indexSalesAdExample);
+  }
 }

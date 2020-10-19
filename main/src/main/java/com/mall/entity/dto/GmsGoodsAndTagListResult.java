@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class GmsGoodsAndTagListResult extends GmsGoods {
-    private String tagCode;
-    private String tagName;
-    private String tagType;
+  private String tagCode;
+  private String tagName;
+  private String tagType;
 }

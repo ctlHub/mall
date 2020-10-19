@@ -8,12 +8,12 @@ import NewsIndex from '../../components/pc/news/NewsIndex.vue'
 import NewsDetail from '../../components/pc/news/NewsDetail.vue'
 
 export default [{
-    path: '/pc',
-    redirect: '/pc/mallIndex',
-    meta: {
-      title: '首页'
-    }
-  },
+  path: '/pc',
+  redirect: '/pc/mallIndex',
+  meta: {
+    title: '首页'
+  }
+},
   {
     path: '/pc/login',
     component: Login,
@@ -33,13 +33,13 @@ export default [{
     path: '/pc/:corpNo/index',
     component: Index,
     children: [{
-        path: '',
-        name: 'IndexMain',
-        component: IndexMain,
-        meta: {
-          title: '商城首页'
-        }
-      },
+      path: '',
+      name: 'IndexMain',
+      component: IndexMain,
+      meta: {
+        title: '商城首页'
+      }
+    },
       {
         path: 'productDetail',
         name: 'ProductDetail',

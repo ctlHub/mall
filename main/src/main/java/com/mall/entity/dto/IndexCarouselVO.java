@@ -12,6 +12,6 @@ import java.util.List;
  */
 @Data
 public class IndexCarouselVO {
-    private Integer switchTime;
-    private List<String> imgList;
+  private Integer switchTime;
+  private List<String> imgList;
 }

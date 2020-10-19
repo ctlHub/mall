@@ -7,31 +7,31 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface GmsGoodsMapper {
-    long countByExample(GmsGoodsExample example);
+  long countByExample(GmsGoodsExample example);
 
-    int deleteByExample(GmsGoodsExample example);
+  int deleteByExample(GmsGoodsExample example);
 
-    int deleteByPrimaryKey(String id);
+  int deleteByPrimaryKey(String id);
 
-    int insert(GmsGoods record);
+  int insert(GmsGoods record);
 
-    int insertSelective(GmsGoods record);
+  int insertSelective(GmsGoods record);
 
-    List<GmsGoods> selectByExampleWithBLOBs(GmsGoodsExample example);
+  List<GmsGoods> selectByExampleWithBLOBs(GmsGoodsExample example);
 
-    List<GmsGoods> selectByExample(GmsGoodsExample example);
+  List<GmsGoods> selectByExample(GmsGoodsExample example);
 
-    GmsGoods selectByPrimaryKey(String id);
+  GmsGoods selectByPrimaryKey(String id);
 
-    int updateByExampleSelective(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
+  int updateByExampleSelective(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
+  int updateByExampleWithBLOBs(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
 
-    int updateByExample(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
+  int updateByExample(@Param("record") GmsGoods record, @Param("example") GmsGoodsExample example);
 
-    int updateByPrimaryKeySelective(GmsGoods record);
+  int updateByPrimaryKeySelective(GmsGoods record);
 
-    int updateByPrimaryKeyWithBLOBs(GmsGoods record);
+  int updateByPrimaryKeyWithBLOBs(GmsGoods record);
 
-    int updateByPrimaryKey(GmsGoods record);
+  int updateByPrimaryKey(GmsGoods record);
 }

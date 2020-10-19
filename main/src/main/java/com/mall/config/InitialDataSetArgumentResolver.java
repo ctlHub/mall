@@ -19,15 +19,15 @@ import java.util.List;
 @Component
 public class InitialDataSetArgumentResolver implements ApplicationContextAware {
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        RequestMappingHandlerAdapter handlerAdapter = applicationContext.getBean(RequestMappingHandlerAdapter.class);
-        List<HandlerMethodArgumentResolver> argumentResolvers = handlerAdapter.getArgumentResolvers();
-        List<HandlerMethodArgumentResolver> resolvers = new LinkedList<>();
-        resolvers.add(new DataSetJsonArgumentResolver());
-        assert argumentResolvers != null;
-        resolvers.addAll(argumentResolvers);
-        handlerAdapter.setArgumentResolvers(resolvers);
-    }
+  @Override
+  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    RequestMappingHandlerAdapter handlerAdapter = applicationContext.getBean(RequestMappingHandlerAdapter.class);
+    List<HandlerMethodArgumentResolver> argumentResolvers = handlerAdapter.getArgumentResolvers();
+    List<HandlerMethodArgumentResolver> resolvers = new LinkedList<>();
+    resolvers.add(new DataSetJsonArgumentResolver());
+    assert argumentResolvers != null;
+    resolvers.addAll(argumentResolvers);
+    handlerAdapter.setArgumentResolvers(resolvers);
+  }
 
 }

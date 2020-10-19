@@ -7,12 +7,12 @@ package com.mall.common.exception;
  * @date 2020/10/16 11:01
  */
 public class CategoryNotExistException extends NotExistException {
-    public CategoryNotExistException(Object message) {
-        super(message);
-    }
+  public CategoryNotExistException(Object message) {
+    super(message);
+  }
 
-    @Override
-    protected String getType() {
-        return "商品类别";
-    }
+  @Override
+  protected String getType() {
+    return "商品类别";
+  }
 }

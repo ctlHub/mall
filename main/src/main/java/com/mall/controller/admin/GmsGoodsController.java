@@ -27,38 +27,38 @@ import java.util.List;
 @RequestMapping("/goods")
 public class GmsGoodsController {
 
-    private final GmsGoodsService gmsGoodsService;
+  private final GmsGoodsService gmsGoodsService;
 
-    public GmsGoodsController(GmsGoodsService goodsService) {
-        this.gmsGoodsService = goodsService;
-    }
+  public GmsGoodsController(GmsGoodsService goodsService) {
+    this.gmsGoodsService = goodsService;
+  }
 
-    @ApiOperation("将地藤管家商品资料同步过来")
-    @PostMapping(value = "/syncGoods")
-    public CommonResult<Integer> syncGoods(@DataSetJsonRequestParam(value = "goods", type = GmsGoods.class) List<GmsGoods> goodsList) {
-        int count = gmsGoodsService.syncGoods(goodsList);
-        return CommonResult.success(count);
-    }
+  @ApiOperation("将地藤管家商品资料同步过来")
+  @PostMapping(value = "/syncGoods")
+  public CommonResult<Integer> syncGoods(@DataSetJsonRequestParam(value = "goods", type = GmsGoods.class) List<GmsGoods> goodsList) {
+    int count = gmsGoodsService.syncGoods(goodsList);
+    return CommonResult.success(count);
+  }
 
-    @ApiOperation("更新商品上下架的状态")
-    @PostMapping(value = "/updateGoodsSellStatus")
-    public CommonResult<Integer> updateGoodsSellStatus(@Validated @RequestBody GoodsLowerShelfUpdateParam dto) {
-        int count = gmsGoodsService.updateGoodsSellStatus(dto);
-        return CommonResult.success(count);
-    }
+  @ApiOperation("更新商品上下架的状态")
+  @PostMapping(value = "/updateGoodsSellStatus")
+  public CommonResult<Integer> updateGoodsSellStatus(@Validated @RequestBody GoodsLowerShelfUpdateParam dto) {
+    int count = gmsGoodsService.updateGoodsSellStatus(dto);
+    return CommonResult.success(count);
+  }
 
-    @ApiOperation("根据参数查询商品资料")
-    @PostMapping("/listGoods")
-    public CommonResult<List<GmsGoods>> listGoods(@RequestBody GmsGoodsSearchParam goodsSearchParam) {
-        List<GmsGoods> goods = gmsGoodsService.listGoods(goodsSearchParam);
-        return CommonResult.success(goods);
-    }
+  @ApiOperation("根据参数查询商品资料")
+  @PostMapping("/listGoods")
+  public CommonResult<List<GmsGoods>> listGoods(@RequestBody GmsGoodsSearchParam goodsSearchParam) {
+    List<GmsGoods> goods = gmsGoodsService.listGoods(goodsSearchParam);
+    return CommonResult.success(goods);
+  }
 
-    @ApiOperation("更新虚拟库存")
-    @PostMapping("/updateVirtualStock")
-    public CommonResult<Integer> updateVirtualStock(@RequestBody List<GmsGoods> params) {
-        int count = gmsGoodsService.updateVirtualStock(params);
-        return CommonResult.success(count);
-    }
+  @ApiOperation("更新虚拟库存")
+  @PostMapping("/updateVirtualStock")
+  public CommonResult<Integer> updateVirtualStock(@RequestBody List<GmsGoods> params) {
+    int count = gmsGoodsService.updateVirtualStock(params);
+    return CommonResult.success(count);
+  }
 
 }

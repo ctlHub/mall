@@ -22,30 +22,30 @@ import java.util.List;
 @Service
 public class SearchService {
 
-    @Resource
-    private GmsGoodsDao goodsDao;
+  @Resource
+  private GmsGoodsDao goodsDao;
 
-    @Resource
-    private CmsNoticeMapper noticeMapper;
+  @Resource
+  private CmsNoticeMapper noticeMapper;
 
-    /**
-     * 查询符合条件的所有商品
-     */
-    public List<GmsGoodsSearchResult> listGoods(GmsGoodsSearchParam goodsSearchParam, Integer pageNum, Integer pageSize) {
-        String corpNo = ThreadLocalUtil.getMerchant();
-        PageHelper.startPage(pageNum, pageSize);
-        @SuppressWarnings("unchecked")
-        List<GmsGoodsSearchResult> goodsList = (List<GmsGoodsSearchResult>) goodsDao.selectBySearchText(corpNo, goodsSearchParam);
-        return goodsList;
-    }
+  /**
+   * 查询符合条件的所有商品
+   */
+  public List<GmsGoodsSearchResult> listGoods(GmsGoodsSearchParam goodsSearchParam, Integer pageNum, Integer pageSize) {
+    String corpNo = ThreadLocalUtil.getMerchant();
+    PageHelper.startPage(pageNum, pageSize);
+    @SuppressWarnings("unchecked")
+    List<GmsGoodsSearchResult> goodsList = (List<GmsGoodsSearchResult>) goodsDao.selectBySearchText(corpNo, goodsSearchParam);
+    return goodsList;
+  }
 
-    public List<CmsNotice> listNotice(Integer pageNum, Integer pageSize) {
-        CmsNoticeExample noticeExample = new CmsNoticeExample();
-        noticeExample.createCriteria()
-                .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
-                .andStatusNotEqualTo(1);
-        noticeExample.setOrderByClause("status_ desc, uid_ desc");
-        PageHelper.startPage(pageNum, pageSize);
-        return noticeMapper.selectByExample(noticeExample);
-    }
+  public List<CmsNotice> listNotice(Integer pageNum, Integer pageSize) {
+    CmsNoticeExample noticeExample = new CmsNoticeExample();
+    noticeExample.createCriteria()
+        .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
+        .andStatusNotEqualTo(1);
+    noticeExample.setOrderByClause("status_ desc, uid_ desc");
+    PageHelper.startPage(pageNum, pageSize);
+    return noticeMapper.selectByExample(noticeExample);
+  }
 }

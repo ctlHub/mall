@@ -8,11 +8,11 @@ package com.mall.common.exception;
  */
 public abstract class NotExistException extends RuntimeException {
 
-    private static final long serialVersionUID = 1172126364306415352L;
+  private static final long serialVersionUID = 1172126364306415352L;
 
-    protected NotExistException(Object message) {
-        super(String.valueOf(message));
-    }
+  protected NotExistException(Object message) {
+    super(String.valueOf(message));
+  }
 
-    protected abstract String getType();
+  protected abstract String getType();
 }

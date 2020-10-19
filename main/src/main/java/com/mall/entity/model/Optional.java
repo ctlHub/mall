@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Data
 public class Optional {
-  private String name;
-  private List<String> option;
-  private String default_;
+    private String name;
+    private List<String> option;
+    private String default_;
 }

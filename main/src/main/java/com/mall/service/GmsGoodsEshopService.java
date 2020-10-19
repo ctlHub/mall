@@ -23,51 +23,51 @@ import java.util.List;
 @Service
 public class GmsGoodsEshopService {
 
-  @Resource
-  GmsGoodsAndEshopMapper mapper;
+    @Resource
+    GmsGoodsAndEshopMapper mapper;
 
-  public List<GmsGoodsAndEshop> listByGoodsId(GmsGoodsAndEshop goodsEshop) {
-    GmsGoodsAndEshopExample example = new GmsGoodsAndEshopExample();
-    GmsGoodsAndEshopExample.Criteria criteria = example.createCriteria()
-        .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
-        .andGoodsIdEqualTo(goodsEshop.getGoodsId());
-    Integer eshopType = goodsEshop.getEshopType();
-    if (null != eshopType) {
-      criteria.andEshopTypeEqualTo(eshopType);
+    public List<GmsGoodsAndEshop> listByGoodsId(GmsGoodsAndEshop goodsEshop) {
+        GmsGoodsAndEshopExample example = new GmsGoodsAndEshopExample();
+        GmsGoodsAndEshopExample.Criteria criteria = example.createCriteria()
+                .andMerchantIdEqualTo(ThreadLocalUtil.getMerchant())
+                .andGoodsIdEqualTo(goodsEshop.getGoodsId());
+        Integer eshopType = goodsEshop.getEshopType();
+        if (null != eshopType) {
+            criteria.andEshopTypeEqualTo(eshopType);
+        }
+        return mapper.selectByExample(example);
     }
-    return mapper.selectByExample(example);
-  }
 
-  public Integer insert(GmsGoodsEshopParam goodsEshopParam) {
-    GmsGoodsAndEshop goodsAndEshop = new GmsGoodsAndEshop();
-    BeanUtils.copyProperties(goodsEshopParam, goodsAndEshop);
-    GmsGoodsAndEshopExample eshopExample = getGmsGoodsAndEshopExample(goodsAndEshop);
-    List<GmsGoodsAndEshop> gmsGoodsAndEshop = mapper.selectByExample(eshopExample);
-    if (!CollectionUtils.isEmpty(gmsGoodsAndEshop)) {
-      return 0;
+    public Integer insert(GmsGoodsEshopParam goodsEshopParam) {
+        GmsGoodsAndEshop goodsAndEshop = new GmsGoodsAndEshop();
+        BeanUtils.copyProperties(goodsEshopParam, goodsAndEshop);
+        GmsGoodsAndEshopExample eshopExample = getGmsGoodsAndEshopExample(goodsAndEshop);
+        List<GmsGoodsAndEshop> gmsGoodsAndEshop = mapper.selectByExample(eshopExample);
+        if (!CollectionUtils.isEmpty(gmsGoodsAndEshop)) {
+            return 0;
+        }
+        ModelUtils.setCreateAndUpdateInfo(goodsAndEshop);
+        goodsAndEshop.setStatus(UsedEnum.ENABLE.getId());
+        return mapper.insert(goodsAndEshop);
     }
-    ModelUtils.setCreateAndUpdateInfo(goodsAndEshop);
-    goodsAndEshop.setStatus(UsedEnum.ENABLE.getId());
-    return mapper.insert(goodsAndEshop);
-  }
 
-  public Integer update(GmsGoodsEshopParam goodsEshopParam) {
-    GmsGoodsAndEshop goodsAndEshop = new GmsGoodsAndEshop();
-    BeanUtils.copyProperties(goodsEshopParam, goodsAndEshop);
-    ModelUtils.setUpdateInfo(goodsAndEshop);
-    GmsGoodsAndEshopExample eshopExample = getGmsGoodsAndEshopExample(goodsAndEshop);
-    return mapper.updateByExampleSelective(goodsAndEshop, eshopExample);
-  }
+    public Integer update(GmsGoodsEshopParam goodsEshopParam) {
+        GmsGoodsAndEshop goodsAndEshop = new GmsGoodsAndEshop();
+        BeanUtils.copyProperties(goodsEshopParam, goodsAndEshop);
+        ModelUtils.setUpdateInfo(goodsAndEshop);
+        GmsGoodsAndEshopExample eshopExample = getGmsGoodsAndEshopExample(goodsAndEshop);
+        return mapper.updateByExampleSelective(goodsAndEshop, eshopExample);
+    }
 
-  /**
-   * 通用查询条件
-   */
-  private GmsGoodsAndEshopExample getGmsGoodsAndEshopExample(GmsGoodsAndEshop goodsAndEshop) {
-    GmsGoodsAndEshopExample eshopExample = new GmsGoodsAndEshopExample();
-    eshopExample.createCriteria().
-        andMerchantIdEqualTo(goodsAndEshop.getMerchantId()).
-        andGoodsIdEqualTo(goodsAndEshop.getGoodsId()).
-        andEshopTypeEqualTo(goodsAndEshop.getEshopType());
-    return eshopExample;
-  }
+    /**
+     * 通用查询条件
+     */
+    private GmsGoodsAndEshopExample getGmsGoodsAndEshopExample(GmsGoodsAndEshop goodsAndEshop) {
+        GmsGoodsAndEshopExample eshopExample = new GmsGoodsAndEshopExample();
+        eshopExample.createCriteria().
+                andMerchantIdEqualTo(goodsAndEshop.getMerchantId()).
+                andGoodsIdEqualTo(goodsAndEshop.getGoodsId()).
+                andEshopTypeEqualTo(goodsAndEshop.getEshopType());
+        return eshopExample;
+    }
 }

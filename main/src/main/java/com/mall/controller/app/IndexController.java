@@ -32,86 +32,86 @@ import java.util.List;
 @Api(tags = "首页")
 public class IndexController {
 
-  private final IndexService indexService;
-  private final MmsMerchantService mmsMerchantService;
+    private final IndexService indexService;
+    private final MmsMerchantService mmsMerchantService;
 
-  public IndexController(IndexService indexService, MmsMerchantService mmsMerchantService) {
-    this.indexService = indexService;
-    this.mmsMerchantService = mmsMerchantService;
-  }
-
-  @ApiOperation("商品类别")
-  @GetMapping("/class")
-  public CommonResult<List<IndexClassVO>> listClass() {
-    List<IndexClassVO> indexClassResults = indexService.listClass();
-    return CommonResult.success(indexClassResults);
-  }
-
-  @ApiOperation("根据大类查询子类")
-  @GetMapping("/subClass/{className}")
-  public CommonResult<List<IndexClassVO>> subClass(@PathVariable String className) {
-    List<IndexClassVO> indexClassResults = indexService.listSubClass(className);
-    return CommonResult.success(indexClassResults);
-  }
-
-  @ApiOperation("首页轮播图")
-  @GetMapping("/listCarousel")
-  public CommonResult<IndexCarouselVO> listCarousel(@RequestParam(required = false) Integer device) {
-    IndexCarouselVO indexCarouselVO = indexService.listCarousel(device);
-    return CommonResult.success(indexCarouselVO);
-  }
-
-  @ApiOperation("购物车当前商品数量")
-  @GetMapping("/countCart")
-  public CommonResult<Integer> countShopCartNum() {
-    Integer goodsNum = indexService.countCart();
-    return CommonResult.success(goodsNum);
-  }
-
-  @ApiOperation("收藏夹当前商品数量")
-  @GetMapping("/countCollect")
-  public CommonResult<Integer> collectionNum() {
-    Integer collectNum = indexService.countCollect();
-    return CommonResult.success(collectNum);
-  }
-
-  @ApiOperation("查询公告")
-  @GetMapping("/listNotice")
-  public CommonResult<List<IndexNoticeVO>> listNotice() {
-    List<IndexNoticeVO> noticeList = indexService.listNotice();
-    return CommonResult.success(noticeList);
-  }
-
-  @ApiOperation("列举品牌")
-  @GetMapping("/listBrand")
-  public CommonResult<List<IndexBrandVO>> listBrand() {
-    List<IndexBrandVO> brandList = indexService.listBrand();
-    return CommonResult.success(brandList);
-  }
-
-  @ApiOperation("列举所有商家讯息")
-  @GetMapping("/listMerchant")
-  public CommonResult<List<MmsMerchant>> listMerchant() {
-    List<MmsMerchant> merchantList = mmsMerchantService.listMerchant();
-    return CommonResult.success(merchantList);
-  }
-
-  @ApiOperation("获得当前帐套的商家信息")
-  @GetMapping("/getMerchant")
-  public CommonResult<MmsMerchant> getMerchant() {
-    MmsMerchant merchant = mmsMerchantService.getMerchant();
-    return CommonResult.success(merchant);
-  }
-
-  @ApiOperation("查询某一促销块的中的商品信息")
-  @GetMapping("/getGoodsBlock")
-  public CommonResult<IndexGoodsBlock> getGoodsBlock(@RequestParam Integer saleStatus) {
-    // 如果是促销则去另一个服务
-    IndexGoodsBlock indexGoodsBlock;
-    indexGoodsBlock = indexService.getGoodsBlock(saleStatus);
-    if (CollectionUtils.isEmpty(indexGoodsBlock.getGoodsList())) {
-      return CommonResult.failed(ResultCode.EMPTY, "无相关商品");
+    public IndexController(IndexService indexService, MmsMerchantService mmsMerchantService) {
+        this.indexService = indexService;
+        this.mmsMerchantService = mmsMerchantService;
     }
-    return CommonResult.success(indexGoodsBlock);
-  }
+
+    @ApiOperation("商品类别")
+    @GetMapping("/class")
+    public CommonResult<List<IndexClassVO>> listClass() {
+        List<IndexClassVO> indexClassResults = indexService.listClass();
+        return CommonResult.success(indexClassResults);
+    }
+
+    @ApiOperation("根据大类查询子类")
+    @GetMapping("/subClass/{className}")
+    public CommonResult<List<IndexClassVO>> subClass(@PathVariable String className) {
+        List<IndexClassVO> indexClassResults = indexService.listSubClass(className);
+        return CommonResult.success(indexClassResults);
+    }
+
+    @ApiOperation("首页轮播图")
+    @GetMapping("/listCarousel")
+    public CommonResult<IndexCarouselVO> listCarousel(@RequestParam(required = false) Integer device) {
+        IndexCarouselVO indexCarouselVO = indexService.listCarousel(device);
+        return CommonResult.success(indexCarouselVO);
+    }
+
+    @ApiOperation("购物车当前商品数量")
+    @GetMapping("/countCart")
+    public CommonResult<Integer> countShopCartNum() {
+        Integer goodsNum = indexService.countCart();
+        return CommonResult.success(goodsNum);
+    }
+
+    @ApiOperation("收藏夹当前商品数量")
+    @GetMapping("/countCollect")
+    public CommonResult<Integer> collectionNum() {
+        Integer collectNum = indexService.countCollect();
+        return CommonResult.success(collectNum);
+    }
+
+    @ApiOperation("查询公告")
+    @GetMapping("/listNotice")
+    public CommonResult<List<IndexNoticeVO>> listNotice() {
+        List<IndexNoticeVO> noticeList = indexService.listNotice();
+        return CommonResult.success(noticeList);
+    }
+
+    @ApiOperation("列举品牌")
+    @GetMapping("/listBrand")
+    public CommonResult<List<IndexBrandVO>> listBrand() {
+        List<IndexBrandVO> brandList = indexService.listBrand();
+        return CommonResult.success(brandList);
+    }
+
+    @ApiOperation("列举所有商家讯息")
+    @GetMapping("/listMerchant")
+    public CommonResult<List<MmsMerchant>> listMerchant() {
+        List<MmsMerchant> merchantList = mmsMerchantService.listMerchant();
+        return CommonResult.success(merchantList);
+    }
+
+    @ApiOperation("获得当前帐套的商家信息")
+    @GetMapping("/getMerchant")
+    public CommonResult<MmsMerchant> getMerchant() {
+        MmsMerchant merchant = mmsMerchantService.getMerchant();
+        return CommonResult.success(merchant);
+    }
+
+    @ApiOperation("查询某一促销块的中的商品信息")
+    @GetMapping("/getGoodsBlock")
+    public CommonResult<IndexGoodsBlock> getGoodsBlock(@RequestParam Integer saleStatus) {
+        // 如果是促销则去另一个服务
+        IndexGoodsBlock indexGoodsBlock;
+        indexGoodsBlock = indexService.getGoodsBlock(saleStatus);
+        if (CollectionUtils.isEmpty(indexGoodsBlock.getGoodsList())) {
+            return CommonResult.failed(ResultCode.EMPTY, "无相关商品");
+        }
+        return CommonResult.success(indexGoodsBlock);
+    }
 }

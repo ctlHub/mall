@@ -10,6 +10,6 @@ import lombok.Data;
  */
 @Data
 public class IndexNoticeVO {
-  private String title;
-  private String noticeId;
+    private String title;
+    private String noticeId;
 }

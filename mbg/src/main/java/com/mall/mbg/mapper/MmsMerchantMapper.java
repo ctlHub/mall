@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.MmsMerchant;
 import com.mall.mbg.model.MmsMerchantExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MmsMerchantMapper {
     long countByExample(MmsMerchantExample example);

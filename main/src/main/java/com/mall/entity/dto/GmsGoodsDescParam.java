@@ -13,41 +13,41 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class GmsGoodsDescParam {
 
-  /**
-   * 主键UID
-   */
-  private Integer uid;
+    /**
+     * 主键UID
+     */
+    private Integer uid;
 
-  /**
-   * 账套代码
-   */
-  @NotEmpty
-  private String merchantId;
+    /**
+     * 账套代码
+     */
+    @NotEmpty
+    private String merchantId;
 
-  /**
-   * 商品料号
-   */
-  @NotEmpty
-  private String goodsId;
+    /**
+     * 商品料号
+     */
+    @NotEmpty
+    private String goodsId;
 
-  /**
-   * Description唯一id
-   */
-  private String code;
+    /**
+     * Description唯一id
+     */
+    private String code;
 
-  /**
-   * 启用状态
-   */
-  private Integer status;
+    /**
+     * 启用状态
+     */
+    private Integer status;
 
-  /**
-   * 说明标题
-   */
-  private String title;
+    /**
+     * 说明标题
+     */
+    private String title;
 
-  /**
-   * 内容
-   */
-  private String content;
+    /**
+     * 内容
+     */
+    private String content;
 
 }

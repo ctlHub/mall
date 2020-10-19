@@ -25,36 +25,36 @@ import java.util.List;
 @RequestMapping("/bind")
 public class GmsGoodsBindController {
 
-  private final GmsGoodsBindService goodsBindService;
+    private final GmsGoodsBindService goodsBindService;
 
-  public GmsGoodsBindController(GmsGoodsBindService goodsBindService) {
-    this.goodsBindService = goodsBindService;
-  }
+    public GmsGoodsBindController(GmsGoodsBindService goodsBindService) {
+        this.goodsBindService = goodsBindService;
+    }
 
-  @ApiOperation("根据主料号查询绑定的商品信息")
-  @PostMapping("/get")
-  public CommonResult<List<GmsGoods>> get(@RequestBody GmsGoodsBind gmsGoodsBind) {
-    return CommonResult.success(goodsBindService.get(gmsGoodsBind.getPrimaryGoodsId()));
-  }
+    @ApiOperation("根据主料号查询绑定的商品信息")
+    @PostMapping("/get")
+    public CommonResult<List<GmsGoods>> get(@RequestBody GmsGoodsBind gmsGoodsBind) {
+        return CommonResult.success(goodsBindService.get(gmsGoodsBind.getPrimaryGoodsId()));
+    }
 
-  @ApiOperation(value = "列出可以绑定的商品", notes = "排除已经和当前料号绑定过的商品，和型号商品")
-  @PostMapping("/listBindableGoods")
-  public CommonResult<List<GmsGoods>> listBindableGoods(@RequestBody GmsGoodsSearchParam gmsGoodsSearchParam) {
-    return CommonResult.success(goodsBindService.listBindableGoods(gmsGoodsSearchParam));
-  }
+    @ApiOperation(value = "列出可以绑定的商品", notes = "排除已经和当前料号绑定过的商品，和型号商品")
+    @PostMapping("/listBindableGoods")
+    public CommonResult<List<GmsGoods>> listBindableGoods(@RequestBody GmsGoodsSearchParam gmsGoodsSearchParam) {
+        return CommonResult.success(goodsBindService.listBindableGoods(gmsGoodsSearchParam));
+    }
 
-  @ApiOperation("新增一条商品的绑定记录")
-  @PostMapping("/insert")
-  public CommonResult<Integer> insert(@RequestBody List<GmsGoodsBind> bindMap) {
-    int count = goodsBindService.insert(bindMap);
-    return CommonResult.success(count);
-  }
+    @ApiOperation("新增一条商品的绑定记录")
+    @PostMapping("/insert")
+    public CommonResult<Integer> insert(@RequestBody List<GmsGoodsBind> bindMap) {
+        int count = goodsBindService.insert(bindMap);
+        return CommonResult.success(count);
+    }
 
-  @ApiOperation("删除一条商品的绑定记录")
-  @PostMapping("/delete")
-  public CommonResult<Integer> delete(@RequestBody List<GmsGoodsBind> bindMap) {
-    int count = goodsBindService.delete(bindMap);
-    return CommonResult.success(count);
-  }
+    @ApiOperation("删除一条商品的绑定记录")
+    @PostMapping("/delete")
+    public CommonResult<Integer> delete(@RequestBody List<GmsGoodsBind> bindMap) {
+        int count = goodsBindService.delete(bindMap);
+        return CommonResult.success(count);
+    }
 
 }

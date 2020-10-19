@@ -14,44 +14,44 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 public class GmsGoodsEshopParam {
-  /**
-   * 主键UID
-   */
-  private Integer uid;
+    /**
+     * 主键UID
+     */
+    private Integer uid;
 
-  /**
-   * 账套代码
-   */
-  @NotEmpty
-  private String corpNo;
+    /**
+     * 账套代码
+     */
+    @NotEmpty
+    private String corpNo;
 
-  /**
-   * 商品料号
-   */
-  @NotEmpty
-  private String goodsCode;
+    /**
+     * 商品料号
+     */
+    @NotEmpty
+    private String goodsCode;
 
-  /**
-   * 启用状态
-   */
-  @NotNull(groups = UpdateGroup.class)
-  private Integer status;
+    /**
+     * 启用状态
+     */
+    @NotNull(groups = UpdateGroup.class)
+    private Integer status;
 
-  /**
-   * 电商平台类型
-   */
-  private Integer eshopType;
+    /**
+     * 电商平台类型
+     */
+    private Integer eshopType;
 
-  /**
-   * 电商平台名称
-   */
-  @NotEmpty
-  private String eshopName;
+    /**
+     * 电商平台名称
+     */
+    @NotEmpty
+    private String eshopName;
 
-  /**
-   * 商品在电商平台的链接
-   */
-  @NotEmpty
-  private String eshopGoodsUrl;
+    /**
+     * 商品在电商平台的链接
+     */
+    @NotEmpty
+    private String eshopGoodsUrl;
 
 }

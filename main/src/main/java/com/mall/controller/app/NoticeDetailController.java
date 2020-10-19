@@ -20,16 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "新闻公告前端接口")
 public class NoticeDetailController {
 
-  final NoticeDetailService noticeDetailService;
+    final NoticeDetailService noticeDetailService;
 
-  public NoticeDetailController(NoticeDetailService noticeDetailService) {
-    this.noticeDetailService = noticeDetailService;
-  }
+    public NoticeDetailController(NoticeDetailService noticeDetailService) {
+        this.noticeDetailService = noticeDetailService;
+    }
 
-  @ApiOperation("查询公告")
-  @GetMapping("/get")
-  public CommonResult<CmsNotice> get(String id) {
-    return CommonResult.success(noticeDetailService.get(id));
-  }
+    @ApiOperation("查询公告")
+    @GetMapping("/get")
+    public CommonResult<CmsNotice> get(String id) {
+        return CommonResult.success(noticeDetailService.get(id));
+    }
 
 }

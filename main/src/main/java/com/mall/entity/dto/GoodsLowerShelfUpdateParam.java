@@ -14,10 +14,10 @@ import java.util.List;
  */
 @Data
 public class GoodsLowerShelfUpdateParam {
-  @NotEmpty(message = "帐套代码不允许为空")
-  private String merchantId;
-  @NotNull
-  private Boolean lowerShelf;
-  @NotEmpty
-  private List<String> codes;
+    @NotEmpty(message = "帐套代码不允许为空")
+    private String merchantId;
+    @NotNull
+    private Boolean lowerShelf;
+    @NotEmpty
+    private List<String> codes;
 }

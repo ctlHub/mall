@@ -17,19 +17,19 @@ import javax.validation.constraints.NotEmpty;
 @Data
 public class GcmCategoryAttributeParam {
 
-  @ApiModelProperty("类别code")
-  @NotEmpty(groups = {CreateGroup.class})
-  private String categoryId;
+    @ApiModelProperty("类别code")
+    @NotEmpty(groups = {CreateGroup.class})
+    private String categoryId;
 
-  @ApiModelProperty(value = "属性code")
-  @NotEmpty(groups = {UpdateGroup.class, DeleteGroup.class})
-  private String id;
+    @ApiModelProperty(value = "属性code")
+    @NotEmpty(groups = {UpdateGroup.class, DeleteGroup.class})
+    private String id;
 
-  @NotEmpty(groups = {UpdateGroup.class, CreateGroup.class})
-  @ApiModelProperty(value = "属性的名称")
-  private String name;
+    @NotEmpty(groups = {UpdateGroup.class, CreateGroup.class})
+    @ApiModelProperty(value = "属性的名称")
+    private String name;
 
-  @ApiModelProperty(value = "备注")
-  private String remark;
+    @ApiModelProperty(value = "备注")
+    private String remark;
 
 }

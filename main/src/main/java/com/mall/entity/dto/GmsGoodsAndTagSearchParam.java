@@ -8,22 +8,22 @@ import lombok.Data;
  */
 @Data
 public class GmsGoodsAndTagSearchParam {
-  /**
-   * 商品查询条件
-   * <p>
-   * 支持品名，规格，料号 模糊匹配
-   */
-  private String goodsSearch;
+    /**
+     * 商品查询条件
+     * <p>
+     * 支持品名，规格，料号 模糊匹配
+     */
+    private String goodsSearch;
 
-  /**
-   * 标签查询条件
-   * <p>
-   * 支持名称，类型 模糊匹配
-   */
-  private String tagSearch;
+    /**
+     * 标签查询条件
+     * <p>
+     * 支持名称，类型 模糊匹配
+     */
+    private String tagSearch;
 
-  /**
-   * 最大载入笔数条数
-   */
-  private Integer maxRecord;
+    /**
+     * 最大载入笔数条数
+     */
+    private Integer maxRecord;
 }

@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.CmsIndexCarousel;
 import com.mall.mbg.model.CmsIndexCarouselExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsIndexCarouselMapper {
     long countByExample(CmsIndexCarouselExample example);

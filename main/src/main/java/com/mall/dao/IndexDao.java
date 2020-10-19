@@ -13,15 +13,15 @@ import java.util.List;
  */
 public interface IndexDao {
 
-  /**
-   * 查询大类
-   */
-  List<IndexClassVO> listClass(String corpNo);
+    /**
+     * 查询大类
+     */
+    List<IndexClassVO> listClass(String corpNo);
 
-  /**
-   * 根据大类查询子类
-   */
-  List<IndexClassVO> listSubClass(String corpNo, String className);
+    /**
+     * 根据大类查询子类
+     */
+    List<IndexClassVO> listSubClass(String corpNo, String className);
 
-  List<IndexBrandVO> listBrand(String corpNo);
+    List<IndexBrandVO> listBrand(String corpNo);
 }

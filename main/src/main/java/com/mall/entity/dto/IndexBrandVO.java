@@ -10,5 +10,5 @@ import lombok.Data;
  */
 @Data
 public class IndexBrandVO {
-  private String name;
+    private String name;
 }

@@ -13,10 +13,10 @@ import lombok.Data;
 @JsonInclude
 @Data
 public class GmcGoodsAttributeResult {
-  @ApiModelProperty("属性code")
-  private String code;
-  @ApiModelProperty("属性名称")
-  private String name;
-  @ApiModelProperty("属性值")
-  private String value = "";
+    @ApiModelProperty("属性code")
+    private String code;
+    @ApiModelProperty("属性名称")
+    private String name;
+    @ApiModelProperty("属性值")
+    private String value = "";
 }

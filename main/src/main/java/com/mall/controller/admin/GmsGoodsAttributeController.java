@@ -26,26 +26,26 @@ import java.util.List;
 @RequestMapping("/goodsAttr")
 public class GmsGoodsAttributeController {
 
-  private final GmsGoodsAttributeService goodsAttributeService;
+    private final GmsGoodsAttributeService goodsAttributeService;
 
-  public GmsGoodsAttributeController(GmsGoodsAttributeService goodsAttributeService) {
-    this.goodsAttributeService = goodsAttributeService;
-  }
+    public GmsGoodsAttributeController(GmsGoodsAttributeService goodsAttributeService) {
+        this.goodsAttributeService = goodsAttributeService;
+    }
 
-  /**
-   * 入参 商品编号和Class1的名称
-   */
-  @ApiOperation("根据商品编号查询商品属性")
-  @PostMapping("/list")
-  public CommonResult<List<GmcGoodsAttributeResult>> list(@Valid @RequestBody GmsGoodsAttributeParam goodsAttributeParam) {
-    List<GmcGoodsAttributeResult> attributeList = goodsAttributeService.list(goodsAttributeParam);
-    return CommonResult.success(attributeList);
-  }
+    /**
+     * 入参 商品编号和Class1的名称
+     */
+    @ApiOperation("根据商品编号查询商品属性")
+    @PostMapping("/list")
+    public CommonResult<List<GmcGoodsAttributeResult>> list(@Valid @RequestBody GmsGoodsAttributeParam goodsAttributeParam) {
+        List<GmcGoodsAttributeResult> attributeList = goodsAttributeService.list(goodsAttributeParam);
+        return CommonResult.success(attributeList);
+    }
 
-  @ApiOperation(value = "保存商品属性", notes = "对应属性如果有值则更新，无值则新增")
-  @PostMapping("/save")
-  public CommonResult<Integer> save(@RequestBody List<GmsGoodsAndAttribute> goodsAndAttributeList) {
-    Integer count = goodsAttributeService.save(goodsAndAttributeList);
-    return CommonResult.success(count);
-  }
+    @ApiOperation(value = "保存商品属性", notes = "对应属性如果有值则更新，无值则新增")
+    @PostMapping("/save")
+    public CommonResult<Integer> save(@RequestBody List<GmsGoodsAndAttribute> goodsAndAttributeList) {
+        Integer count = goodsAttributeService.save(goodsAndAttributeList);
+        return CommonResult.success(count);
+    }
 }

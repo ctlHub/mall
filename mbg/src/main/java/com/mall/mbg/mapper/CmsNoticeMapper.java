@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.CmsNotice;
 import com.mall.mbg.model.CmsNoticeExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsNoticeMapper {
     long countByExample(CmsNoticeExample example);

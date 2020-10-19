@@ -10,6 +10,6 @@ import lombok.Data;
  */
 @Data
 public class IndexClassVO {
-  private String className;
-  private String imgSrc;
+    private String className;
+    private String imgSrc;
 }

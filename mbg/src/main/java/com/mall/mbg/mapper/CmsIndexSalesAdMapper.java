@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.CmsIndexSalesAd;
 import com.mall.mbg.model.CmsIndexSalesAdExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CmsIndexSalesAdMapper {
     long countByExample(CmsIndexSalesAdExample example);

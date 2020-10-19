@@ -11,13 +11,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class GmsGoodsSearchParam extends GmsGoods {
-  /**
-   * 模糊查询
-   */
-  private String searchText;
+    /**
+     * 模糊查询
+     */
+    private String searchText;
 
-  /**
-   * 记录条数
-   */
-  private Integer maxRecord;
+    /**
+     * 记录条数
+     */
+    private Integer maxRecord;
 }

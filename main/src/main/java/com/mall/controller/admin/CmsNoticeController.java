@@ -24,24 +24,24 @@ import java.util.List;
 @RequestMapping("/notice")
 public class CmsNoticeController {
 
-  private final CmsNoticeService noticeService;
+    private final CmsNoticeService noticeService;
 
-  public CmsNoticeController(CmsNoticeService cmsNoticeService) {
-    this.noticeService = cmsNoticeService;
-  }
+    public CmsNoticeController(CmsNoticeService cmsNoticeService) {
+        this.noticeService = cmsNoticeService;
+    }
 
-  @ApiOperation("公告同步")
-  @PostMapping(value = "/sync")
-  public CommonResult<Integer> sync(@DataSetJsonRequestParam(value = "notice", type = CmsNotice.class) List<CmsNotice> noticeList) {
-    int count = noticeService.sync(noticeList);
-    return CommonResult.success(count);
-  }
+    @ApiOperation("公告同步")
+    @PostMapping(value = "/sync")
+    public CommonResult<Integer> sync(@DataSetJsonRequestParam(value = "notice", type = CmsNotice.class) List<CmsNotice> noticeList) {
+        int count = noticeService.sync(noticeList);
+        return CommonResult.success(count);
+    }
 
-  @ApiOperation("删除公告")
-  @PostMapping(value = "/delete")
-  public CommonResult<Integer> delete(@RequestBody CmsNotice cmsNotice) {
-    int delete = noticeService.delete(cmsNotice);
-    return CommonResult.success(delete);
-  }
+    @ApiOperation("删除公告")
+    @PostMapping(value = "/delete")
+    public CommonResult<Integer> delete(@RequestBody CmsNotice cmsNotice) {
+        int delete = noticeService.delete(cmsNotice);
+        return CommonResult.success(delete);
+    }
 
 }

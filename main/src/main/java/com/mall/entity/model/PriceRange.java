@@ -11,44 +11,44 @@ import lombok.Data;
  */
 @Data
 public class PriceRange {
-  /**
-   * 最大进货价
-   */
-  private Double maxInUp;
-  /**
-   * 最小进货价
-   */
-  private Double minInUp;
-  /**
-   * 最大零售价
-   */
-  private Double maxListUp;
-  /**
-   * 最小零售价
-   */
-  private Double minListUp;
-  /**
-   * 最大批发价
-   */
-  private Double maxOutUp2;
-  /**
-   * 最小批发价
-   */
-  private Double minOutUp2;
-  /**
-   * 最大出厂价
-   */
-  private Double maxOutUp;
-  /**
-   * 最小出厂价
-   */
-  private Double minOutUp;
-  /**
-   * 最大会员价
-   */
-  private Double maxVipUp;
-  /**
-   * 最小会员价
-   */
-  private Double minVipUp;
+    /**
+     * 最大进货价
+     */
+    private Double maxInUp;
+    /**
+     * 最小进货价
+     */
+    private Double minInUp;
+    /**
+     * 最大零售价
+     */
+    private Double maxListUp;
+    /**
+     * 最小零售价
+     */
+    private Double minListUp;
+    /**
+     * 最大批发价
+     */
+    private Double maxOutUp2;
+    /**
+     * 最小批发价
+     */
+    private Double minOutUp2;
+    /**
+     * 最大出厂价
+     */
+    private Double maxOutUp;
+    /**
+     * 最小出厂价
+     */
+    private Double minOutUp;
+    /**
+     * 最大会员价
+     */
+    private Double maxVipUp;
+    /**
+     * 最小会员价
+     */
+    private Double minVipUp;
 }

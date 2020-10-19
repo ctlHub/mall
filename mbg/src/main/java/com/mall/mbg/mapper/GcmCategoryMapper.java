@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.GcmCategory;
 import com.mall.mbg.model.GcmCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GcmCategoryMapper {
     long countByExample(GcmCategoryExample example);

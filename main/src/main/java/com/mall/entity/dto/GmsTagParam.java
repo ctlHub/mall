@@ -15,33 +15,33 @@ import javax.validation.constraints.NotNull;
 @Data
 public class GmsTagParam {
 
-  /**
-   * 企业编号
-   */
-  @NotEmpty
-  private String corpNo;
+    /**
+     * 企业编号
+     */
+    @NotEmpty
+    private String corpNo;
 
-  /**
-   * 标签代码（雪花Long）
-   */
-  @NotNull(groups = UpdateGroup.class)
-  private String code;
+    /**
+     * 标签代码（雪花Long）
+     */
+    @NotNull(groups = UpdateGroup.class)
+    private String code;
 
-  /**
-   * 标签名称
-   */
-  @NotEmpty
-  private String name;
+    /**
+     * 标签名称
+     */
+    @NotEmpty
+    private String name;
 
-  /**
-   * 标签类型(选大类)
-   */
-  private String type;
+    /**
+     * 标签类型(选大类)
+     */
+    private String type;
 
-  /**
-   * 备注
-   */
-  private String remark;
+    /**
+     * 备注
+     */
+    private String remark;
 
 }
 

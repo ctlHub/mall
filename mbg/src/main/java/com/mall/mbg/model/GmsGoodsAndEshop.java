@@ -1,6 +1,7 @@
 package com.mall.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -192,16 +193,16 @@ public class GmsGoodsAndEshop implements Serializable {
         }
         GmsGoodsAndEshop other = (GmsGoodsAndEshop) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
-            && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getEshopType() == null ? other.getEshopType() == null : this.getEshopType().equals(other.getEshopType()))
-            && (this.getEshopName() == null ? other.getEshopName() == null : this.getEshopName().equals(other.getEshopName()))
-            && (this.getEshopGoodsUrl() == null ? other.getEshopGoodsUrl() == null : this.getEshopGoodsUrl().equals(other.getEshopGoodsUrl()))
-            && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
-            && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
-            && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
-            && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
+                && (this.getMerchantId() == null ? other.getMerchantId() == null : this.getMerchantId().equals(other.getMerchantId()))
+                && (this.getGoodsId() == null ? other.getGoodsId() == null : this.getGoodsId().equals(other.getGoodsId()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getEshopType() == null ? other.getEshopType() == null : this.getEshopType().equals(other.getEshopType()))
+                && (this.getEshopName() == null ? other.getEshopName() == null : this.getEshopName().equals(other.getEshopName()))
+                && (this.getEshopGoodsUrl() == null ? other.getEshopGoodsUrl() == null : this.getEshopGoodsUrl().equals(other.getEshopGoodsUrl()))
+                && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
+                && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
+                && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
+                && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
     }
 
     @Override

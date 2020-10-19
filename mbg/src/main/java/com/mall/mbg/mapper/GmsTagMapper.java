@@ -2,8 +2,9 @@ package com.mall.mbg.mapper;
 
 import com.mall.mbg.model.GmsTag;
 import com.mall.mbg.model.GmsTagExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface GmsTagMapper {
     long countByExample(GmsTagExample example);

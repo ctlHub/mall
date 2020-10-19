@@ -1,6 +1,7 @@
 package com.mall.mbg.model;
 
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -196,16 +197,16 @@ public class MmsMerchant implements Serializable {
         }
         MmsMerchant other = (MmsMerchant) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
-            && (this.getLogo() == null ? other.getLogo() == null : this.getLogo().equals(other.getLogo()))
-            && (this.getPhoneIcon() == null ? other.getPhoneIcon() == null : this.getPhoneIcon().equals(other.getPhoneIcon()))
-            && (this.getPcIcon() == null ? other.getPcIcon() == null : this.getPcIcon().equals(other.getPcIcon()))
-            && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
-            && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
-            && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
-            && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getIndustryId() == null ? other.getIndustryId() == null : this.getIndustryId().equals(other.getIndustryId()))
+                && (this.getLogo() == null ? other.getLogo() == null : this.getLogo().equals(other.getLogo()))
+                && (this.getPhoneIcon() == null ? other.getPhoneIcon() == null : this.getPhoneIcon().equals(other.getPhoneIcon()))
+                && (this.getPcIcon() == null ? other.getPcIcon() == null : this.getPcIcon().equals(other.getPcIcon()))
+                && (this.getAppUser() == null ? other.getAppUser() == null : this.getAppUser().equals(other.getAppUser()))
+                && (this.getAppDate() == null ? other.getAppDate() == null : this.getAppDate().equals(other.getAppDate()))
+                && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
+                && (this.getUpdateDate() == null ? other.getUpdateDate() == null : this.getUpdateDate().equals(other.getUpdateDate()));
     }
 
     @Override

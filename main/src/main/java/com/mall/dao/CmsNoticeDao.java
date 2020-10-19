@@ -12,9 +12,9 @@ import java.util.List;
  */
 public interface CmsNoticeDao {
 
-  /**
-   * 批量同步商品资料
-   */
-  int sync(List<CmsNotice> noticeList);
+    /**
+     * 批量同步商品资料
+     */
+    int sync(List<CmsNotice> noticeList);
 
 }

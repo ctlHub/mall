@@ -8,5 +8,5 @@ import org.apache.ibatis.session.ResultHandler;
  * @date 2020/9/23 10:32
  */
 public interface ProductDetailDao {
-  void getGoodsDetail(String corpNo, String code, ResultHandler<ProductDetailGoodsDetailVO> resultHandler);
+    void getGoodsDetail(String corpNo, String code, ResultHandler<ProductDetailGoodsDetailVO> resultHandler);
 }

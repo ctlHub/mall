@@ -14,9 +14,9 @@ import java.util.List;
  * @date 2020/9/16 19:32
  */
 public interface GmsGoodsAndTagDao {
-  int cancelBind(String corpNo, List<GmsGoodsAndTag> goodsAndTagList);
+    int cancelBind(String corpNo, List<GmsGoodsAndTag> goodsAndTagList);
 
-  List<GmsTag> listTagByGoodsId(String corpNo, String goodsCode);
+    List<GmsTag> listTagByGoodsId(String corpNo, String goodsCode);
 
-  List<GmsGoodsAndTagListResult> listGoodsAndTag(String corpNo, GmsGoodsAndTagSearchParam searchParam);
+    List<GmsGoodsAndTagListResult> listGoodsAndTag(String corpNo, GmsGoodsAndTagSearchParam searchParam);
 }

@@ -23,7 +23,7 @@ mall
 
 2. ####  设计公约
 
-    1. 每张表都应该有`create_user`,`create_date`,`update_user`,`update_date`字段
+    1. 每张表都应该有`create_user`,`create_time`,`update_user`,`update_time`字段
     
     2. 每张表都应当有 `deleted`(unsigned tinyint) 字段，标识逻辑删除；
     

@@ -1,0 +1,33 @@
+.DS_Store
+.springBeans
+*.log
+*.bak
+bin/
+classes/
+target/
+
+# Eclipse
+.settings
+.classpath
+.project
+spring-*/src/main/java/META-INF/MANIFEST.MF
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea
+out/
+test-output/
+atlassian-ide-plugin.xml
+.gradletasknamecache
+
+*.settings/
+*bin/
+*logs/
+*target/
+
+*rebel.xml
+mbg/src/main/resources/mybatisGenerator.properties
+main/src/main/resources/application-master.yml
+main/src/main/resources/application-develop.yml

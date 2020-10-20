@@ -28,7 +28,7 @@ mall
 2. ####  设计公约
 
     1. 每张表都应该有`create_user`,`create_date`,`update_user`,`update_date`字段
-2. 每张表都应当有 `deleted`(unsigned tinyint) 字段，标识逻辑删除；`version`字段，表示数据被修改的次数，当数据被修改时，version值会加一，用于乐观锁优化锁性能，这三个字段皆可配合[MybatisPlus](http://mybatis.plus/)插件使用，[详情](https://zhuanlan.zhihu.com/p/156135323)
+    2. 每张表都应当有 `deleted`(unsigned tinyint) 字段，标识逻辑删除；`version`字段，表示数据被修改的次数，当数据被修改时，version值会加一，用于乐观锁优化锁性能，这三个字段皆可配合[MybatisPlus](http://mybatis.plus/)插件使用，[详情](https://zhuanlan.zhihu.com/p/156135323)
     3. 根据mysql 8.0 的官方建议，int字段不再指定长度
-4. 小数类型为 decimal，禁止使用 float 和 double
+    4. 小数类型为 decimal，禁止使用 float 和 double
     5. 不涉及到负数的数字类型字段请使用unsigned

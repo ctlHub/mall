@@ -34,7 +34,7 @@ mall
        | `deleted`     | unsigned tinyint | 标识逻辑删除，1代表被删除，0表示未被删除，默认值0            |
        | `version`     | unsigned int     | 数据被修改的次数，当数据被修改时，version值会+1；用于CAS实现的乐观锁 |
        
-       以上三个字段皆可配合[MybatisPlus](http://mybatis.plus/)使用，[详情](https://zhuanlan.zhihu.com/p/156135323)
+       以上字段皆可配合[MybatisPlus](http://mybatis.plus/)使用，[详情](https://zhuanlan.zhihu.com/p/156135323)
        
     2. 根据mysql 8.0 的官方建议，int字段不再指定长度
     

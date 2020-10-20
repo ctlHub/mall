@@ -28,6 +28,3 @@ atlassian-ide-plugin.xml
 *target/
 
 *rebel.xml
-mbg/src/main/resources/mybatisGenerator.properties
-main/src/main/resources/application-master.yml
-main/src/main/resources/application-develop.yml

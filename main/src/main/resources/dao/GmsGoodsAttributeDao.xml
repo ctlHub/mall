@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.dao.GmsGoodsAttributeDao">
+
+    <resultMap id="GmcGoodsAttributeResult" type="com.mall.entity.dto.GmcGoodsAttributeResult">
+        <result column="code_" jdbcType="VARCHAR" property="code"/>
+        <result column="name_" jdbcType="VARCHAR" property="name"/>
+        <result column="value_" jdbcType="VARCHAR" property="value"/>
+    </resultMap>
+
+    <sql id="onDuplicateKeyUpdate">
+        corp_no_=values(corp_no_),
+        goods_code_=values(goods_code_),
+        attribute_code_=values(attribute_code_),
+        value_=values(value_),
+        app_user_=values(app_user_),
+        app_date_=values(app_date_),
+        update_user_=values(update_user_),
+        update_date_=values(update_date_)
+    </sql>
+
+    <insert id="save">
+        insert into gms_goods_and_attribute
+        (corp_no_, goods_code_, attribute_code_, value_,
+        app_user_, app_date_, update_user_, update_date_) values
+        <foreach collection="list" item="item" separator="," index="index">
+            (
+            #{item.corpNo,jdbcType=VARCHAR},
+            #{item.goodsCode,jdbcType=VARCHAR},
+            #{item.attributeCode,jdbcType=VARCHAR},
+            #{item.value,jdbcType=VARCHAR},
+            #{item.appUser,jdbcType=VARCHAR},
+            #{item.appDate,jdbcType=TIMESTAMP},
+            #{item.updateUser,jdbcType=VARCHAR},
+            #{item.updateDate,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+        on duplicate key update
+        <include refid="onDuplicateKeyUpdate"/>
+    </insert>
+
+    <!-- 商品大类属性，无论有没有值都要显示 -->
+    <select id="list" resultMap="GmcGoodsAttributeResult">
+        select ca.code_, ca.name_, ga.value_
+        from gcm_category_attribute as ca
+                 left join gms_goods_and_attribute as ga
+                           on ca.code_ = ga.attribute_code_ and ga.goods_code_ = #{goodsCode}
+        where ca.category_code_ = #{categoryId}
+        order by ga.value_ desc
+    </select>
+
+    <!-- 商品大类属性有值则显示，无值则不显示 -->
+    <select id="listForApp" resultMap="GmcGoodsAttributeResult">
+        select ca.code_, ca.name_, ga.value_
+        from gms_goods_and_attribute as ga
+                 inner join gcm_category_attribute as ca
+                            on ga.attribute_code_ = ca.code_
+        where ga.goods_code_ = #{goodsCode}
+    </select>
+</mapper>

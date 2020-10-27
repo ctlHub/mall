@@ -30,7 +30,7 @@ npm install -g yarn
 在 vuepress 目录下运行命令
 
 ```shell
-yarn add install
+yarn install
 ```
 
 安装完成后，多出 node_modules 文件夹

@@ -5,6 +5,12 @@
 git@github.com:ctlHub/mall.git
 ```
 
+## 切换分支
+切换到分支 vuepress
+```shell
+git checkout vuepress
+```
+
 ## 环境安装
 
 进入文件夹 vuepress，打开控制台，查看是否安装 node
@@ -15,7 +21,7 @@ node -v
 
 没安装的话，官网下载安装 [https://nodejs.org/en/](https://nodejs.org/en/)
 
-安装完成之后安装yarn
+安装完成之后安装 yarn
 
 ```shell
 npm install -g yarn
@@ -26,6 +32,8 @@ npm install -g yarn
 ```shell
 yarn add install
 ```
+
+安装完成后，多出 node_modules 文件夹
 
 ## 文档目录
 
@@ -58,7 +66,13 @@ npm run dev
 
 - **项目提交：**
 
-  与项目无异，直接提交到 github
+  在 **vuepress 分支**下进行提交，不要合并到主分支
+
+  ```shell
+  git add .
+  git commit -m "xxxx"
+  git push origin vuepress
+  ```
 
 - **文档提交**
 
@@ -68,7 +82,9 @@ npm run dev
   sh deploy.sh
   ```
   
-  文档内容提交在 doucment 分支，不要合并
+  文档内容提交在 **doucment 分支**，不要合并
+
+**vuepress 分支 **存放原 md 文件，**document 分支** 存放生成的 html 文件，两个分支不要合并。
 
 ## 地址
 

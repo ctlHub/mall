@@ -1,0 +1,17 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node docs/.vuepress/config-build.js && vuepress dev docs",
+    "config": "node docs/.vuepress/config-build.js",
+    "build": "node docs/.vuepress/config-build.js && vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  }
+}

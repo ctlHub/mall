@@ -5,6 +5,8 @@
 bin/
 classes/
 target/
+node_modules
+/vuepress/docs/.vuepress/dist
 
 # Eclipse
 .settings

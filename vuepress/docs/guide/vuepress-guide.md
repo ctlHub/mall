@@ -37,6 +37,7 @@ yarn install
 
 ## 文档目录
 
+``` lua
 ├─.vuepress
 │  ├─dist
 │  │  ├─assets
@@ -50,6 +51,7 @@ yarn install
 │      └─images
 ├─backend
 └─frontend
+```
 
 - .vuepress 配置文件目录，不要动
 - backend、fronend 文档目录，可以随便创建，**不能含中文名**，文档下面创建 md 文档，文件名不能包含中文名，标题会读取 md 文档中的第一个 ```# 标题```，每个文档最好只有一个一级标题

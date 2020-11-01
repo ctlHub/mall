@@ -1,0 +1,73 @@
+package ${package.Controller};
+
+import com.mall.common.api.CommonResult;
+import com.mall.model.${entity};
+import com.mall.service.${table.serviceName};
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+#if(${restControllerStyle})
+import org.springframework.web.bind.annotation.RestController;
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * <p>
+ * $!{table.comment} 前端控制器
+ * </p>
+ *
+ * @author ${author}
+ * @date ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+  private final ${table.serviceName} service;
+
+  public ${table.controllerName}(${table.serviceName} service) {
+    this.service = service;
+  }
+
+  @GetMapping("/{id}")
+  public CommonResult<${entity}> get(@PathVariable String id) {
+    return CommonResult.success(service.getById(id));
+  }
+
+  @PostMapping
+  public CommonResult<Boolean> create(@RequestBody ${entity} param) {
+    return CommonResult.success(service.save(param));
+  }
+
+  @PutMapping
+  public CommonResult<Boolean> update(@RequestBody ${entity} param) {
+    return CommonResult.success(service.saveOrUpdate(param));
+  }
+
+  @DeleteMapping("/{id}")
+  public CommonResult<Boolean> delete(@PathVariable String id) {
+    return CommonResult.success(service.removeById(id));
+  }
+}
+
+#end

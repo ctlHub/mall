@@ -2,6 +2,7 @@ package com.mall.common.utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -31,10 +32,10 @@ public class ModelUtils {
         Method setAppUser;
         Method setAppDate;
         try {
-            setAppUser = modelObject.getClass().getMethod("setAppUser", String.class);
-            setAppUser.invoke(modelObject, ThreadLocalUtil.getUserCode());
-            setAppDate = modelObject.getClass().getMethod("setAppDate", Date.class);
-            setAppDate.invoke(modelObject, new Date());
+            setAppUser = modelObject.getClass().getMethod("setCreateUserid", String.class);
+            setAppUser.invoke(modelObject, ThreadLocalUtil.getUserId());
+            setAppDate = modelObject.getClass().getMethod("setCreateTime", LocalDateTime.class);
+            setAppDate.invoke(modelObject, LocalDateTime.now());
         } catch (NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -53,10 +54,10 @@ public class ModelUtils {
         Method setUpdateUser;
         Method setUpdateDate;
         try {
-            setUpdateUser = modelObject.getClass().getMethod("setUpdateUser", String.class);
-            setUpdateUser.invoke(modelObject, ThreadLocalUtil.getUserCode());
-            setUpdateDate = modelObject.getClass().getMethod("setUpdateDate", Date.class);
-            setUpdateDate.invoke(modelObject, new Date());
+            setUpdateUser = modelObject.getClass().getMethod("setUpdateUserid", String.class);
+            setUpdateUser.invoke(modelObject, ThreadLocalUtil.getUserId());
+            setUpdateDate = modelObject.getClass().getMethod("setUpdateTime", LocalDateTime.class);
+            setUpdateDate.invoke(modelObject, LocalDateTime.now());
         } catch (NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

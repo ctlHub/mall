@@ -12,13 +12,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+/**
+ * 拦截器，抓取每一次的情况中的corpNo和userId参数，并保存在ThreadLocal中
+ *
+ * @author 李重辰
+ * @date 2020/11/2 00:08
+ */
 @Slf4j
-public class CorpNoHandlerInterceptor implements HandlerInterceptor {
+public class ThreadParamInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
     initParamToThreadLocal(request, "corpNo");
-    initParamToThreadLocal(request, "userCode");
+    initParamToThreadLocal(request, "userId");
     return true;
   }
 

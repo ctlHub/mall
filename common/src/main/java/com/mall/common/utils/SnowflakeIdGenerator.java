@@ -1,5 +1,8 @@
 package com.mall.common.utils;
 
+import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
+import org.springframework.stereotype.Component;
+
 import java.net.Inet4Address;
 import java.net.UnknownHostException;
 import java.util.HashSet;
@@ -12,7 +15,8 @@ import java.util.Set;
  * @author 李重辰
  * @date 2020/9/14 19:29
  */
-public class SnowflakeIdGenerator {
+@Component
+public class SnowflakeIdGenerator implements IdentifierGenerator {
 
     /**
      * 时间部分所占长度
@@ -85,6 +89,10 @@ public class SnowflakeIdGenerator {
     private static long LAST_SEQ = 0L;
 
     public synchronized static String genId() {
+        return String.valueOf(genLongId());
+    }
+
+    public static synchronized Long genLongId() {
         long now = System.currentTimeMillis();
 
         //如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
@@ -104,8 +112,7 @@ public class SnowflakeIdGenerator {
         //上次生成ID的时间截
         LAST_TIME_STAMP = now;
 
-        long l = ((now - START_TIME) << TIME_LEFT_BIT) | (DATA_ID << DATA_LEFT_BIT) | (WORK_ID << WORK_LEFT_BIT) | LAST_SEQ;
-        return String.valueOf(l);
+        return ((now - START_TIME) << TIME_LEFT_BIT) | (DATA_ID << DATA_LEFT_BIT) | (WORK_ID << WORK_LEFT_BIT) | LAST_SEQ;
     }
 
     /**
@@ -161,6 +168,11 @@ public class SnowflakeIdGenerator {
         }
         long end = System.currentTimeMillis();
         System.out.println("共生成id[" + ids.size() + "]个，花费时间[" + (end - start) + "]毫秒");
+    }
+
+    @Override
+    public Number nextId(Object entity) {
+        return genLongId();
     }
 }
 

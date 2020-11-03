@@ -14,6 +14,7 @@ public class MpNameConvert implements INameConvert {
   @Override
   public String entityNameConvert(TableInfo tableInfo) {
     String entityName = tableInfo.getName();
+    tableInfo.setConvert(true);
     int i = entityName.indexOf("_") + 1;
     return NamingStrategy.capitalFirst(processName(entityName.substring(i)));
   }
@@ -23,11 +24,9 @@ public class MpNameConvert implements INameConvert {
     return processName(field.getName());
   }
 
+  //下划线转驼峰
   private String processName(String name) {
-    String propertyName;
-    // 下划线转驼峰
-    propertyName = NamingStrategy.underlineToCamel(name);
-    return propertyName;
+    return NamingStrategy.underlineToCamel(name);
   }
 
 }

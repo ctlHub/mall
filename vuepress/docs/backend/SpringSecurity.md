@@ -10,7 +10,7 @@
 ​	整体介绍，Spring Security为基于J2EE开发的企业应用软件提供了全面的安全服务，特别是使用Spring开发的企业软件项目，如果你熟悉Spring，尤其是Spring的依赖注入原理，这将帮助你更快掌握Spring Security，目前使用Spring Security有很多原因，通常因为在J2EE的Servlet规范和EJB规范中找不到典型应用场景的解决方案，提到这些规范，特别要指出的是它们不能在WAR或EAR级别进行移植，这样如果你需要更换服务器环境，就要在新的目标环境中进行大量的工作，对你的应用进行重新配置安全，使用Spring Security就解决了这些问题，也为你提供了很多很有用的可定制的安全特性。
 ​	Spring Security包含三个主要的组件：`SecurityContext`、`AuthenticationManager`、`AccessDecisionManager`.
 
-<center><img src="https://ctlhub.github.io/mall/images/image-20201024105126465.png" alt="Spring Security主要组件图" style="zoom:50%;" /></center>
+<center><img src="/mall/images/springsecurity/image-20201024105126465.png" alt="Spring Security主要组件图" style="zoom:50%;" /></center>
 
 <center><font size=2>图1-1 Spring Security主要组件</font></center>
 
@@ -26,15 +26,15 @@
 
 ### 1.2 权限拦截
 
-<center><img src="https://ctlhub.github.io/mall/images/image-20201024122405276.png" alt="用户请求" style="zoom:50%;" /></center>
+<center><img src="/mall/images/springsecurity/image-20201024122405276.png" alt="用户请求" style="zoom:50%;" /></center>
 <center><font size=2>图1-2 用户请求</font></center>
 
-<center><img src="https://ctlhub.github.io/mall/images/image-20201030121733208.png" style="zoom:50%;" /></center>
+<center><img src="/mall/images/springsecurity/image-20201030121733208.png" style="zoom:50%;" /></center>
 <center><font size=2>图1-3 过滤器</font></center>
 
 ​	Spring Security提供了很多过滤器，其中`SecurityContextPersistenceFilter`、`UsernamePasswordAuthenticationFilter`、`FilterSecurityInterceptor`分别对应`SecurityContext`、`AuthenticationManager`、`AccessDecisionManager`的处理。
 
-<center><img src="https://ctlhub.github.io/mall/images/image-20201105182204621.png" alt="Spring Security过滤链流程图" style="zoom:100%;" /></center>
+<center><img src="/mall/images/springsecurity/image-20201105182204621.png" alt="Spring Security过滤链流程图" style="zoom:100%;" /></center>
 <center><font size=2>图1-4 Spring Security过滤链流程图</font></center>
 
 下面分别介绍各个过滤器的功能。
@@ -60,7 +60,7 @@
 
 ### 1.3 数据库管理
 
-<img src="https://ctlhub.github.io/mall/images/image-20201024161253336.png" alt="Spring Security核心处理流程" style="zoom:50%;" />
+<img src="/mall/images/springsecurity/image-20201024161253336.png" alt="Spring Security核心处理流程" style="zoom:50%;" />
 
 <center><font size=2>图1-5 Spring Security核心处理流程</font></center>
 
@@ -492,7 +492,7 @@ public class RoleVoter implements AccessDecisionVoter<Object> {
 
 ​	打开Spring Boot官网https://start.spring.io/，选择Java语言，在Dependencies中添加Spring Web和Spring Security，最后点击GENERATE下载。
 
-<center><img src="https://ctlhub.github.io/mall/images/image-20201102174202915.png"  style="zoom:80%;" /></center>
+<center><img src="/mall/images/springsecurity/image-20201102174202915.png"  style="zoom:80%;" /></center>
 
 ​	解压下载的文件，用idea打开，可以看到这是一个可以直接启动的demo，因为我们是web项目，所以这里添加一个接口看一下。
 
@@ -514,7 +514,7 @@ public class DemoApplication {
 
 ​	启动后我们在地址栏输入locahost:8080会自动跳转到/login路径，说明Spring Security就已经直接参与进来了。
 
-![](https://ctlhub.github.io/mall/images/image-20201102180304551.png)
+<center><img src="/mall/images/springsecurity/image-20201102180304551.png"  style="zoom:80%;" /></center>
 
 ​	然后我们创建一个继承`WebSecurityConfigurerAdapter`的配置类，定义权限访问策略，同时再添加一个路径为“/hello”的接口，根据代码注释我们可以看出，访问项目主路径可以不需要验证，访问其余路径则需要验证。启动项目，访问localhost:8080可以直接通过，但访问localhost:8080\hello则会自动跳转到localhost:8080/login路径要求登录。这样说明Spring Security的安全策略已经生效了，Spring Boot与Spring Security的环境搭建也完成了。
 

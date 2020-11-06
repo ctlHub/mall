@@ -9,7 +9,7 @@ import java.util.Optional;
  * <p>
  * 注意：
  * 1. 务必执行remove方法
- * 2. set方法的命名格式务必为 set + 参数首字母大写的驼峰命名；以便于在{@linkplain com.mall.config.CorpNoHandlerInterceptor}中使用反射初始化
+ * 2. set方法的命名格式务必为 set + 参数首字母大写的驼峰命名；以便于在{@linkplain com.mall.config.ThreadParamInterceptor}中使用反射初始化
  * eg：参数名称为 userCode，set方法应该为setUserCode(String userCode)
  *
  * @author 李重辰
@@ -17,22 +17,22 @@ import java.util.Optional;
  */
 public class ThreadLocalUtil {
     private static final ThreadLocal<String> CORP_NO = new ThreadLocal<>();
-    private static final ThreadLocal<String> USER_CODE = new ThreadLocal<>();
+    private static final ThreadLocal<String> USER_ID = new ThreadLocal<>();
 
     public static void setMerchantId(String cropNo) {
         CORP_NO.set(cropNo);
     }
 
-    public static void setUserCode(String userCode) {
-        USER_CODE.set(userCode);
+    public static void setUserId(String userId) {
+        USER_ID.set(userId);
     }
 
     public static String getMerchant() {
         return Optional.ofNullable(CORP_NO.get()).orElseThrow(() -> new MissRequiredParamException("帐套代码不允许为空"));
     }
 
-    public static String getUserCode() {
-        return Optional.ofNullable(USER_CODE.get()).orElseThrow(() -> new MissRequiredParamException("用户代码不允许为空"));
+    public static String getUserId() {
+        return Optional.ofNullable(USER_ID.get()).orElseThrow(() -> new MissRequiredParamException("用户代码不允许为空"));
     }
 
     /**
@@ -40,6 +40,6 @@ public class ThreadLocalUtil {
      */
     public static void remove() {
         CORP_NO.remove();
-        USER_CODE.remove();
+        USER_ID.remove();
     }
 }

@@ -3,7 +3,6 @@
 ​	文章主要分三部分
 1、Spring Security的架构及核心组件：(1)认证；(2)权限拦截；(3)数据库管理；(4)权限缓存；(5)自定义决策；
 2、环境搭建与使用，使用当前热门的Spring Boot来搭建环境，结合项目中实际的例子来做几个Case;
-3、Spring Security的优缺点总结，结合第二部分中几个Case的实现来总结Spring Security的优点和缺点。
 
 ## 1、Spring Security介绍
 

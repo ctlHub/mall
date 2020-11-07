@@ -36,8 +36,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    registry.addInterceptor(new ThreadParamInterceptor()).addPathPatterns("/**").
-        excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
+    registry.addInterceptor(new CorpNoHandlerInterceptor()).addPathPatterns("/**").
+            excludePathPatterns("/", "/user/login", "/index", "/static/**", "/webjars/**");
   }
 
   @Override

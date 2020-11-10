@@ -4,22 +4,22 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.mall.model.BizPermission">
-        <id column="id" property="id" />
-        <result column="parent_id" property="parentId" />
-        <result column="name" property="name" />
-        <result column="level" property="level" />
-        <result column="icon" property="icon" />
-        <result column="type" property="type" />
-        <result column="url" property="url" />
-        <result column="method" property="method" />
-        <result column="status" property="status" />
-        <result column="biz_id" property="bizId" />
-        <result column="create_userid" property="createUserid" />
-        <result column="create_time" property="createTime" />
-        <result column="update_userid" property="updateUserid" />
-        <result column="update_time" property="updateTime" />
-        <result column="deleted" property="deleted" />
-        <result column="version" property="version" />
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="level" property="level"/>
+        <result column="icon" property="icon"/>
+        <result column="type" property="type"/>
+        <result column="url" property="url"/>
+        <result column="method" property="method"/>
+        <result column="status" property="status"/>
+        <result column="biz_id" property="bizId"/>
+        <result column="create_userid" property="createUserid"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_userid" property="updateUserid"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="version" property="version"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -29,19 +29,51 @@
 
     <resultMap id="permission_map" type="com.mall.model.BizPermission">
         <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="level" property="level"/>
+        <result column="icon" property="icon"/>
+        <result column="type" property="type"/>
         <result column="url" property="url"/>
         <result column="method" property="method"/>
-        <collection property="roleList" javaType="com.mall.model.BizRole">
-            <id column="id" property="id"/>
-            <result column="name" property="name"/>
+        <result column="status" property="status"/>
+        <result column="biz_id" property="bizId"/>
+        <result column="create_userid" property="createUserid"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_userid" property="updateUserid"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="version" property="version"/>
+        <collection property="roleList" ofType="com.mall.model.BizRole">
+            <id column="rid" property="id"/>
+            <result column="rname" property="name"/>
+            <result column="name_zh" property="nameZh"/>
+            <result column="description" property="description"/>
+            <result column="rstatus" property="status"/>
+            <result column="rbiz_id" property="bizId"/>
+            <result column="rcreate_userid" property="createUserid"/>
+            <result column="rcreate_time" property="createTime"/>
+            <result column="rupdate_userid" property="updateUserid"/>
+            <result column="rupdate_time" property="updateTime"/>
+            <result column="rdeleted" property="deleted"/>
+            <result column="rversion" property="version"/>
         </collection>
     </resultMap>
-    
-    <select id="getPermissionList" resultMap="permission_map">
-        SELECT p.id,p.name,p.url,p.method,r.id as roleid,r.name as rolename
+
+    <sql id="getPermissionsByBizId_Column_List">
+        p.id, p.parent_id, p.name, p.level, p.icon, p.type, p.url, p.method, p.status, p.biz_id, p.create_userid, p.create_time,
+        p.update_userid, p.update_time, p.deleted, p.version,
+        r.id rid, r.name rname, name_zh, description, r.status rstatus, r.biz_id rbiz_id, r.create_userid
+        rcreate_userid, r.create_time rcreate_time, r.update_userid rupdate_userid, r.update_time rupdate_time,
+        r.deleted rdeleted, r.version rversion
+    </sql>
+
+    <select id="getPermissionsByBizId" resultMap="permission_map">
+        SELECT
+        <include refid="getPermissionsByBizId_Column_List"/>
         from u_biz_role_permission rp
         LEFT JOIN u_biz_permission p ON rp.permission_id = p.id
-        LEFT JOIN roler r on rp.role_id = r.id where rp.biz_id = #{bizId}
+        LEFT JOIN u_biz_role r on rp.role_id = r.id where rp.biz_id = #{bizId}
     </select>
 
 </mapper>

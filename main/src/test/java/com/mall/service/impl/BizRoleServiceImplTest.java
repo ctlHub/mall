@@ -21,36 +21,36 @@ import java.util.List;
 @SpringBootTest
 public class BizRoleServiceImplTest {
 
-    private static final Long BIZID = 1L;
+  private static final Long MERCHANT_ID = 1L;
 
-    @Autowired
-    private BizRoleService bizRoleService;
+  @Autowired
+  private BizRoleService bizRoleService;
 
-    @Test
-    public void list() {
-        QueryWrapper<BizRole> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("biz_id", BIZID);
-        List<BizRole> bizRoleList = bizRoleService.list(queryWrapper);
-        Assert.notEmpty(bizRoleList, "无权限数据");
-        bizRoleList.forEach(System.out::println);
-    }
+  @Test
+  public void list() {
+    QueryWrapper<BizRole> queryWrapper = new QueryWrapper<>();
+    queryWrapper.eq("merchant_id", MERCHANT_ID);
+    List<BizRole> bizRoleList = bizRoleService.list(queryWrapper);
+    Assert.notEmpty(bizRoleList, "无权限数据");
+    bizRoleList.forEach(System.out::println);
+  }
 
-    @Test
-    public void getOne() {
-        BizRole bizRole = bizRoleService.getById(1);
-        Assert.notNull(bizRole, "角色id不存在");
-    }
+  @Test
+  public void getOne() {
+    BizRole bizRole = bizRoleService.getById(1);
+    Assert.notNull(bizRole, "角色id不存在");
+  }
 
-    @Test
-    public void create() {
-        BizRole bizRole = new BizRole();
-        bizRole.setId(SnowflakeIdGenerator.genLongId());
-        bizRole.setName("ROLE_admin");
-        bizRole.setNameZh("管理员");
-        bizRole.setDescription("商家管理员");
-        bizRole.setBizId(BIZID);
-        Boolean isSave = bizRoleService.save(bizRole);
-        Assert.isTrue(isSave, "添加角色失败");
-    }
+  @Test
+  public void create() {
+    BizRole bizRole = new BizRole();
+    bizRole.setId(SnowflakeIdGenerator.genLongId());
+    bizRole.setName("ROLE_admin");
+    bizRole.setNameZh("管理员");
+    bizRole.setDescription("商家管理员");
+    bizRole.setMerchantId(MERCHANT_ID);
+    boolean isSave = bizRoleService.save(bizRole);
+    Assert.isTrue(isSave, "添加角色失败");
+  }
 
 }

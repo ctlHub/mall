@@ -6,7 +6,6 @@ import com.mall.model.BizUser;
 import com.mall.service.BizUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,24 +19,27 @@ import org.springframework.util.Assert;
 @SpringBootTest
 public class BizUserServiceImplTest {
 
-    private static final Long BIZID = 1L;
+  private static final Long MERCHANT_ID = 1L;
 
-    @Autowired
-    private BizUserService bizUserService;
+  private final BizUserService bizUserService;
 
-    @Test
-    public void create() {
-        BizUser bizUser = new BizUser();
-        bizUser.setId(SnowflakeIdGenerator.genLongId());
-        bizUser.setUsername("zhagnsan");
-        bizUser.setNickName("张三");
-        String password = "123456";
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        bizUser.setPassword(bCryptPasswordEncoder.encode(password));
-        bizUser.setBizId(BIZID);
-        Boolean isSave = bizUserService.save(bizUser);
-        Assert.isTrue(isSave, "用户添加失败");
-    }
+  public BizUserServiceImplTest(BizUserService bizUserService) {
+    this.bizUserService = bizUserService;
+  }
+
+  @Test
+  public void create() {
+    BizUser bizUser = new BizUser();
+    bizUser.setId(SnowflakeIdGenerator.genLongId());
+    bizUser.setUsername("zhagnsan");
+    bizUser.setNickName("张三");
+    String password = "123456";
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    bizUser.setPassword(bCryptPasswordEncoder.encode(password));
+    bizUser.setMerchantId(MERCHANT_ID);
+    boolean isSave = bizUserService.save(bizUser);
+    Assert.isTrue(isSave, "用户添加失败");
+  }
 
     @Test
     public void selectOne() {

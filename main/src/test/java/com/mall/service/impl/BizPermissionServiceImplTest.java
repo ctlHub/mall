@@ -18,21 +18,21 @@ import org.springframework.util.Assert;
 @SpringBootTest
 public class BizPermissionServiceImplTest {
 
-    private static final Long BIZID = 1L;
+  private static final Long MERCHANT_ID = 1L;
 
     @Autowired
     private BizPermissionService bizPermissionService;
 
-    @Test
-    public void create() {
-        BizPermission bizPermission = new BizPermission();
-        bizPermission.setId(SnowflakeIdGenerator.genLongId());
-        bizPermission.setName("权限管理");
-        bizPermission.setLevel("1");
-        bizPermission.setBizId(BIZID);
-        bizPermission.setUrl("/mall/business/permission");
-        boolean isSave = bizPermissionService.save(bizPermission);
-        Assert.isTrue(isSave, "权限保存失败");
-    }
+  @Test
+  public void create() {
+    BizPermission bizPermission = new BizPermission();
+    bizPermission.setId(SnowflakeIdGenerator.genLongId());
+    bizPermission.setName("权限管理");
+    bizPermission.setLevel("1");
+    bizPermission.setMerchantId(MERCHANT_ID);
+    bizPermission.setUrl("/mall/business/permission");
+    boolean isSave = bizPermissionService.save(bizPermission);
+    Assert.isTrue(isSave, "权限保存失败");
+  }
 
 }

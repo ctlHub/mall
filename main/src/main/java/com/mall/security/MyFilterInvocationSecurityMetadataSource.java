@@ -1,10 +1,8 @@
 package com.mall.security;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.mall.mapper.BizPermissionMapper;
 import com.mall.model.BizPermission;
 import com.mall.model.BizRole;
-import com.mall.service.BizPermissionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -26,51 +24,51 @@ import java.util.List;
 @Component
 public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
-    /**
-     * ant风格路径匹配器
-     */
-    AntPathMatcher antPathMatcher = new AntPathMatcher();
+  private final BizPermissionMapper bizPermissionMapper;
+  /**
+   * ant风格路径匹配器
+   */
+  AntPathMatcher antPathMatcher = new AntPathMatcher();
 
-    @Autowired
-    private BizPermissionService bizPermissionService;
+  public MyFilterInvocationSecurityMetadataSource(BizPermissionMapper bizPermissionMapper) {
+    this.bizPermissionMapper = bizPermissionMapper;
+  }
 
-    @Override
-    public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
+  @Override
+  public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
 
-        //获取当前用户请求得url
-        FilterInvocation filterInvocation = (FilterInvocation) object;
-        String reqMethod = filterInvocation.getHttpRequest().getMethod();
-        String reqUrl = filterInvocation.getRequestUrl();
-        System.out.println("请求连接:" + reqUrl + "--请求方法:" + reqMethod);
-        //TODO bizId商家id传递方式 cookie？
-        String bizId = filterInvocation.getHttpRequest().getParameter("bizId");
-        QueryWrapper<BizPermission> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("biz_id", bizId);
-        List<BizPermission> permissionList = bizPermissionService.list(queryWrapper);
-        List<BizRole> roleList = new ArrayList<>();
-        for (BizPermission permission : permissionList) {
-            //路径匹配，请求方法匹配
-            if (antPathMatcher.match(permission.getUrl(), reqUrl) &&
-                    (reqMethod.equals(permission.getMethod()) || null == permission.getMethod())) {
-                roleList.addAll(permission.getRoleList());
-            }
-        }
-        if (CollectionUtils.isEmpty(roleList)) {
-            return SecurityConfig.createList("ROLE_def");
-        }
-        //返回访问路径所需要的所有角色
-        return SecurityConfig.createList(roleList.stream()
-                .map(ele -> ele.getName())
-                .toArray(String[]::new));
+    //获取当前用户请求得url
+    FilterInvocation filterInvocation = (FilterInvocation) object;
+    String reqMethod = filterInvocation.getHttpRequest().getMethod();
+    String reqUrl = filterInvocation.getRequestUrl();
+    //TODO bizId商家id传递方式 cookie？
+    //String bizId = filterInvocation.getHttpRequest().getParameter("bizId");
+    List<BizPermission> permissionList = bizPermissionMapper.getPermissionsByBizId(1L);
+    List<BizRole> roleList = new ArrayList<>();
+    for (BizPermission permission : permissionList) {
+      //路径匹配，请求方法匹配
+      boolean pass = antPathMatcher.match(permission.getUrl(), reqUrl) &&
+          (reqMethod.equals(permission.getMethod()) || null == permission.getMethod());
+      if (pass) {
+        roleList.addAll(permission.getRoleList());
+      }
     }
-
-    @Override
-    public Collection<ConfigAttribute> getAllConfigAttributes() {
-        return null;
+    if (CollectionUtils.isEmpty(roleList)) {
+      return SecurityConfig.createList("ROLE_def");
     }
+    //返回访问路径所需要的所有角色
+    return SecurityConfig.createList(roleList.stream()
+        .map(ele -> ele.getName())
+        .toArray(String[]::new));
+  }
 
-    @Override
-    public boolean supports(Class<?> aClass) {
-        return true;
-    }
+  @Override
+  public Collection<ConfigAttribute> getAllConfigAttributes() {
+    return null;
+  }
+
+  @Override
+  public boolean supports(Class<?> aClass) {
+    return true;
+  }
 }

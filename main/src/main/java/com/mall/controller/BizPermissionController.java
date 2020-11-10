@@ -1,5 +1,6 @@
 package com.mall.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.api.CommonResult;
 import com.mall.model.BizPermission;
 import com.mall.service.BizPermissionService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -27,6 +30,13 @@ public class BizPermissionController {
 
   public BizPermissionController(BizPermissionService service) {
     this.service = service;
+  }
+
+  @GetMapping("/list/{bizId}")
+  public CommonResult<List<BizPermission>> list(@PathVariable String bizId) {
+    QueryWrapper<BizPermission> queryWrapper = new QueryWrapper<>();
+    queryWrapper.eq("biz_id", bizId);
+    return CommonResult.success(service.list(queryWrapper));
   }
 
   @GetMapping("/{id}")

@@ -1,7 +1,7 @@
 package com.mall.service;
 
-import com.mall.model.BizPermission;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mall.model.BizPermission;
 
 /**
  * <p>

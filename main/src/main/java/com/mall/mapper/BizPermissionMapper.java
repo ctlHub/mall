@@ -15,6 +15,12 @@ import java.util.List;
  */
 public interface BizPermissionMapper extends BaseMapper<BizPermission> {
 
-    List<BizPermission> getPermissionList(String bizId);
+  /**
+   * 查询商家所有权限集合，每个集合中包含该集合对应的所有权限
+   *
+   * @param bizId
+   * @return
+   */
+  List<BizPermission> getPermissionsByBizId(long bizId);
 
 }

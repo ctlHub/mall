@@ -64,9 +64,10 @@
     <sql id="getPermissionsByMerchantId_Column_List">
         p.id, p.parent_id, p.name, p.level, p.icon, p.type, p.url, p.method, p.status, p.merchant_id, p.create_user_id,
         p.create_time, p.update_user_id, p.update_time, p.deleted, p.version,
-        r.id rid, r.name rname, name_zh, description, r.status rstatus, r.merchant_id rmerchant_id, r.create_userid
-        rcreate_user_id, r.create_time rcreate_time, r.update_userid rupdate_user_id, r.update_time rupdate_time,
-        r.deleted rdeleted, r.version rversion
+        r.create_user_id as rcreate_user_id, r.create_time as rcreate_time, r.update_user_id as rupdate_user_id,
+        r.update_time as rupdate_time,
+        r.id as rid, r.name as rname, name_zh, description, r.status as rstatus, r.merchant_id as rmerchant_id,
+        r.deleted as rdeleted, r.version as rversion
     </sql>
 
     <select id="getPermissionsByMerchantId" resultMap="permission_map">

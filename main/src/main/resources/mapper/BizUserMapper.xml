@@ -13,10 +13,10 @@
         <result column="nick_name" property="nickName"/>
         <result column="login_time" property="loginTime"/>
         <result column="status" property="status"/>
-        <result column="biz_id" property="bizId"/>
-        <result column="create_userid" property="createUserid"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
         <result column="create_time" property="createTime"/>
-        <result column="update_userid" property="updateUserid"/>
+        <result column="update_user_id" property="updateUserId"/>
         <result column="update_time" property="updateTime"/>
         <result column="deleted" property="deleted"/>
         <result column="version" property="version"/>
@@ -24,11 +24,14 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, username, password, icon, phone, email, nick_name, login_time, status, biz_id, create_userid, create_time, update_userid, update_time, deleted, version
+        id, username, password, icon, phone, email, nick_name, login_time, status, merchant_id, create_user_id,
+        create_time, update_user_id, update_time, deleted, version
     </sql>
 
     <select id="getRolesById" resultType="com.mall.model.BizRole">
-        select * from u_biz_role where id in (select role_id from u_biz_user_role where user_id=#{userId});
+        select *
+        from u_biz_role
+        where id in (select role_id from u_biz_user_role where user_id = #{userId});
     </select>
 
 </mapper>

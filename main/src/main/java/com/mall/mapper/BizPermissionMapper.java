@@ -18,9 +18,9 @@ public interface BizPermissionMapper extends BaseMapper<BizPermission> {
   /**
    * 查询商家所有权限集合，每个集合中包含该集合对应的所有权限
    *
-   * @param bizId
-   * @return
+   * @param merchantId 商家id
+   * @return 权限集合
    */
-  List<BizPermission> getPermissionsByBizId(long bizId);
+  List<BizPermission> getPermissionsByMerchantId(long merchantId);
 
 }

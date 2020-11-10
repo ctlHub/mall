@@ -13,10 +13,10 @@
         <result column="url" property="url"/>
         <result column="method" property="method"/>
         <result column="status" property="status"/>
-        <result column="biz_id" property="bizId"/>
-        <result column="create_userid" property="createUserid"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
         <result column="create_time" property="createTime"/>
-        <result column="update_userid" property="updateUserid"/>
+        <result column="update_user_id" property="updateUserId"/>
         <result column="update_time" property="updateTime"/>
         <result column="deleted" property="deleted"/>
         <result column="version" property="version"/>
@@ -24,7 +24,8 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, parent_id, name, level, icon, type, url, method, status, biz_id, create_userid, create_time, update_userid, update_time, deleted, version
+        id, parent_id, name, level, icon, type, url, method, status, merchant_id, create_user_id, create_time,
+        update_user_id, update_time, deleted, version
     </sql>
 
     <resultMap id="permission_map" type="com.mall.model.BizPermission">
@@ -37,10 +38,10 @@
         <result column="url" property="url"/>
         <result column="method" property="method"/>
         <result column="status" property="status"/>
-        <result column="biz_id" property="bizId"/>
-        <result column="create_userid" property="createUserid"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
         <result column="create_time" property="createTime"/>
-        <result column="update_userid" property="updateUserid"/>
+        <result column="update_user_id" property="updateUserId"/>
         <result column="update_time" property="updateTime"/>
         <result column="deleted" property="deleted"/>
         <result column="version" property="version"/>
@@ -50,30 +51,30 @@
             <result column="name_zh" property="nameZh"/>
             <result column="description" property="description"/>
             <result column="rstatus" property="status"/>
-            <result column="rbiz_id" property="bizId"/>
-            <result column="rcreate_userid" property="createUserid"/>
+            <result column="rmerchant_id" property="merchantId"/>
+            <result column="rcreate_user_id" property="createUserId"/>
             <result column="rcreate_time" property="createTime"/>
-            <result column="rupdate_userid" property="updateUserid"/>
+            <result column="rupdate_user_id" property="updateUserId"/>
             <result column="rupdate_time" property="updateTime"/>
             <result column="rdeleted" property="deleted"/>
             <result column="rversion" property="version"/>
         </collection>
     </resultMap>
 
-    <sql id="getPermissionsByBizId_Column_List">
-        p.id, p.parent_id, p.name, p.level, p.icon, p.type, p.url, p.method, p.status, p.biz_id, p.create_userid, p.create_time,
-        p.update_userid, p.update_time, p.deleted, p.version,
-        r.id rid, r.name rname, name_zh, description, r.status rstatus, r.biz_id rbiz_id, r.create_userid
-        rcreate_userid, r.create_time rcreate_time, r.update_userid rupdate_userid, r.update_time rupdate_time,
+    <sql id="getPermissionsByMerchantId_Column_List">
+        p.id, p.parent_id, p.name, p.level, p.icon, p.type, p.url, p.method, p.status, p.merchant_id, p.create_user_id,
+        p.create_time, p.update_user_id, p.update_time, p.deleted, p.version,
+        r.id rid, r.name rname, name_zh, description, r.status rstatus, r.merchant_id rmerchant_id, r.create_userid
+        rcreate_user_id, r.create_time rcreate_time, r.update_userid rupdate_user_id, r.update_time rupdate_time,
         r.deleted rdeleted, r.version rversion
     </sql>
 
-    <select id="getPermissionsByBizId" resultMap="permission_map">
+    <select id="getPermissionsByMerchantId" resultMap="permission_map">
         SELECT
-        <include refid="getPermissionsByBizId_Column_List"/>
+        <include refid="getPermissionsByMerchantId_Column_List"/>
         from u_biz_role_permission rp
         LEFT JOIN u_biz_permission p ON rp.permission_id = p.id
-        LEFT JOIN u_biz_role r on rp.role_id = r.id where rp.biz_id = #{bizId}
+        LEFT JOIN u_biz_role r on rp.role_id = r.id where rp.merchant_id = #{merchantId}
     </select>
 
 </mapper>

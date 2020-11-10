@@ -32,10 +32,10 @@ public class BizPermissionController {
     this.service = service;
   }
 
-  @GetMapping("/list/{bizId}")
-  public CommonResult<List<BizPermission>> list(@PathVariable String bizId) {
+  @GetMapping("/list/{merchantId}")
+  public CommonResult<List<BizPermission>> list(@PathVariable String merchantId) {
     QueryWrapper<BizPermission> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("biz_id", bizId);
+    queryWrapper.eq("merchant_id", merchantId);
     return CommonResult.success(service.list(queryWrapper));
   }
 

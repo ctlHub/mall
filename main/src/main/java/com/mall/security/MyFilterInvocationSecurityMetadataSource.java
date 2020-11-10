@@ -43,7 +43,7 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     String reqUrl = filterInvocation.getRequestUrl();
     //TODO bizId商家id传递方式 cookie？
     //String bizId = filterInvocation.getHttpRequest().getParameter("bizId");
-    List<BizPermission> permissionList = bizPermissionMapper.getPermissionsByBizId(1L);
+    List<BizPermission> permissionList = bizPermissionMapper.getPermissionsByMerchantId(1L);
     List<BizRole> roleList = new ArrayList<>();
     for (BizPermission permission : permissionList) {
       //路径匹配，请求方法匹配

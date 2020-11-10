@@ -33,10 +33,10 @@ public class BizRoleController {
     this.service = service;
   }
 
-  @GetMapping("/list/{bizId}")
-  public CommonResult<List<BizRole>> list(@PathVariable String bizId) {
+  @GetMapping("/list/{merchantId}")
+  public CommonResult<List<BizRole>> list(@PathVariable String merchantId) {
     QueryWrapper<BizRole> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("biz_id", bizId);
+    queryWrapper.eq("merchant_id", merchantId);
     return CommonResult.success(service.list(queryWrapper));
   }
 

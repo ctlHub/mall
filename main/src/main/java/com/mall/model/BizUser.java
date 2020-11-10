@@ -64,17 +64,17 @@ public class BizUser implements UserDetails, Serializable {
   private Integer status;
 
   @ApiModelProperty(value = "用户所属商家id")
-  private Long bizId;
+  private Long merchantId;
 
   @ApiModelProperty(value = "创建人员")
-  private Long createUserid;
+  private Long createUserId;
 
   @ApiModelProperty(value = "创建时间")
   @TableField(fill = FieldFill.INSERT_UPDATE)
   private LocalDateTime createTime;
 
   @ApiModelProperty(value = "更新人员")
-  private Long updateUserid;
+  private Long updateUserId;
 
   @ApiModelProperty(value = "更新时间")
   @TableField(fill = FieldFill.UPDATE)
@@ -130,10 +130,10 @@ public class BizUser implements UserDetails, Serializable {
         ", nickName=" + nickName +
         ", loginTime=" + loginTime +
         ", status=" + status +
-        ", bizId=" + bizId +
-        ", createUserid=" + createUserid +
+        ", merchantId=" + merchantId +
+        ", createUserId=" + createUserId +
         ", createTime=" + createTime +
-        ", updateUserid=" + updateUserid +
+        ", updateUserId=" + updateUserId +
         ", updateTime=" + updateTime +
         ", deleted=" + deleted +
         ", version=" + version +

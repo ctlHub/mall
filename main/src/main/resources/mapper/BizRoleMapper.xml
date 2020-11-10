@@ -9,10 +9,10 @@
         <result column="name_zh" property="nameZh"/>
         <result column="description" property="description"/>
         <result column="status" property="status"/>
-        <result column="biz_id" property="bizId"/>
-        <result column="create_userid" property="createUserid"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
         <result column="create_time" property="createTime"/>
-        <result column="update_userid" property="updateUserid"/>
+        <result column="update_user_id" property="updateUserId"/>
         <result column="update_time" property="updateTime"/>
         <result column="deleted" property="deleted"/>
         <result column="version" property="version"/>
@@ -20,7 +20,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, name_zh, description, status, biz_id, create_userid, create_time, update_userid, update_time,
+        id, name, name_zh, description, status, merchant_id, create_user_id, create_time, update_user_id, update_time,
         deleted, version
     </sql>
 

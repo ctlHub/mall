@@ -114,29 +114,29 @@ public class BizUser implements UserDetails, Serializable {
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return roleList.stream()
-            .map(ele -> new SimpleGrantedAuthority(ele.getName()))
-            .collect(Collectors.toList());
+        .map(ele -> new SimpleGrantedAuthority(ele.getName()))
+        .collect(Collectors.toList());
   }
 
   @Override
   public String toString() {
     return "BizUser{" +
-            "id=" + id +
-            ", username=" + username +
-            ", password=" + password +
-            ", icon=" + icon +
-            ", phone=" + phone +
-            ", email=" + email +
-            ", nickName=" + nickName +
-            ", loginTime=" + loginTime +
-            ", status=" + status +
-            ", bizId=" + bizId +
-            ", createUserid=" + createUserid +
-            ", createTime=" + createTime +
-            ", updateUserid=" + updateUserid +
-            ", updateTime=" + updateTime +
-            ", deleted=" + deleted +
-    ", version=" + version +
-    "}";
+        "id=" + id +
+        ", username=" + username +
+        ", password=" + password +
+        ", icon=" + icon +
+        ", phone=" + phone +
+        ", email=" + email +
+        ", nickName=" + nickName +
+        ", loginTime=" + loginTime +
+        ", status=" + status +
+        ", bizId=" + bizId +
+        ", createUserid=" + createUserid +
+        ", createTime=" + createTime +
+        ", updateUserid=" + updateUserid +
+        ", updateTime=" + updateTime +
+        ", deleted=" + deleted +
+        ", version=" + version +
+        "}";
   }
 }

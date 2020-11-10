@@ -16,6 +16,12 @@ import java.util.List;
  */
 public interface BizUserMapper extends BaseMapper<BizUser> {
 
-    List<BizRole> getRolesById(Long id);
+  /**
+   * 查询某个用户的所有角色
+   *
+   * @param id 用户id
+   * @return 角色集合
+   */
+  List<BizRole> getRolesById(Long id);
 
 }

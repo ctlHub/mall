@@ -1,5 +1,6 @@
 package com.mall.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.api.CommonResult;
 import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.model.BizUser;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -28,6 +31,13 @@ public class BizUserController {
 
   public BizUserController(BizUserService service) {
     this.service = service;
+  }
+
+  @GetMapping("/list/{bizId}")
+  public CommonResult<List<BizUser>> list(@PathVariable String bizId) {
+    QueryWrapper<BizUser> queryWrapper = new QueryWrapper<>();
+    queryWrapper.eq("biz_id", bizId);
+    return CommonResult.success(service.list(queryWrapper));
   }
 
   @GetMapping("/{id}")

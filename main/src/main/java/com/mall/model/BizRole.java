@@ -73,17 +73,17 @@ public class BizRole implements Serializable {
   @Override
   public String toString() {
     return "BizRole{" +
-    "id=" + id +
-    ", name=" + name +
-    ", description=" + description +
-    ", status=" + status +
-    ", bizId=" + bizId +
-    ", createUserid=" + createUserid +
-    ", createTime=" + createTime +
-    ", updateUserid=" + updateUserid +
-    ", updateTime=" + updateTime +
-    ", deleted=" + deleted +
-    ", version=" + version +
-    "}";
+        "id=" + id +
+        ", name=" + name +
+        ", description=" + description +
+        ", status=" + status +
+        ", bizId=" + bizId +
+        ", createUserid=" + createUserid +
+        ", createTime=" + createTime +
+        ", updateUserid=" + updateUserid +
+        ", updateTime=" + updateTime +
+        ", deleted=" + deleted +
+        ", version=" + version +
+        "}";
   }
 }

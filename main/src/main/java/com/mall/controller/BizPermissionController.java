@@ -35,7 +35,7 @@ public class BizPermissionController {
   @GetMapping("/list/{merchantId}")
   public CommonResult<List<BizPermission>> list(@PathVariable String merchantId) {
     QueryWrapper<BizPermission> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("merchant_id", merchantId);
+    queryWrapper.lambda().eq(BizPermission::getMerchantId, merchantId);
     return CommonResult.success(service.list(queryWrapper));
   }
 

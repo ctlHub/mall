@@ -32,6 +32,6 @@ spring:
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 server:
   port: 80
-mybatis:
+mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

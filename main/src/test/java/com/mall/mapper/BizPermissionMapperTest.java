@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,11 +20,8 @@ public class BizPermissionMapperTest {
 
   private final static long BIZ_ID = 1L;
 
-  private final BizPermissionMapper bizPermissionMapper;
-
-  public BizPermissionMapperTest(BizPermissionMapper bizPermissionMapper) {
-    this.bizPermissionMapper = bizPermissionMapper;
-  }
+  @Resource
+  private BizPermissionMapper bizPermissionMapper;
 
   @Test
   public void test() {

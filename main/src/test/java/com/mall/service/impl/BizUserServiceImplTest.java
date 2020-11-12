@@ -5,6 +5,7 @@ import com.mall.model.BizUser;
 import com.mall.service.BizUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,11 +21,8 @@ public class BizUserServiceImplTest {
 
   private static final Long MERCHANT_ID = 1L;
 
-  private final BizUserService bizUserService;
-
-  public BizUserServiceImplTest(BizUserService bizUserService) {
-    this.bizUserService = bizUserService;
-  }
+  @Autowired
+  private BizUserService bizUserService;
 
   @Test
   public void create() {

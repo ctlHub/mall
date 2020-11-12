@@ -1,19 +1,14 @@
 #mysql
 spring:
   datasource:
-    url: jdbc:h2:mem:db_h2;MODE=MYSQL;INIT=RUNSCRIPT FROM './src/test/resources/mall_permission.sql'
+    url: jdbc:h2:mem:db_h2;MODE=MYSQL
     driver-class-name: org.h2.Driver
     username: root
     password: root
-
-# 打印sql
-logging:
-  level:
-    com.xiongxin.boot.mapper: debug
-
+    schema: classpath:h2sql/ddl.sql
+    data:
+      - classpath:h2sql/initBiz.sql
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       table-prefix: u_

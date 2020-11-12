@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.Version;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,7 +22,6 @@ import java.util.List;
  * @author ctlLab
  * @date 2020-11-07
  */
-@TableName("u_biz_permission")
 @Data
 @ApiModel(value = "BizPermission对象", description = "权限表")
 public class BizPermission implements Serializable {

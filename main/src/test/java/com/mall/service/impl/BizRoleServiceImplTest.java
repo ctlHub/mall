@@ -31,7 +31,6 @@ public class BizRoleServiceImplTest {
     lambdaQueryWrapper.eq(BizRole::getMerchantId, MERCHANT_ID);
     List<BizRole> bizRoleList = bizRoleService.list(lambdaQueryWrapper);
     Assert.notEmpty(bizRoleList, "无权限数据");
-    bizRoleList.forEach(System.out::println);
   }
 
   @Test

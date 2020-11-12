@@ -26,7 +26,6 @@ public class BizPermissionMapperTest {
   @Test
   public void test() {
     List<BizPermission> bizPermissionList = bizPermissionMapper.getPermissionsByMerchantId(BIZ_ID);
-    bizPermissionList.forEach(System.out::println);
     Assert.assertNotEquals(0, bizPermissionList.size());
   }
 

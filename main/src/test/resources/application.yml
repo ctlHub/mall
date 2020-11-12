@@ -8,7 +8,14 @@ spring:
     schema: classpath:h2sql/ddl.sql
     data:
       - classpath:h2sql/initBiz.sql
+  main:
+    banner-mode: off
 mybatis-plus:
   global-config:
     db-config:
       table-prefix: u_
+    banner: off
+logging:
+  level:
+    root: off
+debug: false

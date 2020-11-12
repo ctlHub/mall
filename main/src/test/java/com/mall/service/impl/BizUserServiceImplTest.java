@@ -1,7 +1,6 @@
 package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.model.BizUser;
 import com.mall.service.BizUserService;
 import org.junit.Test;
@@ -30,7 +29,6 @@ public class BizUserServiceImplTest {
   @Test
   public void create() {
     BizUser bizUser = new BizUser();
-    bizUser.setId(SnowflakeIdGenerator.genLongId());
     bizUser.setUsername("zhagnsan");
     bizUser.setNickName("张三");
     String password = "123456";
@@ -41,12 +39,12 @@ public class BizUserServiceImplTest {
     Assert.isTrue(isSave, "用户添加失败");
   }
 
-    @Test
-    public void selectOne() {
-        QueryWrapper<BizUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", "zhangsan");
-        BizUser bizUser = bizUserService.getOne(queryWrapper);
-        System.out.println(bizUser);
-    }
+  @Test
+  public void selectOne() {
+    QueryWrapper<BizUser> queryWrapper = new QueryWrapper<>();
+    queryWrapper.eq("username", "zhangsan");
+    BizUser bizUser = bizUserService.getOne(queryWrapper);
+    System.out.println(bizUser);
+  }
 
 }

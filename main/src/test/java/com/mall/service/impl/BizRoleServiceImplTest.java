@@ -1,7 +1,6 @@
 package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.model.BizRole;
 import com.mall.service.BizRoleService;
 import org.junit.Test;
@@ -44,7 +43,6 @@ public class BizRoleServiceImplTest {
   @Test
   public void create() {
     BizRole bizRole = new BizRole();
-    bizRole.setId(SnowflakeIdGenerator.genLongId());
     bizRole.setName("ROLE_admin");
     bizRole.setNameZh("管理员");
     bizRole.setDescription("商家管理员");

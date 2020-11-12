@@ -1,6 +1,5 @@
 package com.mall.service.impl;
 
-import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.model.BizPermission;
 import com.mall.service.BizPermissionService;
 import org.junit.Test;
@@ -20,14 +19,13 @@ public class BizPermissionServiceImplTest {
 
   private static final Long MERCHANT_ID = 1L;
 
-    @Autowired
-    private BizPermissionService bizPermissionService;
+  @Autowired
+  private BizPermissionService bizPermissionService;
 
   @Test
   public void create() {
     BizPermission bizPermission = new BizPermission();
-    bizPermission.setId(SnowflakeIdGenerator.genLongId());
-    bizPermission.setName("权限管理");
+    bizPermission.setName("权限管理1");
     bizPermission.setLevel("1");
     bizPermission.setMerchantId(MERCHANT_ID);
     bizPermission.setUrl("/mall/business/permission");

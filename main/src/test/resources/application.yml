@@ -1,0 +1,21 @@
+#mysql
+spring:
+  datasource:
+    url: jdbc:h2:mem:db_h2;MODE=MYSQL
+    driver-class-name: org.h2.Driver
+    username: root
+    password: root
+    schema: classpath:h2sql/ddl.sql
+    data:
+      - classpath:h2sql/initBiz.sql
+  main:
+    banner-mode: off
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: u_
+    banner: off
+logging:
+  level:
+    root: off
+debug: false

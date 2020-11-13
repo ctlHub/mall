@@ -8,11 +8,17 @@ package com.mall.common.exception;
  */
 public abstract class NotExistException extends RuntimeException {
 
-    private static final long serialVersionUID = 1172126364306415352L;
+  private static final long serialVersionUID = 1172126364306415352L;
 
-    protected NotExistException(Object message) {
-        super(String.valueOf(message));
-    }
+  protected NotExistException(Object message) {
+    super(String.valueOf(message));
+  }
 
-    protected abstract String getType();
+  /**
+   * user/product/等
+   * 由{@link GlobalExceptionHandler#paramValidException(com.mall.common.exception.NotExistException)}捕获
+   * 最终输出：user【message】 不存在
+   * @return notExist的类型
+   */
+  protected abstract String getType();
 }

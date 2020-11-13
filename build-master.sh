@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn clean install -Dmaven.test.skip=true -Dspring.profiles.active=master
+mvn clean install -P master

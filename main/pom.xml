@@ -24,7 +24,7 @@
             <artifactId>common</artifactId>
             <version>1.0.0</version>
         </dependency>
-
+        <!--安全框架SpringSecurity-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>

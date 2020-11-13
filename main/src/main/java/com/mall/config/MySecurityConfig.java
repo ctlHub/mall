@@ -12,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 /**
  * @author tanghao
@@ -39,7 +42,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests()
+    http.cors().configurationSource(CorsConfigurationSource()).and()
+        .authorizeRequests()
         .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
           @Override
           public <O extends FilterSecurityInterceptor> O postProcess(O object) {
@@ -48,7 +52,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
             return object;
           }
         })
-        .and().formLogin().permitAll()
+        //.and().formLogin().successForwardUrl("/bizUser/list/1").permitAll()
+        .and().formLogin().defaultSuccessUrl("/bizUser/list/1").permitAll()
         .and().csrf().disable();
   }
 
@@ -57,4 +62,17 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     return new BCryptPasswordEncoder();
   }
 
+  private CorsConfigurationSource CorsConfigurationSource() {
+    CorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    CorsConfiguration corsConfiguration = new CorsConfiguration();
+    //同源配置，*表示任何请求都视为同源，若需指定ip和端口可以改为如“localhost：8080”，多个以“，”分隔；
+    corsConfiguration.addAllowedOrigin("*");
+    //header，允许哪些header，本案中使用的是token，此处可将*替换为token；
+    corsConfiguration.addAllowedHeader("*");
+    //允许的请求方法，PSOT、GET等
+    corsConfiguration.addAllowedMethod("*");
+    //配置允许跨域访问的url
+    ((UrlBasedCorsConfigurationSource) source).registerCorsConfiguration("/**", corsConfiguration);
+    return source;
+  }
 }

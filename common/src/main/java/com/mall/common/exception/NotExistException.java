@@ -14,5 +14,11 @@ public abstract class NotExistException extends RuntimeException {
     super(String.valueOf(message));
   }
 
+  /**
+   * user/product/等
+   * 由{@link GlobalExceptionHandler#paramValidException(com.mall.common.exception.NotExistException)}捕获
+   * 最终输出：user【message】 不存在
+   * @return notExist的类型
+   */
   protected abstract String getType();
 }

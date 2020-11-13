@@ -13,7 +13,7 @@ import javax.validation.ValidationException;
 import java.util.List;
 
 /**
- * 全局异常处理
+ * 全局异常处理器
  *
  * @author 李重辰
  * @date 2020/9/14 14:13

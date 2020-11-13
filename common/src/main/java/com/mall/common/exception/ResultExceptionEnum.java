@@ -3,6 +3,8 @@ package com.mall.common.exception;
 import lombok.Getter;
 
 /**
+ * 异常状态枚举类
+ *
  * @author tanghao
  * @date 2020/11/10 11:35
  */
@@ -13,8 +15,7 @@ public enum ResultExceptionEnum {
    */
   PARAM_ERROR(1, "参数不正确"),
 
-  USERNAME_NOT_EXIST(10, "用户名不存在"),
-  ;
+  USERNAME_NOT_EXIST(10, "用户名不存在");
 
   private final Integer code;
 

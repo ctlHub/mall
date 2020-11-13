@@ -3,8 +3,10 @@ package com.mall.security;
 import com.mall.mapper.BizPermissionMapper;
 import com.mall.model.BizPermission;
 import com.mall.model.BizRole;
+import com.mall.model.BizUser;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.stereotype.Component;
@@ -41,9 +43,13 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     FilterInvocation filterInvocation = (FilterInvocation) object;
     String reqMethod = filterInvocation.getHttpRequest().getMethod();
     String reqUrl = filterInvocation.getRequestUrl();
-    //TODO bizId商家id传递方式 cookie？
-    //String bizId = filterInvocation.getHttpRequest().getParameter("bizId");
-    List<BizPermission> permissionList = bizPermissionMapper.getPermissionsByMerchantId(1L);
+
+    List<BizPermission> permissionList = new ArrayList<>();
+    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    if (principal instanceof BizUser) {
+      BizUser bizUser = (BizUser) principal;
+      permissionList = bizPermissionMapper.getPermissionsByMerchantId(bizUser.getMerchantId());
+    }
     List<BizRole> roleList = new ArrayList<>();
     for (BizPermission permission : permissionList) {
       //路径匹配，请求方法匹配

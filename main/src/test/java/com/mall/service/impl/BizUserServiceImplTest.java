@@ -40,7 +40,7 @@ public class BizUserServiceImplTest {
   @Test
   public void selectOne() {
     LambdaQueryWrapper<BizUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-    lambdaQueryWrapper.eq(BizUser::getUsername, "zhangsan");
+    lambdaQueryWrapper.eq(BizUser::getUsername, "tom");
     BizUser bizUser = bizUserService.getOne(lambdaQueryWrapper);
     Assert.notNull(bizUser, "用户名不存在");
   }

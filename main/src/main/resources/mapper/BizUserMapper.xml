@@ -29,9 +29,10 @@
     </sql>
 
     <select id="getRolesById" resultType="com.mall.model.BizRole">
-        select *
-        from u_biz_role
-        where id in (select role_id from u_biz_user_role where user_id = #{userId});
+        select r.*
+        from u_biz_user_role ur
+                 left join u_biz_role r on ur.role_id = r.id
+        where ur.user_id = #{userId};
     </select>
 
 </mapper>

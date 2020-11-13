@@ -1,6 +1,6 @@
 package com.mall.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mall.model.BizUser;
 import com.mall.service.BizUserService;
 import org.junit.Test;
@@ -29,7 +29,7 @@ public class BizUserServiceImplTest {
   @Test
   public void create() {
     BizUser bizUser = new BizUser();
-    bizUser.setUsername("zhagnsan");
+    bizUser.setUsername("zhangsan");
     bizUser.setNickName("张三");
     String password = "123456";
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -41,10 +41,10 @@ public class BizUserServiceImplTest {
 
   @Test
   public void selectOne() {
-    QueryWrapper<BizUser> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("username", "zhangsan");
-    BizUser bizUser = bizUserService.getOne(queryWrapper);
-    System.out.println(bizUser);
+    LambdaQueryWrapper<BizUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+    lambdaQueryWrapper.eq(BizUser::getUsername, "zhangsan");
+    BizUser bizUser = bizUserService.getOne(lambdaQueryWrapper);
+    Assert.notNull(bizUser, "用户名不存在");
   }
 
 }

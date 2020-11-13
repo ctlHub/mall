@@ -1,6 +1,6 @@
 package com.mall.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mall.model.BizRole;
 import com.mall.service.BizRoleService;
 import org.junit.Test;
@@ -27,9 +27,9 @@ public class BizRoleServiceImplTest {
 
   @Test
   public void list() {
-    QueryWrapper<BizRole> queryWrapper = new QueryWrapper<>();
-    queryWrapper.eq("merchant_id", MERCHANT_ID);
-    List<BizRole> bizRoleList = bizRoleService.list(queryWrapper);
+    LambdaQueryWrapper<BizRole> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+    lambdaQueryWrapper.eq(BizRole::getMerchantId, MERCHANT_ID);
+    List<BizRole> bizRoleList = bizRoleService.list(lambdaQueryWrapper);
     Assert.notEmpty(bizRoleList, "无权限数据");
     bizRoleList.forEach(System.out::println);
   }

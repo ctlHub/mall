@@ -138,8 +138,10 @@ public class CodeGenerator {
     mpg.setTemplate(tc);
 
     List<TableFill> tableFills = new ArrayList<>();
-    tableFills.add(new TableFill("update_time", FieldFill.UPDATE));
-    tableFills.add(new TableFill("create_time", FieldFill.INSERT_UPDATE));
+    tableFills.add(new TableFill("update_time", FieldFill.INSERT_UPDATE));
+    tableFills.add(new TableFill("update_user_id", FieldFill.INSERT_UPDATE));
+    tableFills.add(new TableFill("create_time", FieldFill.INSERT));
+    tableFills.add(new TableFill("create_user_id", FieldFill.INSERT));
 
     // 策略配置
     StrategyConfig strategy = new StrategyConfig();

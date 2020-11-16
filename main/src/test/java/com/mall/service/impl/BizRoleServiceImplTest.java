@@ -50,4 +50,22 @@ public class BizRoleServiceImplTest {
     Assert.isTrue(isSave, "添加角色失败");
   }
 
+  @Test
+  public void optimisticLock() {
+    BizRole bizRole = new BizRole();
+    bizRole.setId(1L);
+    bizRole.setDescription("商家普通用户");
+    bizRole.setVersion(0);
+    bizRoleService.updateById(bizRole);
+
+    BizRole result = bizRoleService.getById(1L);
+    Assert.isTrue(result.getVersion() == 1, "更新角色失败");
+  }
+
+  @Test
+  public void logicDelete() {
+    boolean isUpdate = bizRoleService.removeById(1L);
+    Assert.isTrue(isUpdate, "删除角色失败");
+  }
+
 }

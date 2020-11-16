@@ -11,9 +11,12 @@ spring:
   main:
     banner-mode: off
 mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       table-prefix: u_
+      logic-delete-field: deleted
     banner: off
 logging:
   level:

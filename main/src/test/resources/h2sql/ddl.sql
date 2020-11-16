@@ -32,6 +32,8 @@ CREATE TABLE `u_biz_merchant` (
   `version` int DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT '商家表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_merchant` ADD INDEX index1_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_permission
@@ -56,6 +58,8 @@ CREATE TABLE `u_biz_permission` (
   `version` int DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT='权限表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_permission` ADD INDEX index2_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_role
@@ -76,6 +80,8 @@ CREATE TABLE `u_biz_role` (
   `version` int DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT='角色表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_role` ADD INDEX index3_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_role_permission
@@ -94,6 +100,8 @@ CREATE TABLE `u_biz_role_permission` (
   `version` int DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT='角色权限关系表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_role_permission` ADD INDEX index4_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_user
@@ -118,6 +126,8 @@ CREATE TABLE `u_biz_user` (
   `version` int DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT='用户表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_user` ADD INDEX index5_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_user_permission
@@ -138,6 +148,8 @@ CREATE TABLE `u_biz_user_permission` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `Index_1` (`user_id`)
 ) COMMENT='用户权限关系表';
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_user_permission` ADD INDEX index6_deleted (`deleted`);
 
 -- ----------------------------
 -- Table structure for u_biz_user_role
@@ -156,4 +168,5 @@ CREATE TABLE `u_biz_user_role` (
   `version` int unsigned DEFAULT '0' COMMENT '版本',
   PRIMARY KEY (`id`)
 ) COMMENT='用户角色关系表';
-
+-- 添加deleted索引(普通索引)
+ALTER TABLE `u_biz_user_role` ADD INDEX index7_deleted (`deleted`);

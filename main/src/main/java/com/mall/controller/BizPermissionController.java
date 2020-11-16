@@ -32,7 +32,7 @@ public class BizPermissionController {
   }
 
   @GetMapping("/list")
-  public CommonResult<List<BizPermission>> list(@PathVariable String merchantId) {
+  public CommonResult<List<BizPermission>> list() {
     return CommonResult.success(service.list());
   }
 

@@ -1,6 +1,5 @@
 package com.mall.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.api.CommonResult;
 import com.mall.common.utils.SnowflakeIdGenerator;
 import com.mall.model.BizRole;
@@ -33,11 +32,9 @@ public class BizRoleController {
     this.service = service;
   }
 
-  @GetMapping("/list/{merchantId}")
+  @GetMapping("/list")
   public CommonResult<List<BizRole>> list(@PathVariable String merchantId) {
-    QueryWrapper<BizRole> queryWrapper = new QueryWrapper<>();
-    queryWrapper.lambda().eq(BizRole::getMerchantId, merchantId);
-    return CommonResult.success(service.list(queryWrapper));
+    return CommonResult.success(service.list());
   }
 
   @GetMapping("/{id}")

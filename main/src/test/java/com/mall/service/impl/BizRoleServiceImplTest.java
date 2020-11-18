@@ -43,9 +43,9 @@ public class BizRoleServiceImplTest {
   @MyWithMockUser
   public void create() {
     BizRole bizRole = new BizRole();
-    bizRole.setName("ROLE_admin");
-    bizRole.setNameZh("管理员");
-    bizRole.setDescription("商家管理员");
+    bizRole.setName("ROLE_CUSTOMER");
+    bizRole.setNameZh("客户");
+    bizRole.setDescription("客户");
     boolean isSave = bizRoleService.save(bizRole);
     Assert.isTrue(isSave, "添加角色失败");
   }
@@ -66,7 +66,7 @@ public class BizRoleServiceImplTest {
   @Test
   @MyWithMockUser
   public void logicDelete() {
-    boolean isUpdate = bizRoleService.removeById(775402379755073536L);
+    boolean isUpdate = bizRoleService.removeById(778640886187372544L);
     Assert.isTrue(isUpdate, "删除角色失败");
   }
 

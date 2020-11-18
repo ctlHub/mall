@@ -14,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
+ * MybatisPlus插件配置
+ *
  * @author tanghao
  * @date 2020/11/14 9:39
  */
@@ -39,7 +41,6 @@ public class MyBatisPlusConfig {
           return new LongValue(bizUser.getMerchantId());
         }
         return null;
-        //return new LongValue(1L);
       }
 
       @Override
@@ -58,6 +59,8 @@ public class MyBatisPlusConfig {
     return interceptor;
   }
 
+  //sql性能规范配置，影响性能
+  //开发测试时可以加上，约束sql查询规范，比如查询必须使用到索引，表连接规范等等
   /**
    * sql性能规范配置,只针对开发环境与测试环境
    */

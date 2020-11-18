@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 /**
+ * 自定义自动填充控制器实现类
+ *
  * @author tanghao
  * @date 2020/11/16 12:28
  */
@@ -23,7 +25,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
       BizUser bizUser = (BizUser) principal;
       this.strictInsertFill(metaObject, "createUserId", bizUser::getId, Long.class);
     }
-    //setFieldValByName("createUserId", 111L, metaObject);
   }
 
   @Override
@@ -34,6 +35,5 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
       BizUser bizUser = (BizUser) principal;
       this.strictInsertFill(metaObject, "updateUserId", bizUser::getId, Long.class);
     }
-    //setFieldValByName("updateUserId", 111L, metaObject);
   }
 }

@@ -12,10 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 解析{@link MyWithMockUser}注解,向SecurityContext中添加用户信息
+ *
  * @author tanghao
  * @date 2020/11/18 13:43
  */
 public class WithMockCustomUserSecurityContextFactory implements WithSecurityContextFactory<MyWithMockUser> {
+
   @Override
   public SecurityContext createSecurityContext(MyWithMockUser myWithMockUser) {
     SecurityContext context = SecurityContextHolder.createEmptyContext();

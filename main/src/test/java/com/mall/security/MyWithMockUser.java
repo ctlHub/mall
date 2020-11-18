@@ -6,6 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
+ * 自定义用户信息注解
+ *
  * @author tanghao
  * @date 2020/11/16 17:33
  */

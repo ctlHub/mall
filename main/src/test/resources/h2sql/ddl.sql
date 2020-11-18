@@ -128,6 +128,7 @@ CREATE TABLE `u_biz_user` (
 ) COMMENT='用户表';
 -- 添加deleted索引(普通索引)
 ALTER TABLE `u_biz_user` ADD INDEX index5_deleted (`deleted`);
+ALTER TABLE `u_biz_user` ADD INDEX index5_username (`username`);
 
 -- ----------------------------
 -- Table structure for u_biz_user_permission

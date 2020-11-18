@@ -10,9 +10,15 @@ import java.lang.annotation.RetentionPolicy;
  * @date 2020/11/16 17:33
  */
 @Retention(RetentionPolicy.RUNTIME)
-@WithSecurityContext(factory = WithMockUserSecurityContextFactory.class)
+@WithSecurityContext(factory = WithMockCustomUserSecurityContextFactory.class)
 public @interface MyWithMockUser {
 
+  long id() default 775412006114766848L;
+
   String username() default "tom";
+
+  long merchant() default 1L;
+
+  String[] role() default {"ROLE_ADMIN"};
 
 }

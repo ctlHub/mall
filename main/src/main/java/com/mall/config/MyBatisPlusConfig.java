@@ -2,7 +2,6 @@ package com.mall.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
-import com.baomidou.mybatisplus.extension.plugins.inner.IllegalSQLInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
 import com.mall.model.BizUser;
@@ -47,6 +46,11 @@ public class MyBatisPlusConfig {
       public String getTenantIdColumn() {
         return "merchant_id";
       }
+
+      @Override
+      public boolean ignoreTable(String tableName) {
+        return "u_biz_user".equals(tableName);
+      }
     });
     interceptor.addInnerInterceptor(tenantLineInnerInterceptor);
     //乐观锁
@@ -57,12 +61,12 @@ public class MyBatisPlusConfig {
   /**
    * sql性能规范配置,只针对开发环境与测试环境
    */
-  @Bean
+  /*@Bean
   public MybatisPlusInterceptor illegalSqlInnerInterceptor() {
     MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
     IllegalSQLInnerInterceptor illegalSqlInnerInterceptor = new IllegalSQLInnerInterceptor();
     interceptor.addInnerInterceptor(illegalSqlInnerInterceptor);
     return interceptor;
-  }
+  }*/
 
 }

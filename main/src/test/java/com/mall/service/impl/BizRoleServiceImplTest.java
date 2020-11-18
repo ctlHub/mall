@@ -1,13 +1,24 @@
 package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.mall.mapper.BizUserMapper;
 import com.mall.model.BizRole;
+import com.mall.model.BizUser;
 import com.mall.service.BizRoleService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.Assert;
 
 import java.util.List;
@@ -18,12 +29,16 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@WebAppConfiguration
 public class BizRoleServiceImplTest {
 
   private static final Long MERCHANT_ID = 1L;
 
   @Autowired
   private BizRoleService bizRoleService;
+
+  @Autowired
+  private BizUserMapper bizUserMapper;
 
   @Test
   public void list() {
@@ -66,6 +81,35 @@ public class BizRoleServiceImplTest {
   public void logicDelete() {
     boolean isUpdate = bizRoleService.removeById(1L);
     Assert.isTrue(isUpdate, "删除角色失败");
+  }
+
+  @Before
+  public void setUser() {
+    System.out.println("start~~~~~~~~~~");
+    LambdaQueryWrapper<BizUser> lambdaQueryWrapper = Wrappers.lambdaQuery();
+    lambdaQueryWrapper.eq(BizUser::getUsername, "tom");
+    BizUser bizUser = bizUserMapper.selectOne(lambdaQueryWrapper);
+    if (null == bizUser) {
+      throw new UsernameNotFoundException("用户名不存在！");
+    }
+    bizUser.setRoleList(bizUserMapper.getRolesById(bizUser.getId()));
+
+    Authentication auth =
+        new UsernamePasswordAuthenticationToken(bizUser, bizUser.getPassword(), bizUser.getAuthorities());
+    System.out.println("用户信息:" + auth);
+    SecurityContext context = SecurityContextHolder.createEmptyContext();
+    context.setAuthentication(auth);
+  }
+
+  /**
+   * 多租户测试
+   */
+  @Test
+  @WithMockUser(username = "tom", roles = {"ADMIN"})
+  public void tenant() {
+    List<BizRole> bizRoleList = bizRoleService.list();
+    System.out.println(bizRoleList);
+    Assert.notEmpty(bizRoleList, "无权限数据");
   }
 
 }

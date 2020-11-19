@@ -50,35 +50,4 @@ public class BizRoleServiceImplTest {
     Assert.isTrue(isSave, "添加角色失败");
   }
 
-  @Test
-  @MyWithMockUser
-  public void optimisticLock() {
-    BizRole bizRole = new BizRole();
-    bizRole.setId(775402379755073536L);
-    bizRole.setDescription("商家普通用户");
-    bizRole.setVersion(0);
-    bizRoleService.updateById(bizRole);
-
-    BizRole result = bizRoleService.getById(775402379755073536L);
-    Assert.isTrue(result.getVersion() == 1, "更新角色失败");
-  }
-
-  @Test
-  @MyWithMockUser
-  public void logicDelete() {
-    boolean isUpdate = bizRoleService.removeById(778640886187372544L);
-    Assert.isTrue(isUpdate, "删除角色失败");
-  }
-
-  /**
-   * 多租户测试
-   */
-  @Test
-  @MyWithMockUser
-  public void tenant() {
-    List<BizRole> bizRoleList = bizRoleService.list();
-    System.out.println(bizRoleList);
-    Assert.notEmpty(bizRoleList, "无权限数据");
-  }
-
 }

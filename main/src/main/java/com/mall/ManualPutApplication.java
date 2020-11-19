@@ -6,6 +6,9 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+/**
+ * @author ctlHub
+ */
 @EnableConfigurationProperties
 @SpringBootApplication
 public class ManualPutApplication extends SpringBootServletInitializer {

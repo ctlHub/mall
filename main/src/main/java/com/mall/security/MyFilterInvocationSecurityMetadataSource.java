@@ -27,10 +27,11 @@ import java.util.List;
 public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
   private final BizPermissionMapper bizPermissionMapper;
+
   /**
    * ant风格路径匹配器
    */
-  AntPathMatcher antPathMatcher = new AntPathMatcher();
+  private final AntPathMatcher antPathMatcher = new AntPathMatcher();
 
   public MyFilterInvocationSecurityMetadataSource(BizPermissionMapper bizPermissionMapper) {
     this.bizPermissionMapper = bizPermissionMapper;
@@ -39,7 +40,7 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
   @Override
   public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
 
-    //获取当前用户请求得url
+    // 获取当前用户请求得url
     FilterInvocation filterInvocation = (FilterInvocation) object;
     String reqMethod = filterInvocation.getHttpRequest().getMethod();
     String reqUrl = filterInvocation.getRequestUrl();
@@ -52,9 +53,8 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     }
     List<BizRole> roleList = new ArrayList<>();
     for (BizPermission permission : permissionList) {
-      //路径匹配，请求方法匹配
-      boolean pass = antPathMatcher.match(permission.getUrl(), reqUrl) &&
-          (reqMethod.equals(permission.getMethod()) || null == permission.getMethod());
+      // 路径匹配，请求方法匹配
+      boolean pass = antPathMatcher.match(permission.getUrl(), reqUrl) && (reqMethod.equals(permission.getMethod()) || null == permission.getMethod());
       if (pass) {
         roleList.addAll(permission.getRoleList());
       }
@@ -64,7 +64,7 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     }
     //返回访问路径所需要的所有角色
     return SecurityConfig.createList(roleList.stream()
-        .map(ele -> ele.getName())
+        .map(BizRole::getName)
         .toArray(String[]::new));
   }
 

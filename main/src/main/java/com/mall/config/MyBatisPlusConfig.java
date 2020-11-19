@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.mall.mapper")
+@MapperScan({"com.mall.mapper", "com.mall.orm"})
 public class MyBatisPlusConfig {
 
   /**
@@ -30,7 +30,7 @@ public class MyBatisPlusConfig {
   @Bean
   public MybatisPlusInterceptor mybatisPlusInterceptor() {
     MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-    //多租户
+    // 多租户
     TenantLineInnerInterceptor tenantLineInnerInterceptor = new TenantLineInnerInterceptor();
     tenantLineInnerInterceptor.setTenantLineHandler(new TenantLineHandler() {
       @Override
@@ -59,17 +59,17 @@ public class MyBatisPlusConfig {
     return interceptor;
   }
 
-  //sql性能规范配置，影响性能
-  //开发测试时可以加上，约束sql查询规范，比如查询必须使用到索引，表连接规范等等
-  /**
-   * sql性能规范配置,只针对开发环境与测试环境
-   */
-  /*@Bean
-  public MybatisPlusInterceptor illegalSqlInnerInterceptor() {
-    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
-    IllegalSQLInnerInterceptor illegalSqlInnerInterceptor = new IllegalSQLInnerInterceptor();
-    interceptor.addInnerInterceptor(illegalSqlInnerInterceptor);
-    return interceptor;
-  }*/
+///  sql性能规范配置，影响性能
+//   开发测试时可以加上，约束sql查询规范，比如查询必须使用到索引，表连接规范等等
+//  /**
+//   * sql性能规范配置,只针对开发环境与测试环境
+//   */
+//  @Bean
+//  public MybatisPlusInterceptor illegalSqlInnerInterceptor() {
+//    MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+//    IllegalSQLInnerInterceptor illegalSqlInnerInterceptor = new IllegalSQLInnerInterceptor();
+//    interceptor.addInnerInterceptor(illegalSqlInnerInterceptor);
+//    return interceptor;
+//  }
 
 }

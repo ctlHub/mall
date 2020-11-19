@@ -35,8 +35,7 @@ public class WithMockCustomUserSecurityContextFactory implements WithSecurityCon
       roleList.add(bizRole);
     }
     principal.setRoleList(roleList);
-    Authentication auth =
-        new UsernamePasswordAuthenticationToken(principal, "password", principal.getAuthorities());
+    Authentication auth = new UsernamePasswordAuthenticationToken(principal, "password", principal.getAuthorities());
     context.setAuthentication(auth);
     return context;
   }

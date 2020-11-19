@@ -60,17 +60,19 @@ public class BizPermission implements Serializable {
   private Long merchantId;
 
   @ApiModelProperty(value = "创建人员")
+  @TableField(fill = FieldFill.INSERT)
   private Long createUserId;
 
   @ApiModelProperty(value = "创建时间")
-  @TableField(fill = FieldFill.INSERT_UPDATE)
+  @TableField(fill = FieldFill.INSERT)
   private LocalDateTime createTime;
 
   @ApiModelProperty(value = "更新人员")
+  @TableField(fill = FieldFill.INSERT_UPDATE)
   private Long updateUserId;
 
   @ApiModelProperty(value = "更新时间")
-  @TableField(fill = FieldFill.UPDATE)
+  @TableField(fill = FieldFill.INSERT_UPDATE)
   private LocalDateTime updateTime;
 
   @ApiModelProperty(value = "是否删除")

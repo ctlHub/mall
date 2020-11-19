@@ -1,6 +1,5 @@
 package com.mall.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mall.common.api.CommonResult;
 import com.mall.model.BizPermission;
 import com.mall.service.BizPermissionService;
@@ -32,11 +31,9 @@ public class BizPermissionController {
     this.service = service;
   }
 
-  @GetMapping("/list/{merchantId}")
-  public CommonResult<List<BizPermission>> list(@PathVariable String merchantId) {
-    QueryWrapper<BizPermission> queryWrapper = new QueryWrapper<>();
-    queryWrapper.lambda().eq(BizPermission::getMerchantId, merchantId);
-    return CommonResult.success(service.list(queryWrapper));
+  @GetMapping("/list")
+  public CommonResult<List<BizPermission>> list() {
+    return CommonResult.success(service.list());
   }
 
   @GetMapping("/{id}")

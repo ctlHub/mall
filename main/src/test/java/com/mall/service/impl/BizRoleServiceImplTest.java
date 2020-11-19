@@ -1,13 +1,14 @@
 package com.mall.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mall.model.BizRole;
+import com.mall.security.MyWithMockUser;
 import com.mall.service.BizRoleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.Assert;
 
 import java.util.List;
@@ -18,34 +19,33 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@WebAppConfiguration
 public class BizRoleServiceImplTest {
-
-  private static final Long MERCHANT_ID = 1L;
 
   @Autowired
   private BizRoleService bizRoleService;
 
   @Test
+  @MyWithMockUser
   public void list() {
-    LambdaQueryWrapper<BizRole> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-    lambdaQueryWrapper.eq(BizRole::getMerchantId, MERCHANT_ID);
-    List<BizRole> bizRoleList = bizRoleService.list(lambdaQueryWrapper);
+    List<BizRole> bizRoleList = bizRoleService.list();
     Assert.notEmpty(bizRoleList, "无权限数据");
   }
 
   @Test
+  @MyWithMockUser
   public void getOne() {
-    BizRole bizRole = bizRoleService.getById(1);
+    BizRole bizRole = bizRoleService.getById(775402379755073536L);
     Assert.notNull(bizRole, "角色id不存在");
   }
 
   @Test
+  @MyWithMockUser
   public void create() {
     BizRole bizRole = new BizRole();
-    bizRole.setName("ROLE_admin");
-    bizRole.setNameZh("管理员");
-    bizRole.setDescription("商家管理员");
-    bizRole.setMerchantId(MERCHANT_ID);
+    bizRole.setName("ROLE_CUSTOMER");
+    bizRole.setNameZh("客户");
+    bizRole.setDescription("客户");
     boolean isSave = bizRoleService.save(bizRole);
     Assert.isTrue(isSave, "添加角色失败");
   }

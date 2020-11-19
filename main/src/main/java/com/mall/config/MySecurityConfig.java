@@ -52,8 +52,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
             return object;
           }
         })
-        //.and().formLogin().successForwardUrl("/bizUser/list/1").permitAll()
-        .and().formLogin().defaultSuccessUrl("/bizUser/list/1").permitAll()
+        .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
         .and().csrf().disable();
   }
 
@@ -69,10 +68,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     corsConfiguration.addAllowedOrigin("*");
     //header，允许哪些header，本案中使用的是token，此处可将*替换为token；
     corsConfiguration.addAllowedHeader("*");
-    //允许的请求方法，PSOT、GET等
+    //允许的请求方法，POST、GET等
     corsConfiguration.addAllowedMethod("*");
     //配置允许跨域访问的url
     ((UrlBasedCorsConfigurationSource) source).registerCorsConfiguration("/**", corsConfiguration);
     return source;
   }
+
 }

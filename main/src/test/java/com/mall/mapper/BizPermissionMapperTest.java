@@ -1,6 +1,7 @@
 package com.mall.mapper;
 
 import com.mall.model.BizPermission;
+import com.mall.security.MyWithMockUser;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,14 +19,15 @@ import java.util.List;
 @SpringBootTest
 public class BizPermissionMapperTest {
 
-  private final static long BIZ_ID = 1L;
+  private final static long MERCHANT_ID = 1L;
 
   @Resource
   private BizPermissionMapper bizPermissionMapper;
 
   @Test
+  @MyWithMockUser
   public void test() {
-    List<BizPermission> bizPermissionList = bizPermissionMapper.getPermissionsByMerchantId(BIZ_ID);
+    List<BizPermission> bizPermissionList = bizPermissionMapper.getPermissionsByMerchantId(MERCHANT_ID);
     Assert.assertNotEquals(0, bizPermissionList.size());
   }
 

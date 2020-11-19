@@ -2,6 +2,7 @@ package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.mall.model.BizUser;
+import com.mall.security.MyWithMockUser;
 import com.mall.service.BizUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,12 +20,11 @@ import org.springframework.util.Assert;
 @SpringBootTest
 public class BizUserServiceImplTest {
 
-  private static final Long MERCHANT_ID = 1L;
-
   @Autowired
   private BizUserService bizUserService;
 
   @Test
+  @MyWithMockUser
   public void create() {
     BizUser bizUser = new BizUser();
     bizUser.setUsername("zhangsan");
@@ -32,7 +32,6 @@ public class BizUserServiceImplTest {
     String password = "123456";
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
     bizUser.setPassword(bCryptPasswordEncoder.encode(password));
-    bizUser.setMerchantId(MERCHANT_ID);
     boolean isSave = bizUserService.save(bizUser);
     Assert.isTrue(isSave, "用户添加失败");
   }

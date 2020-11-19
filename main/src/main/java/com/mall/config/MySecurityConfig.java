@@ -42,7 +42,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.cors().configurationSource(CorsConfigurationSource()).and()
+    http.cors().configurationSource(corsConfigurationSource()).and()
         .authorizeRequests()
         .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
           @Override
@@ -61,8 +61,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     return new BCryptPasswordEncoder();
   }
 
-  private CorsConfigurationSource CorsConfigurationSource() {
-    CorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+  private CorsConfigurationSource corsConfigurationSource() {
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
     CorsConfiguration corsConfiguration = new CorsConfiguration();
     //同源配置，*表示任何请求都视为同源，若需指定ip和端口可以改为如“localhost：8080”，多个以“，”分隔；
     corsConfiguration.addAllowedOrigin("*");
@@ -71,7 +71,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     //允许的请求方法，POST、GET等
     corsConfiguration.addAllowedMethod("*");
     //配置允许跨域访问的url
-    ((UrlBasedCorsConfigurationSource) source).registerCorsConfiguration("/**", corsConfiguration);
+    source.registerCorsConfiguration("/**", corsConfiguration);
     return source;
   }
 

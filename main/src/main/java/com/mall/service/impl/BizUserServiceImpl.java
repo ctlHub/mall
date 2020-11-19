@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * <p>
  * 用户表 服务实现类
@@ -20,11 +22,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class BizUserServiceImpl extends ServiceImpl<BizUserMapper, BizUser> implements BizUserService {
 
-  private final BizUserMapper bizUserMapper;
-
-  public BizUserServiceImpl(BizUserMapper bizUserMapper) {
-    this.bizUserMapper = bizUserMapper;
-  }
+  @Resource
+  private BizUserMapper bizUserMapper;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

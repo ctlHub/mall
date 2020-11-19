@@ -13,9 +13,6 @@
         <module>mbg</module>
         <module>main</module>
         <module>common</module>
-        <module>api</module>
-        <module>mms</module>
-        <module>model</module>
     </modules>
 
     <parent>

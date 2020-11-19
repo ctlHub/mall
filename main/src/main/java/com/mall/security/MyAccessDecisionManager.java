@@ -21,11 +21,11 @@ import java.util.Collection;
 public class MyAccessDecisionManager implements AccessDecisionManager {
   @Override
   public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
-    //configAttributes里存放着MyFilterInvocationSecurityMetadataSource过滤出来的角色
+    // configAttributes里存放着MyFilterInvocationSecurityMetadataSource过滤出来的角色
     for (ConfigAttribute configAttribute : configAttributes) {
-      //请求的url在数据库中没有对应的角色
+      // 请求的url在数据库中没有对应的角色
       if ("ROLE_def".equals(configAttribute.getAttribute())) {
-        //判断是否登录，判断是否是匿名用户
+        // 判断是否登录，判断是否是匿名用户
         if (authentication instanceof AnonymousAuthenticationToken) {
           throw new AccessDeniedException("未登录，不可访问！");
         } else {
@@ -33,12 +33,12 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
         }
       }
 
-      //请求url有对应的角色
-      //authentication中存放了登录用户的所有信息
+      // 请求url有对应的角色
+      // authentication中存放了登录用户的所有信息
       Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
       for (GrantedAuthority grantedAuthority : authorities) {
-        //grantedAuthority.getAuthority()账户拥有的权限
-        //configAttribute.getAttribute()路径需要的角色
+        // grantedAuthority.getAuthority() 账户拥有的权限
+        // configAttribute.getAttribute() 路径需要的角色
         if (grantedAuthority.getAuthority().equals(configAttribute.getAttribute())) {
           return;
         }

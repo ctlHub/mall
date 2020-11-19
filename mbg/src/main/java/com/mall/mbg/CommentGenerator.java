@@ -78,7 +78,7 @@ public class CommentGenerator extends DefaultCommentGenerator {
         field.addJavaDocLine(" * " + remarkLine);
       }
       addJavadocTag(field, false);
-      //给model的字段添加swagger注解
+      // 给model的字段添加swagger注解
       field.addJavaDocLine(" */");
       field.addJavaDocLine("@ApiModelProperty(value = \"" + remarks + "\")");
     }

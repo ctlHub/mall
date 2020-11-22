@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,16 +27,13 @@ import java.util.List;
 @Component
 public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
-  private final BizPermissionMapper bizPermissionMapper;
+  @Resource
+  private BizPermissionMapper bizPermissionMapper;
 
   /**
    * ant风格路径匹配器
    */
   private final AntPathMatcher antPathMatcher = new AntPathMatcher();
-
-  public MyFilterInvocationSecurityMetadataSource(BizPermissionMapper bizPermissionMapper) {
-    this.bizPermissionMapper = bizPermissionMapper;
-  }
 
   @Override
   public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {

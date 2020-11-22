@@ -6,12 +6,12 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
+import com.mall.common.model.UserDetail;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  */
 @Data
 @ApiModel(value = "BizUser对象", description = "用户表")
-public class BizUser implements UserDetails, Serializable {
+public class BizUser implements UserDetail, Serializable {
 
   private static final long serialVersionUID = 1L;
 

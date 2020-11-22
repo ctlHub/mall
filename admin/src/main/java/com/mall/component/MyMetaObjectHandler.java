@@ -1,7 +1,7 @@
 package com.mall.component;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.mall.model.BizUser;
+import com.mall.common.model.UserDetail;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -21,19 +21,15 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
   public void insertFill(MetaObject metaObject) {
     this.strictInsertFill(metaObject, "createTime", LocalDateTime::now, LocalDateTime.class);
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    if (principal instanceof BizUser) {
-      BizUser bizUser = (BizUser) principal;
-      this.strictInsertFill(metaObject, "createUserId", bizUser::getId, Long.class);
-    }
+    UserDetail user = (UserDetail) principal;
+    this.strictInsertFill(metaObject, "createUserId", user::getId, Long.class);
   }
 
   @Override
   public void updateFill(MetaObject metaObject) {
     this.strictUpdateFill(metaObject, "updateTime", LocalDateTime::now, LocalDateTime.class);
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    if (principal instanceof BizUser) {
-      BizUser bizUser = (BizUser) principal;
-      this.strictInsertFill(metaObject, "updateUserId", bizUser::getId, Long.class);
-    }
+    UserDetail user = (UserDetail) principal;
+    this.strictInsertFill(metaObject, "updateUserId", user::getId, Long.class);
   }
 }

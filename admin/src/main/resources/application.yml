@@ -1,12 +1,6 @@
 spring:
   profiles:
     active: @spring.profiles.active@
-  data:
-    mongodb:
-      database: 
-      host: 
-      username: 
-      password: 
   gson:
     date-format: yyyy-MM-dd HH:mm:ss
 mybatis:

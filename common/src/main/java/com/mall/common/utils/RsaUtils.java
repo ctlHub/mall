@@ -1,4 +1,6 @@
-package com.mall.security.utils;
+package com.mall.common.utils;
+
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,9 +33,9 @@ public class RsaUtils {
    * @param filename 公钥保存路径，相对于classpath
    * @return 公钥对象
    */
-  public static PublicKey getPublicKey(String filename) throws Exception {
-    byte[] bytes = readFile(filename);
-    return getPublicKey(bytes);
+  public static PublicKey getPublicKey(String filename) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+    ClassPathResource classPathResource = new ClassPathResource(filename);
+    return getPublicKey(Files.readAllBytes(classPathResource.getFile().toPath()));
   }
 
   /**
@@ -42,9 +44,9 @@ public class RsaUtils {
    * @param filename 私钥保存路径，相对于classpath
    * @return 私钥对象
    */
-  public static PrivateKey getPrivateKey(String filename) throws Exception {
-    byte[] bytes = readFile(filename);
-    return getPrivateKey(bytes);
+  public static PrivateKey getPrivateKey(String filename) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+    ClassPathResource classPathResource = new ClassPathResource(filename);
+    return getPrivateKey(Files.readAllBytes(classPathResource.getFile().toPath()));
   }
 
   /**
@@ -52,7 +54,7 @@ public class RsaUtils {
    *
    * @param bytes 公钥的字节形式
    */
-  public static PublicKey getPublicKey(byte[] bytes) throws Exception {
+  public static PublicKey getPublicKey(byte[] bytes) throws NoSuchAlgorithmException, InvalidKeySpecException {
     bytes = Base64.getDecoder().decode(bytes);
     X509EncodedKeySpec spec = new X509EncodedKeySpec(bytes);
     KeyFactory factory = KeyFactory.getInstance("RSA");
@@ -78,7 +80,7 @@ public class RsaUtils {
    * @param privateKeyFilename 私钥文件路径
    * @param secret             生成密钥的密文
    */
-  public static void generateKey(String publicKeyFilename, String privateKeyFilename, String secret, int keySize) throws Exception {
+  static void generateKey(String publicKeyFilename, String privateKeyFilename, String secret, int keySize) throws NoSuchAlgorithmException, IOException {
     KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
     SecureRandom secureRandom = new SecureRandom(secret.getBytes());
     keyPairGenerator.initialize(Math.max(keySize, DEFAULT_KEY_SIZE), secureRandom);
@@ -93,7 +95,7 @@ public class RsaUtils {
     writeFile(privateKeyFilename, privateKeyBytes);
   }
 
-  private static byte[] readFile(String fileName) throws Exception {
+  private static byte[] readFile(String fileName) throws IOException {
     return Files.readAllBytes(new File(fileName).toPath());
   }
 

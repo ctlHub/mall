@@ -1,0 +1,4 @@
+rsa:
+  key:
+    pri-key-file: id_key_rsa.pri
+    pub-key-file: id_key_rsa.pub

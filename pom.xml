@@ -176,7 +176,8 @@
                     <include>application.yml</include>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
-                    <include>static/**</include>
+                    <include>id_key_rsa.pub</include>
+                    <include>id_key_rsa.pri</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>

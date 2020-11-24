@@ -23,14 +23,14 @@ import java.util.Date;
  * @author 李重辰
  * @date 2020/11/23 0:44
  */
-public class LoginSuccessHandle implements AuthenticationSuccessHandler {
+public class JwtLoginSuccessHandle implements AuthenticationSuccessHandler {
 
   private static final String JWT_PAYLOAD_USER_KEY = "user";
 
   private final RsaKeyProperties rsaKeyProperties;
   private final Gson gson;
 
-  public LoginSuccessHandle(RsaKeyProperties rsaKeyProperties, Gson gson) {
+  public JwtLoginSuccessHandle(RsaKeyProperties rsaKeyProperties, Gson gson) {
     this.rsaKeyProperties = rsaKeyProperties;
     this.gson = gson;
   }

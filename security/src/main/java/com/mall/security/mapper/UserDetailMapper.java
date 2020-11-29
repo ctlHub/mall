@@ -1,6 +1,6 @@
 package com.mall.security.mapper;
 
-import com.mall.security.entity.JwtUserDetail;
+import com.mall.common.model.JwtUserDetail;
 
 /**
  * 用户信息处理mapper

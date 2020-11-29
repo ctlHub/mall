@@ -3,7 +3,7 @@
 <mapper namespace="com.mall.security.mapper.UserDetailMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.mall.security.entity.JwtUserDetail">
+    <resultMap id="BaseResultMap" type="com.mall.common.model.JwtUserDetail">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>

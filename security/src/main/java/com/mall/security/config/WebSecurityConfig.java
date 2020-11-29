@@ -1,7 +1,11 @@
 package com.mall.security.config;
 
 import com.google.gson.Gson;
+import com.mall.common.config.security.JwtAuthenticationProvider;
+import com.mall.common.config.security.JwtLoginConfigurer;
+import com.mall.common.config.security.JwtRefreshSuccessHandler;
 import com.mall.common.model.RsaKeyProperties;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -27,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   private final Gson gson;
   private final UserDetailsService jwtUserService;
 
-  public WebSecurityConfig(RsaKeyProperties rsaKeyProperties, Gson gson, UserDetailsService jwtUserService) {
+  public WebSecurityConfig(RsaKeyProperties rsaKeyProperties, Gson gson, @Qualifier("jwtUserServiceImpl") UserDetailsService jwtUserService) {
     this.rsaKeyProperties = rsaKeyProperties;
     this.gson = gson;
     this.jwtUserService = jwtUserService;

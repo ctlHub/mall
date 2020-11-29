@@ -1,4 +1,4 @@
-package com.mall.security.config;
+package com.mall.common.config.security;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -20,7 +20,7 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
   private String credentials;
   private final DecodedJWT token;
 
-  public JwtAuthenticationToken(DecodedJWT token) {
+  JwtAuthenticationToken(DecodedJWT token) {
     super(Collections.emptyList());
     this.token = token;
   }

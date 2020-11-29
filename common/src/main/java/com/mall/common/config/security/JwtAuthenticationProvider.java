@@ -1,4 +1,4 @@
-package com.mall.security.config;
+package com.mall.common.config.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -7,7 +7,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 import com.mall.common.model.RSAKeyProvider;
 import com.mall.common.model.RsaKeyProperties;
-import com.mall.security.utils.JwtUtils;
+import com.mall.common.utils.JwtUtils;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
@@ -28,7 +28,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
   private final RsaKeyProperties rsaKeyProperties;
   private final Gson gson;
 
-  JwtAuthenticationProvider(RsaKeyProperties rsaKeyProperties, Gson gson) {
+  public JwtAuthenticationProvider(RsaKeyProperties rsaKeyProperties, Gson gson) {
     this.rsaKeyProperties = rsaKeyProperties;
     this.gson = gson;
   }

@@ -2,7 +2,7 @@ package com.mall.security.filter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mall.security.entity.JwtUserDetail;
+import com.mall.common.model.JwtUserDetail;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationServiceException;

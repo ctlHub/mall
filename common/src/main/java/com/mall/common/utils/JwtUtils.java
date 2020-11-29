@@ -1,4 +1,4 @@
-package com.mall.security.utils;
+package com.mall.common.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -6,10 +6,10 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.mall.common.config.security.JwtAuthenticationToken;
+import com.mall.common.model.JwtUserDetail;
 import com.mall.common.model.RSAKeyProvider;
 import com.mall.common.model.RsaKeyProperties;
-import com.mall.security.config.JwtAuthenticationToken;
-import com.mall.security.entity.JwtUserDetail;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 

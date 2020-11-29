@@ -1,6 +1,5 @@
-package com.mall.security.config;
+package com.mall.common.config.security;
 
-import com.mall.security.filter.JwtAuthenticationFilter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -13,7 +12,7 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
  * @author 李重辰
  * @date 2020/11/29 19:14
  */
-class JwtLoginConfigurer<T extends JwtLoginConfigurer<T, B>, B extends HttpSecurityBuilder<B>> extends AbstractHttpConfigurer<T, B> {
+public class JwtLoginConfigurer<T extends JwtLoginConfigurer<T, B>, B extends HttpSecurityBuilder<B>> extends AbstractHttpConfigurer<T, B> {
   private final JwtAuthenticationFilter authFilter;
 
   public JwtLoginConfigurer() {

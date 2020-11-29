@@ -1,9 +1,11 @@
 package com.mall.common.utils;
 
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -34,8 +36,9 @@ public class RsaUtils {
    * @return 公钥对象
    */
   public static PublicKey getPublicKey(String filename) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    ClassPathResource classPathResource = new ClassPathResource(filename);
-    return getPublicKey(Files.readAllBytes(classPathResource.getFile().toPath()));
+    Resource classPathResource = new ClassPathResource(filename);
+    InputStream inputStream = classPathResource.getInputStream();
+    return getPublicKey(inputStream.readAllBytes());
   }
 
   /**
@@ -45,7 +48,7 @@ public class RsaUtils {
    * @return 私钥对象
    */
   public static PrivateKey getPrivateKey(String filename) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    ClassPathResource classPathResource = new ClassPathResource(filename);
+    Resource classPathResource = new ClassPathResource(filename);
     return getPrivateKey(Files.readAllBytes(classPathResource.getFile().toPath()));
   }
 
@@ -54,7 +57,7 @@ public class RsaUtils {
    *
    * @param bytes 公钥的字节形式
    */
-  public static PublicKey getPublicKey(byte[] bytes) throws NoSuchAlgorithmException, InvalidKeySpecException {
+  private static PublicKey getPublicKey(byte[] bytes) throws NoSuchAlgorithmException, InvalidKeySpecException {
     bytes = Base64.getDecoder().decode(bytes);
     X509EncodedKeySpec spec = new X509EncodedKeySpec(bytes);
     KeyFactory factory = KeyFactory.getInstance("RSA");
@@ -66,7 +69,7 @@ public class RsaUtils {
    *
    * @param bytes 私钥的字节形式
    */
-  public static PrivateKey getPrivateKey(byte[] bytes) throws NoSuchAlgorithmException, InvalidKeySpecException {
+  private static PrivateKey getPrivateKey(byte[] bytes) throws NoSuchAlgorithmException, InvalidKeySpecException {
     bytes = Base64.getDecoder().decode(bytes);
     PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(bytes);
     KeyFactory factory = KeyFactory.getInstance("RSA");

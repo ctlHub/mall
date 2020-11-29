@@ -1,12 +1,16 @@
 package com.mall.config;
 
+import com.google.gson.Gson;
+import com.mall.common.config.security.JwtAuthenticationProvider;
+import com.mall.common.config.security.JwtLoginConfigurer;
+import com.mall.common.config.security.JwtRefreshSuccessHandler;
+import com.mall.common.model.RsaKeyProperties;
 import com.mall.security.MyAccessDecisionManager;
 import com.mall.security.MyFilterInvocationSecurityMetadataSource;
-import com.mall.service.BizUserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,22 +27,28 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private final BizUserService bizUserService;
-
   private final MyFilterInvocationSecurityMetadataSource myFilterInvocationSecurityMetadataSource;
 
   private final MyAccessDecisionManager myAccessDecisionManager;
 
-  public MySecurityConfig(BizUserService bizUserService, MyFilterInvocationSecurityMetadataSource myFilterInvocationSecurityMetadataSource, MyAccessDecisionManager myAccessDecisionManager) {
-    this.bizUserService = bizUserService;
+  private final RsaKeyProperties rsaKeyProperties;
+
+  private final Gson gson;
+
+  public MySecurityConfig(MyFilterInvocationSecurityMetadataSource myFilterInvocationSecurityMetadataSource,
+                          MyAccessDecisionManager myAccessDecisionManager,
+                          RsaKeyProperties rsaKeyProperties,
+                          Gson gson) {
     this.myFilterInvocationSecurityMetadataSource = myFilterInvocationSecurityMetadataSource;
     this.myAccessDecisionManager = myAccessDecisionManager;
+    this.rsaKeyProperties = rsaKeyProperties;
+    this.gson = gson;
   }
-
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.userDetailsService(bizUserService);
-  }
+//
+//  @Override
+//  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    auth.userDetailsService(bizUserService);
+//  }
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
@@ -53,6 +63,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
           }
         })
         .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
+        .and()
+        //添加token的filter
+        .apply(new JwtLoginConfigurer<>()).tokenValidSuccessHandler(jwtRefreshSuccessHandler()).permissiveRequestUrls("/logout")
         .and().csrf().disable();
   }
 
@@ -73,6 +86,16 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     //配置允许跨域访问的url
     source.registerCorsConfiguration("/**", corsConfiguration);
     return source;
+  }
+
+  @Bean
+  protected JwtRefreshSuccessHandler jwtRefreshSuccessHandler() {
+    return new JwtRefreshSuccessHandler(rsaKeyProperties, gson);
+  }
+
+  @Bean("jwtAuthenticationProvider")
+  protected AuthenticationProvider jwtAuthenticationProvider() {
+    return new JwtAuthenticationProvider(rsaKeyProperties, gson);
   }
 
 }

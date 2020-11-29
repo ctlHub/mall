@@ -2,7 +2,7 @@ package com.mall.security.config;
 
 import com.google.gson.Gson;
 import com.mall.common.model.RsaKeyProperties;
-import com.mall.security.utils.JwtUtils;
+import com.mall.common.utils.JwtUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 

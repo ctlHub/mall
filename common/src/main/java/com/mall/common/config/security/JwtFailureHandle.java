@@ -1,4 +1,4 @@
-package com.mall.security.config;
+package com.mall.common.config.security;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;

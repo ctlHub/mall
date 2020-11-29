@@ -38,3 +38,6 @@ mybatis-plus:
   global-config:
     db-config:
       table-prefix: u_
+rsa:
+  key:
+    pub-key-file: id_key_rsa.pub

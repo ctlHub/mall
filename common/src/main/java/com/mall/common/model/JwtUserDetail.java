@@ -1,4 +1,4 @@
-package com.mall.security.entity;
+package com.mall.common.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -16,7 +16,7 @@ import java.util.Collection;
  * @date 2020/11/28 22:59
  */
 @Data
-public class JwtUserDetail implements com.mall.common.model.UserDetail {
+public class JwtUserDetail implements UserDetail {
   private static final long serialVersionUID = 1751491811264717753L;
 
   @ApiModelProperty(value = "用户ID")
@@ -41,11 +41,9 @@ public class JwtUserDetail implements com.mall.common.model.UserDetail {
   @ApiModelProperty(value = "商家ID")
   private String merchantId;
 
-  /**
-   * security 只做登录，权限由下面的人自己做权限
-   */
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
+    // TODO: 2020/11/29 22:50 将用户角色或者用户权限放进来
     return null;
   }
 

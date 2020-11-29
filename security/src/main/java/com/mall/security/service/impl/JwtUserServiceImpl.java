@@ -1,6 +1,6 @@
 package com.mall.security.service.impl;
 
-import com.mall.security.entity.JwtUserDetail;
+import com.mall.common.model.JwtUserDetail;
 import com.mall.security.mapper.UserDetailMapper;
 import com.mall.security.service.JwtUserService;
 import org.springframework.security.core.userdetails.UserDetails;

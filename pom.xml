@@ -36,6 +36,7 @@
         <aliyun.oss.version>3.11.1</aliyun.oss.version>
         <springfox.version>3.0.0</springfox.version>
         <myabtis-plus.version>3.4.0</myabtis-plus.version>
+        <guava.version>30.0-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -69,6 +70,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
         <!--安全框架SpringSecurity-->
         <dependency>

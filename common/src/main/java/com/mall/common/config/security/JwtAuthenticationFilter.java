@@ -1,8 +1,7 @@
-package com.mall.security.filter;
+package com.mall.common.config.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
-import com.mall.security.config.JwtAuthenticationToken;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
@@ -29,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * JWT 认证过滤器
+ *
  * @author 李重辰
  * @date 2020/11/24 23:54
  */
@@ -41,7 +42,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   private AuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
   private AuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
 
-  public JwtAuthenticationFilter() {
+  JwtAuthenticationFilter() {
     this.requiresAuthenticationRequestMatcher = new RequestHeaderRequestMatcher("Authorization");
   }
 

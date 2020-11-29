@@ -1,6 +1,7 @@
 package com.mall.security.config;
 
 import com.google.gson.Gson;
+import com.mall.common.config.security.JwtFailureHandle;
 import com.mall.security.filter.JsonLoginFilter;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;

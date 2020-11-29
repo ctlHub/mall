@@ -1,7 +1,7 @@
 package com.mall.service;
 
-import com.mall.model.BizRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mall.model.Role;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author ctlLab
  * @date 2020-11-07
  */
-public interface BizRoleService extends IService<BizRole> {
+public interface RoleService extends IService<Role> {
 
 }

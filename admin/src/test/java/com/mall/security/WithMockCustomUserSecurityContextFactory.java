@@ -1,7 +1,7 @@
 package com.mall.security;
 
-import com.mall.model.BizRole;
 import com.mall.model.BizUser;
+import com.mall.model.Role;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -28,9 +28,9 @@ public class WithMockCustomUserSecurityContextFactory implements WithSecurityCon
     principal.setMerchantId(myWithMockUser.merchant());
     principal.setUsername(myWithMockUser.username());
 
-    List<BizRole> roleList = new ArrayList<>();
+    List<Role> roleList = new ArrayList<>();
     for (String role : myWithMockUser.role()) {
-      BizRole bizRole = new BizRole();
+      Role bizRole = new Role();
       bizRole.setName(role);
       roleList.add(bizRole);
     }

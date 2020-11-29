@@ -1,7 +1,7 @@
 package com.mall.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mall.model.BizPermission;
+import com.mall.model.Permission;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.mall.model.BizPermission;
  * @author ctlLab
  * @date 2020-11-07
  */
-public interface BizPermissionService extends IService<BizPermission> {
+public interface PermissionService extends IService<Permission> {
 
 }

@@ -151,7 +151,7 @@ public class CodeGenerator {
     strategy.setColumnNaming(NamingStrategy.underline_to_camel);
     strategy.setEntityLombokModel(false);
     strategy.setRestControllerStyle(true);
-    strategy.setInclude("u_biz_permission", "u_biz_role", "u_biz_user");
+    strategy.setInclude("u_permission", "u_role", "u_biz_user");
     strategy.setControllerMappingHyphenStyle(false);
     strategy.setTablePrefix(pc.getModuleName() + "_");
     mpg.setStrategy(strategy);

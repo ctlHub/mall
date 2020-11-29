@@ -3,7 +3,7 @@
 <mapper namespace="com.mall.orm.MybatisPlusMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.mall.model.BizRole">
+    <resultMap id="BaseResultMap" type="com.mall.model.Role">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="name_zh" property="nameZh"/>
@@ -26,7 +26,7 @@
     <select id="listDeletedBizRoleById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from u_biz_role where id=#{id}
+        from u_role where id=#{id}
     </select>
 
 </mapper>

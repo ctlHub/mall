@@ -13,6 +13,7 @@
         <module>mbg</module>
         <module>admin</module>
         <module>common</module>
+        <module>security</module>
     </modules>
 
     <parent>

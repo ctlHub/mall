@@ -10,6 +10,7 @@ import com.mall.common.model.UserDetail;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -28,6 +29,7 @@ import java.util.stream.Collectors;
  * @date 2020-11-07
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "BizUser对象", description = "用户表")
 public class BizUser implements UserDetail, Serializable {
 
@@ -89,7 +91,7 @@ public class BizUser implements UserDetail, Serializable {
   private Integer version;
 
   @TableField(exist = false)
-  private List<BizRole> roleList;
+  private List<Role> roleList;
 
   @Override
   public boolean isAccountNonExpired() {

@@ -1,8 +1,8 @@
 package com.mall.service.impl;
 
-import com.mall.model.BizPermission;
+import com.mall.model.Permission;
 import com.mall.security.MyWithMockUser;
-import com.mall.service.BizPermissionService;
+import com.mall.service.PermissionService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +16,15 @@ import org.springframework.util.Assert;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BizPermissionServiceImplTest {
+public class PermissionServiceImplTest {
 
   @Autowired
-  private BizPermissionService bizPermissionService;
+  private PermissionService bizPermissionService;
 
   @Test
   @MyWithMockUser
   public void create() {
-    BizPermission bizPermission = new BizPermission();
+    Permission bizPermission = new Permission();
     bizPermission.setName("权限管理1");
     bizPermission.setLevel("1");
     bizPermission.setUrl("/mall/business/permission");

@@ -1,9 +1,9 @@
 package com.mall.security;
 
-import com.mall.mapper.BizPermissionMapper;
-import com.mall.model.BizPermission;
-import com.mall.model.BizRole;
+import com.mall.mapper.PermissionMapper;
 import com.mall.model.BizUser;
+import com.mall.model.Permission;
+import com.mall.model.Role;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,7 +28,7 @@ import java.util.List;
 public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
   @Resource
-  private BizPermissionMapper bizPermissionMapper;
+  private PermissionMapper permissionMapper;
 
   /**
    * ant风格路径匹配器
@@ -43,14 +43,14 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     String reqMethod = filterInvocation.getHttpRequest().getMethod();
     String reqUrl = filterInvocation.getRequestUrl();
 
-    List<BizPermission> permissionList = new ArrayList<>();
+    List<Permission> permissionList = new ArrayList<>();
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     if (principal instanceof BizUser) {
       BizUser bizUser = (BizUser) principal;
-      permissionList = bizPermissionMapper.getPermissionsByMerchantId(bizUser.getMerchantId());
+      permissionList = permissionMapper.getPermissionsByMerchantId(bizUser.getMerchantId());
     }
-    List<BizRole> roleList = new ArrayList<>();
-    for (BizPermission permission : permissionList) {
+    List<Role> roleList = new ArrayList<>();
+    for (Permission permission : permissionList) {
       // 路径匹配，请求方法匹配
       boolean pass = antPathMatcher.match(permission.getUrl(), reqUrl) && (reqMethod.equals(permission.getMethod()) || null == permission.getMethod());
       if (pass) {
@@ -62,7 +62,7 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     }
     //返回访问路径所需要的所有角色
     return SecurityConfig.createList(roleList.stream()
-        .map(BizRole::getName)
+        .map(Role::getName)
         .toArray(String[]::new));
   }
 

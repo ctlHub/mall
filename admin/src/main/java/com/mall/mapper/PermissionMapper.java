@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.model.BizPermission;
+import com.mall.model.Permission;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @author ctlLab
  * @date 2020-11-07
  */
-public interface BizPermissionMapper extends BaseMapper<BizPermission> {
+public interface PermissionMapper extends BaseMapper<Permission> {
 
   /**
    * 查询商家所有权限集合，每个集合中包含该集合对应的所有权限
@@ -21,6 +21,6 @@ public interface BizPermissionMapper extends BaseMapper<BizPermission> {
    * @param merchantId 商家id
    * @return 权限集合
    */
-  List<BizPermission> getPermissionsByMerchantId(long merchantId);
+  List<Permission> getPermissionsByMerchantId(long merchantId);
 
 }

@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
-import com.mall.model.BizRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.mall.model.Role;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ctlLab
  * @date 2020-11-07
  */
-public interface BizRoleMapper extends BaseMapper<BizRole> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }

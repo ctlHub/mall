@@ -1,7 +1,8 @@
 package com.mall.security.filter;
 
 import com.google.gson.Gson;
-import com.mall.common.model.UserDetail;
+import com.google.gson.reflect.TypeToken;
+import com.mall.security.entity.JwtUserDetail;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationServiceException;
@@ -14,21 +15,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 /**
- * 对JWT形式发送的登录信息进行效验
+ * 对前台使用post方式ajax的登录信息进行效验
  *
  * @author 李重辰
  * @date 2020/11/19 23:15
  */
-public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
+public class JsonLoginFilter extends UsernamePasswordAuthenticationFilter {
 
-  public JwtLoginFilter(Gson gson) {
+  private final Gson gson;
+
+  public JsonLoginFilter(Gson gson) {
     super();
     this.gson = gson;
   }
-
-  private final Gson gson;
 
   @SneakyThrows
   @Override
@@ -38,9 +40,12 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
           "Authentication method not supported: " + request.getMethod());
     }
     InputStreamReader reader = new InputStreamReader(request.getInputStream(), StandardCharsets.UTF_8);
-    UserDetail user = gson.fromJson(reader, UserDetail.class);
-    user.setUsername(user.getUsername().trim());
-
+    Map<String, String> paramMap = gson.fromJson(reader, new TypeToken<Map<String, String>>() {
+    }.getType());
+    JwtUserDetail user = new JwtUserDetail();
+    user.setUsername(paramMap.get("username").trim());
+    user.setPassword(paramMap.get("password"));
+    // 从 JwtUserServiceImpl.loadUserByUsername 方法获取用户信息并进行验证
     UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
     return this.getAuthenticationManager().authenticate(authRequest);
   }

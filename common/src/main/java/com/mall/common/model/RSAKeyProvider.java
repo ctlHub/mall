@@ -1,6 +1,4 @@
-package com.mall.security.utils;
-
-import com.mall.common.api.RsaKeyProperties;
+package com.mall.common.model;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;

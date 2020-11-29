@@ -1,8 +1,8 @@
 package com.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.model.BizRole;
 import com.mall.model.BizUser;
+import com.mall.model.Role;
 
 import java.util.List;
 
@@ -22,6 +22,6 @@ public interface BizUserMapper extends BaseMapper<BizUser> {
    * @param id 用户id
    * @return 角色集合
    */
-  List<BizRole> getRolesById(Long id);
+  List<Role> getRolesById(Long id);
 
 }

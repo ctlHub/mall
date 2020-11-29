@@ -1,8 +1,8 @@
 package com.mall.controller;
 
 import com.mall.common.api.CommonResult;
-import com.mall.model.BizPermission;
-import com.mall.service.BizPermissionService;
+import com.mall.model.Permission;
+import com.mall.service.PermissionService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,29 +25,29 @@ import java.util.List;
 @RestController
 @RequestMapping("/bizPermission")
 public class BizPermissionController {
-  private final BizPermissionService service;
+  private final PermissionService service;
 
-  public BizPermissionController(BizPermissionService service) {
+  public BizPermissionController(PermissionService service) {
     this.service = service;
   }
 
   @GetMapping("/list")
-  public CommonResult<List<BizPermission>> list() {
+  public CommonResult<List<Permission>> list() {
     return CommonResult.success(service.list());
   }
 
   @GetMapping("/{id}")
-  public CommonResult<BizPermission> get(@PathVariable String id) {
+  public CommonResult<Permission> get(@PathVariable String id) {
     return CommonResult.success(service.getById(id));
   }
 
   @PostMapping
-  public CommonResult<Boolean> create(@RequestBody BizPermission param) {
+  public CommonResult<Boolean> create(@RequestBody Permission param) {
     return CommonResult.success(service.save(param));
   }
 
   @PutMapping
-  public CommonResult<Boolean> update(@RequestBody BizPermission param) {
+  public CommonResult<Boolean> update(@RequestBody Permission param) {
     return CommonResult.success(service.saveOrUpdate(param));
   }
 

@@ -2,8 +2,8 @@ package com.mall.controller;
 
 import com.mall.common.api.CommonResult;
 import com.mall.common.utils.SnowflakeIdGenerator;
-import com.mall.model.BizRole;
-import com.mall.service.BizRoleService;
+import com.mall.model.Role;
+import com.mall.service.RoleService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,30 +26,30 @@ import java.util.List;
 @RestController
 @RequestMapping("/bizRole")
 public class BizRoleController {
-  private final BizRoleService service;
+  private final RoleService service;
 
-  public BizRoleController(BizRoleService service) {
+  public BizRoleController(RoleService service) {
     this.service = service;
   }
 
   @GetMapping("/list")
-  public CommonResult<List<BizRole>> list() {
+  public CommonResult<List<Role>> list() {
     return CommonResult.success(service.list());
   }
 
   @GetMapping("/{id}")
-  public CommonResult<BizRole> get(@PathVariable String id) {
+  public CommonResult<Role> get(@PathVariable String id) {
     return CommonResult.success(service.getById(id));
   }
 
   @PostMapping
-  public CommonResult<Boolean> create(@RequestBody BizRole param) {
+  public CommonResult<Boolean> create(@RequestBody Role param) {
     param.setId(SnowflakeIdGenerator.genLongId());
     return CommonResult.success(service.save(param));
   }
 
   @PutMapping
-  public CommonResult<Boolean> update(@RequestBody BizRole param) {
+  public CommonResult<Boolean> update(@RequestBody Role param) {
     return CommonResult.success(service.saveOrUpdate(param));
   }
 

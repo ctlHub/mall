@@ -1,6 +1,6 @@
 package com.mall.orm;
 
-import com.mall.model.BizRole;
+import com.mall.model.Role;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -17,5 +17,5 @@ interface MybatisPlusMapper {
    *
    * @param id id
    */
-  BizRole listDeletedBizRoleById(Long id);
+  Role listDeletedBizRoleById(Long id);
 }

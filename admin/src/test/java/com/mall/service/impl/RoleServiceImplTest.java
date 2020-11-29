@@ -1,8 +1,8 @@
 package com.mall.service.impl;
 
-import com.mall.model.BizRole;
+import com.mall.model.Role;
 import com.mall.security.MyWithMockUser;
-import com.mall.service.BizRoleService;
+import com.mall.service.RoleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,29 +20,29 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
-public class BizRoleServiceImplTest {
+public class RoleServiceImplTest {
 
   @Autowired
-  private BizRoleService bizRoleService;
+  private RoleService bizRoleService;
 
   @Test
   @MyWithMockUser
   public void list() {
-    List<BizRole> bizRoleList = bizRoleService.list();
+    List<Role> bizRoleList = bizRoleService.list();
     Assert.notEmpty(bizRoleList, "无权限数据");
   }
 
   @Test
   @MyWithMockUser
   public void getOne() {
-    BizRole bizRole = bizRoleService.getById(775402379755073536L);
+    Role bizRole = bizRoleService.getById(775402379755073536L);
     Assert.notNull(bizRole, "角色id不存在");
   }
 
   @Test
   @MyWithMockUser
   public void create() {
-    BizRole bizRole = new BizRole();
+    Role bizRole = new Role();
     bizRole.setName("ROLE_CUSTOMER");
     bizRole.setNameZh("客户");
     bizRole.setDescription("客户");

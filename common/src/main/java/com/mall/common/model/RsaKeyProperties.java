@@ -1,8 +1,9 @@
-package com.mall.common.api;
+package com.mall.common.model;
 
 import com.mall.common.utils.RsaUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.security.interfaces.RSAPrivateKey;
@@ -60,8 +61,12 @@ public class RsaKeyProperties {
 
   @PostConstruct
   public void createRsaKey() throws Exception {
-    publicKey = (RSAPublicKey) RsaUtils.getPublicKey(pubKeyFile);
-    privateKey = (RSAPrivateKey) RsaUtils.getPrivateKey(priKeyFile);
+    if (!StringUtils.isEmpty(pubKeyFile)) {
+      publicKey = (RSAPublicKey) RsaUtils.getPublicKey(pubKeyFile);
+    }
+    if (!StringUtils.isEmpty(priKeyFile)) {
+      privateKey = (RSAPrivateKey) RsaUtils.getPrivateKey(priKeyFile);
+    }
   }
 
 }

@@ -19,7 +19,7 @@ public interface UserDetailMapper {
   JwtUserDetail getUserByAdminUser(String name);
 
   /**
-   * 获取平台管理后台的用户
+   * 获取商家管理后台的用户
    *
    * @param name 用户名/手机号码
    * @return 通用user对象
@@ -27,7 +27,7 @@ public interface UserDetailMapper {
   JwtUserDetail getUserByBizUser(String name);
 
   /**
-   * 获取平台管理后台的用户
+   * 获取Customer
    *
    * @param name 用户名/手机号码
    * @return 通用user对象

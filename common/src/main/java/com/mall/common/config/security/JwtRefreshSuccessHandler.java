@@ -1,9 +1,7 @@
 package com.mall.common.config.security;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.Gson;
 import com.mall.common.model.RsaKeyProperties;
-import com.mall.common.utils.JwtUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -36,12 +34,13 @@ public class JwtRefreshSuccessHandler implements AuthenticationSuccessHandler {
   @Override
   public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                       Authentication authentication) {
-    DecodedJWT jwt = ((JwtAuthenticationToken) authentication).getToken();
-    boolean shouldRefresh = shouldTokenRefresh(jwt.getIssuedAt());
-    if (shouldRefresh) {
-      String newToken = JwtUtils.generateToken(authentication, rsaKeyProperties, gson);
-      response.setHeader("Authorization", newToken);
-    }
+/// 暂时不刷新token，后续如果需要刷新，考虑发送请求到认证服务器的方式来刷新token
+//    DecodedJWT jwt = ((JwtAuthenticationToken) authentication).getToken();
+//    boolean shouldRefresh = shouldTokenRefresh(jwt.getIssuedAt());
+//    if (shouldRefresh) {
+//      String newToken = JwtUtils.generateToken(authentication, rsaKeyProperties, gson);
+//      response.setHeader("Authorization", newToken);
+//    }
   }
 
   private boolean shouldTokenRefresh(Date issueAt) {

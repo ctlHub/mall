@@ -11,15 +11,15 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @EnableConfigurationProperties
 @SpringBootApplication
-public class ManualPutApplication extends SpringBootServletInitializer {
+public class AdminApplication extends SpringBootServletInitializer {
 
   public static void main(String[] args) {
-    SpringApplication.run(ManualPutApplication.class, args);
+    SpringApplication.run(AdminApplication.class, args);
   }
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-    return builder.sources(ManualPutApplication.class);
+    return builder.sources(AdminApplication.class);
   }
 
 }

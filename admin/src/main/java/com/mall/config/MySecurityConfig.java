@@ -65,7 +65,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
         .and()
         //添加token的filter
-        .apply(new JwtLoginConfigurer<>()).tokenValidSuccessHandler(jwtRefreshSuccessHandler()).permissiveRequestUrls("/logout")
+        .apply(new JwtLoginConfigurer<>()).tokenValidSuccessHandler(jwtRefreshSuccessHandler())
+        .permissiveRequestUrls("/logout")
         .and().csrf().disable();
   }
 

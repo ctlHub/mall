@@ -49,7 +49,7 @@ public class MybatisPlusTest {
     Assert.isInstanceOf(Role.class, byId, "角色不存在");
     boolean isUpdate = bizRoleService.removeById(id);
     Assert.isTrue(isUpdate, "删除角色失败");
-    Role bizRole = mybatisPlusMapper.listDeletedBizRoleById(id);
+    Role bizRole = mybatisPlusMapper.listDeletedRoleById(id);
     Assert.notNull(bizRole, "逻辑删除失败，被物理删除了");
   }
 

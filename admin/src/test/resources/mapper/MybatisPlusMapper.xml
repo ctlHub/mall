@@ -23,7 +23,7 @@
         id, name, name_zh, description, status, merchant_id, create_user_id, create_time, update_user_id, update_time,
         deleted, version
     </sql>
-    <select id="listDeletedBizRoleById" resultMap="BaseResultMap">
+    <select id="listDeletedRoleById" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from u_role where id=#{id}

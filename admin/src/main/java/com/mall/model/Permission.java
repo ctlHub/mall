@@ -23,7 +23,7 @@ import java.util.List;
  * @date 2020-11-07
  */
 @Data
-@ApiModel(value = "BizPermission对象", description = "权限表")
+@ApiModel(value = "Permission对象", description = "权限表")
 public class Permission implements Serializable {
 
   private static final long serialVersionUID = 1L;

@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
  * @date 2020-11-07
  */
 @Data
-@ApiModel(value = "BizRole对象", description = "角色表")
+@ApiModel(value = "Role对象", description = "角色表")
 public class Role implements Serializable {
 
   private static final long serialVersionUID = 1L;

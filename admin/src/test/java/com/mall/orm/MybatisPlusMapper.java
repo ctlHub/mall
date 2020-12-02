@@ -13,9 +13,9 @@ import org.apache.ibatis.annotations.Mapper;
 interface MybatisPlusMapper {
 
   /**
-   * 根据ID查已经被逻辑删除的BizRole
+   * 根据ID查已经被逻辑删除的Role
    *
    * @param id id
    */
-  Role listDeletedBizRoleById(Long id);
+  Role listDeletedRoleById(Long id);
 }

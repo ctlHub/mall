@@ -24,10 +24,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/bizPermission")
-public class BizPermissionController {
+public class PermissionController {
   private final PermissionService service;
 
-  public BizPermissionController(PermissionService service) {
+  public PermissionController(PermissionService service) {
     this.service = service;
   }
 

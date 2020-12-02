@@ -25,10 +25,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/bizRole")
-public class BizRoleController {
+public class RoleController {
   private final RoleService service;
 
-  public BizRoleController(RoleService service) {
+  public RoleController(RoleService service) {
     this.service = service;
   }
 

@@ -32,3 +32,5 @@ mbg/src/main/resources/mybatisGenerator.properties
 main/src/main/resources/application-master.yml
 main/src/main/resources/application-develop.yml
 vuepress/
+*.pub
+*.pri

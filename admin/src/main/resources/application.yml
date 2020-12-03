@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: @spring.profiles.active@
+  gson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:site/**/mapper/*.xml

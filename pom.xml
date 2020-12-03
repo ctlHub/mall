@@ -11,8 +11,9 @@
 
     <modules>
         <module>mbg</module>
-        <module>main</module>
+        <module>admin</module>
         <module>common</module>
+        <module>security</module>
     </modules>
 
     <parent>
@@ -25,7 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <mybatis-ehcache.version>1.1.0</mybatis-ehcache.version>
         <druid.version>1.1.22</druid.version>
         <alipay-sdk.version>4.10.159.ALL</alipay-sdk.version>
@@ -35,6 +36,7 @@
         <aliyun.oss.version>3.11.1</aliyun.oss.version>
         <springfox.version>3.0.0</springfox.version>
         <myabtis-plus.version>3.4.0</myabtis-plus.version>
+        <guava.version>30.0-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -69,6 +71,26 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <!--安全框架SpringSecurity-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>1.1.1.RELEASE</version>
+        </dependency>
 
         <!-- 数据库相关  -->
         <dependency>
@@ -101,11 +123,6 @@
             <version>${myabtis-plus.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-            <version>2.2</version>
-        </dependency>
-        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>test</scope>
@@ -136,7 +153,7 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <configuration>
-                        <mainClass>com.mall.ManualPutApplication</mainClass>
+                        <mainClass>AdminApplication</mainClass>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -167,7 +184,8 @@
                     <include>application.yml</include>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
-                    <include>static/**</include>
+                    <include>id_key_rsa.pub</include>
+                    <include>id_key_rsa.pri</include>
                 </includes>
                 <filtering>true</filtering>
             </resource>

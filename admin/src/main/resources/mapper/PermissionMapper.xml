@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.mapper.PermissionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mall.model.Permission">
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="level" property="level"/>
+        <result column="icon" property="icon"/>
+        <result column="type" property="type"/>
+        <result column="url" property="url"/>
+        <result column="method" property="method"/>
+        <result column="status" property="status"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user_id" property="updateUserId"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, parent_id, name, level, icon, type, url, method, status, merchant_id, create_user_id, create_time,
+        update_user_id, update_time, deleted, version
+    </sql>
+
+    <resultMap id="permission_map" type="com.mall.model.Permission" extends="BaseResultMap">
+        <collection property="roleList" ofType="com.mall.model.Role">
+            <id column="rid" property="id"/>
+            <result column="rname" property="name"/>
+            <result column="name_zh" property="nameZh"/>
+            <result column="description" property="description"/>
+            <result column="rstatus" property="status"/>
+            <result column="rmerchant_id" property="merchantId"/>
+            <result column="rcreate_user_id" property="createUserId"/>
+            <result column="rcreate_time" property="createTime"/>
+            <result column="rupdate_user_id" property="updateUserId"/>
+            <result column="rupdate_time" property="updateTime"/>
+            <result column="rdeleted" property="deleted"/>
+            <result column="rversion" property="version"/>
+        </collection>
+    </resultMap>
+
+    <sql id="getPermissionsByMerchantId_Column_List">
+        p.id, p.parent_id, p.name, p.level, p.icon, p.type, p.url, p.method, p.status, p.merchant_id, p.create_user_id,
+        p.create_time, p.update_user_id, p.update_time, p.deleted, p.version,
+        r.create_user_id as rcreate_user_id, r.create_time as rcreate_time, r.update_user_id as rupdate_user_id,
+        r.update_time as rupdate_time,
+        r.id as rid, r.name as rname, name_zh, description, r.status as rstatus, r.merchant_id as rmerchant_id,
+        r.deleted as rdeleted, r.version as rversion
+    </sql>
+
+    <select id="getPermissionsByMerchantId" resultMap="permission_map">
+        SELECT
+        <include refid="getPermissionsByMerchantId_Column_List"/>
+        from u_role_permission rp
+        LEFT JOIN u_permission p ON rp.permission_id = p.id
+        LEFT JOIN u_role r on rp.role_id = r.id where rp.merchant_id = #{merchantId}
+    </select>
+
+</mapper>

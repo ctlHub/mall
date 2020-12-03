@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.orm.MybatisPlusMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mall.model.Role">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="name_zh" property="nameZh"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user_id" property="updateUserId"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, name_zh, description, status, merchant_id, create_user_id, create_time, update_user_id, update_time,
+        deleted, version
+    </sql>
+    <select id="listDeletedRoleById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from u_role where id=#{id}
+    </select>
+
+</mapper>

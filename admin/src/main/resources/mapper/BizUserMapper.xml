@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mall.mapper.BizUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.mall.model.BizUser">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="icon" property="icon"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="login_time" property="loginTime"/>
+        <result column="status" property="status"/>
+        <result column="merchant_id" property="merchantId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user_id" property="updateUserId"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="version" property="version"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, username, password, icon, phone, email, nick_name, login_time, status, merchant_id, create_user_id,
+        create_time, update_user_id, update_time, deleted, version
+    </sql>
+
+    <select id="getRolesById" resultType="com.mall.model.Role">
+        select r.*
+        from u_user_role ur
+                 left join u_role r on ur.role_id = r.id
+        where ur.user_id = #{userId};
+    </select>
+
+</mapper>

@@ -1,9 +1,0 @@
-{
-  "properties": [
-    {
-      "name": "rsa.key.pri-key-file",
-      "type": "java.lang.String",
-      "description": "RSA私钥文件路径."
-    }
-  ]
-}

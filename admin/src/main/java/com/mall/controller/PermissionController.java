@@ -23,7 +23,7 @@ import java.util.List;
  * @date 2020-11-07
  */
 @RestController
-@RequestMapping("/bizPermission")
+@RequestMapping("/permission")
 public class PermissionController {
   private final PermissionService service;
 

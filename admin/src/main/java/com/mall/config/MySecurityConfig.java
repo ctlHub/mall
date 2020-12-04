@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -51,6 +52,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 //  }
 
   @Override
+  public void configure(WebSecurity web) {
+    web.ignoring().antMatchers("/swagger-ui/**", "/webjars/**", "/swagger-resources/**", "/v3/**");
+  }
+
+  @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().configurationSource(corsConfigurationSource()).and()
         .authorizeRequests()
@@ -62,7 +68,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
             return object;
           }
         })
-        .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
+        .anyRequest().authenticated()
+//        .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
         .and()
         //添加token的filter
         .apply(new JwtLoginConfigurer<>()).tokenValidSuccessHandler(jwtRefreshSuccessHandler())

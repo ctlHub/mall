@@ -31,7 +31,7 @@ public class SwaggerConfig {
   public Docket adminDoc() {
     return new Docket(DocumentationType.OAS_30)
         .groupName("admin")
-        .apiInfo(apiInfo("管理后台接口 for 地藤管家", "1.1"))
+        .apiInfo(apiInfo("管理后台接口 for ctlHubMall", "1.1"))
         .useDefaultResponseMessages(true)
         .forCodeGeneration(false)
         .select()
@@ -48,7 +48,7 @@ public class SwaggerConfig {
     return new ApiInfoBuilder()
         .title(title)
         .description("接口返回数据描述请根据Schema查询")
-        .contact(new Contact("李重辰", "", "themaner@dingtalk.com"))
+        .contact(new Contact("ctlHub", "https://github.com/ctlHub/mall", "themaner@dingtalk.com"))
         .version(version)
         .build();
   }

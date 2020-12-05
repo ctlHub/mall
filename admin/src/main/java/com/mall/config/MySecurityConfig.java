@@ -45,11 +45,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     this.rsaKeyProperties = rsaKeyProperties;
     this.gson = gson;
   }
-//
-//  @Override
-//  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//    auth.userDetailsService(bizUserService);
-//  }
 
   @Override
   public void configure(WebSecurity web) {
@@ -69,7 +64,6 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
           }
         })
         .anyRequest().authenticated()
-//        .and().formLogin().defaultSuccessUrl("/bizUser/list").permitAll()
         .and()
         //添加token的filter
         .apply(new JwtLoginConfigurer<>()).tokenValidSuccessHandler(jwtRefreshSuccessHandler())

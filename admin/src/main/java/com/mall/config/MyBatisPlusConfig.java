@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
-import com.mall.model.BizUser;
+import com.mall.model.AdminUser;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
 import org.mybatis.spring.annotation.MapperScan;
@@ -36,8 +36,8 @@ public class MyBatisPlusConfig {
       @Override
       public Expression getTenantId() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof BizUser) {
-          BizUser bizUser = (BizUser) principal;
+        if (principal instanceof AdminUser) {
+          AdminUser bizUser = (AdminUser) principal;
           return new LongValue(bizUser.getMerchantId());
         }
         return null;

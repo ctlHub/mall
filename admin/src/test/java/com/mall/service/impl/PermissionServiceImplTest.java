@@ -1,6 +1,6 @@
 package com.mall.service.impl;
 
-import com.mall.model.Permission;
+import com.mall.common.model.Permission;
 import com.mall.security.MyWithMockUser;
 import com.mall.service.PermissionService;
 import org.junit.Test;

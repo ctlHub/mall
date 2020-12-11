@@ -42,7 +42,7 @@ public class JwtUserDetail implements UserDetail {
    * 店铺账号有这个字段
    */
   @ApiModelProperty(value = "商家ID")
-  private String merchantId;
+  private Long merchantId;
 
   /**
    * 用户类型

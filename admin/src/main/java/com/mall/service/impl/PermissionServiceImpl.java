@@ -1,8 +1,8 @@
 package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.mall.common.model.Permission;
 import com.mall.mapper.PermissionMapper;
-import com.mall.model.Permission;
 import com.mall.service.PermissionService;
 import org.springframework.stereotype.Service;
 

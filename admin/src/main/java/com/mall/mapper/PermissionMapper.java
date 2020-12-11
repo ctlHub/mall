@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.model.Permission;
+import com.mall.common.model.Permission;
 
 import java.util.List;
 

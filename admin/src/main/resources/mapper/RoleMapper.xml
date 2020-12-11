@@ -3,7 +3,7 @@
 <mapper namespace="com.mall.mapper.RoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.mall.model.Role">
+    <resultMap id="BaseResultMap" type="com.mall.common.model.Role">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="name_zh" property="nameZh"/>

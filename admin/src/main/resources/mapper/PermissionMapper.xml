@@ -3,7 +3,7 @@
 <mapper namespace="com.mall.mapper.PermissionMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.mall.model.Permission">
+    <resultMap id="BaseResultMap" type="com.mall.common.model.Permission">
         <id column="id" property="id"/>
         <result column="parent_id" property="parentId"/>
         <result column="name" property="name"/>
@@ -28,8 +28,8 @@
         update_user_id, update_time, deleted, version
     </sql>
 
-    <resultMap id="permission_map" type="com.mall.model.Permission" extends="BaseResultMap">
-        <collection property="roleList" ofType="com.mall.model.Role">
+    <resultMap id="permission_map" type="com.mall.common.model.Permission" extends="BaseResultMap">
+        <collection property="roleList" ofType="com.mall.common.model.Role">
             <id column="rid" property="id"/>
             <result column="rname" property="name"/>
             <result column="name_zh" property="nameZh"/>

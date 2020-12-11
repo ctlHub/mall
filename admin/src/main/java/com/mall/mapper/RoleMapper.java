@@ -1,7 +1,7 @@
 package com.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.model.Role;
+import com.mall.common.model.Role;
 
 /**
  * <p>

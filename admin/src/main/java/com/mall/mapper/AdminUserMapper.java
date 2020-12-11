@@ -1,8 +1,8 @@
 package com.mall.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.mall.model.BizUser;
-import com.mall.model.Role;
+import com.mall.common.model.Role;
+import com.mall.model.AdminUser;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author ctlLab
- * @date 2020-11-07
+ * @author ctlL
+ * * @date 2020-11-07ab
  */
-public interface BizUserMapper extends BaseMapper<BizUser> {
+public interface AdminUserMapper extends BaseMapper<AdminUser> {
 
   /**
    * 查询某个用户的所有角色

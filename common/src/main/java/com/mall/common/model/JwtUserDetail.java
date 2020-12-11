@@ -5,8 +5,11 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * JWT认证用户类，用户登录成功后将用户信息保存在这个类中；也是JWT的负载信息
@@ -41,10 +44,21 @@ public class JwtUserDetail implements UserDetail {
   @ApiModelProperty(value = "商家ID")
   private String merchantId;
 
+  /**
+   * 用户类型
+   */
+  private int userType;
+
+  /**
+   * 用户可访问资源
+   */
+  private List<String> resourceList;
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    // TODO: 2020/11/29 22:50 将用户角色或者用户权限放进来
-    return null;
+    return resourceList.stream()
+        .map(SimpleGrantedAuthority::new)
+        .collect(Collectors.toList());
   }
 
   @Override

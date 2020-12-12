@@ -18,7 +18,7 @@ import org.springframework.util.Assert;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BizUserServiceImplTest {
+public class AdminUserServiceImplTest {
 
   @Autowired
   private UserService bizUserService;

@@ -21,6 +21,6 @@ public @interface MyWithMockUser {
 
   long merchant() default 1L;
 
-  String[] role() default {"ROLE_ADMIN"};
+  String[] resources() default {"ROLE_ADMIN"};
 
 }

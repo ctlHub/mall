@@ -1,16 +1,16 @@
 package com.mall.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.mall.common.model.Role;
+import com.mall.model.AdminUser;
 
 /**
  * <p>
- * 角色表 服务类
+ * 用户表 服务类
  * </p>
  *
  * @author ctlLab
  * @date 2020-11-07
  */
-public interface RoleService extends IService<Role> {
+public interface UserService extends IService<AdminUser> {
 
 }

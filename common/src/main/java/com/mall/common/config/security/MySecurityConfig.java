@@ -1,12 +1,9 @@
-package com.mall.config;
+package com.mall.common.config.security;
 
 import com.google.gson.Gson;
-import com.mall.common.config.security.JwtAuthenticationProvider;
-import com.mall.common.config.security.JwtLoginConfigurer;
-import com.mall.common.config.security.JwtRefreshSuccessHandler;
+import com.mall.common.config.security.component.MyAccessDecisionManager;
+import com.mall.common.config.security.component.MyFilterInvocationSecurityMetadataSource;
 import com.mall.common.model.RsaKeyProperties;
-import com.mall.security.MyAccessDecisionManager;
-import com.mall.security.MyFilterInvocationSecurityMetadataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;

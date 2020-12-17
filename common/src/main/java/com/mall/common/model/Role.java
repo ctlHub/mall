@@ -1,4 +1,4 @@
-package com.mall.model;
+package com.mall.common.model;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -12,51 +12,38 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * <p>
- * 权限表
+ * 角色表
  * </p>
  *
  * @author ctlLab
  * @date 2020-11-07
  */
 @Data
-@ApiModel(value = "Permission对象", description = "权限表")
-public class Permission implements Serializable {
+@ApiModel(value = "Role对象", description = "角色表")
+public class Role implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @ApiModelProperty(value = "权限ID")
+  @ApiModelProperty(value = "角色ID")
   @TableId(value = "id", type = IdType.ASSIGN_ID)
   private Long id;
 
-  @ApiModelProperty(value = "上级ID")
-  private Long parentId;
-
-  @ApiModelProperty(value = "权限名称")
+  @ApiModelProperty(value = "角色名称（前缀为ROLE_）")
   private String name;
 
-  @ApiModelProperty(value = "权限层级")
-  private String level;
+  @ApiModelProperty(value = "自定义角色名称")
+  private String nameZh;
 
-  @ApiModelProperty(value = "图标")
-  private String icon;
+  @ApiModelProperty(value = "描述")
+  private String description;
 
-  @ApiModelProperty(value = "类型")
-  private Integer type;
-
-  @ApiModelProperty(value = "链接")
-  private String url;
-
-  @ApiModelProperty(value = "请求方法")
-  private String method;
-
-  @ApiModelProperty(value = "权限状态")
+  @ApiModelProperty(value = "状态(0停用,1启用)")
   private Integer status;
 
-  @ApiModelProperty(value = "权限所属商家id")
+  @ApiModelProperty(value = "角色所属商家id")
   private Long merchantId;
 
   @ApiModelProperty(value = "创建人员")
@@ -83,20 +70,12 @@ public class Permission implements Serializable {
   @Version
   private Integer version;
 
-  @TableField(exist = false)
-  private List<Role> roleList;
-
   @Override
   public String toString() {
-    return "Permission{" +
+    return "Role{" +
         "id=" + id +
-        ", parentId=" + parentId +
         ", name=" + name +
-        ", level=" + level +
-        ", icon=" + icon +
-        ", type=" + type +
-        ", url=" + url +
-        ", method=" + method +
+        ", description=" + description +
         ", status=" + status +
         ", merchantId=" + merchantId +
         ", createUserId=" + createUserId +
@@ -105,7 +84,6 @@ public class Permission implements Serializable {
         ", updateTime=" + updateTime +
         ", deleted=" + deleted +
         ", version=" + version +
-        ", roleList=" + roleList +
         "}";
   }
 }

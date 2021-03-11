@@ -1,6 +1,6 @@
 package com.mall.service.impl;
 
-import com.mall.model.Role;
+import com.mall.common.model.Role;
 import com.mall.security.MyWithMockUser;
 import com.mall.service.RoleService;
 import org.junit.Test;
@@ -23,20 +23,20 @@ import java.util.List;
 public class RoleServiceImplTest {
 
   @Autowired
-  private RoleService bizRoleService;
+  private RoleService roleService;
 
   @Test
   @MyWithMockUser
   public void list() {
-    List<Role> bizRoleList = bizRoleService.list();
+    List<Role> bizRoleList = roleService.list();
     Assert.notEmpty(bizRoleList, "无权限数据");
   }
 
   @Test
   @MyWithMockUser
   public void getOne() {
-    Role bizRole = bizRoleService.getById(775402379755073536L);
-    Assert.notNull(bizRole, "角色id不存在");
+    Role role = roleService.getById(775402379755073536L);
+    Assert.notNull(role, "角色id不存在");
   }
 
   @Test
@@ -46,7 +46,7 @@ public class RoleServiceImplTest {
     bizRole.setName("ROLE_CUSTOMER");
     bizRole.setNameZh("客户");
     bizRole.setDescription("客户");
-    boolean isSave = bizRoleService.save(bizRole);
+    boolean isSave = roleService.save(bizRole);
     Assert.isTrue(isSave, "添加角色失败");
   }
 

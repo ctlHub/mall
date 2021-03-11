@@ -1,9 +1,9 @@
 package com.mall.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.mall.model.BizUser;
+import com.mall.model.AdminUser;
 import com.mall.security.MyWithMockUser;
-import com.mall.service.BizUserService;
+import com.mall.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +18,15 @@ import org.springframework.util.Assert;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class BizUserServiceImplTest {
+public class AdminUserServiceImplTest {
 
   @Autowired
-  private BizUserService bizUserService;
+  private UserService bizUserService;
 
   @Test
   @MyWithMockUser
   public void create() {
-    BizUser bizUser = new BizUser();
+    AdminUser bizUser = new AdminUser();
     bizUser.setUsername("zhangsan");
     bizUser.setNickName("张三");
     String password = "123456";
@@ -38,9 +38,9 @@ public class BizUserServiceImplTest {
 
   @Test
   public void selectOne() {
-    LambdaQueryWrapper<BizUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-    lambdaQueryWrapper.eq(BizUser::getUsername, "tom");
-    BizUser bizUser = bizUserService.getOne(lambdaQueryWrapper);
+    LambdaQueryWrapper<AdminUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+    lambdaQueryWrapper.eq(AdminUser::getUsername, "tom");
+    AdminUser bizUser = bizUserService.getOne(lambdaQueryWrapper);
     Assert.notNull(bizUser, "用户名不存在");
   }
 

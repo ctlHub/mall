@@ -1,9 +1,6 @@
-package com.mall.security;
+package com.mall.common.config.security.component;
 
-import com.mall.mapper.PermissionMapper;
-import com.mall.model.BizUser;
-import com.mall.model.Permission;
-import com.mall.model.Role;
+import com.mall.common.model.JwtUserDetail;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -26,9 +22,6 @@ import java.util.List;
  */
 @Component
 public class MyFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
-
-  @Resource
-  private PermissionMapper permissionMapper;
 
   /**
    * ant风格路径匹配器
@@ -43,27 +36,22 @@ public class MyFilterInvocationSecurityMetadataSource implements FilterInvocatio
     String reqMethod = filterInvocation.getHttpRequest().getMethod();
     String reqUrl = filterInvocation.getRequestUrl();
 
-    List<Permission> permissionList = new ArrayList<>();
+    List<String> permissionList = new ArrayList<>();
     Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    if (principal instanceof BizUser) {
-      BizUser bizUser = (BizUser) principal;
-      permissionList = permissionMapper.getPermissionsByMerchantId(bizUser.getMerchantId());
-    }
-    List<Role> roleList = new ArrayList<>();
-    for (Permission permission : permissionList) {
-      // 路径匹配，请求方法匹配
-      boolean pass = antPathMatcher.match(permission.getUrl(), reqUrl) && (reqMethod.equals(permission.getMethod()) || null == permission.getMethod());
-      if (pass) {
-        roleList.addAll(permission.getRoleList());
+    if (principal instanceof JwtUserDetail) {
+      JwtUserDetail userDetail = (JwtUserDetail) principal;
+      List<String> resourceList = userDetail.getResourceList();
+      for (String resource : resourceList) {
+        if (antPathMatcher.match(reqUrl + ":" + reqMethod, resource)) {
+          permissionList.add(resource);
+        }
       }
     }
-    if (CollectionUtils.isEmpty(roleList)) {
+    if (CollectionUtils.isEmpty(permissionList)) {
       return SecurityConfig.createList("ROLE_def");
     }
     //返回访问路径所需要的所有角色
-    return SecurityConfig.createList(roleList.stream()
-        .map(Role::getName)
-        .toArray(String[]::new));
+    return SecurityConfig.createList(permissionList.toArray(new String[0]));
   }
 
   @Override

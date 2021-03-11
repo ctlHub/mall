@@ -1,6 +1,6 @@
 package com.mall.mapper;
 
-import com.mall.model.Permission;
+import com.mall.common.model.Permission;
 import com.mall.security.MyWithMockUser;
 import org.junit.Assert;
 import org.junit.Test;

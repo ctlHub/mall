@@ -1,4 +1,4 @@
-package com.mall.security;
+package com.mall.common.config.security.component;
 
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;

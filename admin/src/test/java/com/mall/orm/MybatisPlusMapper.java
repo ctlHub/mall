@@ -1,6 +1,6 @@
 package com.mall.orm;
 
-import com.mall.model.Role;
+import com.mall.common.model.Role;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

@@ -1,13 +1,17 @@
 package com.mall.security.service.impl;
 
 import com.mall.common.model.JwtUserDetail;
-import com.mall.security.mapper.UserDetailMapper;
+import com.mall.common.model.Permission;
+import com.mall.security.mapper.SecurityMapper;
 import com.mall.security.service.JwtUserService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 从数据库中加载用户信息
@@ -19,20 +23,35 @@ import javax.annotation.Resource;
 public class JwtUserServiceImpl implements JwtUserService {
 
   @Resource
-  private UserDetailMapper mapper;
+  private SecurityMapper securityMapper;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    // TODO: 2020/11/29 18:03 将用户的角色信息或者权限信息在此时添加到JwtUserDetail对象l中
-    JwtUserDetail user = mapper.getUserByAdminUser(username);
+    JwtUserDetail user = securityMapper.getUserByAdminUser(username);
     if (null != user) {
       return user;
     }
-    user = mapper.getUserByBizUser(username);
+    user = securityMapper.getUserByBizUser(username);
     if (null != user) {
       return user;
     }
-    user = mapper.getUserByCustomer(username);
+    user = securityMapper.getUserByCustomer(username);
+    if (null != user) {
+      //1.roleIdList:用户所有角色ID集合
+      List<Long> roleIdList = securityMapper.getRolesByUserId(user.getId());
+      if (!CollectionUtils.isEmpty(roleIdList)) {
+        //2.permissionIdList:用户所有权限ID集合
+        List<Long> permissionIdList = securityMapper.getPermissionsByRoles(roleIdList);
+        if (!CollectionUtils.isEmpty(permissionIdList)) {
+          //3.permissionList:用户所有权限集合
+          List<Permission> permissionList = securityMapper.getPermissionsByIds(permissionIdList);
+          //4.将权限对象中的url和method放入JwtUserDetail对象中的权限中
+          user.setResourceList(permissionList.stream()
+              .map(ele -> ele.getUrl() + ":" + ele.getMethod())
+              .collect(Collectors.toList()));
+        }
+      }
+    }
     return user;
   }
 

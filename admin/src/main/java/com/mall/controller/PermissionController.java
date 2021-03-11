@@ -1,7 +1,7 @@
 package com.mall.controller;
 
 import com.mall.common.api.CommonResult;
-import com.mall.model.Permission;
+import com.mall.common.model.Permission;
 import com.mall.service.PermissionService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

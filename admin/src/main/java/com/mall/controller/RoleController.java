@@ -1,8 +1,8 @@
 package com.mall.controller;
 
 import com.mall.common.api.CommonResult;
+import com.mall.common.model.Role;
 import com.mall.common.utils.SnowflakeIdGenerator;
-import com.mall.model.Role;
 import com.mall.service.RoleService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

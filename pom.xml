@@ -36,7 +36,7 @@
         <aliyun.oss.version>3.11.1</aliyun.oss.version>
         <springfox.version>3.0.0</springfox.version>
         <myabtis-plus.version>3.4.0</myabtis-plus.version>
-        <guava.version>30.0-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
     </properties>
 
     <dependencies>
